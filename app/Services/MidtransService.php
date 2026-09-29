@@ -22,19 +22,36 @@ class MidtransService
         if ($payment->status !== 'created') {
             return null;
         }
-        if (! PaymentTransaction::whereKey($payment->id)->where('status', 'created')->update(['status' => 'requesting'])) {
+        if (
+            ! PaymentTransaction::whereKey($payment->id)
+                ->where('status', 'created')
+                ->update(['status' => 'requesting'])
+        ) {
             return null;
         }
         try {
-            $response = Http::withBasicAuth(config('panti.midtrans_key'), '')->acceptJson()->timeout(20)
+            $response = Http::withBasicAuth(config('panti.midtrans_key'), '')
+                ->acceptJson()
+                ->timeout(20)
                 ->post(config('panti.midtrans_base').'/snap/v1/transactions', [
-                    'transaction_details' => ['order_id' => $payment->order_id, 'gross_amount' => (int) $donation->nominal],
-                    'customer_details' => array_filter(['first_name' => $donation->nama, 'phone' => $donation->whatsapp, 'email' => $donation->email]),
+                    'transaction_details' => [
+                        'order_id' => $payment->order_id,
+                        'gross_amount' => (int) $donation->nominal,
+                    ],
+                    'customer_details' => array_filter([
+                        'first_name' => $donation->nama,
+                        'phone' => $donation->whatsapp,
+                        'email' => $donation->email,
+                    ]),
                     'callbacks' => ['finish' => $returnUrl],
                 ]);
             $url = $response->json('redirect_url');
-            if (! $response->successful() || ! is_string($url) || parse_url($url, PHP_URL_SCHEME) !== 'https'
-                || parse_url($url, PHP_URL_HOST) !== 'app.sandbox.midtrans.com') {
+            if (
+                ! $response->successful() ||
+                ! is_string($url) ||
+                parse_url($url, PHP_URL_SCHEME) !== 'https' ||
+                parse_url($url, PHP_URL_HOST) !== 'app.sandbox.midtrans.com'
+            ) {
                 $payment->update(['status' => 'request_failed']);
 
                 return null;
@@ -59,7 +76,11 @@ class MidtransService
         DB::transaction(function () use ($data) {
             $payment = PaymentTransaction::where('order_id', $data['order_id'])->lockForUpdate()->firstOrFail();
             $donation = Donasi::whereKey($payment->donasi_id)->lockForUpdate()->firstOrFail();
-            abort_unless(bccomp((string) $donation->nominal, (string) $data['gross_amount'], 2) === 0, 422, 'Nominal tidak cocok.');
+            abort_unless(
+                bccomp((string) $donation->nominal, (string) $data['gross_amount'], 2) === 0,
+                422,
+                'Nominal tidak cocok.',
+            );
             $next = match ($data['transaction_status']) {
                 'settlement' => 'Berhasil',
                 'capture' => ($data['fraud_status'] ?? '') === 'accept' ? 'Berhasil' : null,
@@ -69,11 +90,18 @@ class MidtransService
                 default => null,
             };
             // Success is terminal. Late pending callbacks must not reopen failed/expired payments.
-            if (! $next || $donation->status === 'Berhasil' || ($donation->status !== 'Menunggu pembayaran' && $next === 'Menunggu pembayaran')) {
+            if (
+                ! $next ||
+                $donation->status === 'Berhasil' ||
+                ($donation->status !== 'Menunggu pembayaran' && $next === 'Menunggu pembayaran')
+            ) {
                 return;
             }
-            $payment->update(['provider_id' => $data['transaction_id'] ?? $payment->provider_id,
-                'status' => $data['transaction_status'], 'metode' => $data['payment_type'] ?? $payment->metode]);
+            $payment->update([
+                'provider_id' => $data['transaction_id'] ?? $payment->provider_id,
+                'status' => $data['transaction_status'],
+                'metode' => $data['payment_type'] ?? $payment->metode,
+            ]);
             if ($next === $donation->status) {
                 return;
             }

@@ -1,1 +1,17 @@
-<article class="card need-card"><div class="flex justify-between gap-3"><span class="tag">{{ $item->category?->nama }}</span><span class="status">{{ $item->status }}</span></div><h3>{{ $item->nama }}</h3><p>{{ \Illuminate\Support\Str::limit($item->deskripsi,140) }}</p><div class="progress" role="progressbar" aria-label="Pemenuhan {{ $item->nama }}" aria-valuenow="{{ min(100,round($item->terpenuhi / max(0.01,$item->target)*100)) }}" aria-valuemin="0" aria-valuemax="100"><span style="width:{{ min(100,$item->terpenuhi/max(0.01,$item->target)*100) }}%"></span></div><div class="flex justify-between text-sm gap-2"><strong>{{ (float)$item->terpenuhi }} {{ $item->satuan }}</strong><span>dari {{ (float)$item->target }} {{ $item->satuan }}</span></div><a class="text-link mt-5 inline-flex items-center gap-1" href="{{ route('submission.form','bantuan') }}">Bantu penuhi kebutuhan <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a></article>
+<article class="card need-card">
+    <div class="flex justify-between gap-3"><span class="tag">{{ $item->category?->nama }}</span><span
+            class="status">{{ $item->status }}</span></div>
+    <h3>{{ $item->nama }}</h3>
+    <p>{{ \Illuminate\Support\Str::limit($item->deskripsi, 140) }}</p>
+    <div class="progress" role="progressbar" aria-label="Pemenuhan {{ $item->nama }}"
+        aria-valuenow="{{ min(100, round(($item->terpenuhi / max(0.01, $item->target)) * 100)) }}" aria-valuemin="0"
+        aria-valuemax="100"><span
+            style="width:{{ min(100, ($item->terpenuhi / max(0.01, $item->target)) * 100) }}%"></span>
+    </div>
+    <div class="flex justify-between text-sm gap-2"><strong>{{ (float) $item->terpenuhi }}
+            {{ $item->satuan }}</strong><span>dari {{ (float) $item->target }} {{ $item->satuan }}</span></div><a
+        class="text-link mt-5 inline-flex items-center gap-1" href="{{ route('submission.form', 'bantuan') }}">Bantu
+        penuhi kebutuhan <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg></a>
+</article>

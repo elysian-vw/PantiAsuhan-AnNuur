@@ -15,7 +15,9 @@ class AuthController extends Controller
         $data = $request->validate(['email' => 'required|email', 'password' => 'required|string']);
         $key = 'login:'.Str::lower($data['email']).'|'.$request->ip();
         if (RateLimiter::tooManyAttempts($key, 5)) {
-            throw ValidationException::withMessages(['email' => 'Terlalu banyak percobaan. Coba lagi dalam satu menit.']);
+            throw ValidationException::withMessages([
+                'email' => 'Terlalu banyak percobaan. Coba lagi dalam satu menit.',
+            ]);
         }
         if (! Auth::attempt($data)) {
             RateLimiter::hit($key, 60);

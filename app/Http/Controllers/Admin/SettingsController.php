@@ -9,17 +9,32 @@ use Illuminate\Http\Request;
 
 class SettingsController extends Controller
 {
-    public const FIELDS = ['tentang' => 'Tentang panti', 'sejarah' => 'Sejarah', 'visi' => 'Visi', 'misi' => 'Misi',
-        'alamat' => 'Alamat lengkap', 'telepon' => 'Nomor telepon', 'email' => 'Email kontak',
-        'maps_url' => 'Tautan lokasi Google Maps', 'penerima_manfaat' => 'Jumlah penerima manfaat',
-        'periode_pengurus' => 'Periode kepengurusan', 'pendiri' => 'Pendiri yayasan',
+    public const FIELDS = [
+        'tentang' => 'Tentang panti',
+        'sejarah' => 'Sejarah',
+        'visi' => 'Visi',
+        'misi' => 'Misi',
+        'alamat' => 'Alamat lengkap',
+        'telepon' => 'Nomor telepon',
+        'email' => 'Email kontak',
+        'maps_url' => 'Tautan lokasi Google Maps',
+        'penerima_manfaat' => 'Jumlah penerima manfaat',
+        'periode_pengurus' => 'Periode kepengurusan',
+        'pendiri' => 'Pendiri yayasan',
         'periode_statistik' => 'Periode statistik penerima manfaat',
-        'rekap_penerima' => 'Rincian rekap penerima manfaat', 'tata_tertib' => 'Ringkasan tata tertib santri',
-        'sumber_profil' => 'Sumber informasi profil', 'tindak_lanjut' => 'Catatan tindak lanjut (khusus admin)'];
+        'rekap_penerima' => 'Rincian rekap penerima manfaat',
+        'tata_tertib' => 'Ringkasan tata tertib santri',
+        'sumber_profil' => 'Sumber informasi profil',
+        'tindak_lanjut' => 'Catatan tindak lanjut (khusus admin)',
+    ];
 
     public function index()
     {
-        return view('admin.settings', ['fields' => self::FIELDS, 'values' => Setting::pluck('value', 'key'), 'logs' => WhatsappLog::latest()->paginate(15)]);
+        return view('admin.settings', [
+            'fields' => self::FIELDS,
+            'values' => Setting::pluck('value', 'key'),
+            'logs' => WhatsappLog::latest()->paginate(15),
+        ]);
     }
 
     public function save(Request $request)
@@ -32,6 +47,7 @@ class SettingsController extends Controller
         $data = $request->validate($rules);
         foreach ($data as $key => $value) {
             Setting::updateOrCreate(['key' => $key], ['value' => $value]);
+            cache()->forget("setting:{$key}");
         }
 
         return back()->with('success', 'Profil dan pengaturan website berhasil disimpan.');

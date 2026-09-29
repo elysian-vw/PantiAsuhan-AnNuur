@@ -15,8 +15,10 @@ class PublicController extends Controller
 {
     public function home()
     {
-        return view('public.home', ['needs' => Kebutuhan::where('status', '!=', 'Terpenuhi')->latest()->take(3)->get(),
-            'activities' => Kegiatan::where('status', 'Terbit')->latest('tanggal')->take(3)->get()]);
+        return view('public.home', [
+            'needs' => Kebutuhan::where('status', '!=', 'Terpenuhi')->latest()->take(3)->get(),
+            'activities' => Kegiatan::where('status', 'Terbit')->latest('tanggal')->take(3)->get(),
+        ]);
     }
 
     public function page(string $page)
@@ -26,7 +28,11 @@ class PublicController extends Controller
             'profil' => Pengurus::orderBy('urutan')->get(),
             'kegiatan' => Kegiatan::where('status', 'Terbit')->latest('tanggal')->paginate(9),
             'berita' => Berita::where('status', 'Terbit')->latest('tanggal')->paginate(9),
-            'galeri' => Galeri::where(fn ($q) => $q->whereNull('kegiatan_id')->orWhereHas('kegiatan', fn ($q) => $q->where('status', 'Terbit')))->latest()->paginate(12),
+            'galeri' => Galeri::where(
+                fn ($q) => $q->whereNull('kegiatan_id')->orWhereHas('kegiatan', fn ($q) => $q->where('status', 'Terbit')),
+            )
+                ->latest()
+                ->paginate(12),
             'kebutuhan' => Kebutuhan::latest()->paginate(9),
             default => collect(),
         };
@@ -37,7 +43,9 @@ class PublicController extends Controller
     public function article(string $page, int $id)
     {
         $model = match ($page) {
-            'kegiatan' => Kegiatan::class, 'berita' => Berita::class, default => abort(404)
+            'kegiatan' => Kegiatan::class,
+            'berita' => Berita::class,
+            default => abort(404),
         };
         $item = $model::where('status', 'Terbit')->findOrFail($id);
 
@@ -48,7 +56,11 @@ class PublicController extends Controller
     {
         abort_unless(in_array($kind, ['donasi', 'bantuan', 'kunjungan']), 404);
 
-        return view('public.form', ['kind' => $kind, 'donationCategories' => KategoriDonasi::all(),
-            'assistanceCategories' => KategoriBantuan::all(), 'visitTypes' => JenisKunjungan::all()]);
+        return view('public.form', [
+            'kind' => $kind,
+            'donationCategories' => KategoriDonasi::all(),
+            'assistanceCategories' => KategoriBantuan::all(),
+            'visitTypes' => JenisKunjungan::all(),
+        ]);
     }
 }

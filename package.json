@@ -4,14 +4,21 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "format": "npm run format:php && npm run format:views -- --write && npm run format:assets -- --write",
+        "format:check": "npm run format:php -- --test && npm run format:views -- --check-formatted && npm run format:assets -- --check",
+        "format:php": "php vendor/bin/pint",
+        "format:views": "node scripts/format-views.mjs",
+        "format:assets": "prettier \"resources/**/*.{js,css}\" \"scripts/*.mjs\" \"*.{js,json}\""
     },
     "devDependencies": {
         "@playwright/test": "^1.63.0",
         "@tailwindcss/vite": "^4.0.0",
         "axios": "^1.11.0",
+        "blade-formatter": "^1.44.4",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^2.0.0",
+        "prettier": "^3.9.9",
         "tailwindcss": "^4.0.0",
         "vite": "^7.0.7"
     },

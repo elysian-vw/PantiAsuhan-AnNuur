@@ -165,7 +165,27 @@ return new class extends Migration
 
     public function down(): void
     {
-        foreach (['whatsapp_logs', 'status_histories', 'bantuan_items', 'bantuan', 'kunjungan', 'payment_transactions', 'donasi', 'donatur', 'kebutuhan', 'galeri', 'berita', 'kegiatan', 'pengurus', 'settings', 'jenis_kunjungan', 'kategori_bantuan', 'kategori_donasi'] as $name) {
+        foreach (
+            [
+                'whatsapp_logs',
+                'status_histories',
+                'bantuan_items',
+                'bantuan',
+                'kunjungan',
+                'payment_transactions',
+                'donasi',
+                'donatur',
+                'kebutuhan',
+                'galeri',
+                'berita',
+                'kegiatan',
+                'pengurus',
+                'settings',
+                'jenis_kunjungan',
+                'kategori_bantuan',
+                'kategori_donasi',
+            ] as $name
+        ) {
             Schema::dropIfExists($name);
         }
     }

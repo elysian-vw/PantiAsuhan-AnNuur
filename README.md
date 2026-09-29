@@ -81,6 +81,19 @@ Tes PHP memakai SQLite in-memory yang terpisah dari database lokal. Mencakup val
 
 Pemeriksaan browser menggunakan Chrome terpasang dan `@playwright/test`, server lokal yang sedang hidup, serta akun lokal dari `.runtime/admin-access.json`. Menguji lebar 360, 390, 768, dan 1440 piksel, overflow halaman, pilihan nominal, penambahan barang, menu admin, dan kesalahan JavaScript. Screenshot disimpan di `.runtime/screenshots`.
 
+## Format kode
+
+Gunakan indentasi 4 spasi, UTF-8, dan akhir baris LF sesuai `.editorconfig`.
+PHP dirapikan dengan Laravel Pint, template Blade dengan blade-formatter, serta JavaScript, CSS, dan JSON dengan Prettier.
+
+```console
+npm run format
+npm run format:check
+```
+
+Perintah pertama merapikan kode, sedangkan perintah kedua memeriksa konsistensinya tanpa menulis perubahan.
+Dependensi, cache, hasil build, dan data runtime tidak termasuk dalam pemformatan.
+
 ## Batas dan tindak lanjut
 
 - Isi profil, kontak, foto, dan statistik penerima manfaat harus diberikan/divalidasi pengurus.

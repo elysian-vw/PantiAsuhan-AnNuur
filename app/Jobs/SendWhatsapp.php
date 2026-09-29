@@ -30,15 +30,28 @@ class SendWhatsapp implements ShouldQueue
         }
         $log->update(['status' => 'Diproses']);
         try {
-            $response = Http::withHeaders(['Authorization' => config('panti.fonnte_token')])->asForm()->timeout(20)
-                ->post('https://api.fonnte.com/send', ['target' => $log->tujuan, 'message' => $log->pesan, 'countryCode' => '62']);
+            $response = Http::withHeaders(['Authorization' => config('panti.fonnte_token')])
+                ->asForm()
+                ->timeout(20)
+                ->post('https://api.fonnte.com/send', [
+                    'target' => $log->tujuan,
+                    'message' => $log->pesan,
+                    'countryCode' => '62',
+                ]);
             $accepted = $response->successful() && $response->json('status') === true;
-            $log->update(['status' => $accepted ? 'Diterima provider' : 'Gagal',
+            $log->update([
+                'status' => $accepted ? 'Diterima provider' : 'Gagal',
                 'provider_id' => $accepted ? substr(json_encode($response->json('id')), 0, 250) : null,
                 'dikirim_pada' => $accepted ? now() : null,
-                'keterangan' => $accepted ? 'Permintaan diterima Fonnte; bukan bukti pesan dibaca.' : 'Provider menolak permintaan. Periksa koneksi perangkat dan konfigurasi Fonnte.']);
+                'keterangan' => $accepted
+                    ? 'Permintaan diterima Fonnte; bukan bukti pesan dibaca.'
+                    : 'Provider menolak permintaan. Periksa koneksi perangkat dan konfigurasi Fonnte.',
+            ]);
         } catch (\Throwable $e) {
-            $log->update(['status' => 'Tidak diketahui', 'keterangan' => 'Koneksi terputus. Periksa riwayat provider sebelum mengirim ulang.']);
+            $log->update([
+                'status' => 'Tidak diketahui',
+                'keterangan' => 'Koneksi terputus. Periksa riwayat provider sebelum mengirim ulang.',
+            ]);
         }
     }
 }

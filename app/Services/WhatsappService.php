@@ -22,15 +22,25 @@ class WhatsappService
         $history = $record->histories()->latest('id')->first();
         $message = "Panti Asuhan NU An-Nuur 2\n{$record->kode}: {$record->status}.";
         if ($kind === 'kunjungan') {
-            $message .= "\nJadwal: {$record->tanggal}, ".substr($record->jam, 0, 5).'–'.substr($record->jam_selesai, 0, 5).' WIB.';
+            $message .=
+                "\nJadwal: {$record->tanggal}, ".
+                substr($record->jam, 0, 5).
+                '–'.
+                substr($record->jam_selesai, 0, 5).
+                ' WIB.';
             if ($record->status === 'Dijadwalkan ulang') {
                 $message .= "\nMohon balas pesan ini kepada pengurus untuk menyetujui jadwal baru.";
             }
         }
-        $log = WhatsappLog::firstOrCreate(['dedup_key' => "$kind:{$record->id}:{$history?->id}"], [
-            'tujuan' => $record->whatsapp, 'jenis' => "$kind: {$record->status}", 'pesan' => $message,
-            'status' => config('panti.whatsapp_enabled') && config('panti.fonnte_token') ? 'Antrean' : 'Nonaktif',
-        ]);
+        $log = WhatsappLog::firstOrCreate(
+            ['dedup_key' => "$kind:{$record->id}:{$history?->id}"],
+            [
+                'tujuan' => $record->whatsapp,
+                'jenis' => "$kind: {$record->status}",
+                'pesan' => $message,
+                'status' => config('panti.whatsapp_enabled') && config('panti.fonnte_token') ? 'Antrean' : 'Nonaktif',
+            ],
+        );
         if ($log->wasRecentlyCreated && $log->status === 'Antrean') {
             SendWhatsapp::dispatch($log->id)->afterCommit();
         }

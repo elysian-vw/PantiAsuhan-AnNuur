@@ -42,14 +42,19 @@ class ResourceController extends Controller
         $rules = collect($fields)->map(fn ($f) => $f[2])->all();
         if ($resource === 'pengguna') {
             $rules['email'] = ['required', 'email', 'max:200', Rule::unique('users')->ignore($item->id)];
-            $rules['password'] = [($id ? 'nullable' : 'required'), 'string', 'min:12', 'confirmed'];
+            $rules['password'] = [$id ? 'nullable' : 'required', 'string', 'min:12', 'confirmed'];
         }
         if ($resource === 'donatur') {
             $request->merge(['whatsapp' => Phone::normalize($request->input('whatsapp'))]);
             $rules['whatsapp'][] = Rule::unique('donatur')->ignore($item->id);
         }
         if (in_array($resource, ['kategori-donasi', 'kategori-bantuan', 'jenis-kunjungan'])) {
-            $rules['nama'] = ['required', 'string', 'max:150', Rule::unique($item->getTable(), 'nama')->ignore($item->id)];
+            $rules['nama'] = [
+                'required',
+                'string',
+                'max:150',
+                Rule::unique($item->getTable(), 'nama')->ignore($item->id),
+            ];
         }
         if ($resource === 'galeri' && ! $id) {
             $rules['foto'] = 'required|image|mimes:jpg,jpeg,png,webp|max:2048';
@@ -64,11 +69,18 @@ class ResourceController extends Controller
             unset($data['foto']);
         }
         if ($resource === 'kebutuhan') {
-            $data['status'] = $data['terpenuhi'] >= $data['target'] ? 'Terpenuhi' : ($data['terpenuhi'] > 0 ? 'Sebagian terpenuhi' : 'Dibutuhkan');
+            $data['status'] =
+                $data['terpenuhi'] >= $data['target']
+                    ? 'Terpenuhi'
+                    : ($data['terpenuhi'] > 0
+                        ? 'Sebagian terpenuhi'
+                        : 'Dibutuhkan');
         }
         $item->fill($data)->save();
 
-        return redirect()->route('admin.resource.index', $resource)->with('success', "$title berhasil disimpan.");
+        return redirect()
+            ->route('admin.resource.index', $resource)
+            ->with('success', "$title berhasil disimpan.");
     }
 
     public function destroy(Request $request, string $resource, int $id)
@@ -79,13 +91,17 @@ class ResourceController extends Controller
                 if ($resource === 'pengguna') {
                     $users = User::lockForUpdate()->get();
                     if ($users->count() <= 1 || $request->user()->id === $id) {
-                        throw ValidationException::withMessages(['hapus' => 'Akun sendiri atau admin terakhir tidak boleh dihapus.']);
+                        throw ValidationException::withMessages([
+                            'hapus' => 'Akun sendiri atau admin terakhir tidak boleh dihapus.',
+                        ]);
                     }
                 }
                 $model::findOrFail($id)->delete();
             });
         } catch (QueryException $e) {
-            throw ValidationException::withMessages(['hapus' => 'Data masih dipakai pada catatan lain sehingga tidak dapat dihapus.']);
+            throw ValidationException::withMessages([
+                'hapus' => 'Data masih dipakai pada catatan lain sehingga tidak dapat dihapus.',
+            ]);
         }
 
         return back()->with('success', 'Data berhasil dihapus.');

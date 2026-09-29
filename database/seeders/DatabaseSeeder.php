@@ -6,6 +6,7 @@ use App\Models\JenisKunjungan;
 use App\Models\KategoriBantuan;
 use App\Models\KategoriDonasi;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -28,13 +29,10 @@ class DatabaseSeeder extends Seeder
             JenisKunjungan::firstOrCreate(['nama' => $name]);
         }
         Setting::firstOrCreate(['key' => 'nama_panti'], ['value' => 'Panti Asuhan NU An-Nuur 2']);
-        \App\Models\User::firstOrCreate(
+        User::firstOrCreate(
             ['email' => 'pengurus@annuur2.id'],
-            ['name' => 'Pengurus An-Nuur 2', 'password' => 'admin123']
+            ['name' => 'Pengurus An-Nuur 2', 'password' => 'admin123'],
         );
-        \App\Models\User::firstOrCreate(
-            ['email' => 'admin@annuur2.id'],
-            ['name' => 'Administrator', 'password' => 'admin123']
-        );
+        User::firstOrCreate(['email' => 'admin@annuur2.id'], ['name' => 'Administrator', 'password' => 'admin123']);
     }
 }

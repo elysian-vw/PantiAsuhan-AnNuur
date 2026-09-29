@@ -8,6 +8,10 @@ class Setting extends Record
 
     public static function read(string $key, ?string $fallback = null): ?string
     {
-        return static::where('key', $key)->value('value') ?? $fallback;
+        return cache()->remember(
+            "setting:{$key}",
+            now()->addMinutes(10),
+            fn () => static::where('key', $key)->value('value'),
+        ) ?? $fallback;
     }
 }

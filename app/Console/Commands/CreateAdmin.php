@@ -17,13 +17,17 @@ class CreateAdmin extends Command
         $email = $this->argument('email') ?: $this->ask('Email pengurus');
         $password = $this->secret('Password (minimal 12 karakter)');
         $data = ['email' => $email, 'password' => $password, 'name' => $this->option('name')];
-        $validator = Validator::make($data, ['email' => 'required|email|unique:users', 'password' => 'required|min:12', 'name' => 'required|string|max:150']);
+        $validator = Validator::make($data, [
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:12',
+            'name' => 'required|string|max:150',
+        ]);
         if ($validator->fails()) {
             foreach ($validator->errors()->all() as $message) {
                 $this->error($message);
             }
 
-return self::FAILURE;
+            return self::FAILURE;
         }
         User::create($data);
         $this->info('Akun pengurus berhasil dibuat.');
