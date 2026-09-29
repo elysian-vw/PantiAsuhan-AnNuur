@@ -31,7 +31,9 @@ Route::get('/riwayat/{kind}/{token}', [SubmissionController::class, 'tracking'])
 Route::post('/riwayat/donasi/{token}/bayar', [SubmissionController::class, 'pay'])
     ->middleware('throttle:5,1')
     ->name('payment');
-Route::post('/webhooks/midtrans', [SubmissionController::class, 'webhook'])->name('midtrans.webhook');
+Route::post('/webhooks/midtrans', [SubmissionController::class, 'webhook'])
+    ->middleware('throttle:60,1')
+    ->name('midtrans.webhook');
 Route::get('/{page}/{id}', [PublicController::class, 'article'])
     ->whereIn('page', ['kegiatan', 'berita'])
     ->whereNumber('id')
