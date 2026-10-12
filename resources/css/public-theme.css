@@ -1,0 +1,172 @@
+/* Shared Tailwind theme for every page using layouts.public. */
+.public-site {
+    --green: #185237;
+    --green-dark: #173f2e;
+    --green-soft: #eaf0e2;
+    --cream: #f7f6ee;
+    --line: #e0e5da;
+    --gold: #ad763c;
+    --gold-light: #f3eddb;
+    @apply bg-white text-[#244936];
+}
+.public-site .public-page-heading {
+    @apply relative isolate overflow-hidden border-b border-[#dce1d3] bg-[#f7f6ee] py-10 sm:py-14 lg:py-16;
+}
+.public-site .public-page-heading::before {
+    content: '';
+    @apply pointer-events-none absolute -right-24 -top-40 -z-10 size-[30rem] rounded-full border-[60px] border-[#eaf0e2]/60;
+}
+.public-site .public-breadcrumb {
+    @apply mb-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[#5e6f66];
+}
+.public-site .public-breadcrumb a {
+    @apply py-2 text-[#185237] underline-offset-4 hover:underline;
+}
+.public-site .public-breadcrumb [aria-current] {
+    @apply break-words;
+}
+.public-site .public-kicker {
+    @apply mb-5 flex items-center gap-2.5 text-[10px] font-bold tracking-[0.18em] text-[#657b54];
+}
+.public-site .public-kicker > span {
+    @apply size-2 shrink-0 rounded-full bg-[#be8745];
+}
+.public-site .public-page-heading h1,
+.public-site .page-title {
+    @apply mb-5 max-w-4xl font-serif text-[clamp(2.25rem,4.5vw,3.75rem)] font-medium leading-[1.12] tracking-[-0.035em] text-[#173f2e];
+    overflow-wrap: anywhere;
+}
+.public-site .public-page-description {
+    @apply mb-0 max-w-2xl text-sm leading-7 text-[#5e6f66] sm:text-base sm:leading-8;
+}
+.public-site .public-page-links {
+    @apply mt-8 flex flex-wrap gap-2;
+}
+.public-site .public-page-links a {
+    @apply inline-flex min-h-11 items-center rounded-xl border border-[#d4ddce] bg-white/60 px-4 py-2 text-xs font-semibold text-[#185237] transition-colors hover:border-[#185237] hover:bg-white;
+}
+.public-site .public-page-links a[aria-current='page'] {
+    @apply border-[#185237] bg-[#185237] text-white;
+}
+.public-site .button {
+    @apply min-h-13 rounded-xl border border-transparent bg-[#185237] bg-none px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-950/10 transition-all hover:bg-[#0e3522] hover:shadow-xl;
+}
+.public-site .button.small {
+    @apply min-h-11 px-5 py-2.5 text-xs;
+}
+.public-site .button.outline {
+    @apply border-[#d4ddce] bg-white text-[#185237] shadow-none hover:border-[#185237] hover:bg-[#f6f7f0];
+}
+.public-site .button.light {
+    @apply bg-[#f1cc83] text-[#173f2e] hover:bg-[#f7dba8];
+}
+.public-site .card,
+.public-site .profil-card,
+.public-site .profil-extra-card {
+    @apply rounded-2xl border border-solid border-[#e0e5da] bg-white shadow-none;
+}
+.public-site .card-grid .card:hover,
+.public-site .profil-card:hover,
+.public-site .profil-extra-card:hover {
+    @apply border-[#b4c6a9] shadow-lg shadow-emerald-950/5;
+}
+.public-site .card.soft,
+.public-site .item-form {
+    @apply border-[#e0e5da] bg-[#f6f7f0];
+}
+.public-site .article-card {
+    @apply overflow-hidden;
+}
+.public-site .article-placeholder {
+    @apply bg-linear-to-br from-[#e4ecd9] to-[#f5efd9];
+}
+.public-site .need-card {
+    @apply flex flex-col p-7;
+}
+.public-site .need-card > p {
+    @apply grow;
+}
+.public-site .need-card .progress {
+    @apply h-2 rounded-full bg-[#edf1e7];
+}
+.public-site .empty-state {
+    @apply rounded-2xl border border-dashed border-[#cddbc5] bg-[#f8faf5] px-6 py-12;
+}
+.public-site .tag {
+    @apply rounded-full bg-[#eaf0e2] text-[#315c40];
+}
+.public-site .form-aside {
+    @apply rounded-2xl border border-[#e0e5da] bg-[#f6f7f0] p-6 lg:p-8;
+}
+.public-site .form-card {
+    @apply p-5 sm:p-8;
+}
+.public-site .form-section h2 {
+    @apply text-lg font-semibold text-[#173f2e];
+}
+.public-site .step-number {
+    @apply size-9 rounded-xl border-[#e5dbbd] bg-[#f3eddb] text-[#85612f];
+}
+.public-site input:not([type='checkbox']),
+.public-site select,
+.public-site textarea {
+    @apply rounded-xl border border-[#d4ddce] bg-white;
+}
+.public-site input:focus,
+.public-site select:focus,
+.public-site textarea:focus {
+    @apply border-[#185237] ring-3 ring-[#185237]/15;
+}
+.public-site .amount-option {
+    @apply min-h-12 rounded-xl border-[#d4ddce] bg-white text-[#185237] shadow-none;
+}
+.public-site .amount-option.selected {
+    @apply border-[#185237] bg-[#185237] text-white;
+}
+.public-site .profil-card .profil-card-icon,
+.public-site .profil-extra-card .profil-extra-icon {
+    @apply rounded-xl bg-[#eaf0e2] text-[#315c40];
+}
+.public-site .profil-card-gold .profil-card-icon,
+.public-site .profil-extra-pendiri .profil-extra-icon {
+    @apply bg-[#f3eddb] text-[#85612f];
+}
+.public-site .profil-card .profil-card-label,
+.public-site .profil-extra-card .profil-extra-eyebrow {
+    @apply text-[#315c40];
+}
+.public-site .profil-org-title {
+    @apply font-medium tracking-tight;
+}
+.public-site .org-node {
+    @apply rounded-2xl border-[#e0e5da] shadow-none;
+}
+.public-site .org-root {
+    @apply border-t-[#185237] bg-[#f6f7f0] bg-none;
+}
+.public-site .org-l2 {
+    @apply border-t-[#ad763c];
+}
+.public-site .article-hero {
+    @apply rounded-2xl;
+}
+.public-site .mobile-nav a[aria-current='page'] {
+    @apply rounded-lg bg-[#eaf0e2] px-3 font-semibold text-[#185237];
+}
+.public-site .site-footer {
+    @apply border-t border-[#e0e5da] bg-[#f7f6ee];
+}
+.public-site .profile-grid > *,
+.public-site .form-layout > * {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+@media (prefers-reduced-motion: reduce) {
+    .public-site .button:hover,
+    .public-site .card:hover,
+    .public-site .profil-card:hover,
+    .public-site .profil-extra-card:hover,
+    .public-site .org-node:hover {
+        transform: none;
+    }
+}

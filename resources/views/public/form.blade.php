@@ -8,15 +8,14 @@
 )
 @section('title', ucfirst($kind))
 @section('content')
-    <section class="page-heading">
-        <div class="container">
-            <p class="eyebrow">
-                {{ ['donasi' => 'DONASI UANG', 'bantuan' => 'BANTUAN BARANG', 'kunjungan' => 'PENDAFTARAN KUNJUNGAN'][$kind] }}
-            </p>
-            <h1>{{ $title }}</h1>
-            <p>Isi formulir di bawah ini. Tidak perlu membuat akun.</p>
-        </div>
-    </section>
+    <x-public-heading :title="$title" :eyebrow="['donasi' => 'DONASI UANG', 'bantuan' => 'BANTUAN BARANG', 'kunjungan' => 'PENDAFTARAN KUNJUNGAN'][
+        $kind
+    ]" description="Isi formulir di bawah ini. Tidak perlu membuat akun.">
+        @foreach (['donasi' => 'Donasi uang', 'bantuan' => 'Bantuan barang', 'kunjungan' => 'Kunjungan'] as $key => $label)
+            <a href="{{ route('submission.form', $key) }}"
+                @if ($key === $kind) aria-current="page" @endif>{{ $label }}</a>
+        @endforeach
+    </x-public-heading>
     <div class="container form-layout section">
         <div><x-flash />
             <form action="{{ route('submission.store', $kind) }}" method="post" class="card form-card" x-data="{ amount: {{ (int) old('nominal', 50000) }}, submitting: false }"

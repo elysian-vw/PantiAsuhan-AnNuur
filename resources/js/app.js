@@ -1,5 +1,6 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
+import { initLandingMotion } from './landing-motion';
 
 Alpine.data('assistanceItems', (initial) => ({
     items: initial.map((item) => ({ ...item, key: crypto.randomUUID() })),
@@ -50,35 +51,7 @@ if (landing) {
         window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
         document.querySelector('.site-header .brand')?.focus({ preventScroll: true });
     });
-    if ('IntersectionObserver' in window && !reducedMotion.matches) {
-        const reveal = new IntersectionObserver(
-            (entries) => {
-                for (const entry of entries) {
-                    if (entry.isIntersecting) {
-                        entry.target.animate(
-                            [
-                                { opacity: 0.25, transform: 'translateY(18px)' },
-                                { opacity: 1, transform: 'translateY(0)' },
-                            ],
-                            { duration: 500, easing: 'ease-out' },
-                        );
-                        reveal.unobserve(entry.target);
-                    }
-                }
-            },
-            { threshold: 0.12 },
-        );
-        landing
-            .querySelectorAll('.section-heading, .guide-grid, .home-faq, .visit-banner, .about-grid')
-            .forEach((el) => reveal.observe(el));
-        const stopMotion = () => {
-            if (reducedMotion.matches) {
-                reveal.disconnect();
-                landing.getAnimations({ subtree: true }).forEach((animation) => animation.cancel());
-            }
-        };
-        reducedMotion.addEventListener('change', stopMotion);
-    }
+    initLandingMotion(landing, reducedMotion);
 }
 
 document.querySelectorAll('.sidebar nav a').forEach((link) => {

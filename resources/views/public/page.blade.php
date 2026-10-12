@@ -1,43 +1,40 @@
 @extends('layouts.public')
-@php($titles = ['profil' => 'Mengenal An-Nuur 2', 'kontak' => 'Mari terhubung', 'kegiatan' => 'Kegiatan panti', 'berita' => 'Berita & informasi', 'galeri' => 'Galeri kebersamaan', 'kebutuhan' => 'Kebutuhan panti'])
+@php
+    $titles = [
+        'profil' => 'Mengenal An-Nuur 2',
+        'kontak' => 'Mari terhubung',
+        'kegiatan' => 'Kegiatan panti',
+        'berita' => 'Berita & informasi',
+        'galeri' => 'Galeri kebersamaan',
+        'kebutuhan' => 'Kebutuhan panti',
+    ];
+@endphp
 @section('title', $titles[$page])
 @section('content')
 
-    {{-- PAGE HEADING --}}
-    @if ($page === 'profil')
-        <section class="page-heading profil-heading">
-            <div class="profil-heading-bg" aria-hidden="true">
-                <span class="ph-orb ph-orb-1"></span>
-                <span class="ph-orb ph-orb-2"></span>
-                <span class="ph-grid"></span>
-            </div>
-            <div class="container profil-heading-inner">
-                <div class="profil-heading-badge">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                    </svg>
-                    <span>Panti Asuhan NU An-Nuur 2</span>
-                </div>
-                <h1>Mengenal<br><em>An-Nuur 2</em></h1>
-                <p>Rumah yang merawat harapan dan menumbuhkan masa depan anak-anak di Kota Kediri.</p>
-                <div class="profil-heading-anchors">
-                    <a href="#tentang">Tentang kami</a>
-                    <a href="#sejarah">Sejarah</a>
-                    <a href="#visi">Visi &amp; Misi</a>
-                    <a href="#struktur">Struktur</a>
-                </div>
-            </div>
-        </section>
-    @else
-        <section class="page-heading">
-            <div class="container">
-                <p class="eyebrow">PANTI ASUHAN NU AN-NUUR 2</p>
-                <h1>{{ $titles[$page] }}</h1>
-                <p>Informasi dan kabar dari rumah kami di Kota Kediri.</p>
-            </div>
-        </section>
-    @endif
+    @php
+        $descriptions = [
+            'profil' => 'Rumah yang merawat harapan dan menumbuhkan masa depan anak-anak di Kota Kediri.',
+            'kontak' => 'Kami siap menyambut niat baik Anda. Temukan kontak pengurus dan rencanakan pertemuan.',
+            'kegiatan' => 'Momen belajar, bertumbuh, dan berbagi kebahagiaan dari rumah kami.',
+            'berita' => 'Ikuti kabar terbaru dan informasi yang dibagikan oleh pengurus panti.',
+            'galeri' => 'Lebih dekat dengan keseharian kami melalui potret kebersamaan.',
+            'kebutuhan' => 'Setiap bantuan punya arti. Temukan kebutuhan yang masih perlu kita lengkapi bersama.',
+        ];
+    @endphp
+    <x-public-heading :title="$titles[$page]" :description="$descriptions[$page]">
+        @if ($page === 'profil')
+            <a href="#tentang">Tentang kami ↗</a><a href="#sejarah">Sejarah ↗</a><a href="#visi">Visi &amp; misi ↗</a><a
+                href="#struktur">Kepengurusan ↗</a>
+        @elseif ($page === 'kebutuhan')
+            <a href="{{ route('submission.form', 'bantuan') }}">Bantu penuhi kebutuhan ↗</a>
+        @elseif (in_array($page, ['kegiatan', 'berita', 'galeri']))
+            @foreach (['kegiatan' => 'Kegiatan', 'berita' => 'Berita', 'galeri' => 'Galeri'] as $key => $label)
+                <a href="{{ route('page', $key) }}"
+                    @if ($key === $page) aria-current="page" @endif>{{ $label }}</a>
+            @endforeach
+        @endif
+    </x-public-heading>
 
     {{-- PAGE CONTENT --}}
     <div class="section container">

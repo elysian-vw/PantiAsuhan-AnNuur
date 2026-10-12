@@ -47,6 +47,18 @@ Untuk akun demonstrasi lokal baru tersedia `php scripts/local-admin.php`. Perint
 
 Kategori awal dari seeder adalah nilai awal yang dapat diubah di master data, bukan hasil wawancara final.
 
+## Data dummy untuk demonstrasi lokal
+
+Jalankan secara terpisah setelah migrasi, dengan `APP_ENV=local`:
+
+```console
+php artisan db:seed --class=DummyDataSeeder
+```
+
+Seeder ini menambahkan 12 donatur, 24 donasi selama enam bulan, 8 kunjungan, 6 bantuan (12 item), 6 kebutuhan, 3 kegiatan, dan 3 berita. Semua memakai label/kode `DUMMY`; dua kegiatan dan dua berita diterbitkan sebagai contoh tampilan publik. Kontak memakai penanda `DUMMY-xxx` dan email `example.invalid`, bukan kontak sungguhan. Foto dan profil resmi tidak diubah.
+
+Perintah boleh diulang: data yang sudah ada beserta suntingannya dipertahankan. Seeder tidak membuat akun, pembayaran Midtrans, antrean WhatsApp, atau panggilan provider. Hanya lingkungan `local` dan `testing` yang diizinkan, dan seeder tidak dipanggil oleh seeding standar. Grafik dan laporan akan memasukkan transaksi dummy sebagai simulasi; database demonstrasi ini jangan digunakan sebagai laporan operasional panti. Tanggal contoh ditentukan saat pengisian pertama.
+
 ## Midtrans Sandbox
 
 Isi `MIDTRANS_SERVER_KEY` pada `.env`. Implementasi saat ini sengaja hanya menggunakan endpoint sandbox. Tidak ada mode pembayaran produksi.

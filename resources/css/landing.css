@@ -318,3 +318,161 @@
         display: none;
     }
 }
+
+/* Tailwind components scoped to the homepage; shared public pages keep their styles. */
+.landing-refresh .landing-kicker {
+    @apply mb-5 flex items-center gap-2.5 text-[10px] font-bold tracking-[0.18em] text-[#657b54];
+}
+.landing-refresh .landing-title {
+    @apply mb-0 text-3xl font-medium leading-tight tracking-tight text-[#173f2e] lg:text-[2.5rem];
+}
+.landing-refresh .landing-primary,
+.landing-refresh .landing-secondary {
+    @apply inline-flex min-h-13 items-center justify-center gap-6 rounded-xl px-6 py-3.5 text-sm font-semibold transition-all duration-200;
+}
+.landing-refresh .landing-primary {
+    @apply bg-[#185237] text-white shadow-lg shadow-emerald-950/10 hover:bg-[#0e3522] hover:shadow-xl;
+}
+.landing-refresh .landing-secondary {
+    @apply border border-[#d4ddce] bg-white/60 text-[#185237] hover:border-[#185237] hover:bg-white;
+}
+.landing-refresh .landing-way {
+    @apply flex flex-col rounded-2xl border border-[#e0e5da] bg-[#fafbf7] p-7 text-[#244936] transition duration-300 hover:border-[#a7bea0] hover:shadow-xl hover:shadow-emerald-950/5 motion-safe:hover:-translate-y-1 lg:p-8;
+}
+.landing-refresh .landing-way-icon {
+    @apply flex size-12 shrink-0 items-center justify-center rounded-2xl bg-[#eaf0e2] text-[#315c40];
+}
+.landing-refresh .landing-way-featured {
+    @apply border-[#185237] bg-[#185237] text-white;
+}
+.landing-refresh .landing-way-featured p {
+    @apply text-emerald-50/80;
+}
+.landing-refresh .landing-way-featured .landing-way-icon {
+    @apply bg-white/10 text-[#edce93];
+}
+.landing-refresh .landing-empty {
+    @apply col-span-full rounded-2xl border border-dashed border-[#cddbc5] bg-[#f8faf5] px-6 py-12 text-center;
+}
+.landing-refresh .landing-empty p {
+    @apply mx-auto max-w-lg text-sm leading-7;
+}
+.landing-refresh .landing-invitation {
+    @apply bg-[#173f2e] text-white;
+}
+.landing-refresh .landing-invitation p {
+    @apply text-white/75;
+}
+.landing-refresh .landing-invitation .landing-kicker {
+    @apply text-[#edce93];
+}
+.landing-refresh .section-heading h2 {
+    @apply text-3xl font-medium tracking-tight lg:text-[2.5rem];
+}
+.landing-refresh .section-heading {
+    @apply gap-6;
+}
+.landing-refresh .need-card {
+    @apply flex flex-col rounded-2xl border-[#e0e5da] p-7 shadow-none transition-shadow hover:shadow-lg;
+}
+.landing-refresh .need-card > p {
+    @apply grow;
+}
+.landing-refresh .need-card .progress {
+    @apply h-2 rounded-full bg-[#edf1e7];
+}
+.landing-refresh .article-card {
+    @apply overflow-hidden rounded-2xl border-[#e0e5da] shadow-none;
+}
+.landing-refresh .article-card > img {
+    @apply transition-transform duration-500 motion-safe:hover:scale-105;
+}
+.landing-refresh .article-placeholder {
+    @apply bg-linear-to-br from-[#e4ecd9] to-[#f5efd9];
+}
+.landing-refresh .giving-guide {
+    @apply border-y border-[#e4e8de] bg-[#f6f7f0];
+}
+.landing-refresh .guide-tabs button {
+    @apply rounded-xl;
+}
+.landing-refresh .guide-panel {
+    @apply rounded-3xl border-[#e0e5da] shadow-sm;
+}
+.landing-refresh .faq-list {
+    @apply border-t-0;
+}
+.landing-refresh .faq-list details {
+    @apply mb-3 rounded-xl border border-[#e0e5da] px-5 open:bg-[#f6f7f0];
+}
+@media (max-width: 700px) {
+    .landing-refresh .section-heading {
+        @apply items-start;
+    }
+    .landing-refresh .landing-jump {
+        @apply gap-x-5;
+    }
+}
+
+/* Brief decorative motion, then rest; no continuous distractions. */
+@keyframes landing-float-note {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    45% {
+        transform: translateY(-9px);
+    }
+}
+@keyframes landing-float-badge {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+    45% {
+        transform: translateY(-6px) rotate(3deg);
+    }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .landing-floating-note {
+        animation: landing-float-note 4s 450ms ease-in-out both;
+    }
+    .landing-floating-badge {
+        animation: landing-float-badge 3.6s 650ms ease-in-out both;
+    }
+    .landing-refresh .landing-primary,
+    .landing-refresh .landing-secondary {
+        transition:
+            transform 220ms ease,
+            box-shadow 220ms ease,
+            background-color 220ms ease;
+    }
+    .landing-refresh :is(.landing-primary, .landing-secondary):is(:hover, :focus-visible) {
+        transform: translateY(-3px);
+    }
+    .landing-refresh :is(.landing-primary, .landing-secondary) > span {
+        transition: transform 220ms ease;
+    }
+    .landing-refresh :is(.landing-primary, .landing-secondary):is(:hover, :focus-visible) > span {
+        transform: translate(3px, -2px);
+    }
+    .landing-refresh .landing-way-icon {
+        transition: transform 300ms ease;
+    }
+    .landing-refresh .landing-way:is(:hover, :focus-visible) .landing-way-icon {
+        transform: rotate(-7deg) scale(1.07);
+    }
+    .landing-refresh .faq-list details[open] > p {
+        animation: landing-faq-in 220ms ease-out;
+    }
+    @keyframes landing-faq-in {
+        from {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

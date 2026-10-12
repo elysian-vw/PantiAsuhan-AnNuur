@@ -120,16 +120,7 @@ class ReportController extends Controller
                 ->download("laporan-$kind.pdf");
         }
         if (($data['format'] ?? '') === 'xlsx') {
-            $exportRows = $rows;
-            $exportRows[] = [];
-            $exportRows[] = ['Ringkasan'];
-            foreach ($summary as $label => $value) {
-                $exportRows[] = [$label, $value];
-            }
-            $exportRows[] = ['Tanggal acuan', $column];
-            $exportRows[] = ['Filter', json_encode($data, JSON_UNESCAPED_UNICODE)];
-
-            return Excel::download(new ReportExport($exportRows, $headers), "laporan-$kind.xlsx");
+            return Excel::download(new ReportExport($rows, $headers, $kind, $summary, $column, $data), "laporan-$kind.xlsx");
         }
 
         return view('admin.reports.index', $context);

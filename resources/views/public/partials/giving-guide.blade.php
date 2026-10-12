@@ -60,7 +60,7 @@
         </div>
         <div class="guide-panels">
             @foreach ($guides as $key => $guide)
-                <section id="guide-{{ $key }}" class="guide-panel" role="tabpanel"
+                <section id="guide-{{ $key }}" class="guide-panel" x-transition.opacity.duration.200ms role="tabpanel"
                     aria-label="{{ $guide['label'] }}" tabindex="0" x-show="active==='{{ $key }}'">
                     <span class="guide-kicker">{{ $guide['label'] }}</span>
                     <h3>{{ $guide['title'] }}</h3>

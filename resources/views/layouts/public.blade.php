@@ -39,7 +39,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 
-    <body>
+    <body class="public-site">
         <a class="skip-link" href="#main">Langsung ke isi</a>
         <div class="topline">
             <div class="container flex justify-between items-center gap-3"><span>Panti Asuhan NU An-Nuur 2 · Kota
@@ -57,7 +57,8 @@
                             KEDIRI</small></span></a>
                 <nav class="desktop-nav" aria-label="Navigasi utama">
                     @foreach (['home' => 'Beranda', 'profil' => 'Profil', 'kegiatan' => 'Kegiatan', 'kebutuhan' => 'Kebutuhan', 'kunjungan' => 'Kunjungan'] as $key => $label)
-                        <a class="{{ request()->path() === ($key === 'home' ? '/' : $key) ? 'active' : '' }}"
+                        <a @if (request()->path() === ($key === 'home' ? '/' : $key)) aria-current="page" @endif
+                            class="{{ request()->path() === ($key === 'home' ? '/' : $key) ? 'active' : '' }}"
                             href="{{ $key === 'home' ? route('home') : ($key === 'kunjungan' ? route('submission.form', $key) : route('page', $key)) }}">{{ $label }}</a>
                     @endforeach
                 </nav>
@@ -81,12 +82,15 @@
                 </button>
             </div>
             <nav id="mobile-menu" class="mobile-nav container" x-show="open" x-cloak aria-label="Navigasi mobile">
-                <a href="{{ route('home') }}">Beranda</a>
+                <a href="{{ route('home') }}" @if (request()->routeIs('home')) aria-current="page" @endif>Beranda</a>
                 @foreach (['profil' => 'Profil Panti', 'kegiatan' => 'Kegiatan', 'berita' => 'Berita', 'galeri' => 'Galeri', 'kebutuhan' => 'Kebutuhan Panti', 'kontak' => 'Kontak'] as $key => $label)
-                    <a href="{{ route('page', $key) }}">{{ $label }}</a>
+                    <a href="{{ route('page', $key) }}"
+                        @if (request()->is($key)) aria-current="page" @endif>{{ $label }}</a>
                 @endforeach
-                <a href="{{ route('submission.form', 'bantuan') }}">Bantuan Barang</a><a
-                    href="{{ route('submission.form', 'kunjungan') }}">Kunjungan</a>
+                <a href="{{ route('submission.form', 'bantuan') }}"
+                    @if (request()->is('bantuan')) aria-current="page" @endif>Bantuan Barang</a><a
+                    href="{{ route('submission.form', 'kunjungan') }}"
+                    @if (request()->is('kunjungan')) aria-current="page" @endif>Kunjungan</a>
             </nav>
         </header>
         <main id="main">@yield('content')</main>
