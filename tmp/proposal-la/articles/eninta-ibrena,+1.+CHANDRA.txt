@@ -1,0 +1,440 @@
+
+PAGE 1
+ 
+Volume XI No 1, Juni 2022 
+pISSN : 2337 – 3601 
+eISSN : 2549 – 015X 
+ 
+Tersedia online di http://ejournal.stmik-time.ac.id 
+ 
+1 
+PERANCANGAN SISTEM INFORMASI GEOGRAFIS DAN DONASI ONLINE PANTI 
+ASUHAN DI KOTA MEDAN MENGGUNAKAN 
+METODE WEBQUAL 4.0 
+ 
+Chandra1, Jackri Hendrik2, Leonardo3 
+Program Studi Sistem Informasi  
+STMIK TIME Medan 
+Jl. Merbabu No.32 AA-BB Medan 20212, Telp:061-4561932 
+e-mail: chandra.wiejaya@gmail.com1, jackri.hendrik@gmail.com2, huangleonardo07@gmail.com3 
+ 
+Abstrak 
+Seiring berkembangnya zaman, masyarakat semakin sering memanfaatkan internet untuk banyak keperluan. 
+Melalui pemanfaatan internet yang diterapkan dalam teknologi informasi tentunya dapat membuat proses -proses 
+ataupun pekerjaan menjadi lebih mudah, cepat, dan praktis. Penerapan teknologi informasi juga dapat diterapkan 
+dalam berbagai bidang seperti bidang pendidikan, bidang ekonomi, dan juga pada bidang sosial. Bidang sosial 
+yang juga memerlukan penerapan teknologi informasi adalah pada proses donasi online di panti asuhan. Proses 
+penggalangan donasi untuk panti asuhan kebanyakan masih dilakukan secara manual yaitu setiap pemilik panti 
+asuhan harus mengunjungi satu per satu rumah masyarakat yang ada untuk meminta donasi ataupun menunggu 
+para donatur mengunjun gi panti asuhan mereka dan memberikan donasi kepada mereka. Permasalahan utama 
+proses donasi secara manual adalah terkait masalah kepercayaan dikarenakan tidak adanya transparansi dan 
+informasi penggunaan donasi tersebut. Oleh karena hal tersebut, maka per lu dibangun sebuah sistem informasi 
+geografis dan donasi online bagi panti asuhan yang mampu mengatasi permasalahan yang telah diuraikan. Pada 
+penelitian ini akan diterapkan metode WebQual 4.0 yaitu metode pengukuran aplikasi berdasarkan Quality 
+Function Deployment (QFD). Hasil akhir penelitian berupa dibangunnya sebuah sistem informasi geografis dan 
+donasi online panti asuhan. Penerapan metode WebQual 4.0 dalam pengukuran kualitas sistem informasi 
+geografis dan donasi online panti asuhan menunjukkan bahwa responden setuju bahwa sistem yang dibangun 
+memenuhi atribut WebQual 4.0 dengan baik.   
+Kata Kunci: Sistem Informasi Geografis, Donasi Online Panti Asuhan, Metode WebQual 4.0 
+1. Pendahuluan 
+Seiring berkembangnya zaman, masyarakat semakin sering memanfaatkan internet untuk banyak keperluan. 
+Dengan meningkatnya pengguna internet ini, segala hal yang dulunya dilakukan manual kini sudah 
+memanfaatkan perkembangan internet untuk membantu prosesnya. Melalui pemanfaatan internet yang 
+diterapkan dalam teknologi inform asi tentunya dapat membuat proses -proses ataupun pekerjaan menjadi lebih 
+mudah, cepat, dan praktis. Penerapan teknologi informasi juga dapat diterapkan dalam berbagai bidang seperti 
+bidang pendidikan, bidang ekonomi, dan juga pada bidang sosial. Bidang sosial yang juga memerlukan penerapan 
+teknologi informasi adalah pada proses donasi online di panti asuhan.  
+Proses penggalangan donasi untuk panti asuhan kebanyakan masih dilakukan secara manual yaitu setiap 
+pemilik panti asuhan harus mengunjungi satu per satu rumah masyarakat yang ada untuk meminta donasi ataupun 
+menunggu para donatur mengunjungi panti asuhan mereka dan memberikan donasi kepada mereka. 
+Permasalahan utama proses donasi secara manual adalah terkait masalah kepercayaan dikarenakan tidak adanya 
+transparansi dan informasi penggunaan donasi tersebut. Banyak informasi penggalangan donasi yang ada kurang 
+dipercaya dan ada juga oknum -oknum tertentu yang memanfaatkannya untuk menipu para donatur yang ingin 
+mendonasikan uang mereka. Di sisi pihak donatur , seringkali mereka mengeluh bahwa sulitnya mendapatkan 
+informasi terkait panti asuhan yang memerlukan donasi dikarenakan beberapa panti asuhan sangat terpencil dan 
+jauh dari lokasi mereka sehingga informasi tersebut sulit didapatkan oleh mereka.  
+Oleh karena hal tersebut, maka perlu dibangun sebuah sistem informasi geografis dan donasi online bagi panti 
+asuhan yang mampu mengatasi permasalahan yang telah diuraikan. Sistem informasi geografis akan dibangun 
+dalam bentuk aplikasi mobile dikarenakan aplikasi mobile mudah dibawa kemana saja serta praktis untuk 
+digunakan oleh masyarakat. Pada sistem yang dibangun, akan dipetakan seluruh panti asuhan di kota Medan ke 
+dalam bentuk sistem informasi geografis sehingga memudahkan para donatur untuk mencari dan meliha t lokasi 
+panti asuhan yang berada dekat di lokasi mereka. Selain itu sistem yang dibangun juga akan memberikan 
+kemudahan bagi para donatur untuk melakukan donasi secara online serta mendapatkan informasi terkait 
+penggunaan donasi tersebut secara transparan sehingga dapat mencegah terjadinya tindakan penipuan dari oknum-
+oknum yang tidak bertanggung jawab. Pada penelitian ini akan diterapkan metode WebQual 4.0 yaitu metode 
+
+PAGE 2
+2 Jurnal TIMES Volume XI No 1, Juni 2022 hal 1 – 8 
+ 
+pengukuran aplikasi berdasarkan Quality Function Deployment  (QFD). WebQual 4.0 adalah s uatu pengukuran 
+untuk mengukur kualitas dari sebuah aplikasi berdasarkan instrumen -instrumen penelitian yang dapat 
+dikategorikan kedalam tiga variabel yaitu: Usability, Information Quality, dan Service Interaction. Kelebihan dari 
+penerapan metode ini akan diketahui kualitas dari aplikasi  yang telah dibangun apakah sesuai kebutuhan dan 
+menyelesaikan permasalahan dari penggunanya [1].  
+2. Landasan Teori  
+Sistem Informasi 
+Secara umum, sistem merupakan perpaduan beberapa unsur yang tergabung satu dengan yang lain untuk 
+memudahkan perpindahan informasi, energi, maupun materi agar mencapai tujuan tertentu. Sistem berasal dari 
+bahasa Latin (systēma) dan bahasa Yunani (sustēma) adalah suatu kesatuan yang terdiri komponen atau elemen 
+yang dihubungkan bersama untuk memudahkan aliran informasi, materi atau energi untuk mencapai suatu tujuan. 
+Sistem ditemukan dalam berbagai bidang ilmu sebagai cara untuk menggambarkan interaksi set entitas yang 
+paling mudah. Selain itu, sistem juga menjadi un sur perpaduan dari bagian -bagian yang terpisah agar saling 
+terkait dan berhubungan satu dengan lainnya [2].  
+Suatu informasi dihasilkan dari pengolahan data. Data yang telah tersedia dikemas dan diolah sedemikian 
+rupa sehingga menjadi sebuah informasi yang berguna. Informasi merupakan hasil pemrosesan data menjadi 
+sesuatu yang bermakna bagi penerimanya. Selain merupakan hasil dari pengolahan data, informasi juga 
+menggambarkan sebuah kejadian. Informasi terdiri atas data yang telah didapatkan kemudian diolah atau 
+diproses agar dapat digunakan untuk menjelaskan, menerangkan, menguraikan, atau menjadi dasar pertimbangan 
+dalam membuat ramalan atau pengambilan keputusan [2].  
+ 
+Sistem Informasi Geografis 
+Sistem Informasi Geografis (Geographic Information System/GIS) yang selanjutnya disebut SIG merupakan 
+sistem informasi berbasis komputer yang digunakan untuk mengolah dan menyimpan data atau informasi 
+geografis. Secara umum pengertian SIG adalah suatu komponen yang terdiri dari perangkat keras, perangkat 
+lunak, data geografis dan sumberdaya manusia yang bekerja bersama secara efektif untuk memasukan, 
+menyimpan, memperbaiki, memperbaharui, mengelola, memanipulasi, mengintegrasikan, menganalisa dan 
+menampilkan data dalam suatu informasi berbasis geografis [2]. 
+ 
+Panti Asuhan 
+Panti asuhan adalah suatu lembaga usaha kesejahteraan sosial pada anak terlantar dengan melaksanakan 
+penyantunan dan pengentasan anak terlantar, memberikan pelayanan pengganti orang tua/wali anak dalam memenuhi 
+kebutuhan fisik, mental dan sosial kepada anak asuh sehingga memperoleh kesempatan yang luas, tepat dan memadai 
+bagi pengembangan kepribadiannya sesuai dengan yang diharapkan sebagai bagian dari generasi penerus cita-cita 
+bangsa dan sebagai insan yang akan turut serta aktif dalam bidang pembangunan nasional [3]. 
+ 
+Sistem Operasi Android 
+Android adalah sebuah sistem operasi pada handphone yang bersifat terbuka dan berbasis pada sistem operasi 
+Linux. Android bisa digunakan oleh setiap orang yang ingin menggunakannya pad a perangkat mereka. Android 
+menyediakan platform terbuka bagi para pengembang untuk menciptakan aplikasi mereka sendiri yang akan 
+digunakan untuk bermacam peranti bergerak [4]. 
+Berikut dijelaskan perkembangan versi-versi Android: [5] 
+a. Android 1.0 Apple Pie 
+b. Android 1.1 Banana Bread 
+c. Android 1.5 Cupcake 
+d. Android 1.6 Donut 
+e. Android Éclair 
+f. Android 2.2–2.2.3 Froyo 
+g. Android Gingerbread 
+h. Android Honeycomb 
+i. Android Ice Cream Sandwich 
+j. Android Jelly Bean 
+k. Android 4.4 KitKat 
+l. Android 5.0 Lollipop 
+m. Android 6.0 Marsmallow 
+n. Android 7.0 Nougat 
+o. Android 8.0 Oreo 
+p. Android 9.0 Pie 
+q. Android Versi 10.0 Q 
+
+PAGE 3
+3 Jurnal TIMES Volume XI No 1, Juni 2022 hal 1 – 8 
+ 
+r. Android Versi 11.0 R (Red Velvet Cake) 
+ 
+Google Maps API 
+Google Maps API merupakan pengembangan teknologi dari google yang digunakan untuk menanamkan 
+Google Map di suatu aplikasi yang tidak dibuat oleh Google. Google Maps API adalah suatu library yang 
+berbentuk Javascript  yang berguna untuk memodifikasi peta yang ada di Google Maps sesuai kebutuhan. Dalam 
+perkembangannya Google Maps AP I diberikan kemampuan untuk mengambil gambar peta statis. Melakukan 
+geocoding, dan memberikan penuntun arah. Google Maps API bersifat gratis untuk publik. Penggunaan Google 
+Maps API pada pengembangan aplikasi android dengan menggunakan Eclipse dan komputer menggunakan sistem 
+operasi Windows. Kekurangan yang ada pada Google Maps API yaitu jika ingin melakukan akses harus terdapat 
+layanan internet pada perangkat yang digunakan [6]. Sedangkan kelebihan yang ada pada Google Maps API yaitu: 
+[7]. 
+ 
+Metode WebQual 4.0 
+WebQual 4.0 merupakan hasil analisis pada WebQual 3.0 yang membawa pada identifikasi tiga dimensi dari 
+kualitas websiteE-Commerce, yaitu: kegunaan (usability), kualitas informasi (information quality) dan kualitas 
+layanan interaksi (service interaction quality). Dalam WebQual 4.0 ini, kegunaan berkaitan dengan desain website 
+misalnya penampilan, kemudahan penggunaan, navigasi dan juga tampilan yang disampaikan dalam website 
+tersebut. Kegunaan fokus pada pandangan bagaimana pengguna melihat dan berinteraksi dengan website: apakah 
+mudah bernavigasi? Apakah desain sesuai dengan jenis website? Lalu kualitas informasi merupakan kualitas dari 
+isi website, yaitu kesesuaian informasi untuk penggunanya s eperti format, tingkat akurasi dan juga relevansi. 
+Terakhir ada kualitas layanan interaksi yang merupakan hal yang dialami oleh pengguna website, diwujudkan 
+dalam bentuk kepercayaan dan empati misalnya mengenai transaksi dan keamanan informasi, pengiriman produk, 
+personalisasi dan komunikasi dengan pemilik atau pengelola website [8][9]. 
+ 
+Use Case Diagram 
+Use Case Diagram adalah suatu diagram yang dikelompokkan ke dalam aspek perilaku. Deskripsi perilaku 
+dari setiap Use Case  dijelaskan secara detail, terperinci dan terpisah dengan menggunakan arsip yang secara 
+tekstual, yaitu Use Case  Scenario atau Use Case  Specification atau Use Case  Description. Namun demikian, 
+permodelan Use Case yang utama adalah penjelasan secara tekstual dalam bentuk Use Case Scenario, sedangkan 
+Use Case Diagram adalah sebagai pelengkap. Setiap Use Case menyatakan perilaku yang harus dijalankan oleh 
+sistem dalam kaitannya dengan satu atau lebih aktor. Oleh karena itu, Use Case merupakan abstraksi dari adanya 
+hubungan yang terjadi antara aktor dengan sistem sehingga tujuan dari aktor bisa tercapai. Berdasarkan perspektif 
+ini maka sebuah Use Case semestinya dipandang dari sisi aktor dan bukan dari sisi sistem, sehingga penama an 
+Use Case juga didasarkan atas tujuan yang ingin dicapai oleh aktor [10]. 
+ 
+Entity Relationship Diagram 
+Entity Relationship Diagram  adalah sebuah pendekatan top-bottom dalam merancang sebuah basis data, 
+dimulai dengan mengidentifikasikan data yang penting dan digambarkan dalam suatu model. Entity Relationship 
+Diagram merupakan pemodelan yang berguna untuk digunakan agar mendapatkan pemahaman yang tepat 
+terhadap data dan penggunaannya di dalam suatu perusahaan [10]. 
+ 
+Framework Laravel 
+Laravel framework merupakan salah satu framework dari bahasa pemograman PHP. Framework sendiri dapat 
+diartikan sebagai perangkat lunak yang mulai menjadi pilihan untuk membuat suatu aplikasi. Framework memiliki 
+fungsi utama untuk memudahkan proses pembuatan aplikasi berbasis web. Selain itu juga framework membuat 
+aplikasi yang dibuat menjadi efektif dan efisien karena dapat menyelesaikan proses –proses yang lebih kompleks 
+[11]. 
+Laravel dibuat oleh Taylor Otwell sejak tahun 2012. Framework ini menerapkan konsep “ clean and classy”, 
+dengan kode yang lebih singkat, mudah dimengerti, dan ekspresif. Artinya hanya dengan membaca sekilas kode 
+yang ditulis maka pembaca sudah bisa menduga apa maksudnya  tanpa perlu membaca dokumentasi. Laravel 
+dibangun dengan basis MVC ( Model-View-Controller). Laravel dilengkapi command line tool  yang bernama 
+“Artisan” yang bisa digunakan untuk packaging bundle dan instalasi bundle. Menurut survei yang lakukan oleh 
+Sitepoint.com pada Desember 2013 dalam popularitas framework PHP, Laravel menduduki urutan teratas. 
+Sehingga menjadikan Laravel sebagai framework PHP terbaik untuk tahun 2014. Saat ini Lavarel merupakan 
+framework dengan versi PHP yang up-to-date, karena Laravel mengisyaratkan PHP versi 5.3 keatas [12] [13]. 
+ 
+ 
+ 
+
+PAGE 4
+4 Jurnal TIMES Volume XI No 1, Juni 2022 hal 1 – 8 
+ 
+Java 
+Java merupakan bahasa pemrograman yang disusun oleh James Gosling yang dibantu oleh rekan -rekannya di 
+suatu perusahaan perangkat lunak yang bernama Sun Microsystems, pada tahun 1991. Bahasa pemrograman ini 
+mula-mula diinisialisasi dengan nama “Oak”, namun pada tahun 1995 diganti namanya menjadi “Java”. Java 
+berdiri di atas sebuah mesin penterjemah (interpreter) yang diberi nama Java Virtual Machine (JVM). JVM inilah 
+yang akan membaca kode bit (bytecode) dalam file .class dari suatu program sebagai represent asi langsung 
+program yang berisi bahasa mesin. Oleh karena itu bahasa Java disebut sebagai bahasa pemrograman yang 
+portable karena dapat dijalankan pada berbagai sistem operasi, asalkan pada sistem operasi tersebut terdapat JVM. 
+Alasan utama pembentukan bahasa Java adalah untuk membuat aplikasi-aplikasi yang dapat diletakkan di berbagai 
+macam perangkat elektronik, sehingga Java harus bersifat tidak bergantung (platform independent). Itulah yang 
+menyebabkan dalam dunia pemrograman Java dikenal adanya istilah  “write once, run everywhere”, yang berarti 
+kode program hanya ditulis sekali, namun dapat dijalankan di bawah kumpulan pustaka (platform) manapun, tanpa 
+harus melakukan perubahan kode program [14]. 
+ 
+Android Studio 
+Android Studio adalah Integrated Development Environment (IDE) untuk mengembangkan aplikasi Android. 
+Android Studio berbasis pada “IntelliJ IDEA” Java -IDE dari Jetbrains dan diperkenalkan oleh Google. Android 
+Studio ini diumumkan pada Mei 2013. Android Stu dio direncanakan akan menggantikan Eclipse sebagai IDE 
+resmi untuk mengembangkan aplikasi pada platform Android [15]. 
+ 
+Sublime Text 
+Sublime Text salah satu kode editor yang biasa digunakan oleh para programmer untuk membuat suatu 
+program. Sublime Text merupakan perangkat lunak text editor yang digunakan untuk membuat atau meng -edit 
+suatu aplikasi. Sublime Text mempunyai fitur plugin tambahan yang memudahkan programmer. Sublime Text 3 
+adalah editor berbasis python, sebuah teks editor yang elegan, kaya akan fitur, cross platform, mudah dan simple 
+yang cukup terkenal di kalangan developer (pengembang), penulis dan desainer [16]. 
+ 
+3. Metode Penelitian 
+Tempat penelitian dilakukan di beberapa panti asuhan di sekitar lokasi penulis. Penelitian dilakukan dari 
+November 2020 hingga April 2021. Berikut ini adalah rincian dari metode penelitiannya:  
+ 
+Metode Pengumpulan Data 
+Metode pengumpulan data yang digunakan pada penelitian ini antara lain sebagai berikut: 
+a. Metode survei yaitu dengan mengamati langsung objek penelitian yakni beberapa panti asuhan untuk 
+mencari data-data yang mendukung permasalahan penelitian. 
+b. Metode wawancara yaitu mewawancarai beberapa pemilik panti asuhan dan donatur terkait proses donasi 
+yang sedang digunakan saat ini untuk mencari solusi yang tepat dalam menyelesaikan permasalahan pada 
+proses berjalan. 
+c. Metode dokumentasi/pustaka yaitu pengumpulan data dari buku -buku, panduan kerja dan laporan yang 
+mendukung penelitian. 
+ 
+Analisis Sistem 
+Analisis sistem pada penelitian ini terbagi menjadi 3 tahapan proses yaitu: 
+a. Analisis sistem berjalan yaitu melakukan analisis sistem berjalan terkait cara konvensional yang 
+digunakan dalam melakukan proses donasi. 
+b. Analisis metode yang digunakan yaitu metode Webqual 4.0. 
+c. Analisis sistem usulan yaitu menggambarkan sistem usulan yang akan dibangun beserta fitur -fitur yang 
+tersedia yang dimodelkan dengan menggunakan tools pemodelan sistem Use Case Diagram. 
+ 
+Perancangan dan Pembangunan Sistem 
+Perancangan sistem pada penelitian ini terbagi menjadi 2 tahapan yaitu: 
+a. Perancangan prototype tampilan dengan menggunakan software Balsamiq Mockup 3. 
+b. Perancangan basis data yang menunjukkan relasi antar tabel dari  setiap basis data yang dimodelkan 
+dengan menggunakan tools Entity Relationship Diagram (ERD). 
+Pembangunan sistem pada penelitian ini menggunakan beberapa bahasa pemrograman yaitu:  
+1. Framework Laravel sebagai bahasa pemrograman Back End. 
+2. Java sebagai bahasa pemogramana Front End. 
+ 
+ 
+
+PAGE 5
+5 Jurnal TIMES Volume XI No 1, Juni 2022 hal 1 – 8 
+ 
+4. Hasil Penelitian 
+Berikut ini keseluruhan hasil tampilan sistem informasi yang telah selesai dibangun dimulai dari user 
+pengunjung. 
+a. Tampilan Slider Pengenalan Aplikasi 
+ 
+ 
+Gambar 1. Tampilan Slider Pengenalan Aplikasi 
+Tampilan slider pengenalan aplikasi merupakan tampilan yang hanya disajikan pertama kali ketika awal 
+aplikasi diinstalasi ke smartphone. 
+b. Tampilan Login 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Gambar 2. Tampilan Login 
+ 
+Tampilan login merupakan tampilan yang berisikan form login serta link untuk menuju ke tampilan 
+pendaftaran akun donatur dan panti asuhan. Pengguna harus mengisikan informasi format email yang benar 
+dan juga kata sandi minimal harus 6 huruf agar sistem dapat memproses form yang diisikan. 
+
+
+PAGE 6
+6 Jurnal TIMES Volume XI No 1, Juni 2022 hal 1 – 8 
+ 
+ 
+c. Tampilan Register Akun Donatur 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Gambar 3. Tampilan Register Akun Donatur 
+ 
+Tampilan register akun donatur merupakan tampilan untuk melakukan pendaftaran akun donatur agar dapat 
+memberikan donasi. Pada tampilan ini terdapat serangkaian form yang harus diisikan sebagai syarat awal 
+pendaftaran dan untuk menjamin keaslian akun  pengguna, maka pengguna wajib melakukan upload foto KTP 
+sebagai bukti pendaftaran. 
+ 
+d. Tampilan Pencarian Panti Asuhan 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Gambar 4. Tampilan Pencarian Panti Asuhan 
+ 
+Tampilan pencarian panti asuhan merupakan tampilan untuk melakukan pencarian panti asuhan berbasis 
+SIG. Pada tampilan ini akan ditampilkan pemetaan panti asuhan yang terdaftar pada sistem dalam bentuk 
+
+
+PAGE 7
+7 Jurnal TIMES Volume XI No 1, Juni 2022 hal 1 – 8 
+ 
+geografis peta digital sehingga memudahkan pengguna dalam melihat panti asuhan yang ada. Pengguna juga 
+dapat melakukan pencarian melalui form yang tersedia. 
+e. Tampilan Berikan Donasi 
+ 
+ 
+ 
+Gambar 5. Tampilan Berikan Donasi 
+ 
+Tampilan berikan donasi merupakan tampilan yang berisikan form untuk melakukan pemberian donasi kepada 
+anak panti asuhan. Pada tampilan ini, user donatur harus mengisikan informasi jumlah donasi yang akan 
+diberikan dengan syarat saldo digital sudah terisi, pilihan jalankan auto debet agar setiap bulan saldo digital 
+akan di -debet untuk donasi kepada anak tersebut, keterangan penggunaan donasi, dan nama donatur. Jika 
+semua form terisi, maka tekan tombol submit untuk melakukan donasi. 
+ 
+f. Tampilan Kelola Data Anak 
+ 
+ 
+Gambar 6. Tampilan Kelola Data Anak 
+ 
+ 
+Tampilan untuk melakukan pengelolaan data anak seperti melihat, menambah, mengubah, dan menghapus 
+data anak. Jika ingin menambah data maka tekan tombol tambah data anak, jika ingin melihat detail informasi 
+
+
+PAGE 8
+8 Jurnal TIMES Volume XI No 1, Juni 2022 hal 1 – 8 
+ 
+anak maka tekan tombol ikon mata, jika ingin melakukan perubahan informasi anak maka tekan tombol ikon 
+pensil, dan jika ingin menghapus informasi anak maka tekan tombol ikon tong sampah.  
+ 
+5. Kesimpulan 
+Setelah penelitian selesai dilakukan, maka perlu dipaparkan kesimpulan dari hasil penelitian  yang telah 
+dilakukan yaitu: 
+a. Sistem informasi geografis dan donasi online panti asuhan yang dibangun memiliki fitur-fitur untuk melakukan 
+donasi secara cepat dan mudah serta seluruh informasi donasi dan penyaluran donasi tercatat pada sistem yang 
+dibangun sehingga dapat mencegah terjadinya penyalahgunaan donasi. 
+b. Seluruh panti asuhan yang terdaftar pada sistem akan divisualisasikan melalui peta digital Google Maps 
+sehingga dapat memberikan informasi panti asuhan secara lengkap dan akurat.  
+c. Penerapan metode WebQual 4.0 dalam pengukuran kualitas sistem informasi geografis dan donasi online panti 
+asuhan menunjukkan bahwa responden setuju bahwa sistem yang dibangun memenuhi Kualitas Kegunaan 
+(Usability Quality), Kualitas Informasi (Informasi Quality), Kualitas Interaksi Layanan (Service Interaction 
+Quality), dan Kualitas Visual (Visual Quality) yang baik. 
+ 
+6.   Daftar Pustaka 
+[1] M. S. Pinontoan, A. Rachmat and R. Delima, "Penerapan Metode Waterfall Dan Webqual 4.0 Pada 
+Pengembangan Website Dealer Asa Mandiri Motor," Jurnal Teknik Informatika dan Sistem Informasi, vol. 
+V, no. 2, pp. 201-211, 2019. 
+[2]  S. H. Sumantri, M. Supriyatno, S. Sutisna and I. D. K. K. Widana, Sistem Informasi Geografis (Geographic 
+Information System) Kerentanan Bencana, Jakarta Pusat: CV. Makmur Cahaya Ilmu, 2019.  
+[3]  C. A. Suryani and Listyaningsih, "Strategi Pembentukan KarakterTanggung Jawab Pada Anak Asuh di Panti 
+Asuhan Al Amin Desa Munggusoyi Kecamatan Benjeng Kabupaten Gresik," Jurnal Kajian Moral dan 
+Kewarganegaraan., vol. VII, no. 2, pp. 753 - 767, 2019.  
+[4]  Y. Supardi and I. Setiawan, Mudah dan Cepat Membuat Program Skripsi dan Tugas Akhir dengan Android, 
+Jakarta: Elex Media Komputindo, 2018.  
+[5]  Y. Yudhanto and A. Wijayanto, Yuk Berbisnis dengan Laravel dan Android, Jakarta: Elex Media 
+Komputindo, 2019.  
+[6]  D. R. Utari and A. Wibowo, "Pemanfaatan Google Maps dalam Pembuatan Aplikasi Pemantau Kondisi Jalan 
+dan Lalu lintas," in Seminar Nasional Teknologi Informasi & Komunikasi (SNASTIKOM), 2017.  
+[7]  M. A. Suryawan and M. Mukmin, "Penerapan Google Maps API pada Aplikasi Android untuk Mengetahui 
+Lokasi Situs Sejarah Benteng Keraton Buton," in Seminar Nasional APTIKOM (SEMNASTIK), 2019.  
+[8]  A. Manik, I. Salamah and E. Susanti, "Pengaruh Metode WebQual 4.0 Terhadap Kepuasan Pengguna 
+Website Politeknik Negeri Sriwijaya," Jurnal Elektro Telekomunikasi Terapan, pp. 477-484, 2017.  
+[9]  A. D. Prayogo and M. Sutisna, "Pengaruh Kualitas Website (Webqual 4.0) Terhadap Penggunaan Kembali," 
+Jurnal Riset Bisnis & Investasi, vol. III, no. 2, pp. 39-50, 2017.  
+[10]  R. A. Sukamto and M. Shalahuddin, Rekayasa Perangkat Lunak, Bandung: Informatika , 2015.  
+[11]  J. Enterprise, Mengenal PHP Menggunakan Framework Laravel, Jakarta: Elex Media Komputindo, 2016.  
+[12]  Y. Yudhanto and H. A. Prasetyo, Panduan Mudah Belajar Framework Laravel, Jakarta: Elex Media 
+Komputindo, 2018.  
+[13]  Y. Supardi and Sulaeman, Semua Bisa Menjadi Programmer Laravel Basic, Jakarta: Elex Media 
+Komputindo, 2019.  
+[14]  Harwikarya, D. Ramayanti and N. Ani, Dasar Pemrograman 2 : Implementasi Menggunakan Java, C++, 
+Matlab & Pascal, Yogyakarta: Andi, 2017.  
+[15]  S. Hansun, M. B. Kristanda and M. W. Saputra, Pemrograman Aplikasi Android dengan Android Studio, 
+Photoshop dan Audition, Yogyakarta: Andi, 2016.  
+[16]  M. Faridi, Fitur Dahsyat Sublime Text 3, Surabaya: LUG, 2015.  
+ 

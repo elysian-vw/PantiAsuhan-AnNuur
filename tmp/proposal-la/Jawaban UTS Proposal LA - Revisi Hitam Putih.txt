@@ -1,0 +1,140 @@
+JAWABAN UJIAN TENGAH SEMESTER
+PROPOSAL LAPORAN AKHIR
+Semester Ganjil Tahun Akademik 2026/2027
+Nama    : Noor Achmad Rozaq Ramdhani
+NIM       : 243107030100
+Kelas     : 3E
+Prodi     : Manajemen Informatika
+Judul penelitian
+Sistem Informasi Profil dan Pengelolaan Donasi serta Bantuan Terintegrasi Payment Gateway dan WhatsApp Gateway pada Panti Asuhan NU An-Nuur 2 Kota Kediri
+1 Masalah yang Melatarbelakangi Penelitian
+Berdasarkan identifikasi awal dalam bahan proposal, Panti Asuhan NU An-Nuur 2 Kota Kediri membutuhkan sistem informasi untuk mendukung publikasi profil dan kegiatan panti sekaligus pengelolaan donasi serta bantuan. Informasi profil, kegiatan, dan kebutuhan panti perlu disajikan melalui media yang mudah diakses agar masyarakat dan calon donatur memperoleh informasi yang memadai.
+Dalam kegiatan administrasi, pencatatan dan pelaporan donasi membutuhkan proses rekapitulasi oleh pengurus. Pengurus perlu mengumpulkan data donatur, jumlah donasi, jenis bantuan, serta riwayat penerimaan dan penyalurannya untuk menghasilkan laporan. Kondisi tersebut berpotensi menimbulkan keterlambatan pelaporan dan kesalahan pencatatan.
+Konfirmasi donasi masih membutuhkan komunikasi manual antara donatur dan pengurus. Pembayaran digital belum terhubung langsung dengan sistem pengelolaan, sehingga status pembayaran perlu diperiksa secara terpisah. Penyampaian pemberitahuan kepada donatur juga belum berjalan secara otomatis.
+Penelitian ini mengusulkan sistem informasi berbasis web yang mengintegrasikan profil panti, publikasi kegiatan, data donatur, donasi uang, bantuan barang, dan laporan. Payment Gateway digunakan untuk pembayaran dan pembaruan status transaksi. WhatsApp Gateway digunakan untuk menyampaikan pemberitahuan kepada donatur. Kondisi awal dan kebutuhan tersebut akan dikonfirmasi melalui observasi dan wawancara dengan pengurus panti.
+
+2 Deskripsi Kegiatan Penelitian
+Penelitian direncanakan melalui pengumpulan data, analisis kebutuhan, perancangan, implementasi, pengujian, dan evaluasi. Data diperoleh melalui observasi, wawancara dengan pengurus, serta studi dokumentasi. Metode Waterfall diusulkan apabila kebutuhan sistem telah disepakati sejak awal.
+2.1 Analisis Penyelesaian Masalah
+2.2 Analisis Data Penelitian
+Analisis memetakan alur kerja, mengidentifikasi data yang berulang atau belum tercatat, dan menentukan hubungan antarentitas. Transaksi dikelompokkan berdasarkan periode, jenis, dan status. Donasi uang yang belum berhasil dibayar tidak dihitung sebagai penerimaan.
+
+2.3 Analisis Kebutuhan Sistem
+Kebutuhan fungsional
+
+Kebutuhan nonfungsional
+
+3 Rancangan Use Case Diagram
+Rancangan menggunakan empat aktor pengguna dan dua layanan eksternal. Pembagian peran serta penggunaan akun donatur akan dikonfirmasi kepada pihak panti.
+
+Gambar 1 Rancangan use case sistem informasi panti
+Login merupakan prasyarat untuk fitur yang dilindungi. Pembaruan pembayaran dilakukan setelah notifikasi Payment Gateway diverifikasi. Konfirmasi penerimaan barang dilakukan oleh pengurus. Kedua proses tersebut memicu pengiriman notifikasi WhatsApp sesuai status transaksi.
+
+3.1 Relasi Include dan Extend
+Diagram berikut merinci relasi antar-use case pada sistem yang sama. Panah putus-putus berujung terbuka menunjukkan arah ketergantungan. Aktor tidak diulang agar relasi mudah dibaca.
+
+Gambar 2 Perincian relasi include dan extend
+«include»: panah bergerak dari use case utama menuju proses yang wajib disertakan. Donasi uang menyertakan pemrosesan pembayaran. Pembaruan status pembayaran menyertakan verifikasi notifikasi Payment Gateway sebelum perubahan data disahkan. Untuk pembaruan status yang sah dan konfirmasi penerimaan barang, sistem menjalankan pengiriman atau antrean notifikasi WhatsApp.
+«extend»: panah bergerak dari perilaku tambahan menuju use case dasar. Mencetak laporan memperluas Melihat laporan pada extension point “laporan telah ditampilkan”, dengan kondisi pengguna memilih tombol Cetak. Melihat laporan tetap lengkap tanpa mencetak.
+Login menjadi prasyarat akses fitur yang dilindungi, bukan include pada setiap fitur. Keberhasilan pengiriman WhatsApp dicatat terpisah; kegagalan pengiriman tidak membatalkan transaksi yang telah sah.
+
+4 Penelitian yang Relevan
+Sepuluh penelitian berikut menjadi acuan untuk layanan informasi panti, pengelolaan donasi, pembayaran digital, dan notifikasi. Nomor sumber merujuk pada daftar referensi di bagian akhir.
+4.1 Relevansi Tiga Penelitian Utama
+Vincentius, Hiryanto, dan Wasino (2026) relevan karena mencakup informasi panti, donasi uang melalui Payment Gateway, dan donasi barang. Penelitian ini menjadi acuan perancangan layanan informasi serta penerimaan donasi. Sistem yang diusulkan juga mencakup WhatsApp Gateway untuk pemberitahuan kepada donatur.
+Anwar, Widjianto, dan Jasri (2023) relevan karena menerapkan notifikasi WhatsApp dalam pengelolaan dana sosial. Penelitian ini menjadi acuan penyampaian pemberitahuan yang disesuaikan dengan status pembayaran dan penerimaan bantuan pada panti.
+Winarti, Adhara, dan Budiman (2025) relevan dalam pengelolaan donatur, pencatatan donasi, publikasi program, dan laporan otomatis. Pengujian Black Box dan SUS dapat menjadi acuan untuk mengevaluasi fungsi dan kemudahan penggunaan sistem.
+Penelitian yang diusulkan berfokus pada penerapan profil panti, pengelolaan donasi uang dan bantuan barang, pencatatan penyaluran, serta integrasi pembayaran dan notifikasi dalam satu sistem sesuai kebutuhan Panti Asuhan NU An-Nuur 2 Kota Kediri.
+
+5 Jadwal Penelitian
+Penelitian direncanakan selama enam bulan. Bulan pertama dimulai ketika pelaksanaan penelitian disetujui. Penyusunan laporan dilakukan sepanjang proses agar setiap tahapan terdokumentasi.
+Keterangan: X menunjukkan bulan pelaksanaan kegiatan.
+Target Capaian per Tahap
+Bulan 1–2: dokumen identifikasi masalah, data awal, kebutuhan pengguna, serta batasan sistem.
+Bulan 2–3: rancangan UML, struktur basis data, antarmuka, serta implementasi awal.
+Bulan 4–5: fungsi utama, integrasi pembayaran dan notifikasi, serta hasil pengujian.
+Bulan 6: perbaikan akhir, dokumentasi penggunaan, laporan penelitian, dan demonstrasi sistem.
+
+Daftar Referensi
+[1] Mauliana, P., Firmansyah, R., dan Sutardi, A. (2019). Perancangan Sistem Informasi Panti Asuhan e-Panti Berbasis Web. JUST IT, 10(1), 62–71.
+https://doi.org/10.24853/justit.10.1.62-71
+[2] Mulandari, S., Fitriani, Y., Utami, S., dan Junadi, B. (2021). Sistem Informasi Donasi Online Berbasis Website. JISICOM, 5(2), 232–251.
+https://doi.org/10.52362/jisicom.v5i2.630
+[3] Mardiyono, A., Suhandana, A. A., dan Vidyasari, R. (2021). Integrasi QRIS pada Aplikasi Donasi Elektronik Berbasis Web di Masa Pandemi Covid-19. Jurnal Teknologi Informatika dan Komputer, 7(1), 146–155.
+https://doi.org/10.37012/jtik.v7i1.526
+[4] Chandra, Hendrik, J., dan Leonardo. (2022). Perancangan Sistem Informasi Geografis dan Donasi Online Panti Asuhan di Kota Medan Menggunakan Metode WebQual 4.0. Jurnal TIMES, 11(1), 1–8.
+https://doi.org/10.51351/jtm.11.1.2022650
+[5] Purnadi, M., dan Apandi, A. (2022). Sistem Infromasi Manajemen Keuangan Pengelolaan Donasi pada Yayasan Islam Media Kasih Banda Aceh. Journal of Informatics and Computer Science, 8(2).
+https://doi.org/10.33143/jics.v8i2.5125
+[6] Raphael, L., dan Ziveria, M. (2023). Sistem Informasi Pengelolaan Panti Asuhan Yayasan Komunitas Anak Maria Immaculatta. KALBISCIENTIA, 10(2), 112–130.
+https://doi.org/10.53008/kalbiscientia.v10i2.2138
+[7] Anwar, A. K., Widjianto, dan Jasri, M. (2023). Sistem Informasi Manajemen Koin NU dengan Fitur WhatsApp Notification pada LAZISNU MWC Krejengan Berbasis Web. Jurnal Ilmiah Sistem Informasi, 3(2), 257–266.
+https://doi.org/10.46306/sm.v3i2.48
+[8] Widyansyah, A. P., Nugroho, B. A., dan Yusuf, A. (2024). Implementasi Fungsi Payment Gateway Midtrans pada Website Aplikasi Donasi QAILAZ. JUMISTIK, 3(2), 299–305.
+https://doi.org/10.70247/jumistik.v3i2.107
+[9] Winarti, Adhara, A. A., dan Budiman. (2025). Perancangan Sistem Informasi Yayasan Kurnia Asih Jombang untuk Transparansi Pengelolaan Donasi dengan Metode Waterfall. Indonesian Journal of Applied Informatics, 10(1), 228–240.
+https://jurnal.uns.ac.id/ijai/article/view/108177
+[10] Vincentius, Hiryanto, L., dan Wasino. (2026). Rancangan Sistem Website Delarosa untuk Layanan Informasi dan Donasi. Jurnal Ilmu Komputer dan Sistem Informasi, 14(1).
+https://doi.org/10.24912/hvrdjs11
+Permasalahan | Penyelesaian yang diusulkan
+Informasi panti perlu mudah diakses. | Menyediakan halaman profil, kegiatan, kontak, dan kebutuhan panti.
+Data donatur dan bantuan belum terintegrasi. | Menyediakan basis data terpusat dengan fasilitas pengelolaan dan pencarian data.
+Rekapitulasi penerimaan dan penyaluran membutuhkan waktu. | Menyediakan laporan berdasarkan periode dan jenis transaksi, dengan fasilitas cetak atau ekspor.
+Status pembayaran diperiksa secara terpisah. | Mengintegrasikan Payment Gateway dan memverifikasi notifikasi pembayaran sebelum memperbarui transaksi.
+Konfirmasi kepada donatur dilakukan secara manual. | Mengirim pemberitahuan pembayaran dan penerimaan bantuan melalui WhatsApp Gateway.
+Riwayat bantuan barang perlu ditelusuri. | Mencatat jenis, jumlah, satuan, kondisi, sumber, penerimaan, serta penyaluran barang.
+Data | Atribut utama dan kegunaan
+Profil dan kegiatan | Nama, alamat, sejarah, visi dan misi, kontak, judul kegiatan, tanggal, deskripsi, dan dokumentasi untuk publikasi.
+Donatur | Identitas dan kontak yang diperlukan untuk pencatatan serta pemberitahuan donasi.
+Donasi uang | Nomor transaksi, donatur, nominal, waktu, metode pembayaran, dan status untuk pemantauan penerimaan.
+Bantuan barang | Donatur, nama barang, jumlah, satuan, kondisi, tanggal, dan status penerimaan.
+Penyaluran bantuan | Tanggal, jenis, jumlah, tujuan atau penerima, dan keterangan penyaluran.
+Notifikasi dan pengguna | Transaksi terkait, penerima pesan, waktu, status pengiriman, akun, dan peran pengguna.
+Kode | Kebutuhan | Deskripsi
+F01 | Informasi publik | Pengunjung dapat melihat profil, kegiatan, kontak, dan kebutuhan panti.
+F02 | Donasi uang | Donatur dapat mengisi data donasi dan membayar melalui Payment Gateway.
+F03 | Status pembayaran | Sistem menerima dan memverifikasi notifikasi pembayaran sebelum memperbarui status transaksi.
+F04 | Bantuan barang | Donatur dapat mengajukan bantuan barang dan melihat status pengajuannya.
+F05 | Penerimaan barang | Pengurus mengonfirmasi penerimaan setelah barang diterima secara fisik.
+F06 | Pengelolaan data | Pengurus mengelola profil, kegiatan, kebutuhan panti, dan data donatur.
+F07 | Penyaluran | Pengurus mencatat penyaluran donasi dan bantuan beserta tujuannya.
+F08 | Notifikasi | Sistem mengirim pemberitahuan status pembayaran dan penerimaan bantuan melalui WhatsApp.
+F09 | Riwayat dan laporan | Donatur melihat riwayat miliknya; pengurus dan pimpinan mengakses laporan sesuai hak akses.
+F10 | Autentikasi | Sistem menyediakan login dan pembatasan akses berdasarkan peran.
+Aspek | Kebutuhan
+Kemudahan penggunaan | Antarmuka mudah dipahami dan responsif pada komputer maupun telepon seluler.
+Keamanan | Kata sandi disimpan sebagai hash; hak akses dibatasi dan data pribadi donatur dilindungi.
+Konsistensi transaksi | Notifikasi pembayaran berulang tidak menghasilkan pencatatan penerimaan ganda.
+Keandalan | Kegagalan WhatsApp tercatat dan tidak mengubah status pembayaran yang telah sah.
+Pencadangan | Basis data dicadangkan secara berkala dan tersedia prosedur pemulihan.
+Pemeliharaan | Kode, struktur basis data, serta konfigurasi integrasi didokumentasikan.
+Peneliti (tahun) | Objek dan Metode | Hasil
+Mauliana, Firmansyah, dan Sutardi (2019) [1] | Sistem informasi panti asuhan e-Panti. Waterfall, UML, PHP, MySQL; pengujian Black Box dan USE Questionnaire. | Website menyajikan profil, data anak asuh, kegiatan, dan informasi donasi. Penilaian responden mencapai 85,50%.
+Mulandari, Fitriani, Utami, dan Junadi (2021) [2] | Sistem donasi online berbasis website. Pengumpulan data melalui observasi dan studi pustaka; pengembangan Waterfall. | Menghasilkan website untuk memfasilitasi kegiatan donasi dan penggalangan dana masyarakat.
+Mardiyono, Suhandana, dan Vidyasari (2021) [3] | Donasi elektronik pada masjid binaan DMI Kota Depok. Metode SDLC dengan integrasi QRIS. | Menghasilkan aplikasi donasi web dengan QRIS yang dapat dipindai langsung dari halaman website.
+Chandra, Hendrik, dan Leonardo (2022) [4] | Sistem informasi geografis dan donasi online panti asuhan di Kota Medan. Evaluasi kualitas menggunakan WebQual 4.0. | Menghasilkan sistem informasi geografis dan donasi online yang dinilai responden memenuhi atribut kualitas WebQual 4.0 dengan baik.
+Purnadi dan Apandi (2022) [5] | Manajemen donasi Yayasan Islam Media Kasih Banda Aceh. Perancangan sistem informasi berbasis website. | Rancangan mencakup informasi yayasan, layanan donasi, pencatatan pemasukan dan pengeluaran, serta pelaporan.
+Raphael dan Ziveria (2023) [6] | Pengelolaan Panti Asuhan Yayasan Komunitas Anak Maria Immaculatta. Waterfall, UML, Java, MySQL, dan Black Box. | Menghasilkan aplikasi desktop untuk mengelola data anak asuh, pengurus panti, dan donatur.
+Anwar, Widjianto, dan Jasri (2023) [7] | Manajemen Koin NU pada LAZISNU MWC Krejengan. Metode RAD dengan pengujian Black Box. | Sistem berbasis web mendukung pengelolaan Koin NU dan notifikasi WhatsApp. Penelitian melaporkan penilaian rata-rata 84,8%.
+Widyansyah, Nugroho, dan Yusuf (2024) [8] | Integrasi Midtrans pada aplikasi donasi QAILAZ. Analisis data kualitatif dan implementasi Payment Gateway. | Menyediakan pilihan pembayaran digital. Peneliti melaporkan kemudahan donasi dan peningkatan kepercayaan terhadap keamanan transaksi.
+Winarti, Adhara, dan Budiman (2025) [9] | Pengelolaan donasi Yayasan Kurnia Asih Jombang. Waterfall; pengujian Black Box dan SUS. | Sistem menyediakan pengelolaan donatur, donasi, publikasi program, dan laporan otomatis. Skor rata-rata SUS sebesar 80,5.
+Vincentius, Hiryanto, dan Wasino (2026) [10] | Website Delarosa pada Panti Asuhan Amin. Waterfall, Django, MySQL, Midtrans; pengujian Black Box. | Menghasilkan layanan informasi, donasi uang melalui Midtrans, dan pengajuan donasi barang. Pengujian menunjukkan kesesuaian dengan kebutuhan panti.
+Kegiatan | Bulan
+1 | Bulan
+2 | Bulan
+3 | Bulan
+4 | Bulan
+5 | Bulan
+6
+Identifikasi masalah dan studi pustaka | X |  |  |  |  | 
+Observasi, wawancara, dan dokumentasi | X | X |  |  |  | 
+Analisis data dan kebutuhan sistem |  | X |  |  |  | 
+Perancangan UML, basis data, dan antarmuka |  | X | X |  |  | 
+Implementasi profil, kegiatan, dan donatur |  |  | X |  |  | 
+Implementasi donasi, bantuan, dan penyaluran |  |  | X | X |  | 
+Integrasi Payment Gateway dan WhatsApp Gateway |  |  |  | X | X | 
+Implementasi laporan |  |  |  | X | X | 
+Pengujian fungsi, integrasi, dan penerimaan pengguna |  |  |  |  | X | 
+Perbaikan dan evaluasi sistem |  |  |  |  | X | X
+Penyusunan laporan akhir |  | X | X | X | X | X
+Finalisasi laporan dan demonstrasi sistem |  |  |  |  |  | X

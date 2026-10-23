@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\JenisKunjungan;
 use App\Models\KategoriBantuan;
 use App\Models\KategoriDonasi;
 use App\Models\Setting;
@@ -25,14 +24,14 @@ class DatabaseSeeder extends Seeder
         foreach (['Bahan Pangan', 'Perlengkapan Pendidikan', 'Pakaian', 'Kebutuhan Lainnya'] as $name) {
             KategoriBantuan::firstOrCreate(['nama' => $name]);
         }
-        foreach (['Silaturahmi', 'Penyerahan Bantuan', 'Kegiatan Bersama'] as $name) {
-            JenisKunjungan::firstOrCreate(['nama' => $name]);
+        foreach (['Konsumsi & Pangan Santri', 'Pendidikan & Sekolah', 'Kesehatan Santri', 'Operasional & Utilitas'] as $name) {
+            \App\Models\KategoriPengeluaran::firstOrCreate(['nama' => $name]);
         }
         Setting::firstOrCreate(['key' => 'nama_panti'], ['value' => 'Panti Asuhan NU An-Nuur 2']);
         User::firstOrCreate(
             ['email' => 'pengurus@annuur2.id'],
-            ['name' => 'Pengurus An-Nuur 2', 'password' => 'admin123'],
+            ['name' => 'Pengurus An-Nuur 2', 'password' => 'admin123', 'role' => 'pengurus'],
         );
-        User::firstOrCreate(['email' => 'admin@annuur2.id'], ['name' => 'Administrator', 'password' => 'admin123']);
+        User::firstOrCreate(['email' => 'admin@annuur2.id'], ['name' => 'Administrator', 'password' => 'admin123', 'role' => 'pengurus']);
     }
 }

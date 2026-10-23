@@ -50,7 +50,7 @@
                             request()->is('admin/data/pengguna*') ||
                             request()->is('admin/data/kategori-donasi*') ||
                             request()->is('admin/data/kategori-bantuan*') ||
-                            request()->is('admin/data/jenis-kunjungan*');
+                            request()->is('admin/data/kategori-pengeluaran*');
                     @endphp
                     <div class="sidebar-dropdown" x-data="{ open: {{ $isMasterActive ? 'true' : 'false' }} }">
                         <button type="button"
@@ -70,32 +70,39 @@
                             </svg>
                         </button>
                         <div class="sidebar-submenu" x-show="open" x-cloak>
-                            @foreach (['pengguna', 'kategori-donasi', 'kategori-bantuan', 'jenis-kunjungan'] as $key)
+                            @foreach (['pengguna', 'kategori-donasi', 'kategori-bantuan', 'kategori-pengeluaran'] as $key)
                                 <a href="{{ route('admin.resource.index', $key) }}"
                                     @if (request()->is('admin/data/' . $key . '*')) aria-current="page" @endif>{{ \App\Support\AdminResources::get($key)[0] }}</a>
                             @endforeach
                         </div>
                     </div>
 
-                    {{-- Donasi & Bantuan Dropdown --}}
+                    {{-- Donasi & Keuangan Dropdown --}}
                     @php
                         $isDonasiActive =
                             request()->is('admin/data/donatur*') ||
                             request()->is('admin/transaksi/donasi*') ||
+                            request()->is('admin/donasi-manual*') ||
+                            request()->is('admin/pengeluaran*') ||
+                            request()->is('admin/arus-kas*') ||
                             request()->is('admin/transaksi/bantuan*') ||
                             request()->is('admin/data/kebutuhan*');
+                        $totalDonasiNotif = ($badgePendingDonors ?? 0) + ($badgeTodayDonations ?? 0) + ($badgePendingAssistance ?? 0);
                     @endphp
                     <div class="sidebar-dropdown" x-data="{ open: {{ $isDonasiActive ? 'true' : 'false' }} }">
                         <button type="button"
                             class="sidebar-dropdown-btn @if ($isDonasiActive) is-active @endif"
                             @click="open = !open" :aria-expanded="open">
-                            <span class="sidebar-btn-content">
+                            <span class="sidebar-btn-content flex-1">
                                 <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
                                         d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span>Donasi & Bantuan</span>
+                                <span>Donasi & Keuangan</span>
                             </span>
+                            @if ($totalDonasiNotif > 0)
+                                <span class="mr-2 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-amber-100 text-amber-900 border border-amber-300" title="{{ $totalDonasiNotif }} aktivitas baru">{{ $totalDonasiNotif }}</span>
+                            @endif
                             <svg class="sidebar-chevron" :class="{ 'is-rotated': open }" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -104,49 +111,32 @@
                         </button>
                         <div class="sidebar-submenu" x-show="open" x-cloak>
                             <a href="{{ route('admin.resource.index', 'donatur') }}"
-                                @if (request()->is('admin/data/donatur*')) aria-current="page" @endif>Data Donatur</a>
+                                @if (request()->is('admin/data/donatur*')) aria-current="page" @endif class="flex items-center justify-between">
+                                <span>Data Donatur</span>
+                                @if (!empty($badgePendingDonors) && $badgePendingDonors > 0)
+                                    <span class="ml-2 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-amber-100 text-amber-900 border border-amber-300" title="{{ $badgePendingDonors }} donatur baru menunggu verifikasi">{{ $badgePendingDonors }}</span>
+                                @endif
+                            </a>
                             <a href="{{ route('admin.transaction.index', 'donasi') }}"
-                                @if (request()->is('admin/transaksi/donasi*')) aria-current="page" @endif>Donasi Uang</a>
+                                @if (request()->is('admin/transaksi/donasi*') || request()->is('admin/donasi-manual*')) aria-current="page" @endif class="flex items-center justify-between">
+                                <span>Donasi Uang</span>
+                                @if (!empty($badgeTodayDonations) && $badgeTodayDonations > 0)
+                                    <span class="ml-2 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300" title="{{ $badgeTodayDonations }} donasi masuk hari ini">+{{ $badgeTodayDonations }}</span>
+                                @endif
+                            </a>
+                            <a href="{{ route('admin.expenses.index') }}"
+                                @if (request()->is('admin/pengeluaran*')) aria-current="page" @endif>Pengeluaran Dana</a>
+                            <a href="{{ route('admin.cashflow.index') }}"
+                                @if (request()->is('admin/arus-kas*')) aria-current="page" @endif>Arus Kas & Saldo</a>
                             <a href="{{ route('admin.transaction.index', 'bantuan') }}"
-                                @if (request()->is('admin/transaksi/bantuan*')) aria-current="page" @endif>Bantuan Barang</a>
+                                @if (request()->is('admin/transaksi/bantuan*')) aria-current="page" @endif class="flex items-center justify-between">
+                                <span>Bantuan Barang</span>
+                                @if (!empty($badgePendingAssistance) && $badgePendingAssistance > 0)
+                                    <span class="ml-2 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-sky-100 text-sky-900 border border-sky-300" title="{{ $badgePendingAssistance }} bantuan menunggu konfirmasi">{{ $badgePendingAssistance }}</span>
+                                @endif
+                            </a>
                             <a href="{{ route('admin.resource.index', 'kebutuhan') }}"
                                 @if (request()->is('admin/data/kebutuhan*')) aria-current="page" @endif>Kebutuhan Panti</a>
-                        </div>
-                    </div>
-
-                    {{-- Kunjungan Dropdown --}}
-                    @php
-                        $isKunjunganActive =
-                            request()->is('admin/transaksi/kunjungan*') ||
-                            request()->is('admin/kalender*') ||
-                            request()->is('admin/tamu-langsung*');
-                    @endphp
-                    <div class="sidebar-dropdown" x-data="{ open: {{ $isKunjunganActive ? 'true' : 'false' }} }">
-                        <button type="button"
-                            class="sidebar-dropdown-btn @if ($isKunjunganActive) is-active @endif"
-                            @click="open = !open" :aria-expanded="open">
-                            <span class="sidebar-btn-content">
-                                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                                <span>Kunjungan</span>
-                            </span>
-                            <svg class="sidebar-chevron" :class="{ 'is-rotated': open }" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="sidebar-submenu" x-show="open" x-cloak>
-                            <a href="{{ route('admin.transaction.index', ['kind' => 'kunjungan', 'status' => 'Menunggu']) }}"
-                                @if (request()->fullUrl() == route('admin.transaction.index', ['kind' => 'kunjungan', 'status' => 'Menunggu'])) aria-current="page" @endif>Pengajuan Kunjungan</a>
-                            <a href="{{ route('admin.calendar') }}"
-                                @if (request()->routeIs('admin.calendar')) aria-current="page" @endif>Jadwal Kunjungan</a>
-                            <a href="{{ route('admin.transaction.index', ['kind' => 'kunjungan', 'status' => 'Hadir']) }}"
-                                @if (request()->fullUrl() == route('admin.transaction.index', ['kind' => 'kunjungan', 'status' => 'Hadir'])) aria-current="page" @endif>Buku Tamu</a>
-                            <a href="{{ route('admin.transaction.index', 'kunjungan') }}"
-                                @if (request()->fullUrl() == route('admin.transaction.index', 'kunjungan')) aria-current="page" @endif>Riwayat Kunjungan</a>
                         </div>
                     </div>
 
@@ -206,11 +196,14 @@
                             </svg>
                         </button>
                         <div class="sidebar-submenu" x-show="open" x-cloak>
-                            @foreach (['donasi', 'bantuan', 'kunjungan'] as $kind)
-                                <a href="{{ route('admin.reports', $kind) }}"
-                                    @if (request()->is('admin/laporan/' . $kind . '*')) aria-current="page" @endif>Laporan
-                                    {{ ucfirst($kind) }}</a>
-                            @endforeach
+                            <a href="{{ route('admin.reports', 'donasi') }}"
+                                @if (request()->is('admin/laporan/donasi*')) aria-current="page" @endif>Laporan Donasi</a>
+                            <a href="{{ route('admin.reports', 'pengeluaran') }}"
+                                @if (request()->is('admin/laporan/pengeluaran*')) aria-current="page" @endif>Laporan Pengeluaran</a>
+                            <a href="{{ route('admin.reports', 'arus-kas') }}"
+                                @if (request()->is('admin/laporan/arus-kas*')) aria-current="page" @endif>Laporan Arus Kas</a>
+                            <a href="{{ route('admin.reports', 'bantuan') }}"
+                                @if (request()->is('admin/laporan/bantuan*')) aria-current="page" @endif>Laporan Bantuan</a>
                         </div>
                     </div>
 
@@ -291,6 +284,30 @@
                     <span class="admin-header-title">Dashboard pengurus</span>
                 </div>
                 <div class="admin-header-actions">
+                    @if (!empty($badgePendingDonors) && $badgePendingDonors > 0)
+                        <a href="{{ route('admin.resource.index', 'donatur') }}" class="header-action-btn"
+                            title="{{ $badgePendingDonors }} donatur baru menunggu verifikasi"
+                            style="background: #fffbeb; border-color: #fde68a; color: #92400e;">
+                            <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                            </svg>
+                            <span class="action-text font-semibold">Donatur</span>
+                            <span class="px-1.5 py-0.2 text-[10px] font-bold rounded-full bg-amber-600 text-white ml-0.5">{{ $badgePendingDonors }}</span>
+                        </a>
+                    @endif
+                    @if (!empty($badgeTodayDonations) && $badgeTodayDonations > 0)
+                        <a href="{{ route('admin.transaction.index', 'donasi') }}" class="header-action-btn"
+                            title="{{ $badgeTodayDonations }} donasi masuk hari ini"
+                            style="background: #ecfdf5; border-color: #a7f3d0; color: #065f46;">
+                            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="action-text font-semibold">Donasi</span>
+                            <span class="px-1.5 py-0.2 text-[10px] font-bold rounded-full bg-emerald-600 text-white ml-0.5">+{{ $badgeTodayDonations }}</span>
+                        </a>
+                    @endif
                     <a href="{{ route('home') }}" class="header-action-btn" title="Kunjungi Website"
                         target="_blank" rel="noopener noreferrer">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

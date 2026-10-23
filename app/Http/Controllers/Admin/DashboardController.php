@@ -8,7 +8,6 @@ use App\Models\Donasi;
 use App\Models\Donatur;
 use App\Models\Kebutuhan;
 use App\Models\Kegiatan;
-use App\Models\Kunjungan;
 
 class DashboardController extends Controller
 {
@@ -17,24 +16,20 @@ class DashboardController extends Controller
         $paid = Donasi::where('status', 'Berhasil');
         $stats = [
             'Donasi bersih tercatat' => 'Rp'.
-                number_format((clone $paid)->whereNotNull('biaya')->sum(\DB::raw('nominal - biaya')), 0, ',', '.'),
+                number_format((clone $paid)->sum(\DB::raw(Donasi::NET_SQL)), 0, ',', '.'),
             'Total donatur' => Donatur::count(),
             'Donasi bersih bulan ini' => 'Rp'.
                 number_format(
                     (clone $paid)
-                        ->whereNotNull('biaya')
                         ->whereBetween('dibayar_pada', [now()->startOfMonth(), now()->endOfMonth()])
-                        ->sum(\DB::raw('nominal - biaya')),
+                        ->sum(\DB::raw(Donasi::NET_SQL)),
                     0,
                     ',',
                     '.',
                 ),
             'Bantuan diterima' => Bantuan::where('status', 'Diterima')->count(),
             'Kebutuhan aktif' => Kebutuhan::where('status', '!=', 'Terpenuhi')->count(),
-            'Kunjungan hari ini' => Kunjungan::whereDate('tanggal', today())
-                ->whereIn('status', ['Disetujui', 'Hadir', 'Selesai'])
-                ->count(),
-            'Pengajuan menunggu' => Kunjungan::where('status', 'Menunggu')->count(),
+            'Bantuan menunggu konfirmasi' => Bantuan::where('status', 'Diajukan')->count(),
             'Jumlah kegiatan' => Kegiatan::count(),
         ];
         $chart = collect(range(5, 0))->map(function ($i) {
@@ -43,17 +38,17 @@ class DashboardController extends Controller
             return [
                 'label' => $date->translatedFormat('M Y'),
                 'value' => (float) Donasi::where('status', 'Berhasil')
-                    ->whereNotNull('biaya')
                     ->whereBetween('dibayar_pada', [$date, $date->copy()->endOfMonth()])
-                    ->sum(\DB::raw('nominal - biaya')),
+                    ->sum(\DB::raw(Donasi::NET_SQL)),
             ];
         });
 
         return view('admin.dashboard', [
             'stats' => $stats,
             'chart' => $chart,
-            'unknownFees' => (clone $paid)->whereNull('biaya')->count(),
-            'visits' => Kunjungan::where('status', 'Menunggu')->latest()->take(5)->get(),
+            'unknownFees' => (clone $paid)->online()->whereNull('biaya')->count(),
+            'pendingAssistance' => Bantuan::where('status', 'Diajukan')->latest()->take(5)->get(),
+            'pendingDonors' => Donatur::where('jenis', 'tetap')->whereHas('user', fn ($q) => $q->where('account_status', 'menunggu'))->count(),
         ]);
     }
 }

@@ -5,9 +5,9 @@ namespace App\Support;
 use App\Models\Berita;
 use App\Models\Donatur;
 use App\Models\Galeri;
-use App\Models\JenisKunjungan;
 use App\Models\KategoriBantuan;
 use App\Models\KategoriDonasi;
+use App\Models\KategoriPengeluaran;
 use App\Models\Kebutuhan;
 use App\Models\Kegiatan;
 use App\Models\Pengurus;
@@ -43,7 +43,7 @@ class AdminResources
 
         return [
             'pengguna' => [
-                'Pengguna',
+                'Pengguna Pengurus',
                 User::class,
                 [
                     'name' => ['Nama', 'text', 'required|string|max:150'],
@@ -54,13 +54,14 @@ class AdminResources
             ],
             'kategori-donasi' => ['Kategori Donasi', KategoriDonasi::class, $name + $description, 'Master Data'],
             'kategori-bantuan' => ['Kategori Bantuan', KategoriBantuan::class, $name + $description, 'Master Data'],
-            'jenis-kunjungan' => ['Jenis Kunjungan', JenisKunjungan::class, $name + $description, 'Master Data'],
+            'kategori-pengeluaran' => ['Kategori Pengeluaran', KategoriPengeluaran::class, $name + $description, 'Master Data'],
             'donatur' => [
                 'Data Donatur',
                 Donatur::class,
                 $name + [
                     'whatsapp' => ['WhatsApp', 'tel', ['required', 'regex:/^628[0-9]{7,11}$/']],
                     'email' => ['Email', 'email', 'nullable|email|max:200'],
+                    'jenis' => ['Jenis donatur', 'select', 'required|in:biasa,tetap', ['biasa' => 'Donatur biasa', 'tetap' => 'Donatur tetap']],
                 ],
                 'Donasi & Bantuan',
             ],

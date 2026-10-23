@@ -74,8 +74,8 @@
                 </div>
                 <p class="mb-0! max-w-xs text-sm leading-7">Pilih bentuk dukungan yang paling dekat dengan hati Anda.</p>
             </div>
-            <div class="grid gap-4 md:grid-cols-3">
-                @foreach ([['key' => 'donasi', 'number' => '01', 'icon' => 'heart', 'title' => 'Berbagi rezeki', 'copy' => 'Bantu mendukung keseharian anak-anak melalui donasi sesuai kemampuan Anda.', 'label' => 'Donasi uang'], ['key' => 'bantuan', 'number' => '02', 'icon' => 'box', 'title' => 'Penuhi kebutuhan', 'copy' => 'Dari bahan pangan hingga perlengkapan belajar, setiap bantuan punya arti.', 'label' => 'Bantuan barang'], ['key' => 'kunjungan', 'number' => '03', 'icon' => 'people', 'title' => 'Berbagi waktu', 'copy' => 'Hadir, bersilaturahmi, dan ciptakan momen kebersamaan yang berkesan.', 'label' => 'Rencanakan kunjungan']] as $way)
+            <div class="grid gap-4 md:grid-cols-2">
+                @foreach ([['key' => 'donasi', 'number' => '01', 'icon' => 'heart', 'title' => 'Berbagi rezeki', 'copy' => 'Bantu mendukung keseharian anak-anak melalui donasi sesuai kemampuan Anda.', 'label' => 'Donasi uang'], ['key' => 'bantuan', 'number' => '02', 'icon' => 'box', 'title' => 'Penuhi kebutuhan', 'copy' => 'Dari bahan pangan hingga perlengkapan belajar, setiap bantuan punya arti.', 'label' => 'Bantuan barang']] as $way)
                     <a href="{{ route('submission.form', $way['key']) }}"
                         class="landing-way group {{ $loop->first ? 'landing-way-featured' : '' }}">
                         <div class="mb-9 flex items-center justify-between"><span
@@ -142,8 +142,8 @@
                             class="landing-way-icon mx-auto mb-5">@include('public.partials.home-icon', ['icon' => 'box'])</span>
                         <h3>Informasi kebutuhan segera hadir</h3>
                         <p>Pengurus sedang menyiapkan daftar kebutuhan. Anda tetap dapat mengajukan bantuan barang.</p><a
-                            class="text-link" href="{{ route('submission.form', 'bantuan') }}">Ajukan bantuan barang <span
-                                aria-hidden="true">→</span></a>
+                            class="text-link" href="{{ route('submission.form', 'bantuan') }}">Ajukan bantuan barang
+                            <span aria-hidden="true">→</span></a>
                     </div>
                 @endforelse
             </div>
@@ -178,16 +178,16 @@
                 aria-hidden="true"></div>
             <div class="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
                 <div>
-                    <p class="landing-kicker">PINTU KAMI TERBUKA UNTUK ANDA</p>
-                    <h2 class="mb-5 text-3xl font-medium sm:text-4xl">Datang sebagai tamu.<br>Pulang sebagai keluarga.</h2>
-                    <p class="mb-0! max-w-lg text-sm leading-7">Luangkan waktu untuk hadir dan berbagi cerita. Rencanakan
-                        kunjungan Anda bersama pengurus panti.</p>
+                    <p class="landing-kicker">BERSAMA MENDUKUNG ANAK-ANAK PANTI</p>
+                    <h2 class="mb-5 text-3xl font-medium sm:text-4xl">Berbagi hari ini.<br>Menumbuhkan harapan esok.</h2>
+                    <p class="mb-0! max-w-lg text-sm leading-7">Dukung kebutuhan sehari-hari dan pendidikan anak-anak
+                        melalui donasi sesuai kemampuan Anda.</p>
                 </div>
                 <div class="flex flex-col items-start gap-4"><a
                         class="landing-primary bg-[#f1cc83]! text-[#173f2e]! hover:bg-[#f7dba8]!"
-                        href="{{ route('submission.form', 'kunjungan') }}">Rencanakan kunjungan <span
-                            aria-hidden="true">↗</span></a><span class="text-xs text-white/70">07.00–21.00 WIB · Dengan
-                        persetujuan pengurus</span></div>
+                        href="{{ route('submission.form', 'donasi') }}">Mulai berdonasi <span
+                            aria-hidden="true">↗</span></a><span class="text-xs text-white/70">Setiap dukungan Anda
+                        berarti</span></div>
             </div>
         </section>
         @include('public.partials.home-faq')

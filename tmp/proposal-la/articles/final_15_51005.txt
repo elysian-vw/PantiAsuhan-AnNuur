@@ -1,0 +1,428 @@
+
+PAGE 1
+Volume 9, Nomor. 2, Oktober 2024 
+P –ISSN : 2541-1179, E-ISSN : 2581-1711 
+OJS :http://journal.uin-alauddin.ac.id/index.php/instek/index  
+Email : instek@uin-alauddin.ac.id 
+ 
+ 
+ 
+336 
+ 
+ 
+SISTEM INFORMASI MANAJEMEN DONASI PADA PANTI 
+ASUHAN MENGGUNAKAN METODE PENGUJIAN 
+TECHNOLOGY ACCEPTANCE MODEL (TAM) 
+ 
+MICHAEL PUTRA KUSNADI1,  BENNY DANIAWAN2 
+1,2Sistem Informasi, Universitas Buddhi Dharma, Tangerang, Indonesia 
+email: michaelkusnadi7@gmail.com1, b3n2y.miracle@gmail.com2 
+ 
+ABSTRAK 
+Perkembangan sistem informasi panti asuhan yang terintegrasi dan dapat diakses 
+secara online melalui website menjadi penting untuk meningkatkan efektivitas 
+operasional. Dalam upaya untuk mengatasi permasalahan tersebut, penelitian ini 
+mengusulkan perancangan Sistem Informasi Manajemen Donasi Panti Asuhan. 
+Dengan adanya sistem tersebut  dapat merangkul berbagai panti asuhan di Kota 
+Tangerang untuk menyediakan platform terpadu dan mudah digunakan, 
+memfasilitasi pengelolaan donasi, serta meningkatkan partisipasi dan keterlibatan 
+donatur. Metode pengujian Technology Acceptance Model (TAM) dalam mengukur 
+faktor yang dapat mempengaruhi pengguna dalam menggunakan sistem. Hasil uji 
+hipotesis 1 yaitu Attention Toward Using (ATU) berpengaruh terhadap Behavioral 
+Intention to Use  (BITU), hipotesis 2 yaitu Perceived Ease of Use  (PEOU) 
+berpengaruh terhadap Attention Toward Using (ATU), hipotesis 3 yaitu Perceived 
+Ease of Use (PEOU) berpengaruh terhadap Perceived Usefulness (PU), hipotesis 5 
+yaitu Perceived Usefulness (PU) berpengaruh terhadap Behavioral Intention to Use 
+(BITU) dan hipotesis 4 yaitu Perceived Usefulness (PU) tidak berpengaruh terhadap 
+Attention Towards Using (ATU). 
+Kata Kunci : Sistem Donasi, Sistem Informasi Manajemen Donasi, Sistem Donasi 
+non-proft, Sistem Donasi Panti Asuhan, Technology Acceptance Model  
+I.PENDAHULUAN 
+Perkembangan dunia teknologi semakin pesat sehingga informasi menjadi 
+sesuatu persyaratan penting, selain itu teknologi dapat memudahkan setiap 
+pekerjaan dalam mengolah data logging, pengambilan data, dan penyimpanan data, 
+oleh karena itu tidak perlu lagi untuk memproses data secara manual dengan resiko 
+kehilangan. Teknologi informasi digunakan untuk mengatur, memproses, 
+menyimpan, dan mengelola data dalam berbagai cara untuk mendapatkan informasi 
+yang akurat (Mutiara & Murod, 2022). 
+Kehadiran teknologi informasi memungkinkan perusahaan atau lembaga 
+dalam meningkatkan efisiensi operasional untuk pengembangan produk atau 
+
+PAGE 2
+Volume 9, Nomor. 2, Oktober 2024 
+P –ISSN : 2541-1179, E-ISSN : 2581-1711 
+OJS :http://journal.uin-alauddin.ac.id/index.php/instek/index  
+Email : instek@uin-alauddin.ac.id 
+ 
+ 
+ 
+337 
+ 
+layanan yang inovatif. Hal tersebut juga berlaku untuk lembaga non-profit seperti 
+yayasan panti asuhan dalam menunjang kegiatan operasional di panti asuhan daerah 
+Kota Tangerang yang dimana data anak, donatur, pengasuh, dan data keuangan 
+sebagian besar masih menggunakan sistem manual. Sangat penting untuk 
+merancang suatu sistem informasi administrasi panti asuhan yang bisa diakses oleh 
+banyak orang melalui internet secara online dengan berbasis website (Fibrianto & 
+Najiyah, 2022). 
+Dengan adanya sistem yang terintegrasi dalam panti asuhan dapat membantu 
+pengelolaan operasional panti asuhan yang lebih efektif dari berbagai hal seperti 
+mengelola administrasi keuangan catatan pemasukan dan pengeluaran, membantu 
+dalam pengelolaan data in formasi anak -anak panti asuhan, pemantauan laporan 
+kesehatan yang terjadi di panti asuhan, informasi dan pesan dapat diterima dengan 
+lebih cepat (Riskiono et al., 2020). 
+Beberapa website donasi online di internet merupakan salah satu sumber utama 
+pendanaan dan donasi untuk yayasan. Namun, hal tersebut tidak menawarkan 
+transparansi laporan keuangan dan mekanisme untuk secara aktif mendorong para 
+dermawan untuk meningkatkan keterlibatan donasi. Dengan sistem yang transparan 
+dapat menjadi solusi efektif, para donatur dapat mengetahui tentang informasi 
+donasi yang akan digunakan berdasarkan campaign dari yayasan panti asuhan  
+(Romansyah et al., 2020). 
+Beberapa penelitian terlebih dahulu seperti yang pernah dilakukan oleh (Yunita 
+et al., 2022)  yaitu dengan membuat Perancangan Sistem Informasi Akuntansi 
+Pencatatan dan Pengelolaan Keuangan Pada Yayasan Panti Asuhan Harapan 
+Karomah, sehingga pengelolaan dana donatur dan pengenalan panti asuhan 
+terintegrasi dengan baik.  Penelitian lain yang dilakukan oleh (Mauliana et al., 
+2019), dengan Perancangan Sistem Informasi Panti Asuhan “e-Panti”, panti asuhan 
+dapat lebih dikenal melalui informasi yang lengkap pada website. 
+Dalam penelitian ini, Technology Acceptance Model (TAM) digunakan untuk 
+menggambarkan perilaku pengguna ketika menerima dan mengimplementasikan 
+sistem informasi  tersebut (Ajzen, 2011) . Pengujian TAM mencakup 5 variabel 
+pendukung, yaitu Perceived Usefulness  (PU), Perceived Ease of Use  (PEOU), 
+
+PAGE 3
+Volume 9, Nomor. 2, Oktober 2024 
+P –ISSN : 2541-1179, E-ISSN : 2581-1711 
+OJS :http://journal.uin-alauddin.ac.id/index.php/instek/index  
+Email : instek@uin-alauddin.ac.id 
+ 
+ 
+ 
+338 
+ 
+Behavioral Intention to Use  (BITU), Attitude Towards Using  (ATU), dan Actual 
+System Use (ASU). Dari 5 variabel tersebut, ada 4 variabel yang memperngaruhi 
+satu sama lain, yaitu Perceived Usefulness, Perceived Ease of Use (PEOU), Attitude 
+Towards Using (ATU), dan Behavioral Intention to Use (BITU). Keempat variabel 
+tersebut mempengaruhi perilaku pengguna dalam penggunaan sistem, dengan 
+kesimpulan bahwa persepsi kegunaan, kemudahan dan ketertarikan penggunaan 
+dapat mempengaruhi kebiasaan pengguna dalam menggunakan sistem (Feng et al., 
+2021). Tujuan dari penelitian untuk membuat sistem penggalangan dana yang dapat 
+menampung banyak panti asuhan  dengan berbasis website, serta mendorong 
+keterlibatan donatur dalam melakukan donasi dengan memberikan beberapa pilihan 
+campaign donasi. 
+II.METODE PENELITIAN 
+A. Metode Pengumpulan Data 
+Untuk mendukung keberhasilan proses penelitian dan pengembangan sistem 
+informasi manajemen donasi, peneliti melakukan sejumlah metode pengumpulan 
+data yang meliputi : observasi lapangan, wawancara, kuesioner dan studi pustaka. 
+B. Metode Pengujian Technology Acceptance Model (TAM) 
+ 
+Gambar 1. Kerangka Penelitian 
+
+
+PAGE 4
+Volume 9, Nomor. 2, Oktober 2024 
+P –ISSN : 2541-1179, E-ISSN : 2581-1711 
+OJS :http://journal.uin-alauddin.ac.id/index.php/instek/index  
+Email : instek@uin-alauddin.ac.id 
+ 
+ 
+ 
+339 
+ 
+Pada Gambar 1 di atas menjelaskan langkah -langkah penelitian yang di awali 
+dengan identifikasi masalah dan analisis kebutuhan. Selanjutnya hasil dari analisis 
+didapat, dibuat rancangan sistem  yang sedemikian rupa untuk mendukung 
+kebutuhan pengguna, mulai dari use case diagram, activity diagram, sequence 
+diagram, class diagram, basis data, desain tampilan sistem usulan, hingga proses 
+pemrograman dan pengujian TAM menghasilkan hasil uji hipotesis. 
+C. Outer Model 
+Outer Model, analisa ini bertujuan untuk menghitung dan menganalisis 
+validitas dan reliabilitas indikator, serta variabel yang digunakan untuk penelitian  
+sebagai berikut: 
+1. Outer Loading , digunakan untuk mengukur seberapa baik indikator terhadap 
+untuk menggambarkan sebuah variabel yang diukur (Hair et al., 2019). 
+2. Average Variance Extracted (AVE), nilai ini menunjukkan validitas konvergen 
+yang memadai (Ghozali, 2016). 
+3. Fornell-larcker criterion , teknik yang digunakan untuk memeriksa validitas 
+diskriminan model pengukuran (Ab Hamid et al., 2017). 
+4. Cronbach’s Alpha, untuk mendeskripsikan korelasi atau hubungan antara skala 
+yang dibuat dengan semua skala variabel yang ada (Ghozali, 2016). 
+D. Inner Model 
+Inner Model , untuk menghitung dan menganalisis hubungan antar variabel, 
+predictive relevance , pengujian hipotesis, dan importance-perfomance dengan 
+perhitungan sebagai berikut: 
+1. R Square , untuk menghitung pengaruh antara variabel eksogen dan variabel 
+endogen (Hair et al., 2019). 
+2. Q Square, untuk memprediksi model apakah baik atau tidak (Hair et al., 2019) 
+3. Nilai Hipotesis, nilai uji hipotesis berdasarkan nilai T-Statistic harus lebih tinggi 
+dibandingkan dengan nilai t-table (Junaidi, 2010). 
+III.HASIL DAN PEMBAHASAN 
+
+PAGE 5
+Volume 9, Nomor. 2, Oktober 2024 
+P –ISSN : 2541-1179, E-ISSN : 2581-1711 
+OJS :http://journal.uin-alauddin.ac.id/index.php/instek/index  
+Email : instek@uin-alauddin.ac.id 
+ 
+ 
+ 
+340 
+ 
+Pengembangan sistem manajemen donasi pada panti asuhan ini diberi nama 
+YukDonasi. Adapun tampilan dari beberapa menu YukDonasi yang dapat di lihat 
+pada Gambar 2 dan Gambar 3:  
+ 
+Gambar 2. Halaman Admin 
+Gambar 2 menunjukkan dashboard admin terdapat informasi singkat terkait 
+kepentingan donasi dan terdapat sidebar yang menyimpan beberapa menu untuk 
+kebutuhan donasi. 
+ 
+Gambar 3. Halaman Donatur 
+Gambar 3 menunjukkan halaman donatur yang menyediakan banyak 
+campaign donasi dan informasi dari masing-masing panti asuhan. 
+Technology Acceptance Model (TAM) 
+Hasil eksekusi model dengan PLS Algorithm ditunjukkan pada gambar di bawah 
+ini. 
+
+
+PAGE 6
+Volume 9, Nomor. 2, Oktober 2024 
+P –ISSN : 2541-1179, E-ISSN : 2581-1711 
+OJS :http://journal.uin-alauddin.ac.id/index.php/instek/index  
+Email : instek@uin-alauddin.ac.id 
+ 
+ 
+ 
+341 
+ 
+ 
+Gambar 4. Kerangka Konseptual TAM 
+Gambar 4 menggambarkan model kerangka konseptual pengujian TAM dengan 
+menggunakan SmartPLS Versi 4 yang dilakukan dengan tahapan -tahapan sebagai 
+berikut: 
+1. Penyusunan dan penyebaran kuesioner  
+Kuesioner dikirimkan melalui G -Form kepada responden yang memiliki 
+keterkaitan dengan kontribusi dan organisasi seperti panti asuhan dan donatur 
+selama tujuh hari, dari tanggal 21 Juni hingga 28 Juni 2024. Terdapat 81 orang yang 
+mengisi kuesioner tersebut. Tabel 1 menunjukkan 12 pernyataan berdasar kan 
+indikator dari setiap variabel yang digunakan. 
+Tabel 1 
+Daftar Pernyataan Kuesioner 
+No Pernyataan Indikator 
+1 Sistem memudahkan Donatur untuk melakukan donasi PU 1 
+2 Sistem dapat meningkatkan efektivitas kegiatan donasi PU 2 
+3 
+Sistem memiliki manfaat untuk pihak donatur dan yayasan 
+panti asuhan PU 3 
+4 Sistem mudah untuk dipahami PEOU 1 
+5 Sistem dapat mencapai tujuan dalam melakukan donasi PEOU 2 
+6 Sistem mudah untuk digunakan PEOU 3 
+7 Saya merasa senang dengan adanya sistem ini ATU 1 
+8 Saya menikmati penggunaan fitur pada sistem ATU 2 
+9 Sistem dapat digunakan dengan nyaman ATU 3 
+10 
+Dengan adanya sistem, saya dapat mengetahui informasi 
+penggalangan dana dari banyak yayasan panti asuhan BITU 1 
+11 Saya termotivasi menggunakan sistem ini  untuk kedepannya BITU 2 
+12 
+Saya akan kembali menggunakan sistem ini  jika ingin 
+berdonasi kepada yayasan panti asuhan BITU 3 
+
+
+PAGE 7
+Volume 9, Nomor. 2, Oktober 2024 
+P –ISSN : 2541-1179, E-ISSN : 2581-1711 
+OJS :http://journal.uin-alauddin.ac.id/index.php/instek/index  
+Email : instek@uin-alauddin.ac.id 
+ 
+ 
+ 
+342 
+ 
+2. Pengujian Inner Model 
+Tabel 2 
+Nilai Outer Loading, AVE, Fornell-larckel criterion, Cronbach’s Alpha dan 
+Composite Reliability 
+Variabel Outer 
+Loading (AVE) 
+Fornell-
+larckel 
+criterion 
+Cronbach’s 
+Alpha 
+Composite 
+Reliability 
+ATU 1 0,775 
+0,701 0,837 0,786 0,795 ATU 2 0,878 
+ATU 3 0,855 
+BITU 1 0,742 
+0,734 0,857 0,815 0,835 BITU 2 0,909 
+BITU 3 0,908 
+PEOU 1 0,847 
+0,695 0,834 0,780 0,780 PEOU 2 0,823 
+PEOU 3 0,830 
+PU 1 0,841 
+0,714 0,845 0,800 0,805 PU 2 0,860 
+PU 3 0,835 
+Dari hasil uji pada Tabel 2, seluruh variabel yang memiliki nilai lebih besar dari 
+rule of thumb yaitu 0,7 untuk nilai outer loading. 
+Berdasarkan hasil pengujian AVE  pada Tabel 2 , setiap variabel memiliki nilai 
+lebih dari 0,50 dan dapat disimpulkan semua variabel yang digunakan valid dalam 
+hal konvergensi. 
+Berdasarkan hasil Fornell-larckel criterion pada Tabel 2, maka variabel beserta 
+indikator yang digunakan dapat dinyatakan valid secara diskriminan. 
+Hasil pada Tabel 2 menunjukan bahwa seluruh nilai lebih besar dari rule of 
+thumb yaitu 0,6 untuk Cronbach’s Alpha  dan 0,7 untuk Composite Reliability . 
+Maka dapat disimpulkan untuk seluruh variabel yang digunakan pada penelitian ini 
+sudah reliabel. 
+3. Pengujian Inner Model  
+Tabel 3 
+Nilai R Square dan Q Square 
+Variabel R Square Q Square 
+ATU 0,580 0,543 
+BITU 0,649 0,479 
+
+PAGE 8
+Volume 9, Nomor. 2, Oktober 2024 
+P –ISSN : 2541-1179, E-ISSN : 2581-1711 
+OJS :http://journal.uin-alauddin.ac.id/index.php/instek/index  
+Email : instek@uin-alauddin.ac.id 
+ 
+ 
+ 
+343 
+ 
+PU 0,588 0,574 
+Berdasarkan pada Tabel 3 hasil uji R Square, variabel ATU dengan nilai 0,580 
+dipengaruhi oleh PEOU dan PU 58%, variabel BITU dengan nilai 0,649 
+dipengaruhi oleh PU dan ATU 64,9% dan variabel PU dengan nilai 0,588 
+dipengaruhi oleh PEOU 58%. 
+Berdasarkan hasil perhitungan Tabel 3 untuk prediksi relevansi pada tabel di 
+atas, maka dapat diberi kesimpulan dengan nilai Q 2 pada variable ATU dan PU  
+memiliki nilai 0,543 dan 0,574 dengan prediksi tinggi, sedangkan BITU memiliki 
+nilai 0,479 dengan prediksi sedang. 
+4. Hipotesis 
+Berdasarkan hasil pengujian di bawah  ini dengan degree of freedom  yang 
+didapatkan adalah sebanyak 77 dengan significance value 0,05, maka nilai t-table 
+yang didapatkan sebesar 1,990 dan nilai P-Values < 0,05. 
+Tabel 4 
+ Nilai Hipotesis 
+Variabel Originial 
+Sample 
+Sample 
+Mean 
+Standard 
+Deviation 
+T 
+Statistics 
+P Values 
+ATU -> BITU 0,592 0,578 0,116 5,124 0,000 
+PEOU -> ATU 0,616 0,627 0,107 5,742 0,000 
+PEOU -> PU 0,767 0,772 0,050 15,286 0,000 
+PU -> ATU 0,179 0,175 0,111 1,615 0,106 
+PU -> BITU 0,284 0,295 0,116 2,453 0,014 
+Berdasarkan hasil dari uji hipotesis  pada Tabel 5 dapat disimpulkan bahwa, 
+pengujian Technology Acceptance Model (TAM) yang diterapkan pada penelitian 
+ini terdapat 5 hipotesis yang diuji sebagai berikut: 
+H1 : Ketertarikan untuk menggunakan sistem memiliki dampak yang 
+signifikan dipengaruhi oleh perilaku pengguna dalam 
+menggunakannya. 
+H2 : Kemudahan penggunaan sistem memiliki dampak yang signifikan 
+dipengaruhi oleh ketertarikan untuk menggunakannya. 
+H3 : Kemudahan penggunaan sistem memiliki dampak yang signifikan 
+dipengaruhi oleh manfaat dalam penggunannya. 
+
+PAGE 9
+Volume 9, Nomor. 2, Oktober 2024 
+P –ISSN : 2541-1179, E-ISSN : 2581-1711 
+OJS :http://journal.uin-alauddin.ac.id/index.php/instek/index  
+Email : instek@uin-alauddin.ac.id 
+ 
+ 
+ 
+344 
+ 
+H4 : Manfaat penggunaan sistem tidak memiliki dampak yang signifikan 
+terhadap ketertarikan dalam penggunaannya. 
+H5 : Manfaat penggunaan sistem memiliki dampak yang signifikan 
+dipengaruhi oleh perilaku pengguna dalam menggunakannya. 
+IV.KESIMPULAN 
+Berdasarkan dari hasil  penelitian yang telah dilakukan, dapat disimpulkan 
+bahwa penelitian ini dapat dapat mempermudah pengelolaan dan distribusi donasi. 
+Sistem ini dirancang untuk mencatat data donatur, jenis donasi, serta penyaluran 
+donasi dengan lebih efektif dan efisien. Dengan adanya sistem informasi yang 
+terintegrasi, panti asuhan dapat meningkatkan transparansi dan akuntabilitas dalam 
+pengelolaan donasi, serta mempermudah komunikasi antara panti asuhan dan 
+donatur. Pengujian TAM lebih lanjut menunjuk kan bahwa sistem informasi ini 
+bermanfaat dan diterima untuk mendukung operasi penggalangan dana dan donasi. 
+Hal ini didukung oleh hasil pengolahan data kuesioner dengan menggunakan 
+SmartPLS versi 4 yang menunjukkan bahwa semua tahapan pengujian 
+menghasilkan hasil yang valid. Kemudian berdasarkan hasil pengujian hipotesis, 
+terdapat 5 hipotesis yang dihasilkan dan  sebanyak 4 hipotesis yang dapat diterima 
+karena memenuhi kriteria yang sesuai yaitu dilihat dari hasil P-Values dan T-
+Statistics, yaitu hipotesis pertama Attention Towards Using  (ATU) berpengaruh 
+terhadap Behavioral Intention to Use  (BITU), hipotesis kedu a Perceived Ease of 
+Use (PEOU) berpengaruh terhadap Attention Towards Using  (ATU), hipotesis 
+ketiga Perceived Ease of Use  (PEOU) berpengaruh terhadap Behavioral Intention 
+to Use (BITU), dan hipotesis keempat Attention Towards Using (ATU) berpengaruh 
+terhadap Behavioral Intention to Use  (BITU). Sedangkan satu hipotesis lainnya, 
+yaitu hipotesis keempat, Perceived Usefulness  (PU) terhadap Attention Towards 
+Using (ATU), ditolak karena nilai P-Values dan T-Statistics tidak sesuai. 
+ 
+ 
+ 
+
+PAGE 10
+Volume 9, Nomor. 2, Oktober 2024 
+P –ISSN : 2541-1179, E-ISSN : 2581-1711 
+OJS :http://journal.uin-alauddin.ac.id/index.php/instek/index  
+Email : instek@uin-alauddin.ac.id 
+ 
+ 
+ 
+345 
+ 
+DAFTAR PUSTAKA 
+Ab Hamid, M. R., Sami, W., & Mohmad Sidek, M. H. (2017). Discriminant 
+Validity Assessment: Use of Fornell & Larcker criterion versus HTMT 
+Criterion. Journal of Physics: Conference Series , 890(1). 
+https://doi.org/10.1088/1742-6596/890/1/012163 
+Ajzen, I. (2011). The theory of planned behaviour: Reactions and reflections. 
+Psychology and Health , 26(9), 1113 –1127. 
+https://doi.org/10.1080/08870446.2011.613995 
+Feng, G. C., Su, X., Lin, Z., He, Y., Luo, N., & Zhang, Y. (2021). Determinants of 
+Technology Acceptance: Two Model -Based Meta -Analytic Reviews. 
+Journalism and Mass Communication Quarterly , 98(1), 83 –104. 
+https://doi.org/10.1177/1077699020952400 
+Fibrianto, R., & Najiyah, I. (2022). Perancangan Sistem Informasi Panti Asuhan 
+Nurul Ilmi Berbasis Website. ULIL ALBAB: Jurnal Ilmiah Multidisiplin, 1(5), 
+1315–1326. 
+http://ulilalbabinstitute.com/index.php/JIM/article/download/296/235 
+Ghozali, I. (2016). Aplikasi Analisis Multivariete dengan Program IBM SPSS 23  
+(8th ed.). Univ. Diponegoro Press. 
+Hair, J. F., Risher, J. J., Sarstedt, M., & Ringle, C. M. (2019). When to use and how 
+to report the results of PLS -SEM. European Business Review , 31(1), 2–24. 
+https://doi.org/10.1108/EBR-11-2018-0203 
+Junaidi. (2010). Titik Persentase Distribusi t. 
+Http://Junaidichaniago.Wordpress.Com, 1–6. 
+Mauliana, P., Firmansyah, R., & Sutardi, A. (2019). Perancangan Sistem Informasi 
+Panti Asuhan. Jurnal Sistem Informasi, Tenkologi Informasi Dan Konputer , 
+10, 62–71. 
+Mutiara, S., & Murod, M. M. (2022). Rancang Bangun Platform Penggalangan 
+Dana Masjid Berbasis Website Dengan Metode Crowdfunding. Jurnal Teknik 
+Informasi Dan Komputer (Tekinkom) , 5(1), 138. 
+https://doi.org/10.37600/tekinkom.v5i1.461 
+Riskiono, S. D., Hamidy, F., & Ulfia, T. (2020). Sistem Informasi Manajemen Dana 
+Donatur Berbasis Web Pada Panti Asuhan Yatim Madani. Journal of Social 
+Sciences and Technology for Community Service (JSSTCS) , 1(1), 21. 
+https://doi.org/10.33365/jta.v1i1.670 
+Romansyah, J., Mulyani, A., & Kurniadi, D. (2020). Rancang Bangun Sistem 
+Informasi Penggalangan Dana Sosial Panti Asuhan Berbasis Web. Jurnal 
+Algoritma, 16(2), 158–165. https://doi.org/10.33364/algoritma/v.16-2.158 
+Yunita, L., Neneng, N., Isnain, A. R., & Dellia, P. (2022). Analisis Perancangan 
+Sistem Informasi Akuntansi Pencatatan Dan Pengelolaan Keuangan Pada 
+Yayasan Panti Asuhan Harapan Karomah. Jurnal Ilmiah Sistem Informasi 
+Akuntansi, 2(2), 62–68. https://doi.org/10.33365/jimasia.v2i2.2014 
+ 

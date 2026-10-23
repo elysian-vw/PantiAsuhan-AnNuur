@@ -25,18 +25,6 @@
             'action' => 'Ajukan bantuan barang',
             'note' => 'Tanggal penerimaan dicatat setelah barang diterima oleh panti.',
         ],
-        'kunjungan' => [
-            'label' => 'Kunjungan',
-            'title' => 'Hadir langsung, dekatkan silaturahmi.',
-            'description' => 'Rencanakan waktu untuk bertemu dan berkegiatan bersama, sesuai persetujuan pengurus.',
-            'steps' => [
-                'Pilih tanggal dan jam antara 07.00–21.00 WIB.',
-                'Isi jumlah peserta serta tujuan kunjungan.',
-                'Tunggu persetujuan jadwal melalui WhatsApp.',
-            ],
-            'action' => 'Rencanakan kunjungan',
-            'note' => 'Jika jadwal berubah, pengurus akan meminta persetujuan Anda kembali.',
-        ],
     ];
 @endphp
 <section id="panduan-berbagi" class="giving-guide section" x-data="givingGuide">
@@ -53,15 +41,16 @@
                         :tabindex="active === '{{ $key }}' ? 0 : -1" @click="active='{{ $key }}'"
                         @keydown.arrow-right.prevent="move(1)" @keydown.arrow-left.prevent="move(-1)"
                         @keydown.home.prevent="select('donasi')"
-                        @keydown.end.prevent="select('kunjungan')"><span>{{ $guide['label'] }}</span><span
+                        @keydown.end.prevent="select('bantuan')"><span>{{ $guide['label'] }}</span><span
                             class="guide-tab-arrow" aria-hidden="true">→</span></button>
                 @endforeach
             </div>
         </div>
         <div class="guide-panels">
             @foreach ($guides as $key => $guide)
-                <section id="guide-{{ $key }}" class="guide-panel" x-transition.opacity.duration.200ms role="tabpanel"
-                    aria-label="{{ $guide['label'] }}" tabindex="0" x-show="active==='{{ $key }}'">
+                <section id="guide-{{ $key }}" class="guide-panel" x-transition.opacity.duration.200ms
+                    role="tabpanel" aria-label="{{ $guide['label'] }}" tabindex="0"
+                    x-show="active==='{{ $key }}'">
                     <span class="guide-kicker">{{ $guide['label'] }}</span>
                     <h3>{{ $guide['title'] }}</h3>
                     <p>{{ $guide['description'] }}</p>

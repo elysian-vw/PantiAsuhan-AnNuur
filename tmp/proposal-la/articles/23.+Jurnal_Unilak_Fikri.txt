@@ -1,0 +1,376 @@
+
+PAGE 1
+ 
+ZONAsi: Jurnal Sistem Informasi, Vol. 8 No. 1, Jan 2026 Page 275 
+ 
+ 
+ 
+ANALISIS SISTEM PENDATAAN ANAK ASUH  
+DI PANTI ASUHAN MUHAMMADIYAH SLAWI 
+ 
+Mutiara Handayani Ujianti1, Moh. Fikri Al-Farisy2 
+1,2 Program Studi Manajemen Informatika Universitas Teknologi Digital 
+Jl. Kates 5 No. 47 Tembok Banjaran, Adiwerna, Kab. Tegal, telp. 0898 8395 935 
+e-mail: 1 mutiarahandayaniujianti@gmail.com, 2firzacool3@gmail.com 
+ 
+Abstrak 
+Penelitian ini mengevaluasi sistem pendataan anak asuh di Panti Asuhan Muhammadiyah Slawi untuk 
+meningkatkan efisiensi kerja, ketepatan data, dan kualitas pengelolaan informasi. Sistem sebelumnya 
+masih manual dan semi-digital menggunakan buku induk dan Excel, yang kemudian diintegrasikan ke 
+aplikasi Dinas Sosial, namun menimbulkan kendala seperti duplikasi, kesalahan input, dan 
+keterlambatan pembaruan data. Melalui observasi, wawancara, dan studi pustaka, ditemukan 
+kebutuhan akan sistem berbasis komputer ya ng terintegrasi dengan fitur input terstruktur, validasi 
+otomatis, pencarian cepat, kontrol akses, enkripsi, dan backup rutin. Sistem ini memudahkan staf panti, 
+mempercepat pencatatan, meminimalkan kesalahan, serta meningkatkan transparansi dan 
+akuntabilitas. Selain memberi manfaat langsung bagi panti, hasil penelitian juga menjadi referensi 
+bagi lembaga sosial lain dalam mendukung digitalisasi pengelolaan data yang efisien, aman, dan 
+berkelanjutan. 
+Kata kunci: Analisis Sistem, Panti Asuhan, Excel, Sistem Pendataan, Digitalisasi 
+ 
+Abstract 
+This research focuses on evaluating the child data management system at Muhammadiyah Slawi 
+Orphanage to improve work efficiency, data accuracy, and information management quality. The 
+previous system was still manual and semi-digital, using record books and Excel, which were later 
+integrated into the Social Service’s application but often caused issues such as data duplication, input 
+errors, and delayed updates. Through observation, interviews, and literature studies, the research 
+identified the need for an integrated computer -based system featuring structured input, automatic 
+validation, quick search, access control, data encryption, and regular backups. The proposed system 
+simplifies staff operations, accelerates data ent ry, minimizes errors, and enhances transparency and 
+accountability. Beyond benefiting the orphanage, the findings also serve as a reference for other social 
+institutions in supporting efficient, secure, and sustainable digital data management.  
+Keywords: System Analysis, Foster Child, Excel, Data Management System, Digitalization 
+ 
+1. PENDAHULUAN 
+Perkembangan teknologi informasi telah membawa perubahan besar dalam sistem pengelolaan 
+lembaga sosial, termasuk panti asuhan. Transformasi digital tidak hanya berp engaruh pada bidang 
+pendidikan dan industri, tetapi juga pada aspek administrasi sosial seperti pendataan anak asuh, 
+pencatatan bantuan, dan pelaporan kegiatan lembaga. Sistem pendataan berperan penting dalam 
+memastikan bahwa setiap data anak asuh tersimpan dengan baik, mudah diakses, dan akurat, sehingga 
+dapat menunjang transparansi serta akuntabilitas lembaga di mata pemerintah dan masyarakat [1]. 
+Namun, di berbagai lembaga sosial, sistem pendataan masih dilakukan secara manual menggunakan 
+dokumen fisik dan pencatatan konvensional, yang menyebabkan ketidakefisienan operasional. Kondisi 
+tersebut juga dialami oleh Panti Asuhan Muhammadiyah Slawi, di mana proses pendataan anak asuh 
+masih mengandalkan buku induk  sebagai pencatatan awal  dan Microsoft Excel sebelum akhirnya 
+diunggah ke aplikasi milik Dinas Sosial. Meskipun metode ini telah membantu proses pelaporan, 
+praktik tersebut berpotensi menimbulkan sejumlah kendala seperti duplikasi data, kesalahan input, dan 
+keterlambatan pembaruan informasi [2]. Sistem manual dan semi-digital memiliki keunggulan dalam 
+
+
+PAGE 2
+Mutiara H U, et al., Analisis Sistem Pemndataan Anak Asuh di Panti Asuhan Muhammdiyah Slawi. 
+ 
+ZONAsi: Jurnal Sistem Informasi, Vol. 8 No. 1, Jan 2026 Page 276 
+hal kesederhanaan dan fleksibilitas, tetapi lemah dalam aspek efisiensi, keamanan, serta integrasi data. 
+Data anak asuh yang terus berubah setiap tahun menuntut adanya sistem pendataan yang lebih modern 
+dan terintegrasi agar informasi dapat diperbarui secara cepat dan akurat. Sebagaimana diungkapkan 
+oleh Napitupulu (2021), teknologi informasi berperan penting dalam pengumpulan, pengolahan, 
+analisis, dan penyimpanan data untuk menghasilkan informasi yang b ermanfaat bagi pengambilan 
+keputusan [3]. 
+Penelitian-penelitian terdahulu seperti yang dilakukan oleh Yuliana Monika Liwu et al. (2022) dan 
+Irawan et al. (2021) menunjukkan bahwa penerapan sistem informasi berbasis web mampu 
+meningkatkan efisiensi administrasi, mempercepat pelaporan, dan mengurangi risiko kehilangan data 
+[4]. Senada dengan itu, Ginting dan Faizah (2024) menegaskan bahwa pengembangan sistem berbasis 
+website memberikan solusi terhadap keterbatasan metode manual melalui efisiensi waktu, keaman an 
+data, serta integrasi informasi antarinstansi [5]. 
+Namun demikian, implementasi sistem digital tidak lepas dari berbagai tantangan, terutama pada 
+lembaga dengan sumber daya manusia yang terbatas. Tahap implementasi merupakan proses kritis yang 
+menuntut kesiapan pengguna untuk mengoperasikan sistem secara konsisten hingga menjadi bagian 
+dari rutinitas [6]. Hambatan serupa ditemukan oleh penelitian Oktaria (2023) yang menegaskan 
+perlunya tindakan terencana dalam tahap penerapan keputusan agar hasil dapat d ipantau dan 
+disesuaikan apabila ditemukan kendala teknis [7]. Selain itu, keberhasilan suatu sistem sangat 
+bergantung pada keterhubungan antar subsistem yang membentuk satu kesatuan organisasi [8]. 
+Dalam pengembangan sistem pendataan anak asuh, analisis si stem menjadi tahapan utama untuk 
+memahami kebutuhan dan permasalahan lembaga. Analisis sistem sebagai penelitian terhadap sistem 
+yang ada bertujuan menghasilkan rancangan baru yang lebih efektif [9]. Hal ini sejalan dengan 
+pandangan Alimuddin et al. (2020)  bahwa analisis sistem berfungsi untuk mengidentifikasi masalah 
+dan peluang perbaikan melalui penguraian komponen sistem secara sistematis [10]. Dengan pendekatan 
+tersebut, sistem baru dapat dirancang sesuai dengan kebutuhan operasional lembaga. 
+Selain asp ek teknis, pendekatan strategis seperti analisis SWOT juga diperlukan untuk menilai 
+kesiapan lembaga menghadapi perubahan. Kelemahan internal perlu diidentifikasi sejak awal agar tidak 
+menghambat efektivitas operasional [11]. Dalam konteks peluang dan tantangan, penelitian Purnawan 
+et al. (2024) menyatakan bahwa lingkungan eksternal dapat menjadi faktor penentu keberhasilan 
+strategi apabila dikelola dengan baik [12], [13]. Oleh sebab itu, pengkajian SWOT sangat relevan untuk 
+menilai posisi lembaga dalam menghadapi proses digitalisasi sistem pendataan anak asuh. 
+Berdasarkan kondisi di atas, penelitian ini difokuskan untuk menganalisis sistem pendataan anak 
+asuh di Panti Asuhan Muhammadiyah Slawi, dengan tujuan mengidentifikasi keunggulan, kelemahan, 
+peluang, dan tantangan dalam proses digitalisasi. Hasil penelitia n ini diharapkan dapat memberikan 
+kontribusi terhadap pengembangan sistem informasi sosial di Indonesia serta menjadi dasar bagi 
+perancangan sistem pendataan berbasis web yang lebih efektif, efisien, dan adaptif terhadap 
+perkembangan teknologi modern. 
+ 
+2. METODE PENELITIAN 
+Penelitian ini menggunakan pendekatan deskriptif kualitatif dengan tujuan untuk menganalisis 
+sistem pendataan anak asuh yang berjalan di Panti Asuhan Muhammadiyah Slawi serta 
+mengidentifikasi kelemahan dan peluang pengembangannya menuju s istem digital terintegrasi. 
+Pendekatan ini dipilih karena mampu menggambarkan kondisi nyata sistem yang digunakan serta 
+memberikan dasar yang kuat dalam merancang solusi berbasis teknologi informasi. 
+Pendekatan deskriptif digunakan untuk menyajikan gambara n menyeluruh mengenai kondisi 
+internal dan eksternal Panti Asuhan Muhammadiyah Slawi secara kontekstual. Analisis dilakukan 
+dengan cara mengidentifikasi faktor internal berupa kekuatan dan kelemahan sistem pendataan anak 
+asuh, serta faktor eksternal berupa  peluang dan ancaman yang memengaruhi proses digitalisasi 
+lembaga. Seluruh faktor tersebut kemudian disusun ke dalam matriks SWOT untuk mengetahui 
+hubungan antaraspek yang dapat dimanfaatkan dalam perumusan strategi pengembangan sistem. Hasil 
+analisis ini menjadi dasar dalam merumuskan strategi pengembangan  sistem pendataan anak asuh 
+berbasis web yang lebih efisien, terintegrasi, serta adaptif terhadap perkembangan teknologi informasi 
+dan kebijakan digitalisasi administrasi sosial. 
+
+PAGE 3
+Mutiara H U, et al., Analisis Sistem Pemndataan Anak Asuh di Panti Asuhan Muhammdiyah Slawi. 
+ 
+ZONAsi: Jurnal Sistem Informasi, Vol. 8 No. 1, Jan 2026 Page 277 
+ 
+Gambar 1. Alur Penelitian 
+Tahap pertama dimulai de ngan kegiatan persiapan penelitian, yaitu penentuan tujuan, ruang lingkup, 
+serta fokus permasalahan yang akan dikaji. Pada tahap ini, peneliti melakukan identifikasi awal 
+terhadap kondisi sistem manual dan semi -digital yang diterapkan di Panti Asuhan Muham madiyah 
+Slawi, mencakup proses penda taan anak asuh . Langkah ini bertujuan untuk memperoleh gambaran 
+umum mengenai efektivitas, efisiensi, serta kendala yang muncul dalam sistem pendataan anak asuh 
+yang sedang berjalan. 
+Selanjutnya, peneliti melakukan studi  literatur untuk memahami teori dan konsep yang relevan 
+dengan sistem informasi manajemen, digitalisasi administrasi sosial, serta metode analisis SWOT 
+sebagai alat untuk menilai kondisi internal dan eksternal lembaga. Studi literatur ini berfungsi sebagai 
+landasan konseptual dalam menentukan indikator analisis, seperti efisiensi sistem, keandalan data , 
+keamanan informasi, dan kesiapan sumber daya manusia dalam menghadapi proses digitalisasi sistem 
+pendataan. 
+Tahap berikutnya adalah pengumpulan data, yang dilakukan melalui observasi langsung, wawancara 
+terstruktur, dan dokumentasi administratif. Observa si dilakukan untuk meninjau alur pendataan anak 
+asuh yang mencakup proses input, pengarsipan, dan pelaporan data. Wawancara dilakukan dengan 
+kepala panti, para pengurus dan sekretaris  untuk memperoleh informasi tentang kendala dan harapan 
+terhadap sistem digital yang akan dikembangkan. Dokumentasi digunakan untuk mengumpulkan bukti 
+pendukung berupa laporan data anak asuh, buku induk, dan file Excel yang digunakan dalam 
+pengelolaan data. Data yang diperoleh kemudian diklasifikasikan berdasarkan kategori fakt or internal 
+dan eksternal sebagai bahan untuk analisis SWOT. 
+Pada tahap analisis, peneliti menguraikan dan menginterpretasikan hasil identifikasi faktor internal 
+(strengths dan weaknesses) serta faktor eksternal (opportunities dan threats). Analisis ini di gunakan 
+untuk menilai posisi strategis panti dalam menghadapi tantangan dan peluang digitalisasi sistem 
+pendataan anak asuh. Hasil analisis tersebut menjadi dasar dalam merumuskan strategi pengembangan 
+yang menitikberatkan pada pemanfaatan kekuatan interna l, perbaikan kelemahan sistem, optimalisasi 
+peluang dari dukungan eksternal, serta mitigasi terhadap ancaman seperti keterbatasan SDM dan risiko 
+keamanan data. 
+
+
+PAGE 4
+Mutiara H U, et al., Analisis Sistem Pemndataan Anak Asuh di Panti Asuhan Muhammdiyah Slawi. 
+ 
+ZONAsi: Jurnal Sistem Informasi, Vol. 8 No. 1, Jan 2026 Page 278 
+Tahap terakhir adalah penyusunan rekomendasi dan kesimpulan, yang disusun berdasarkan hasil 
+analisis SWOT secara menyeluruh. Rekomendasi difokuskan pada strategi pengembangan sistem 
+pendataan berbasis web yang efisien, terintegrasi, serta adaptif terhadap kebutuhan lembaga dan 
+kebijakan digitalisasi administrasi sosial. Sistem yang diusulkan diharapk an mampu meningkatkan 
+efisiensi kerja staf, mempercepat pelaporan data, dan meningkatkan akurasi serta keamanan informasi 
+anak asuh. Seluruh tahapan tersebut kemudian dirangkum dalam laporan penelitian yang sistematis, 
+menggambarkan pendekatan kualitatif d eskriptif dengan fokus pada analisis strategis pengembangan 
+sistem pendataan anak asuh melalui metode SWOT. 
+ 
+2.1. Lokasi Penelitian 
+Penelitian dilakukan di Panti Asuhan Muhammadiyah Slawi, Kabupaten Tegal, Jawa Tengah. Lokasi 
+ini dipilih karena lembaga tersebut telah menerapkan sistem pendataan semi-digital menggunakan Buku 
+Induk, Microsoft  Excel, dan aplikasi dari Dinas Sosial, namun masih menghadapi kendala dalam 
+keterlambatan pembaruan data dan efisiensi pelaporan. Penelitian dilaksanakan selama periode  bulan 
+Agustus hingga Oktober 2025, bertepatan dengan kegiatan internship peneliti di instansi tersebut. 
+ 
+2.2. Sumber dan Jenis Data 
+Data yang digunakan dalam penelitian ini terdiri atas: 
+ Data primer, diperoleh melalui observasi langsung terhadap proses pendataan, wawancara dengan 
+kepala panti, sekretaris, serta para pengurus. 
+ Data sekunder, berasal dari dokumen internal panti (buku induk, arsip Excel, laporan ke Dinas Sosial) 
+dan literatur ilmiah yang relevan terkait sistem informasi dan manajemen data sosial. 
+ 
+2.3. Metode Analisis 
+Setelah analisis sistem dilakukan, tahap selanjutnya adalah penerapan analisis SWOT untuk menilai 
+kondisi internal dan eksternal panti dalam kaitannya dengan pengembangan sistem digital. Analisis ini 
+digunakan untuk memetakan kekuatan, kelemahan, peluang, dan tantangan yang memengaruhi 
+keberhasilan implementasi sistem pendataan berbasis web yaitu sebagai berikut: 
+1. Identifikasi Faktor Internal (Strengths dan Weaknesses) 
+Pada tahap ini, peneliti mengidentifikasi faktor-faktor kekuatan dan kelemahan yang dimiliki 
+oleh Panti Asuhan Muhammadiyah Slawi berdasarkan hasil observasi lapangan dan wawancara 
+dengan pihak pengelola.  Faktor kekuatan  meliputi tersedianya sistem pendataan semi -digital 
+menggunakan Microsoft Excel yang sudah cukup membantu dalam pengelolaan data anak asuh, 
+kedisiplinan staf dalam melakukan pencatatan, serta adanya dukungan dari pihak pengurus panti 
+terhadap peningkatan kualitas administrasi.  Sementara itu, faktor kelemahan mencakup masih 
+rendahnya efisiensi dalam penginputan data, keterba tasan kemampuan staf dalam penggunaan 
+sistem digital berbasis web, belum adanya sistem keamanan data yang memadai. 
+2. Identifikasi Faktor Eksternal (Opportunities dan Threats) 
+Tahap ini menganalisis faktor eksternal yang dapat memengaruhi pengembangan sistem 
+pendataan berbasis digital. Faktor peluang  antara lain adanya dukungan pemerintah terhadap 
+program digitalisasi lembaga sosial, meningkatnya literasi teknologi di kalangan masyarakat, 
+serta potensi kerja sama dengan Instansi lain  dalam pengelolaan data ana k asuh secara 
+terintegrasi. Sedangkan faktor ancaman mencakup keterbatasan anggaran untuk implementasi 
+sistem digital, potensi resistensi pengguna terhadap perubahan sistem baru, serta risiko keamanan 
+data apabila tidak dilengkapi dengan sistem enkripsi dan kontrol akses yang memadai. 
+3.  Analisis Matriks SWOT 
+Seluruh faktor internal dan eksternal yang telah diidentifikasi kemudian disusun dalam 
+matriks SWOT untuk mengetahui hubungan antarunsur yang dapat dimanfaatkan dalam 
+perumusan strategi pengembangan sistem pendataan. Analisis ini membantu peneliti menentukan 
+langkah strategis yang mempertahankan kekuatan, meminimalkan kelemahan, memanfaatkan 
+peluang, dan mengantisipasi ancaman yang mungkin muncul dalam proses digitalisasi. Melalui 
+penyusunan matriks SWOT, peneliti dapat mengembangkan arah kebijakan panti asuhan dalam 
+pengelolaan data anak asuh berbasis web agar lebih efektif dan efisien. 
+4. Formulasi Strategi Pengembangan 
+
+PAGE 5
+Mutiara H U, et al., Analisis Sistem Pemndataan Anak Asuh di Panti Asuhan Muhammdiyah Slawi. 
+ 
+ZONAsi: Jurnal Sistem Informasi, Vol. 8 No. 1, Jan 2026 Page 279 
+Tahap terakhir adalah merumuskan strategi pengembangan sistem pendataan anak asuh 
+berbasis web berdasarkan hasil analisis matriks SWOT. Strategi yang dihasilkan berfokus pada 
+peningkatan kemampuan sumber daya manusia melalui pelatihan penggunaan sistem digital, 
+penerapan basis data terpusat dengan fitur keamanan, serta integrasi sistem p endataan antara 
+panti asuhan dan Dinas Sosial.  Selain itu, strategi juga diarahkan untuk memperkuat aspek 
+transparansi dan akuntabilitas lembaga melalui otomatisasi pelaporan data dan kemudahan akses 
+bagi pihak terkait. Dengan formulasi ini, sistem pendata an anak asuh diharapkan mampu 
+mendukung transformasi digital lembaga secara berkelanjutan. 
+ 
+3. HASIL DAN PEMBAHASAN 
+3.1 Hasil Penelitian 
+Hasil penelitian diperoleh melalui observasi, wawancara, studi pustaka, dan dokumentasi di Panti 
+Asuhan Muhammadiyah Slawi. Berdasarkan hasil observasi, ditemukan bahwa kegiatan administrasi 
+pendataan anak asuh masih dilakukan secara manual dan semi -digital, dengan menggunakan buku 
+induk dan Microsoft Excel sebagai media utama pencatatan. 
+Sistem ini membantu pengurus panti dalam pengelolaan data, namun masih memiliki keterbatasan 
+pada aspek efisiensi, kecepatan pembaruan data, dan keamanan arsip. Proses pencatatan identitas anak 
+asuh, pengarsipan dokumen, hingga pelaporan ke Dinas Sosial masih bergantung pada input man ual 
+dan pemrosesan ulang di Excel. 
+Hasil wawancara menunjukkan bahwa pengurus panti mulai mempertimbangkan penggunaan sistem 
+berbasis web untuk memperbaiki ketertiban administrasi dan mempercepat pelaporan. Namun, 
+keterbatasan sumber daya manusia serta bia ya pengembangan menjadi hambatan utama dalam proses 
+digitalisasi. 
+Temuan lapangan menunjukkan bahwa proses pelaporan data dari panti ke Dinas Sosial berpotensi 
+mengalami keterlambatan, karena data harus diverifikasi dan diunggah ulang ke sistem pusat dari Dinas 
+Sosial. Selain itu, tidak adanya sistem cadangan data (backup) menyebabkan risiko kehilangan arsip 
+ketika file rusak atau perangkat mengalami gangguan. 
+Secara keseluruhan, hasil penelitian menunjukkan bahwa sistem pendataan anak asuh masih 
+memerlukan pengembangan berbasis web terintegrasi, agar data dapat tersimpan secara aman, 
+diperbarui otomatis, dan disinkronkan langsung dengan Dinas Sosial tanpa penginputan ulang. 
+ 
+3.2 Pembahasan 
+3.2.1 Gap antara Sistem yang Berjalan dan Sistem Ideal 
+Hasil penelit ian menunjukkan bahwa sistem pendataan di Panti Asuhan Muhammadiyah Slawi 
+masih semi-digital dan belum memiliki mekanisme integrasi langsung ke aplikasi Dinas Sosial. Kondisi 
+ini berbeda dengan temuan Irawan et al. (2021) dan Nurdin Ibrahim et al. (2024) y ang membuktikan 
+bahwa penerapan sistem berbasis web mampu mempercepat pelaporan hingga 70% serta mengurangi 
+kesalahan input secara signifikan.  Kesenjangan ini memperlihatkan bahwa sistem di panti belum 
+memanfaatkan potensi digitalisasi sepenuhnya, terutama dalam aspek otomatisasi dan validasi data. 
+ 
+3.2.2  Analisis Sistem yang Berjalan 
+Dari sisi operasional, sistem yang berjalan memiliki keunggulan berupa kemudahan penggunaan dan 
+kesederhanaan, karena Excel telah membantu pengolahan data anak asuh dengan format tabel yang 
+terstruktur. Namun, kelemahannya terletak pada ketergantungan pada input manual, risiko kehilangan 
+data, dan duplikasi informasi.  Kondisi ini sesuai dengan pandangan Ginting dan Faizah (2024) yang 
+menyatakan bahwa sistem manual dan semi -digital rentan terhadap kesalahan input dan inefisiensi 
+waktu ketika volume data meningkat. 
+Selain itu, belum adanya sistem backup otomatis dan kontrol akses pengguna menjadi celah 
+keamanan yang cukup serius. Hal ini berbeda dengan sistem informasi berbasis web yang umumnya 
+memiliki fitur enkripsi data, otentikasi pengguna, dan penyimpanan berbas is server (Rahim, 2020). 
+Dengan demikian, sistem yang ada belum mampu menjamin integritas dan keamanan data sebagaimana 
+standar sistem informasi modern. 
+ 
+
+PAGE 6
+Mutiara H U, et al., Analisis Sistem Pemndataan Anak Asuh di Panti Asuhan Muhammdiyah Slawi. 
+ 
+ZONAsi: Jurnal Sistem Informasi, Vol. 8 No. 1, Jan 2026 Page 280 
+3.2.3  Rekomendasi Pengembangan Sistem 
+Melihat gap tersebut, diperlukan pengembangan sistem pendataan anak asuh berbasis web yang 
+dilengkapi dengan fitur validasi otomatis, pencarian cepat, kontrol akses berbasis peran, dan backup 
+rutin. Pendekatan ini sejalan dengan penelitian Liwu et al. (2022) dan Yuliadi et al. (2024) yang 
+menunjukkan bahwa digitalisas i berbasis web dapat meningkatkan transparansi, mempercepat 
+pelaporan, dan memperkuat akuntabilitas lembaga sosial. 
+Selain itu, perlu adanya pelatihan internal bagi staf panti agar mampu beradaptasi dengan sistem 
+baru. Hal ini penting karena transisi dari sistem manual ke digital tidak hanya membutuhkan perangkat, 
+tetapi juga kesiapan sumber daya manusia. 
+ 
+Kesimpulan Pembahasan 
+Dari hasil dan pembahasan di atas, dapat disimpulkan bahwa masih terdapat gap signifikan antara 
+kondisi sistem pendataan di Panti A suhan Muhammadiyah Slawi dengan sistem digital ideal 
+sebagaimana ditunjukkan dalam literatur. Pengembangan sistem berbasis web terintegrasi merupakan 
+solusi yang tepat untuk menjawab permasalahan efisiensi, akurasi, dan keamanan data, sekaligus 
+mendukung upaya digitalisasi administrasi sosial yang berkelanjutan. 
+ 
+4. KESIMPULAN 
+Adapun kesimpulan yang diperoleh dari kegiatan penelitian yang telah dilaksanakan yaitu sebagai 
+berikut: 
+1. Sistem pendataan anak asuh di Panti Asuhan Muhammadiyah Slawi masih menggunakan metode 
+manual dan semi -digital, yaitu melalui pencatatan pada buku induk, Microsoft  Excel, dan 
+pelaporan ke aplikasi Dinas Sosial. Alur ini mempermudah proses pelaporan, tetapi kurang 
+efisien ketika data anak bertambah banyak. 
+2. Sistem manual mem iliki kelebihan berupa kemudahan digunakan, tidak memerlukan 
+kemampuan teknis tinggi, serta data dapat diperiksa dan diperbaiki langsung jika terjadi 
+kesalahan. 
+3. Kelemahan sistem manual dan semi-digital terletak pada potensi kehilangan data, keterlambatan 
+pembaruan, serta duplikasi informasi antara  Excel dan aplikasi Dinas Sosial. Kondisi ini dapat 
+menimbulkan ketidaksesuaian laporan dan memperlambat sinkronisasi antar instansi. 
+4. Hasil analisis menunjukkan bahwa panti memiliki peluang besar untuk menerapkan s istem 
+berbasis web terintegrasi. Sistem ini dapat mempercepat pencatatan, meningkatkan efisiensi 
+kerja, serta mendukung transparansi dan akuntabilitas lembaga kepada donatur dan pemerintah. 
+5. Meskipun demikian, penerapan sistem digital menghadapi tantangan berupa kebutuhan pelatihan 
+staf, keterbatasan anggaran untuk perangkat dan jaringan, serta resistensi sebagian pihak terhadap 
+perubahan sistem. Diperlukan strategi komunikasi dan pendampingan agar proses transisi 
+berjalan lancar. 
+Berdasarkan hasil penelitia n yang telah dilakukan, maka diperoleh beberapa saran yang dapat 
+dijadikan bahan pertimbangan sebagai berikut: 
+1. Berdasarkan hasil penelitian, disarankan agar panti melaksanakan pelatihan internal bagi staf 
+administrasi untuk meningkatkan literasi digital dan kemampuan pengelolaan data berbasis 
+komputer. 
+2. Lembaga perlu mempertimbangkan pengembangan sistem pendataan berbasis web secara 
+bertahap agar data anak asuh dapat tersimpan, diperbarui, dan disinkronkan otomatis dengan 
+aplikasi Dinas Sosial tanpa input ulang. 
+3. Panti perlu menjadwalkan pembaruan data secara berkala dan memastikan validasi informasi 
+sebelum dikirim ke Dinas Sosial untuk menjaga keakuratan dan menghindari duplikasi. 
+4. Diperlukan dukungan dari pihak universitas, pemerintah daerah, dan donatur unt uk membantu 
+pelatihan, pengembangan sistem, serta pengadaan perangkat agar digitalisasi administrasi dapat 
+terlaksana secara optimal. 
+ 
+Daftar Pustaka 
+[1]   Alimuddin, M. B., Arifin, M. Z., &  Hariono, T. (2020). Rancang Bangun Sistem Pendataan 
+Warga Nahdlatul Ulama Untuk Optimasi Pelayanan. Saintekbu, 12(2), 74–82.  
+
+PAGE 7
+Mutiara H U, et al., Analisis Sistem Pemndataan Anak Asuh di Panti Asuhan Muhammdiyah Slawi. 
+ 
+ZONAsi: Jurnal Sistem Informasi, Vol. 8 No. 1, Jan 2026 Page 281 
+[2]  Azizi, M. S., Aditiatama, Y., Mubarak, M. K., & Rolliawati, D. (2020). Pemodelan Sistem 
+Informasi dan Teknologi (SINTEK). JUST IT : Jurnal Sistem Informasi, Teknologi Informasi 
+Dan Komputer, 11(1), 32.  
+[3]  Bilal, A. (2022). Analisis dan Implementasi Sistem Informasi Pengolahan Data Anak Asuh di 
+Panti Asuhan Sinar Melati Yogyakarta Berbasis Website Menggunakan Codeigniter. 1(4).  
+[4] Bramantyo, R. Y. (2022). Implementasi Undang-Undang Dasar 1945 Pasal 18B Ayat 2 Tentang 
+Pengakuan Negara Terhadap Norma Adat Dalam Perspektif Religius Dan Ritualis Masyarakat 
+Dusun Temboro Kecamatan Wates Kabupaten Kediri. November. 
+[5]  Farida, L.  N. (2020). Teknik Dan Dokumentasi Sistem Informasi Akuntansi. Teknik Dan 
+Dokumentasi Sistem Informasi Akuntansi, October, 16.  
+[6]  Ginting, W., & Faizah, NM, Tahu, F. K. (2024). Optimalisasi Pendataan Anak Serta Donatur 
+Yayasan Kasih Mandiri Bersinar dengan Metode Prototype. Design Journal, 2(2), 42–50.  
+[7]  Irawan, Y., Wahyuni, R., & Devis, Y. (2021). Pengelolaan Administrasi Berbasis Teknologi 
+Informasi Pada Panti Asuhan Bayi & Balita Fajar Harapan. Community Engagement and 
+Emergence Journal (CEEJ), 2(3), 10–18.  
+[8]  Nawassyarif, & Sofya Dery Nora, HS Djafar Kalkausar Siti, S. S. S. (2021). Sistem Informasi 
+Manajemen Panti Asuhan Muhammadiyah Sumbawa Berbasis Website. Informatika Teknologi 
+Dan Sains, 3(4), 453–458. 
+[9]  Nurdin Ibrahim, I., Adelvin Londa, M., & Radja, M. (2024). Sistem Informasi Pengelolahan Data 
+Anak Pada Panti Asuhanberbasis Web (Studi Kasus Panti Alma Ende). Simtek : Jurnal Sistem 
+Informasi Dan Teknik Komputer, 9(2), 226–231.  
+[10]  Qorni, W. Al, Wardhani, D. R., & Marlina, D. (2023). Sistem Informasi Pengelolaan pada Panti 
+Sosial Asuhan Anak Putra Utama 1 Berbasis Java. Jurnal Riset Dan Aplikasi Mahasiswa 
+Informatika (JRAMI), 4(01), 134–141.  
+[11]   Rahim, A. (2020). Abdur Rahim, Analisa Dan Perancangan Sistem Info rmasi Pembinaan Panti 
+Asuhan Pada Panti Asuhan Muhammadiyah Tembilahan 44. Jurnal Sistemasi, 2(3), 44–55. 
+[12]  Yuliadi, Y., Susanto, E. S., & Nurmayani, H. (2024). Sistem Informasi Data Penerimaan Anak 
+Asuh Baru Pada Panti Sosial Bina Remaja “Karya Putra”  Mataram”. Jurnal Teknologi 
+Informatika Dan Komputer, 2(1), 41–47.  
+[13]  Yuliana Monika Liwu, Kristianus Jago Tute, & Benediktus Yoseph Bhae. (2022). Perancangan 
+dan Implementasi Sistem Informasi Manajemen Panti Asuhan Menggunakan Pemrograman Java 
+Netbeans. Jurnal Sains Teknologi Dan Sistem Informasi, 2(2), 108–116.  
+[14]  Tiara Fany Chintia Silitonga, Wulan Purnama Sari Simatupang, Loise Chisanta Ginting, 
+Muhammad Aimar Zaidan, & Harrys Cristian Vieri. (2023). Peran Panti Asuhan Yayasan Rumah 
+Bakti Kasih Anak Indonesia dalam Membentuk Karakter Anak Panti. Jurnal Ilmu Sosial Dan 
+Humaniora, 2(1), 1–6.  
+[15]  Wijoyo, H., Ariyanto, A., Sudarsono, A., & Wijayanti, K. D. (2021). Sistem Informasi 
+Manajemen. In Penerbit Insan Cendekia Mandiri. 
+[16]  Sari, D. (2020 ). Analisis Strenght Weakness Opportunity Threat (SWOT) Dalam Menentukan 
+Strategi Pemasaran Penjualan Roti. Pragmatis, 1(1), 7. 
+[17]  Sasoko, D. M., & Mahrudi, I. (2023). SWOT Analysis Technique in Activity Planning: A 
+Comprehensive Overview. Jurnal Studi Interdisipliner Perspektif, 22(December 2022), 1. 
+ 
+ ZONAsi: Jurnal Sistem Informasi  
+Is licensed under a Creative Commons Attribution International (CC BY-SA 4.0) 

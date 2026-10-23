@@ -79,12 +79,11 @@
                     @endif
                 </section>
                 <section class="card soft">
-                    <p class="eyebrow">SILATURAHMI</p>
-                    <h2>Rencanakan kunjungan</h2>
-                    <p>Kunjungan berlangsung pukul 07.00–21.00 WIB, sesuai jadwal yang disetujui pengurus.</p><a
-                        class="button mt-6 inline-flex items-center gap-1.5"
-                        href="{{ route('submission.form', 'kunjungan') }}">Isi formulir kunjungan <svg class="w-3.5 h-3.5"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <p class="eyebrow">BERBAGI KEBAIKAN</p>
+                    <h2>Dukung kebutuhan panti</h2>
+                    <p>Lihat kebutuhan panti dan pilih bantuan yang ingin Anda berikan.</p><a
+                        class="button mt-6 inline-flex items-center gap-1.5" href="{{ route('page', 'kebutuhan') }}">Lihat
+                        kebutuhan <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg></a>

@@ -53,7 +53,7 @@ class ReportExportTest extends TestCase
 
     public function test_empty_reports_keep_headings_and_zero_summary(): void
     {
-        foreach (['donasi' => 8, 'bantuan' => 5, 'kunjungan' => 6] as $kind => $columns) {
+        foreach (['donasi' => 8, 'bantuan' => 5] as $kind => $columns) {
             $book = $this->workbook(new ReportExport([], array_fill(0, $columns, 'Kolom'), $kind, ['Jumlah catatan' => 0], 'created_at', []));
             $sheet = $book->getActiveSheet();
             $this->assertSame('Laporan '.ucfirst($kind), $sheet->getTitle());

@@ -30,16 +30,6 @@
                     @endforeach
                 </div>
                 <p class="mt-5">Tanggal diterima: {{ $record->tanggal_diterima ?: 'Belum diterima' }}</p>
-            @else<div class="detail-row">
-                    <strong>Jadwal</strong><span>{{ $record->tanggal }}<br>{{ substr($record->jam, 0, 5) }}–{{ substr($record->jam_selesai, 0, 5) }}
-                        WIB</span>
-                </div>
-                <div class="detail-row"><strong>Peserta</strong><span>{{ $record->peserta }} orang</span></div>
-                <p class="mt-5">{{ $record->tujuan }}</p>
-                @if ($record->status === 'Dijadwalkan ulang')
-                    <div class="notice">Hubungi pengurus melalui WhatsApp untuk memberikan persetujuan atas jadwal baru.
-                    </div>
-                @endif
             @endif
             <hr>
             <h3>Riwayat status</h3>

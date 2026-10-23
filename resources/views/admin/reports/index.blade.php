@@ -9,9 +9,10 @@
             <div class="field"><label for="status">Status</label><select name="status" id="status">
                     <option value="">Semua status</option>
                     @foreach (match ($kind) {
-            'donasi' => ['Menunggu pembayaran', 'Berhasil', 'Gagal', 'Kedaluwarsa'],
+            'donasi' => ['Menunggu pembayaran', 'Berhasil', 'Gagal', 'Kedaluwarsa', 'Dibatalkan'],
             'bantuan' => ['Diajukan', 'Dikonfirmasi', 'Diterima', 'Ditolak'],
-            'kunjungan' => ['Menunggu', 'Disetujui', 'Dijadwalkan ulang', 'Ditolak', 'Hadir', 'Selesai'],
+            'pengeluaran' => ['Draft', 'Dibukukan', 'Dibatalkan'],
+            default => [],
         } as $status)
                         <option @selected(request('status') === $status)>{{ $status }}</option>
                     @endforeach
@@ -34,12 +35,15 @@
         @endforeach
     </div>
     @if ($net !== null)
-        <div class="notice success">Total donasi bersih yang biayanya sudah tercatat:
+        <div class="notice success">Total donasi bersih tercatat (manual dan online dengan biaya tercatat):
             Rp{{ number_format($net, 0, ',', '.') }}.
             @if ($unknown)
                 {{ $unknown }} pembayaran berhasil belum memiliki biaya dan belum masuk total bersih.
             @endif
         </div>
+    @endif
+    @if ($kind === 'arus-kas' && $unknown)
+        <div class="notice">{{ $unknown }} donasi online (termasuk sebelum periode) belum masuk penerimaan bersih dan saldo karena biaya belum tersedia. Saldo masih sementara.</div>
     @endif
     <div class="card table-card">
         <div class="table-scroll">

@@ -29,7 +29,7 @@ class CreateAdmin extends Command
 
             return self::FAILURE;
         }
-        User::create($data);
+        User::create($data + ['role' => 'pengurus']);
         $this->info('Akun pengurus berhasil dibuat.');
 
         return self::SUCCESS;

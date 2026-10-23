@@ -27,13 +27,6 @@ class StatusService
                 'Dikonfirmasi' => ['Diterima', 'Ditolak'],
                 default => [],
             },
-            'kunjungan' => match ($status) {
-                'Menunggu' => ['Disetujui', 'Dijadwalkan ulang', 'Ditolak'],
-                'Disetujui' => ['Hadir', 'Dijadwalkan ulang', 'Ditolak'],
-                'Dijadwalkan ulang' => ['Disetujui', 'Dijadwalkan ulang', 'Ditolak'],
-                'Hadir' => ['Selesai'],
-                default => [],
-            },
             default => [],
         };
     }

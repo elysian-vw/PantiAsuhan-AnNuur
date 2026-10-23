@@ -17,7 +17,7 @@ if (User::where('email', $email)->exists()) {
     exit(0);
 }
 $password = bin2hex(random_bytes(10));
-User::create(['name' => 'Pengurus An-Nuur 2', 'email' => $email, 'password' => $password]);
+User::create(['name' => 'Pengurus An-Nuur 2', 'email' => $email, 'password' => $password, 'role' => 'pengurus']);
 if (! is_dir(__DIR__.'/../.runtime')) {
     mkdir(__DIR__.'/../.runtime', 0700, true);
 }

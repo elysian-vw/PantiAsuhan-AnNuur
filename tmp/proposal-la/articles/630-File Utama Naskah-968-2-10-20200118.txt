@@ -1,0 +1,321 @@
+
+PAGE 1
+ 
+ 
+158 
+Rancang Bangun Sistem Informasi Penggalangan Dana Sosial Panti Asuhan 
+Berbasis Web 
+ 
+Jajang Romansyah1
+, Asri Mulyani2, Dede Kurniadi3 
+ 
+Jurnal Algoritma 
+Sekolah Tinggi Teknologi Garut 
+Jl. Mayor Syamsu No. 1 Jayaraga Garut 44151 Indonesia 
+Email : jurnal@sttgarut.ac.id 
+ 
+11506118@sttgarut.ac.id 
+2asrimulyani@sttgarut.ac.id 
+3dede.kurniadi@sttgarut.ac.id 
+ 
+Abstrak – Salah satu tindakan mulia dan terpuj i yaitu berdonasi, karena dengan melakukannya kita 
+dapat membantu meringankan beban orang yang membutuhkan. Panti sosial adalah suatu tempat 
+yang dibangun untuk menampung dan memelihara anak terlantar. Untuk memenuhi kebutuhan 
+sehari-hari panti membutuhkan  bantuan dana dari berbagai pihak. Penelitian ini mengambil studi 
+kasus panti asuhan yang ada di kota Garut. Ketika melakukan survey ke lapangan, masih banyak 
+panti sosial yang tidak mempunyai website sebagai sarana penggalangan dana secara online. Saat 
+ini panti hanya memperoleh donasi dari masyarakat sekitar dan pimpinan pusat yang memberikan 
+bantuan satu bulan sekali. Salah satu jalan keluar yang ditempuh untuk memenuhi kebutuhan anak 
+asuh yaitu dengan membangun sistem penggalangan dana online. Hasil yang diperoleh dari aplikasi 
+ini berupa sistem informasi penggalangan dana berbasis Web. Ketika proses perancangan 
+menggunakan metode waterfall dengan pemodelan secara terstruktur.   
+ 
+Kata Kunci – Donasi, Panti, Terstruktur, Waterfall. 
+ 
+ 
+I. PENDAHULUAN 
+ 
+Dengan semakin pesatnya perkembangan teknologi dan sistem informasi semua kegiatan 
+menjadi lebih mudah dilakukan dan waktu untuk mengerjakan suatu pekerjaan menjadi lebih cepat. 
+Sistem informasi yaitu suatu yang memiliki hubungan satu dengan lainnya yang ada pada organisasi 
+untuk mengatasi pengolahan data harian dan sebagai pendukung untuk menghasilkan sebuah 
+informasi [1][2][3]. Saat ini hampir semua orang tidak terlepas dari internet, mulai berbelanja, 
+membeli makanan, memesan tiket kereta api, pesawat, bus dan lain sebainy a dilakukan dengan cara 
+online dengan syarat smartphone atau komputer yang digunakan terhubung dengan jaringan 
+internet. Tidak hanya untuk melakukan transaksi jual beli, bersedekah untuk membantu seseorang 
+atau suatu lembaga sosial dapat dilakukan secara online sehingga kita tidak perlu datang langsung 
+ke lokasi untuk berdonasi. Panti sosial adalah suatu lembaga sosial untuk menampung dan merawat 
+anak terlantar, dimana mereka akan diberikan tempat tinggal, makan, motivasi, pendidikan dan 
+dilatih supaya kelak dapat hidup mandiri tanpa hadirnya orang tua.  Anak merupakan anugerah yang 
+dititipkan Allah Subhanahu Wata Ala kepada seseorang yang dikehendaki -Nya. Anak adalah setiap 
+orang yang usianya kurang dari 18 tahun dan tidak pernah kawin [4]. Setiap orang tua pasti 
+menginkan hidup anaknya sejahtera, dalam artian mendapat kehidupan yang layak dan semua 
+kebutuhannya terpenuhi. Meskipun kesejahteraan sosial ana k telah diatur dalam undang -undang 
+
+PAGE 2
+Jurnal Algoritma  Romansyah, et. al. 
+V ol. 16; No. 02; 2019; Hal 158-165 
+ 
+http://jurnal.sttgarut.ac.id/  159 
+tapi dalam kenyataannya masih banyak anak yang hidupnya jauh dari kata sejahtera, mereka hidup 
+dijalanan, memungut sampah, mengemis dan lain sebagainya. Dengan banyaknya anak yang di 
+bina, maka biaya yang harus dikeluarka n setiap harinya tidak sedikit. Oleh karena itu, panti masih 
+mengharapkan sumbangan dari donatur untuk memenuhi kebutuhan sehari-hari anak asuh. 
+Untuk menciptakan penelitian yang original, maka peneliti mengembangkan penelitian yang 
+dilakukan oleh peneliti  sebelumnya yang membahas tentang panti sosial. Pada penelitian pertama 
+hanya memberikan informasi tentang Panti Sosial Batu Penjuru, dimana user dapat melihat profile, 
+agenda, susunan dalam pengurusan, kegiatan, penerimaan anak, data pengurus dan data ana k yang 
+ada pada panti sosial [5]. Penelitian selanjutnya yang dilakukan di Panti Sosial Muhammadiyah 
+daerah Jawa Timur hanya membuat perancang an story board, usecase, sequence, robusthness dan 
+class diagram serta pemodelan domain, dimana tidak mencapai tahap pembuatan aplikasi [6]. 
+Penelitian terakhir hanya memberikan informasi mengenai Panti Sosial Bundo Saiyo yang ada di 
+kota Padang, dimana sistem yang dibangun menampilkan menu home, anak asuh, kegiatan,  
+donatur, profile, pengurus, contact, pengunjung dan login [7].  
+Berdasarkan penelitian yang dilakukan oleh peneliti sebelumnya, maka dapat ditarik 
+kesimpulan bahwa semuanya belum menerapkan sist em penggalangan dana untuk beberapa panti 
+sosial yang ada pada suatu daerah tertentu. Untuk menyelesaikan permasalahan tersebut, maka 
+peneliti membangun sistem penggalangan dana yang dilakukan dengan cara online untuk beberapa 
+panti sosial yang ada di wilayah dengan cakupan yang lumayan besar. Tujuan dibuatnya aplikasi ini 
+yaitu merancang dan membangun sistem informasi penggalangan dana panti sosial berbasis Web 
+yang dapat mengakomodir donasi panti, dengan mengambil studi kasus panti sosial yang ada di 
+kota Garut. 
+ 
+ 
+II. METODE PENELITIAN 
+ 
+Perancangan aplikasi yang bangun menggunakan metode waterfall, yakni suatu model 
+Software Development Life Cicle (SDLC) yang sederhana. Metode ini disebut juga model 
+sekuensial linear, karena proses kemajuannya dipandang mengal ir ke bawah seperti air terjun [8]. 
+Waterfall menyediakan suatu siklus software yang tersususun dimulai tahap anal isis, tahap desain, 
+tahap pengkodean, tahap pengujian dan pemeliharaan [9]. Work Breakdown Structure untuk sistem 
+informasi penggalangan dana ditampilkan pada gambar dibawah ini : 
+ 
+Gambar 1 : Work Breakdown Stucture 
+ 
+ 
+ 
+ 
+
+
+PAGE 3
+Romansyah, et. al.  Jurnal Algoritma 
+Vol. 16; No. 02; 2019; Hal 158-165 
+160  http://jurnal.sttgarut.ac.id/ 
+Tahapan-tahapan dalam perancangan program metode waterfall adalah sebagai berikut : 
+1. Analisis 
+Aktivitas yang dilakukan pada tahap ini yaitu studi pustaka yang diperoleh dari internet, jurnal 
+dan buku. Selanjutnya menentuan spesifikasi perangkat lunak dan keras minimal yang 
+diperlukan untuk menjalankan aplikasi. 
+2. Desain 
+Aktivitas pada tahap ini yaitu membuat flowchart, CD, DFD, ERD , kamus data, perancangan 
+database, desain struktur menu, dan desain interface. Desain dilakukan supaya proses 
+pembuatan aplikasi menjadi lebih terkonsep. 
+3. Pengkodean 
+Aktivitas yang dilakukan yaitu menterjemahkan desain menjadi source code dan pada akhirnya 
+menghasilkan suatu aplikasi.  
+4. Pengujian 
+Terakhir dilakukan pengujian, dimana aplikasi yang telah di bangun diuji setiap menu yang ada 
+untuk memastikan semuanya berjalan sesuai yang diharapkan. 
+ 
+ 
+III. HASIL DAN PEMBAHASAN 
+ 
+A. Hasil 
+  Penelitian yang dilakukan menghasilkan suatu sistem informasi untuk penggalangan dana 
+online berbasis Web mencakup panti yang ada di kota Garut. 
+ 
+B. Pembahasan 
+1. Analisis 
+Tahap pertama yang dilakukan yang dilakukan yaitu analisis, kegiatan yang dilakukan terdiri 
+dari studi pustaka dan spesifikasi perangkat yang dibagi menjadi dua, yaitu perangkat keras dan 
+lunak. Studi pustaka merupakan suatu cara untuk mencari informasi tentang peneliti an sebelumnya 
+yang mempunyai hubungan dengan penelitian sekarang. Spesifikasi perangkat keras minimal yang 
+diperlukan yaitu processor intel, core duo, hardisk 300 GB, RAM 512 MB, dan resolusi pada layar 
+1366x768. Sedangkan perangkat lunak minimal yang haru s dimiliki user diantaranya semua versi 
+dari processor qualcomm snapdragon, RAM 512 MB, memory 1 GB, dan sistem operasinya tidak 
+dibatasi dengan syarat internet dapat diakses [10]. 
+ 
+2. Desain 
+Desain merupakan tahap kedua yang dilakukan dalam metode waterfall. Hasil desain yang 
+telah dirancang dapat dilihat pada gambar berikut : 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+PAGE 4
+Jurnal Algoritma  Romansyah, et. al. 
+V ol. 16; No. 02; 2019; Hal 158-165 
+ 
+http://jurnal.sttgarut.ac.id/  161 
+d. Flowchart 
+ 
+ 
+Gambar 2 : Flowchart Sistem yang Diajukan 
+ Gambar 2 menjelaskan tentang flowchat untuk sistem yang akan diajukan. Pertama donatur  
+melakukan register, selanjutnya login untuk melakukan donasi dengan cara memasukan 
+username dan password. Kemudian akan dilakukan validasi input data telah dimasukan, apabila 
+datanya benar maka donatur dapat mengakses sistem penggalangan dana dan jika salah satu 
+datanya tidak sesuai maka user akan kembali ke halaman login. Ketika berhasil login, 
+selanjutnya donatur memasukan nama panti untuk melakukan proses donasi. Setelah memilih 
+panti dan berdonasi, selanjutnya mengirim bukti transfer. Kemudian admin akan memverifikasi 
+donasi yang diberikan dan akhirnya informasi donasi ditreima oleh donatur. 
+ 
+e. DFD Level 0 
+ 
+ 
+Gambar 3 : DFD Level 0 
+ DFD level 0 yang merupakan gambaran umum sistem yang dirancang ditunjukkan oleh 
+gambar 3, dimana entitas luarnya yaitu donatur dan admin. Sementara prosesnya yaitu sistem 
+informasi penggalangan dana.  
+ 
+ 
+ 
+ 
+
+
+PAGE 5
+Romansyah, et. al.  Jurnal Algoritma 
+Vol. 16; No. 02; 2019; Hal 158-165 
+162  http://jurnal.sttgarut.ac.id/ 
+f. ERD 
+ 
+  
+ 
+Gambar 4 : ERD 
+  ERD sitem penggalangan dana sosial ditunjukkan oleh gambar 4. Entitasnya yaitu donatur, 
+panti, admin, dan transaksi. Dalam hal ini transaksi merupakan hasil transaksi many to many 
+antara donatur dan panti. Atribut dari donatur yaitu id_donatur*, nama, alamat, email, no_telp, 
+username dan password. Selanjutnya atribut panti terdiri dari id_panti*, alamat, nama, deskrispsi 
+dan foto. Kemudian atribut admin yaitu id*, nama, foto, username dan password. Terakhir atribut 
+transaksi terdiri atas id*, id_panti**, id_donatur**, jumlah, bukti, tanggal dan status.  
+ 
+g. Desain Struktur Menu 
+ 
+ 
+Gambar 5 : Desain Struktur Menu 
+  Desain struktur menu ditunjukkan oleh gambar 5. Ketika masuk ke halaman utama maka 
+akan tampil menu home, admin, login, dan register. Apabila admin telah masuk ke sistem 
+kemudian akan tampil menu panti, dasboard, donatur, panti asuhan, transaksi, backup/restore, 
+admin dan keluar. Selanjutnya apabila donatur berhasil login maka akan tampil menu panti, 
+dasboard, profile, donasi saya dan keluar. 
+ 
+  
+
+
+PAGE 6
+Jurnal Algoritma  Romansyah, et. al. 
+V ol. 16; No. 02; 2019; Hal 158-165 
+ 
+http://jurnal.sttgarut.ac.id/  163 
+h. Desain Interface 
+ 
+ 
+Gambar 6 : Desain Interface 
+  Desain interface ditunjukkan oleh gambar 6, dimana terdiri dari desain halaman utama, 
+login, donatur dan admin. 
+ 
+1. Pengkodean 
+Pengkodean dilakukan untuk mentranlasikan analisis dan desain kedalam kode program. 
+Hasil dari pengkodean dapat dilihat pada tabel dibawah ini : 
+ 
+ 
+Gambar 7 : Halaman Utama 
+ 
+Gambar 8 : Halaman Login 
+  
+
+
+PAGE 7
+Romansyah, et. al.  Jurnal Algoritma 
+Vol. 16; No. 02; 2019; Hal 158-165 
+164  http://jurnal.sttgarut.ac.id/ 
+ 
+Gambar 9 : Halaman Donatur 
+ 
+ 
+Gambar 10 : Halaman Admin 
+ 
+2. Pengujian 
+Pengujian dilakukan untuk mengecek bahwa semua menu yang telah dibuat berjalan sesuai 
+dengan yang diharapkan. Adapun pengujian yang dilakukan ditampilkan pada tabel berikut : 
+ 
+ 
+Tabel 1 : Pengujian black box 
+Pengujian Hasil 
+Menu Register Berhasil 
+Menu Login Berhasil 
+Menu Home Berhasil 
+Menu admin Berhasil  
+Panti Berhasil 
+Profile Berhasil 
+Donasi saya Berhasil 
+Dashboard Berhasil 
+Keluar Berhasil 
+Tambah Panti Asuhan Berhasil 
+Transaksi Berhasil 
+Backup/Restore Berhasil 
+  
+ 
+  
+
+
+PAGE 8
+Jurnal Algoritma  Romansyah, et. al. 
+V ol. 16; No. 02; 2019; Hal 158-165 
+ 
+http://jurnal.sttgarut.ac.id/  165 
+IV. KESIMPULAN 
+ 
+Berdasarkan pemaparan yang telah dibahas maka kesimpulannya yaitu peneliti berhasil 
+membuat perancangan kemudian membangun sistem informasi penggalangan dana panti berbasis 
+Web, dengan mengambil studi kasus panti asuhan di Kota Garut. Dalam perancangan men ggunakan 
+metode waterfall, dengan pemodelan secara terstruktur. Pengujian aplikasi menggunakan black box 
+testing, dimana setiap menu yang ada di uji untuk menunjukkan aplikasi bekerja sesuai dengan yang 
+diharapkan. Sistem yang dibangun berbasis  Web dan mas ih sangat sederhana, sehingga dapat 
+memberikan peluang untuk peneliti selanjutnya mengembangkan aplikasi ini menjadi berbasis 
+android, mengubah tampilannya supaya menjadi lebih menarik, dan menambahkan artikel yang 
+dapat menarik minat donatur untuk mendonasikan uangnya kepada panti asuhan. 
+ 
+ 
+DAFTAR PUSTAKA 
+ 
+[1] A. S. Nurjanah and D. Kurniadi, “Sistem Informasi Pengelolaan Izin Praktek Kerja Lapangan 
+Untuk Sekolah Menengah Kejuruan Secara Online di STT Garut,” J. Algoritm., vol. 14, no. 
+2, pp. 65–73, 2017. 
+[2] D. Kurniadi, A. Mulyani, Y . Septiana, and H. Aulawi, “Estimated software measurement base 
+on use case for online admission system,” IOP Conf. Ser. Mater. Sci. Eng., vol. 434, no. 1, p. 
+012062, 2018. 
+[3] D. Kurniadi, E. Abdurachman, H. L. H. S. Warnars, and W. Suparta, “The prediction of 
+scholarship recipients in higher education using k-Nearest neighbor algorithm,” IOP Conf. 
+Ser. Mater. Sci. Eng., vol. 434, no. 1, p. 012039, 2018. 
+[4] S. Widodo, “Diversi Sebagai Bentuk Perlindungan Hak Asasi Anak yang Berhadapan dengan 
+Hukum (Studi di Pengadilan Negeri Purwokerto),” J. Kosmik Huk., vol. 17, no. 1, 2017. 
+[5] Supriyanta and E. N. D. F. R. Nussy, “Perancangan Website Sebagai Media Informasi Panti 
+Asuhan Batu Penjuru Kulon Progo,” J. Speed, vol. 8, no. 2, pp. 17–22, 2016. 
+[6] I. Inayati and H. F. Qoriani, “Sistem Informasi Manajemen dan Kepengasuhan Panti 
+Muhammadiyah Jawa Timur Berbasis Web Menggunakan Metode Object Oriented & Iconic 
+Process,” vol. 26, no. 2, pp. 12–17, 2017. 
+[7] M. Minarni, E. Yulianti, and I. Warman, “Perancangan Sistem Informasi Panti Asuhan di 
+Kota Padang (Studi Kasus : Panti Asuhan Bundo Saiyo Padang),” J. Momentum, vol. 18, no. 
+2, pp. 35–41, 2016. 
+[8] A. M. Dima and M. A. Maassen, “From waterfall to agile software: Development models in 
+the IT sector, 2006 to 2018. impacts on company management,” J. Int. Stud., vol. 11, no. 2, 
+pp. 315–326, 2018. 
+[9] A. Suryanto, “Rancang Bangun Sistem Informasi Pendaftaran Artis Berbasis Web 
+Menggunakan Model Waterfall (Studi Kasus: Team Management Agensi),” J. Khatulistiwa 
+Inform. Vol. Iv, No. 2 Desember 2016 117, vol. IV , no. 2, p. 119, 2016. 
+[10] V . R. H. - AMIK BSI Purwokerto, R. W. - STMIK Nusa Mandiri Jakarta, and A. A. - AMIK 
+BSI Purwokerto, “Sistem Informasi Pendaftaran Seleksi Kerja Berbasis Web Pada Bkk 
+(Bursa Kerja Khusus) Tunas Insan Karya Smk Negeri 2 Banyumas,” Evolusi  J. Sains dan 
+Manaj., vol. 6, no. 1, pp. 76–84, 2018. 
+ 
+ 

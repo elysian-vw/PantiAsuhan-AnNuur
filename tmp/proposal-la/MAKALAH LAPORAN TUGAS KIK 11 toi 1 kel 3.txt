@@ -1,0 +1,226 @@
+
+MAKALAH LAPORAN TUGAS KIK
+JARINGAN DISTRIBUSI DAN TRANSMISI
+KELAS XI-TOI 1
+KELOMPOK 3
+Nama Anggota:
+1.Ahnaf Bahtiar F. (04)
+                2.Muhamad Rico Kurniawan (26)
+          3.Noor Achmad Ichsan F. (30)
+            4.Raihaan Aruna Alfaiz R. (31)
+
+Dibimbing oleh:
+Rahayu Nofitria,S.Pd
+
+Tahun Ajaran:
+2025/2026
+KATA PENGANTAR
+
+   Puji syukur kehadirat Tuhan Yang Maha Esa atas segala rahmat dan karunia-Nya sehingga penulis dapat menyelesaikan makalah yang berjudul “Jaringan Distribusi dan Transmisi ” dengan baik dan tepat waktu. Makalah ini disusun untuk menambah pengetahuan dan pemahaman mengenai sistem penyaluran tenaga listrik, khususnya jaringan transmisi dan distribusi. Di dalam makalah ini dibahas mengenai pengertian, fungsi, jenis-jenis, serta proses penyaluran energi listrik dari pembangkit hingga sampai kepada konsumen. Penulis menyadari bahwa makalah ini masih memiliki kekurangan, baik dari segi isi maupun penyajiannya. Oleh karena itu, penulis mengharapkan kritik dan saran yang membangun agar makalah ini dapat menjadi lebih baik. Semoga makalah ini dapat memberikan manfaat dan menambah wawasan bagi pembaca mengenai jaringan 
+
+DAFTAR ISI
+
+
+Kata Pengantar			i
+Daftar isi	ii
+BAB I PENDAHULUAN	1
+1.1 Latar Belakang	1
+1.2 Tujuan pengamatan	2
+1.3 Landasan Teori	3
+BAB II PEMBAHASAN	4
+2.1 Pengertian jaringan distribusi dan transmisi	5
+2.2 Hasil pengamatan	6
+BAB III KESIMPULAN	
+
+
+LATAR BELAKANG
+  Energi listrik merupakan salah satu kebutuhan penting dalam kehidupan sehari-hari. Listrik digunakan untuk berbagai kegiatan, seperti penerangan, menjalankan peralatan rumah tangga, kegiatan industri, komunikasi, dan berbagai kebutuhan lainnya. Agar energi listrik dapat digunakan oleh konsumen, listrik harus disalurkan melalui suatu sistem jaringan tenaga listrik yang terdiri dari sistem pembangkitan, transmisi, distribusi, hingga sampai ke konsumen.
+  Sistem transmisi berfungsi menyalurkan energi listrik dari pusat pembangkit menuju gardu induk dengan tegangan yang tinggi agar kerugian daya selama penyaluran dapat dikurangi. Selanjutnya, energi listrik disalurkan melalui sistem distribusi hingga sampai ke pelanggan. Sistem distribusi terdiri dari jaringan tegangan menengah dan jaringan tegangan rendah yang digunakan untuk menyalurkan listrik ke rumah, sekolah, perkantoran, dan berbagai tempat lainnya.
+
+
+  
+TUJUAN PENGAMATAN
+
+1.Mengetahui sistem jaringan distribusi dan transmisi tenaga Listrik
+2.Mengetahui tahapan penyaluran listrik dari pembangkit sampai ke konsumen
+3.Mengetahui jenis mcb yang digunakan pada kwh meter setiap rumah
+4.Mengetahui daya yang digunakan oleh setiap pelanggan atau setiap rumah
+
+
+LANDASAN TEORI
+Sistem Jaringan Transmisi dan Distribusi merupakan sistem yang digunakan untuk membangkitkan, menyalurkan, dan mendistribusikan energi listrik hingga dapat digunakan oleh konsumen.Alurnya yaitu:
+1.Tengangan dari pembangkit 6-24 kV masuk ke Trafo Step-up dinaikkan menjadi 500Kv
+2.Setelah dari trafo step-up menuju ke SUTET(Saluran udara tengangan ekstra tinggi) lalu ke GITET dan di gitet tegangan nya diturunkan menjadi 150Kv 
+3.Setelah dari GITET lanjut lagi ke SUTT(Saluran udara tegangan tinggi) dan masuk ke GI(Gardu induk)
+4.Saat di GI tegangan diturunkan menjadi 20Kv lalu lanjut ke SUTM(Saluran udadra Tegangan menengah)
+5.Setelah dari SUTM masuk ke Gardu distribusi dan diturunkan lagi menjadi
+ < 1kv (380V/220V) lalu masuk ke SUTR(Saluran udara tegangan rendah) lalu menuju ke pengguna /konsumen biasanya 220V untuk rumah-rumah dan 380V untuk industri.
+
+PENGERTIAN JARINGAN DISTRIBUSI & TRANSMISI
+
+Jaringan transmisi adalah jalur tol listrik bertegangan sangat tinggi (70 kV - 500 kV) yang bertugas mengirimkan listrik kapasitas besar dari pembangkit (PLTA/PLTU) ke Gardu Induk antarkota atau antarprovinsi. Fisiknya berupa menara baja raksasa (SUTET).
+Jaringan distribusi adalah jalur pembagi listrik yang menyalurkan listrik dari Gardu Induk langsung ke rumah, kantor, atau pabrik. Tegangannya sudah diturunkan menjadi tegangan menengah (20 kV) dan tegangan rendah (220 V) agar aman digunakan. Fisiknya berupa tiang beton biasa di pinggir jalan yang ada tabung trafonya.
+
+
+
+HASIL PENGAMATAN
+-Foto: Trafo di atas tiang
+- Keterangan: Gardu Cantol Kapasitas 250 kVA, Tegangan Primer 20kV, Sekunder 220/380V
+
+-Nama pemilik: -                                  - Frekuensi: 50Hz
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C4/CL4A
+-Daya:450 VA
+-Tegangan:230 V
+                      
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C4 (4A)
+-Daya:900 VA
+                       -Tegangan:230 V
+                       -Frekuensi:50 Hz
+
+ -Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: Tidak terlihat (box MCB digembok)
+-Daya:900 VA
+-Tegangan:230 V
+                        -Frekuensi:50 Hz
+
+
+ -Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C4 (4A)
+-Daya:900 VA
+-Tegangan:230 V
+                           -Frekuensi:50 Hz
+ -Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C2 (2A) ABB
+-Daya:450 VA
+-Tegangan:220 V
+                          -Frekuensi:50 Hz
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C4 (4A) ABB
+-Daya:900 VA
+-Tegangan:230 5(40) V
+-Frekuensi:50 Hz
+
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C2 (2A) BCC UC45a
+-Daya:450 VA
+-Tegangan:230 V
+-Frekuensi:50 Hz
+
+
+-Nama pemilik: -                                        -Tegangan:220 V  
+-Alamat: Ngadiluwih, Kabupaten Kediri   -Frekuensi:50 Hz
+-Type MCB: C4  (4A)
+-Daya:900 VA
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C4 (4A)
+-Daya:900 VA
+                -Tegangan:230 V
+                -Frekuensi:50 Hz
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C2 (2A)
+-Daya:450 VA
+               -Tegangan:230 5(40) V
+               -Frekuensi:50 Hz
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C2 (2A)
+-Daya:450 VA
+               -Tegangan:230 5(40)A V
+               -Frekuensi:50 Hz
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB:ABB SH201 CL4 (4A)
+-Daya:900 VA
+-Tegangan:230 5(60)A V
+-Frekuensi:50 Hz
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C2 (2A)
+-Daya:450 VA
+-Tegangan:230 5(40) V
+                       -Frekuensi:50 Hz
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C32N CL2 (2A)
+-Daya:450 VA
+-Tegangan:230/400 V
+                       -Frekuensi:50 Hz
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB:C32N CL4 (4A)
+-Daya:900 VA
+-Tegangan:230V 5(40)A
+-Frekuensi:50 Hz
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C32N CL2 (2A)
+-Daya:450 VA
+-Tegangan:230V 5(20) A
+-Frekuensi:50 Hz
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C32N CL4 (4A)
+-Daya:900 VA
+-Tegangan:2306 5(40) A
+                 -Frekuensi:50 Hz
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: CL4 (4A)
+-Daya:900 VA
+-Tegangan:230V 5(60) A
+-Frekuensi:50 Hz
+
+
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB : ABB S201 CL4 (4A)
+-Daya:900 VA
+-Tegangan:230V 5(60) A
+                 -Frekuensi:50 Hz 
+
+-Nama pemilik: -                                     -Frekuensi=50Hz
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: ABB S201 CL4 (4A)
+-Daya:900 VA
+-Tegangan:230V 5(40) A
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: ABB SH201 CL4 (4A)
+-Daya:900 VA
+-Tegangan:230V 5(60) A
+ -Frekuensi:50 Hz 
+                 
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C2 (2A)
+-Daya:450 VA
+-Tegangan: -
+-Frekuensi: -
+
+
+-Nama pemilik: -
+-Alamat: Ngadiluwih, Kabupaten Kediri
+-Type MCB: C32N CL4 
+-Daya:450 VA
+-Tegangan:230/400V	
+-Frekuensi:50 Hz

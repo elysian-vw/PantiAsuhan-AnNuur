@@ -1,0 +1,697 @@
+
+PAGE 1
+JATI (Jurnal Mahasiswa Teknik Informatika) Vol. 9 No. 1, Februari 2025 
+ 
+291 
+RANCANG BANGUN SISTEM INFORMASI BERBASIS  
+EXTREME PROGRAMMING UNTUK TRANSPARANSI  
+PENGELOLAAN DONASI PANTI ASUHAN 
+ 
+Endah Septa Sintiya 1, Candra Bella Vista 2, Dimas Wahyu Wibowo 3,  
+Arya Kusumawardana 4, Ari Cahaya Puspitaningrum 5 
+1,2,3 Teknologi Informasi, Politeknik Negeri Malang  
+4 Teknologi Rekayasa Pembangkit Energi, Universitas Negeri Malang  
+5 Sistem Informasi, Universitas Hayam Wuruk, Jawa Timur, Indonesia 
+e.septa@polinema.ac.id 
+ 
+ABSTRAK 
+ 
+Tantangan hingga saat ini bahwa panti asuhan kesulitan dalam pengelolaan data anak asuh, pencatatan 
+donasi, serta pelaporan keuangan seringkali dilakukan secara manual. Hal ini rentan terhadap kesalahan dan 
+memakan waktu yang lama untuk pencarian hingga pe laporan. Panti asuhan memerlukan dukungan karena 
+mempunyai tujuan mulia dalam membantu anak -anak yatim piatu dan kaum dhuafa seperti yang dilakukan panti 
+asuhan Mawaddah Warohmah. Tujuan penelitian ini melakukan implementasi sistem Big Data, panti asuhan agar 
+dapat mengumpulkan, menyimpan, dan menganalisis data dalam jumlah besar dari berbagai sumber donasi. 
+Penerapan pengelolaan Big Data diharapkan dapat meningkatkan profesionalisme dan kepercayaan masyarakat 
+terhadap panti asuhan, serta memaksimalkan pemanfaatan donasi untuk kesejahteraan anak asuhan. Metode yang 
+digunakan yaitu extreme programming dengan tahap Planning, Design, Coding dan Testing. Hasil pengembangan 
+sistem informasi berisikan fitur lengkap dengan pengelolaan acara panti, dana donatur dan administrasi dengan 
+menggunakan framework Laravel berbasis MVC yang memudahkan dalam manajemen website yang digunakan. 
+Hasil Pengujian  fungsional ( BlackBox) terbukti sesuai atau valid, dan User Acceptance Testing  (UAT) dengan 
+presentase 96,8% hal ini terbukti sistem ini membantu dalam pengelolaan administrasi dan donasi kegiatan panti 
+asuhan. 
+ 
+Kata kunci: rancang bangun, sistem informasi, extreme programming, transparansi donasi panti  
+ 
+1. PENDAHULUAN 
+Panti asuhan menghadapi tantangan dalam 
+mengelola data administrasi dan donasi secara efisien. 
+Pengelolaan data anak asuh, pencatatan donasi, serta 
+pelaporan keuangan seringkali dilakukan secara 
+manual, yang rentan terhadap kesalahan dan memakan 
+waktu yang  lama. Hal ini mengakibatkan kurangnya 
+transparansi dan akuntabilitas dalam pengelolaan 
+donasi, serta dapat menurunkan kepercayaan dari 
+donatur dan masyarakat. Pemanfaatan teknologi 
+informasi dapat menjadi solusi efektif untuk mengatasi 
+masalah ini[1] [4]. 
+Seperti halnya pada Panti Asuhan Mawaddah 
+Warohmah di Kota Malang yang mengalami kendala 
+dalam pengelolaan banyaknya data donasi dan 
+kesulitan dalam transparansi hasil dari donasi 
+masyarakat. Panti ini perlu mendapat dukungan karena 
+mempunyai tujuan untuk membantu anak -anak yatim 
+piatu dan kaum dhuafa, memberikan mereka tempat 
+tinggal yang aman serta akses pendidikan yang layak. 
+Panti asuhan ini telah menjadi rumah bagi banyak 
+anak-anak yang kurang beruntung, memberikan 
+dukungan baik dari segi materi maupun bimbingan 
+moral dan spiritual. 
+Panti Asuhan Mawaddah Warohmah dikenal 
+karena komitmennya dal am mengembangkan potensi 
+kreatif anak -anak asuhnya. Berbagai kegiatan 
+pengembangan diri, seperti pelatihan keterampilan dan 
+edukasi, diadakan secara rutin untuk membantu anak -
+anak mempersiapkan diri menghadapi masa depan 
+yang lebih baik. Selain itu, panti ini juga terlibat dalam 
+berbagai program pemberdayaan masyarakat, yang 
+melibatkan kolaborasi dengan institusi pendidikan dan 
+organisasi lokal. Melalui pendekatan yang holistik dan 
+berorientasi pada kesejahteraan anak -anak, Panti 
+Asuhan Mawaddah Warohmah berupaya menciptakan 
+lingkungan yang mendukung perkembangan optimal 
+bagi setiap anak yang diasuhnya. Dukungan dari para 
+donatur dan relawan juga memainkan peran penting 
+dalam keberlangsungan operasional panti, memastikan 
+bahwa kebutuhan dasar anak -anak dapat  terpenuhi 
+secara berkelanjutan[3]. 
+ Solusi yang ditawarkan dengan melakukan 
+implementasi sistem  informasi dengan metode 
+extreme programming , dengan tujuan panti asuhan 
+agar dapat mengumpulkan, menyimpan, dan 
+menganalisis data donasi dari berbagai sumber. 
+Metode extreme learning ini  pernah diterapkan pada 
+pengembangan sistem panti dengan QR code untuj 
+donasi lebih efektif [4], selain itu metode ini juga valid 
+saat digunakan untuk mengembangkan aplikasi donasi 
+berbasis mobile app[5]. Sehingga pada pengembangan 
+ini menggunakan metode extreme programming yang 
+telah terbukti mampu untuk menangani kasus lingkup 
+kecil. 
+Tujuan sistem ini mempermudah pengelolaan 
+data yang lebih efisi en dan akurat memungkinkan 
+panti asuhan untuk meningkatkan efisiensi 
+operasional, mempercepat proses administrasi, dan 
+memberikan laporan yang lebih transparan kepada 
+
+PAGE 2
+JATI (Jurnal Mahasiswa Teknik Informatika) Vol. 9 No. 1, Februari 2025 
+ 
+292 
+donatur. Selain itu, analisis data yang mendalam dapat 
+membantu panti asuhan dalam memahami pola donasi, 
+mengidentifikasi kebutuhan anak asuh, dan 
+merencanakan kegiatan yang lebih efektif [6]. Dengan 
+demikian, penerapan sistem ini diharapkan dapat 
+meningkatkan profesionalisme dan kepercayaan 
+masyarakat terhadap panti asuhan, serta 
+memaksimalkan pemanfaatan donasi untuk 
+kesejahteraan anak asuhan 
+ 
+2. TINJAUAN PUSTAKA 
+Penelitian terkait tentang pengembangan sistem 
+informasi panti asuhan dimana terdapat perbedaan 
+tahap pemahanan kebutuhan, kelengkapan dan bahasa 
+pemrograman yang digunakan. Namun terdapat 
+inovasi yang dapat dikembangkan dalam pemanfaatan 
+big data lebih optimal dalam penggunaan websitenya. 
+Pada penelitian [7] memberikan langkah pertama 
+dalam memahami keadaan panti asuhan sebelum 
+mengembangkan solusi, penggunaan analisis SWOT 
+untuk meningkatkan  kekuatan  dan  kesempatan  serta  
+mencari  solusi terbaik bagi kelemahan dan ancaman 
+panti asuhan.  
+Selanjutnya pengembangan sistem terpusat pada 
+pendataan anak panti asuhan melalui sistem informasi 
+website juga dilakukan oleh [2]. Khusus sistem 
+pengelolaan dana donatur panti asuhan dari sistem 
+crowdfunding yang dilakukan  sebelumnya dari 
+penyebaran informasi via sosial media, sistem ini 
+dibuat untuk mengelola dana yang dihimpun dari 
+berbagai promosi sosial media dengan memanfaatkan 
+bahasa pemrograman PHP [8].  Selanjutnya 
+pengembangan sistem administrasi panti asuhan 
+dengan bahasa pemrograman PHP dan Java guna 
+mempermudah pengelolaan transaksi keuangan, yaitu 
+pencatatan transaksi keluar masuk uang, yang disusun 
+dalam bentuk laporan untuk kemudian digunakan 
+sebagai pertanggungjawaban atas dana donasi dari 
+para donatur yang telah menyumbang untuk Panti 
+Asuhan Yatim Putri Aisyiyah II Surakarta [9]. 
+Pengembangan selanjutnya pada [10] yang fokus pada 
+keuangan panti asuhan dengan tujuan pengelola panti 
+dan juga donatur mudah dalam memantau dan evaluasi 
+keuangan panti yang dapat diakses dengan cepat dan 
+dimana saja.  
+Sistem yang sebelumnya dikembangkan masih 
+terpisah-pisah dan menangani  hal khusus pada sitem 
+panti asuahan. Berdasarkan studi pada penelitian 
+sebelumnya penelitian ini berfokus pada sistem 
+informasi yang lengkap dengan pengeloaan acara 
+panti, dana donatur dan administrasi dengan 
+menggunakan framework laravel berbasis 
+MVC(Model View Controller) yang memudahkan 
+dalam manajemen website yang digunakan.  
+ 
+3. METODE PENELITIAN  
+Metode yang digunakan yaiyu extreme 
+programming(XP) dengan tahap sebagai berikut: 
+ 
+3.1. Perencanaan(Planning) 
+Tahap awal perancangan dengan melakukan 
+wawancara dengan pihak pengelola panti asuhan, 
+dilanjutkan dengan studi literatur guna mendapatkan 
+referensi keseuaian kasus.Tahap akhir perencanaan  
+dengan melakukan observasi dokumen dan lingkungan 
+panti untuk mendapatkan spesifikasi kebutuhan user  
+yang akan digunakan pada tahap desain.  
+ 
+3.2. Tahap Desain (Design) 
+3.2.1. Usecase Diagram 
+Tahap sebelum sistem diimplementasikan yaitu 
+membuat desain sistem, salah satunya dengan gambar 
+usecase yang mendefinisikan actor atau user: Donatur 
+dan Admin  yang terlibat dalam sistem seperti pada 
+Gambar 1 berikut. 
+ 
+Gambar 1. Usecase diagram sistem informasi panti 
+ 
+Usecase diagram pada Gambar 1 menunjukkan 
+peran actor Donatur yang dapat melakukan login dan 
+aktivitas donasi, melihat event, gallery, activity, 
+profilenya dan melihat anak panti asuhan secara 
+general. Pada actor Admin dapat melakukan login dan 
+mengelola donasi, event, gallery, activity, pengaturan 
+data profile dan manajemen data anak asuh. 
+ 
+3.2.2. Flowchart user: Donatur 
+Langkah lanjutan dari membuat desain 
+database yaitu dengan meracang flowchart sesuai actor 
+pada usecase diagram . P ada Gambar 2 digambarkan 
+khusus flowchart Donator sebagai berikut. 
+ 
+ 
+Gambar 2. Flowchart Desain Sistem User Donatur 
+  
+
+
+PAGE 3
+JATI (Jurnal Mahasiswa Teknik Informatika) Vol. 9 No. 1, Februari 2025 
+ 
+293 
+Flowchart sistem dengan role Donatur pada 
+Gambar 2 menunjukkan alur Donatur pada sistem 
+secara keseluruhan. Fitur utama yang dapat dilakukan 
+dengan aktivitas login, donasi dan memberikan 
+feedback. 
+ 
+3.2.3. Flowchart user: Admin 
+Diagram alir juga digunakan untuk 
+mendefinisikan alur actor pada usecase diagram, untuk 
+pada Gambar 3 khusus flowchart Admin. 
+ 
+ 
+ 
+Gambar 3. Flowchart Desain Sistem User Admin 
+  
+Pada Gambar 3 merupakan alur role admin pada 
+sistem secara lengkap. Fitur pada admin dengan login, 
+kelola anak, kegiatan, album, profile, dan donasi. 
+ 
+3.2.4. Design Database 
+Desain database digunakan untuk melakukan 
+cek relasi tabel dan melihat kembali formasi tabel 
+terkait dengan sistem dapat dilihat pada Gambar 4 
+sebagai berikut. 
+ 
+ 
+Gambar 4. Desain database  dan relasinya 
+ 
+Pada Gambar 4 merupakan desain database untuk 
+mempermudah pada implementasi coding. Tahap ini 
+fokus pada isi tabel roles, permissions,password, 
+feedback, galleries, activities, donasi, profiles, users 
+dan migration activity serta memuat relasinya. Seperti 
+pada relasi antara users dan activities  yaitu one to 
+many, dimana 1 user dapat mengakses banyak 
+aktivitas. 
+ 
+3.3. Tahap Pemrogram(Coding) 
+Tahap ini merupakan tahap penting yaitu 
+melakukan implementasi dari desain sebelumnya. 
+Spesifikasi hardware dan software di sesuaikan untuk 
+hasil coding yang lebih optimal.  Implementasi 
+program menggunakan MVC Laravel.  
+ 
+3.4. Tahap Pengujian (Testing) 
+Pengujian pada sesi akhir pengembangan 
+digunakan untuk mengetahui kesesuaian atau validitas 
+sistem secara pengujian BlackBox dan User 
+Acceptance Testing  (UAT) menggunakan kuesioner 
+dan penghitungan dengan Skala Likert. 
+ 
+4. HASIL DAN PEMBAHASAN 
+Hasil implementasi coding sistem informasi ini 
+disesuaikan dengan spesifikasi kebutuhan hardware 
+dan software sehingga pada penerapannya lebih 
+optimal.  
+ 
+4.1. Spesifikasi Kebutuhan  
+4.1.1. Kebutuhan Fungsional 
+Kebutuhan fungsional sistem ini akan 
+dijelaskan pada Tabel 1 di bawah ini: 
+ 
+Tabel 1. Kebutuhan Fungsional 
+No Aktor Kebutuhan Pengguna 
+1. admin Mengelola Donasi 
+2. admin Mengelola Event 
+3. admin Mengelola Gallery 
+4. admin Mengelola Activity 
+5. admin Mengelola Data Profiles 
+6. admin Mengelola Data anak asuh 
+7. Donatur Menambah Donasi 
+8. Donatur Melihat Event 
+9. Donatur Melihat Gallery dan activity 
+ 
+Kebutuhan non-fungsional sistem terdapat pada Tabel 
+2 berikut: 
+ 
+Tabel 2. Kebutuhan Non Fungsional 
+No. Kebutuhan Penjelasan 
+1. Usability 
+Antarmuka pengguna harus 
+ramah pengguna dan mudah 
+dipahami sehingga donatur dan 
+admin dapat menggunakan 
+sistem dengan nyaman. 
+2. Kompatibilitas 
+Sistem harus mendukung 
+berbagai perangkat dan 
+platform, serta berfungsi dengan 
+baik pada berbagai browser web 
+yang populer. 
+3. Kinerja 
+Sistem harus responsif dan 
+mampu menangani lalu lintas 
+pengguna yang tinggi tanpa 
+mengalami penurunan kinerja 
+yang signifikan, terutama saat 
+puncak waktu event donasi. 
+ 
+
+
+PAGE 4
+JATI (Jurnal Mahasiswa Teknik Informatika) Vol. 9 No. 1, Februari 2025 
+ 
+294 
+4.2. Implementasi Coding 
+Berikut merupakan hasil tampilan aplikasi Panti 
+Asuhan Mawaddah Warohmah  yang dikategorikan 
+berdasarkan user donatur dan admin: 
+4.2.1. Donatur 
+a. Terdapat landing page pada Gambar 5 tampilan 
+akun donatur, yang memiliki 6 menu pada 
+navigation bar , yaitu beranda, tentang, donasi, 
+galeri, events, dan kontak. 
+  
+ 
+Gambar 5. Landing Page Donatur 
+ 
+Pada halaman landing pada role donatur memuat 
+informasi umum tentang panti asuhan dan menu 
+yang disediakan. 
+b. Pada halaman beranda  pada Gambar 6, terdapat 
+informasi umum mengenai jumlah anak yang 
+terdaftar, akses untuk menjadi donasi ataupun 
+sponsorship. 
+ 
+ 
+Gambar 6. Halaman Beranda 
+ 
+Halaman beranda pada Gambar 6 memuat 
+dashboard jumlah anak panti yang aktif, dan menu 
+pilihan donasi, donatur, buat donasi, menjadi 
+relawan dan tawaran sponsor.  
+c. Pada halaman tentang  pada Gambar 7, terdapat 
+informasi mengenai deskripsi dari Panti Asuhan 
+Mawaddah Warohmah. Informasi ini berkaitan 
+dengan tujuan, harapan, serta upaya yang dimiliki 
+panti asuhan sebagai lembaga sosial. 
+ 
+ 
+Gambar 7. Halaman Tentang Kami 
+     
+Halaman tentang pada Gambar 7  berisikan 
+deskripsi umum tentang panti dan peran panti 
+asuhan. 
+d. Pada halaman donasi pada Gambar 8 terdapat form 
+input yang dapat diisikan oleh donatur ketika ingin 
+berdonasi uang. Fitur donasi ini juga terintegrasi 
+dengan payment gateway, sehingga dapat 
+menerima donasi dengan e-wallet maupun transfer 
+bank. 
+ 
+ 
+Gambar 8. Halaman Donasi 
+ 
+Halaman Donasi memuat isi form donasi jumlah 
+dan pesan lalu tombol kirim. 
+e. Pada Gambar 9 halaman galeri terdapat 
+dokumentasi kegiatan yang pernah dilakukan oleh 
+penghuni panti asuhan. Kegiatan ini dapat meliputi 
+lingkung internal maupun eksternal. 
+     
+ 
+Gambar 9. Halaman Galeri 
+ 
+Halaman galeri memuat foto kegiatan yang sudah 
+selesai dilakukan di panti asuhan yang dapat 
+menjadi bahan laporan untuk para donatur. 
+f. Pada halaman events pada Gambar 10 terdapat 
+informasi mengenai kegiaatan yang akan diadakan, 
+yang berkaitan dengan peserta didik panti asuhan. 
+Pada informasi kegiatan ini juga terdapat detail 
+event, serta jumlah anggaran yang dibutuhkan, 
+sehingga donatur dapat memberikan donasi at au 
+sponsorship pada kegiatan atau event tertentu. 
+ 
+ 
+Gambar 10. Desain Halaman Events 
+ 
+
+
+PAGE 5
+JATI (Jurnal Mahasiswa Teknik Informatika) Vol. 9 No. 1, Februari 2025 
+ 
+295 
+Halaman event berisikan detail kegiatan panti 
+asuhan pada tiap event misalkan pelatihan softskill 
+dan public speaking. Dimana donatur dapat 
+melakukan donasi dan cek detail untuk keterangan 
+lebih lengkapnya.  
+g. Pada halaman Gambar 11 kontak terdapat beberapa 
+informasi kontak pihak panti asuahan yang dapat 
+dihubungi. Pada halaman ini juga ditampilkan 
+maps lokasi panti asuhan, serta terdapat form untuk 
+menginputkan pertanyaan yang ingin diajukan oleh 
+donatur. 
+       
+ 
+Gambar 11. Desain Halaman Kontak 
+ 
+Halaman kontak berisikan detail informasi dan 
+form pertanyaan serta Lokasi detail sehingga 
+mempermudah calon donatur untuk melakukan 
+komunikasi dengan panti asuhan. 
+ 
+4.2.2. Admin 
+Terdapat halaman pada Gambar 12 dashboard 
+admin yang memiliki 6 menu utama, yaitu donasi, 
+event, gallery, data profiles, data anak, d an data 
+feedback. 
+       
+ 
+Gambar 12. Desain Halaman Dashboard Admin 
+ 
+Halaman Dashboard pad Gambar 12 pada admin 
+berbeda dengan halaman dashboard donatur. Pada 
+halaman ini fokus pada info grafik dan statistik data 
+panti asuhan. Mulai keterangan total donasi, total 
+donasi barang, total event, total gallery, total data anak, 
+total dana feedback, total donatur. 
+ 
+Gambar 13. Halaman Event 
+ 
+Pada Gambar 13 halaman event terdapat 
+informasi terkait event -event yang sudah  
+diselenggarakan sebagai bukti kegiatan transparansi 
+kepada donatur. Berisikan foto, deskripsi singkat 
+kegiatan, pemasukan dan pengeluaran. 
+ 
+4.3. Pengujian Sistem 
+Sistem yang telah berhasil dibuat sebelum di 
+publish pada Masyarakat umum harus melalui tahap 
+pengujian. Pengujian ini dilakukan setelah melakukan 
+proses implementasi kode program sistem, tujuannya 
+adalah untuk memastikan sistem berfungsi 
+sebagaimana fungsinya. Pengujian ini dalam sistem ini 
+dilakukan dengan cara mencoba semua fitur pada 
+sistem. Dalam pengujian ini menggunakan beberapa 
+jenis pengujian yaitu pengujian fungsional 
+(BlackBox), dan User Acceptance Testing (UAT). 
+ 
+4.3.1. Pengujian Black Box 
+Pengujian sistem, khususnya pengujian black 
+box, digunakan untuk mengidentifikasi fungsi atau 
+fitur apa pun yang tidak sesuai dan untuk memastikan 
+bahwa sistem beroperasi sebagaimana mestinya. Hasil 
+pengujian dengan menggunakan model  pengujian 
+fungsional atau black box dapat dilihat pada Tabel 3 
+dan Tabel 4 sebagai berikut.  
+ 
+Tabel 3. Pengujian Black Box User Donatur 
+No H  hal. Skenario Pengujian Hasil yang diharapkan Hasil 
+1 Halaman 
+Landing 
+User mengakses halaman home ketika 
+website pertama kali dibuka. 
+User masuk ke halaman home dan sistem 
+menampilkan awal halaman Beranda Sesuai 
+2 Halaman 
+Dasboard 
+User memilih menu Beranda User menuju ke halaman awal atau home Sesuai 
+User memilih menu tentang Sistem menampilkan tentang sistem informasi ini Sesuai 
+User memilih menu Donasi 
+Sistem menampilkan halaman donasi namun 
+wajib login dulu, menampilkan acara dan 
+melakukan donasi. 
+Sesuai 
+User memilih menu Gallery Sistem akan menampilkan foto dokumentasi 
+kegiatan panti asuhan Sesuai 
+User memilih Events 
+User menuju ke halaman menampilkan informasi 
+event yang akan dilaksakanakan, beserta detail 
+acara, dan juga jumlah anggaran biaya. 
+Sesuai 
+
+
+PAGE 6
+JATI (Jurnal Mahasiswa Teknik Informatika) Vol. 9 No. 1, Februari 2025 
+ 
+296 
+No H  hal. Skenario Pengujian Hasil yang diharapkan Hasil 
+User memilih Kontak Sistem memilih untuk dapat menghubungi 
+kontak pengurus panti dan melihat lokasi 
+Sesuai 
+ 
+6 Halaman 
+Login 
+User melakukan login dengan input 
+email dan password yang benar terdaftar 
+pada sistem 
+User masuk ke sistem Sesuai 
+User melakukan login dengan input 
+email dan password yang tidak terdaftar 
+pada sistem 
+Sistem menampilkan pesan error Sesuai 
+7 
+Halaman 
+Lupa 
+Password 
+User menekan tombol Lupa Password ? User masuk ke halaman forgot password Sesuai 
+User menggunakan fitur Lupa Password 
+dengan menginputkan email 
+User menerima notifikasi email untuk melakukan 
+reset password Sesuai 
+User menekan tombol reset password 
+pada email User masuk ke halaman reset password Sesuai 
+User melakukan reset password dengan 
+memasukkan email dan password baru 
+Fitur reset password dapat digunakan dengan 
+password baru dan masuk ke halaman login user Sesuai 
+8 Halaman 
+Register 
+User menekan tombol “Registrasi” pada 
+halaman login User masuk ke halaman register Sesuai 
+User melakukan daftar akun dengan 
+input nama lengkap, email, password 
+Sistem akan menyimpan akun tersebut pada 
+database Sesuai 
+User melakukan daftar akun dengan 
+mengosongi salah satu kolom Pada form akan menampilkan pesan kesalahan Sesuai 
+ 
+Pada Tabel 3 pengujian akses pada role Donatur 
+telah didapatkan kesesuaian skenario dan hasil yang 
+diharapkan. Sehingga sistem ini siap untuk digunakan 
+pihak donatur dengan baik.  Begitu juga pada Tabel 4 
+pengujian pada role Admin juga sukses. 
+ 
+ 
+Tabel 4.  Pengujian Black Box User Admin 
+No. Halaman Skenario Pengujian Hasil yang diharapkan Hasil 
+1 Halaman 
+Landing 
+User mengakses halaman home 
+ketika website pertama kali dibuka. 
+User masuk ke halaman home dan sistem 
+menampilkan awal halaman Beranda Sesuai 
+2 Halaman 
+Dasboard 
+User memilih login User menuju ke halaman admin untuk pengelolaan Sesuai 
+User memilih menu dashboard Sistem menampilkan tentang rekapan visualisasi 
+transaksi donasi untuk analisis Sesuai 
+User memilih donasi Sistem menampilkan halaman pengelolaan donasi 
+untuk barang dan uang terpisah Sesuai 
+User memilih menu Gallery Sistem akan menampilkan foto dokumentasi kegiatan 
+panti asuhan yang dapat dikelola Sesuai 
+User memilih Events User menuju ke halaman CRUD laporan kegiatan-
+kegiatan panti asuhan 
+Sesuai 
+ 
+ 
+User memilih Data Profiles Sistem untuk kelola data user donatur dapat CRUD Sesuai 
+User memilih Data anak Sistem akan menampilkan CRUD untuk data anak 
+panti asuhan Sesuai 
+Data Feedback Sistem akan menampilan pengelolaan feedback Sesuai 
+3 Halaman 
+Login 
+User login dengan input email dan 
+password yang benar terdaftar pada 
+sistem 
+User masuk ke sistem Sesuai 
+User login dengan input email dan 
+password yang tidak terdaftar pada 
+sistem 
+Sistem menampilkan pesan error Sesuai 
+ 
+4.3.2. User Acceptance Test (UAT) 
+Pengujian ini dilakukan untuk mendapatkan 
+penilaian dari user mengenai sistem. Pengguna akan 
+mencoba dan memeriksa apakah sistem sudah 
+memenuhi kebutuhan mereka. Pengujian ini akan 
+dilakukan dengan menggunakan kuesioner yang diisi 
+oleh pengguna dan melibatkan 10 orang pengguna  
+perwakilan donatur dan admin sistem  dari pengelola 
+panti asuhan . Kuesioner berisikan 5 pertanyaan 
+penting seputar sistem yang dapat dinilai oleh 
+pengguna. Bentuk jawaban terdapat pilihan 5 kategori 
+yaitu nilai 5 (Sangat Baik), nilai 4 (Baik), nilai 3 
+(Cukup Baik), nilai 2 (Kurang Baik), nilai 1 (Tidak 
+Baik). Berikut ini hasil pengujian User Acceptance 
+Testing (UAT) pada Tabel 5 berikut. 
+ 
+ 
+  
+
+PAGE 7
+JATI (Jurnal Mahasiswa Teknik Informatika) Vol. 9 No. 1, Februari 2025 
+ 
+297 
+Tabel 5. User Acceptance Test 
+No Pertanyaan Penilaian / Skor Jumlah 5 4 3 2 1 
+1 Apakah tampilan antarmuka mudah dipahami? 8 (40) 2 (8)    10 (48) 
+2 Apakah fitur donasi dan pembayaran mudah dilakukan? 9 (45) 1 (4)    10 (49) 
+3 Apakah fitur yang disediakan sudah lengkap dan membantu dalam 
+mengakses informasi panti asuhan? 10 (50) 0    10  (50) 
+4 Apakah sistem berjalan dengan lancar tanpa hambatan setiap memuat 
+setiap halaman 8 (40) 2 (8)    10  (48) 
+5 Bagaimana kemudahan dalam mengakses dan mengelola data terkait 
+donasi acara panti? 7 (35) 3 (12)    10  (47) 
+ 
+Selanjutnya menghitung hasil dari pengujian 
+User Acceptance Testing  (UAT) ini menggunakan 
+Skala Likert dengan rumus perhitungan sebagai 
+berikut: 
+ 
+Keterangan: 
+P = Persentasi 
+J = Total Skor 
+Y = Skor tertinggi likert x jumlah responden 
+(5x10=50) 
+ 
+Tabel 6. Hasil uji UAT 
+Pertanyaan Presentase pengujian 
+1 96% 
+2 98% 
+3 100% 
+4 96% 
+5 94% 
+Rata-rata 96,8% 
+ 
+Berdasarkan Tabel 6 hasil pengujian UAT 
+didapatkan kepuasan pengguna sistem informasi panti 
+asuhan presentase sebesar 96,8% hal ini terbukti 
+sistem ini membantu dalam pengelolaan administrasi 
+dan donasi kegiatan panti asuhan. Pada Tabel 5 
+diberikan penjabaran setiap p ertanyaan dan skor 
+kepuasan pengguna.  
+ 
+5. KESIMPULAN DAN SARAN 
+Berdasarkan hasil penelitian dan implementasi 
+sistem telah berhasil dikembangkan menggunakan 
+framework laravel berbasis MVC untuk 
+mempermudah pengelolaan website. Sistem terdiri 
+dari halaman frontend user  atau donatur dan juga 
+halaman backend user  admin untuk mempermudah 
+pengeloaan dan transparansi kegunaan uang donasi. 
+ Sistem juga telah melalui pengujian fungsional 
+atau blackbox menghasilkan kesesuaian sistem dengan 
+implementasinya. Pada bag ian pengujian pengguna 
+melalui uji UAT mengenai sistem didapatkan rata-rata 
+kepuasan 96,8%, sehingga sistem ini terbukti 
+membantu dalam pengeloaan panti asuhan terkait 
+administtasi dan donasi sehingga didapatkan rekapan 
+big data untuk transparansi kegiatan dan mendukung 
+keputusan kegiatan selanjutnya.  Saran pengembangan 
+selanjutnya menambahkan responden sistem agar 
+lebih banyak preferensi dari user. 
+ 
+DAFTAR PUSTAKA  
+[1] P. Mauliana, R. Firmansyah, and A. Sutardi, 
+“PERANCANGAN SISTEM INFORMASI 
+PANTI ASUHAN ‘e -PANTI’ BERBASIS 
+WEB,” J. Sist. Inf., vol. 10. 
+[2] M. Snae, “SISTEM INFORMASI 
+PENDATAAN ANAK PANTI ASUHAN 
+‘RIANG’ BERBASIS WEBSITE,” 2019. 
+[3] A. A. Mateka, M. R. A. K aluku, N. Pakaya, and 
+A. A. Bouty, “SISTEM INFORMASI 
+PEMETAAN PANTI ASUHAN KOTA 
+GORONTALO”. 
+[4] Y. D. Martin and I. Handayani, “Implementasi 
+Scan QR Code Pada Sistem Donasi Anak Yatim 
+Berbasis Mobile Menggunakan Metode Extreme 
+Programming Studi Kasus : Yayasan Amal Khair 
+Yasmin,” vol. 2, no. 2, 2023. 
+[5] M. B. Ulum, H. Akbar, and A. H. Azizah, 
+“Aplikasi DonasiKu Berbasis Android,” J. 
+Komputasi, vol. 10, no. 1, pp. 1 –12, Apr. 2022, 
+doi: 10.23960/komputasi.v10i1.2933. 
+[6] Y. Irawan, R. Wahyuni, and Y. Devis, 
+“Pengelolaan Administrasi Berbasis Teknologi 
+Informasi Pada Panti Asuhan Bayi & Balita Fajar 
+Harapan,” Community Engagem. Emergence J. 
+CEEJ, vol. 2, no. 3, pp. 10 –18, Oct. 2021, doi: 
+10.37385/ceej.v2i3.285. 
+[7] F. M. Rahmawati and T. A. Safitri, “ANALISIS 
+SWOT PANTI ASUHAN AISYIYAH PUTRI 
+YOGYAKARTA,” Community Dev. J., 2023. 
+[8] S. D. Riskiono, F. Hamidy, and T. Ulfia, 
+“SISTEM INFORMASI MANAJEMEN DANA 
+DONATUR BERBASIS WEB PADA PANTI 
+ASUHAN YATIM MADANI,” J. Soc. Sci. 
+Technol. Community Serv. JSSTCS, vol. 1, no. 1, 
+p. 21, Apr. 2020, doi: 10.33365/jta.v1i1.670. 
+[9] R. Rachmatullah and P. Ramita, “SISTEM 
+INFORMASI ADMINISTRASI PANTI 
+ASUHAN YATIM PUTRI AISYIYAH II 
+SURAKARTA BERBASIS WEB,” J. Inf. Syst. 
+Comput., vol. 1, no. 1, pp. 1 –8, Dec. 2021, doi: 
+10.34001/jister.v1i1.37. 
+[10] A. Syukron and Purwaningsih, “SISTEM 
+INFORMASI MANAJEMEN ADMINISTRASI 
+KEUANGAN PANTI ASUHAN BERBASIS 
+WEBSITE,” J. Responsif Ris. Sains Dan Inform., 
+vol. 2, no. 2, pp. 150 –157, Aug. 2020, doi: 
+10.51977/jti.v2i2.246. 
+  

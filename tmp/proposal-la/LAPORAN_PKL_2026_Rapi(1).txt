@@ -1,0 +1,498 @@
+LAPORAN PRAKTIK KERJA LAPANGAN (PKL)
+RANCANG BANGUN SISTEM MANAJEMEN KONTEN MEDIA SOSIAL BERBASIS WEB DENGAN APPROVAL WORKFLOW DAN ROLE-BASED ACCESS CONTROL PADA PT. ELECOMP INDONESIA
+Disusun Oleh: Noor Achmad Rozaq Ramdhani NIM. 243107030100
+Program Studi: D3 Manajemen Informatika
+Institusi: PSDKU Politeknik Negeri Malang di Kota Kediri
+Tempat PKL: PT. Elecomp Indonesia
+Periode PKL: 29 Juni 2026 – 21 Agustus 2026
+HALAMAN PENGESAHAN KAMPUS
+HALAMAN PENGESAHAN PERUSAHAAN
+Laporan Praktik Kerja Lapangan Judul: Rancang Bangun Sistem Manajemen Konten Media Sosial Berbasis Web dengan Approval Workflow dan Role-Based Access Control pada PT. Elecomp Indonesia
+Telah diperiksa dan disetujui sebagai Laporan Praktik Kerja Lapangan.
+Periode: 29 Juni 2026 – 21 Agustus 2026
+PERNYATAAN KEASLIAN TULISAN
+LAPORAN PRAKTIK KERJA LAPANGAN
+Saya menyatakan dengan sebenar-benarnya bahwa sepanjang pengetahuan saya, di dalam Naskah Laporan Praktik Kerja Lapangan ini tidak terdapat karya ilmiah yang pernah diajukan oleh orang lain untuk memperoleh gelar akademik di suatu perguruan tinggi, dan tidak terdapat karya atau pendapat yang pernah ditulis atau diterbitkan oleh orang lain, kecuali yang secara tertulis dikutip dalam naskah ini dan disebutkan dalam sumber kutipan dan daftar pustaka.
+Apabila ternyata di dalam naskah LAPORAN PRAKTIK KERJA LAPANGAN ini dapat dibuktikan terdapat unsur-unsur PLAGIASI, saya bersedia LAPORAN PRAKTIK KERJA LAPANGAN ini digugurkan dan dibatalkan serta diproses sesuai dengan peraturan perundang-undangan yang berlaku.
+Kediri, 21 Agustus 2026
+Mahasiswa,
+[ Materai Rp 10.000,- ]
+Noor Achmad Rozaq Ramdhani NIM. 243107030100
+KATA PENGANTAR
+Puji syukur kami panjatkan kehadirat Allah SWT yang telah melimpahkan rahmat, taufik, dan hidayah-Nya, sehingga penulis dapat menyelesaikan Laporan Praktik Kerja Lapangan (PKL) ini dengan judul "Rancang Bangun Sistem Manajemen Konten Media Sosial Berbasis Web dengan Approval Workflow dan Role-Based Access Control pada PT. Elecomp Indonesia". Laporan ini disusun untuk memenuhi salah satu persyaratan kurikulum dalam menyelesaikan pendidikan pada Program Studi D3 Manajemen Informatika PSDKU Politeknik Negeri Malang di Kota Kediri.
+Penyusunan laporan dan pelaksanaan kegiatan PKL ini tidak lepas dari bimbingan, arahan, serta dukungan dari berbagai pihak. Oleh karena itu, penulis ingin menyampaikan ucapan terima kasih yang sebesar-besarnya kepada:
+Bapak Benni Agung Nugroho, S.Kom, M.Cs., selaku Koordinator Program Studi D3 Manajemen Informatika PSDKU Polinema di Kota Kediri.
+Bapak Ferry Sofian Efendi, S.Kom, M.Cs., selaku Dosen Pembimbing PKL yang telah memberikan bimbingan, saran, serta motivasi selama pelaksanaan dan penyusunan laporan PKL.
+Bapak Fernandes Raymond, S.Kom, M.M., selaku Pembimbing Lapangan di PT. Elecomp Indonesia yang telah memberikan arahan teknis, wawasan profesional, dan fasilitas kerja selama pelaksanaan PKL.
+Seluruh pimpinan, staf, dan tim kreatif di PT. Elecomp Indonesia atas sambutan hangat, kerja sama, dan ilmu yang bermanfaat yang diberikan kepada penulis selama masa praktik.
+Orang tua dan keluarga tercinta yang senantiasa memberikan doa, dorongan moral, dan materiil dalam setiap langkah penulis.
+Rekan-rekan mahasiswa Program Studi D3 Manajemen Informatika angkatan 2024 atas kebersamaan, diskusi, dan dukungannya.
+Penulis menyadari bahwa laporan ini masih memiliki kekurangan dan keterbatasan. Oleh karena itu, saran dan kritik yang bersifat membangun sangat diharapkan demi perbaikan di masa mendatang. Semoga laporan ini dapat memberikan manfaat bagi pembaca, institusi Politeknik Negeri Malang, dan PT. Elecomp Indonesia.
+Kediri, 21 Agustus 2026
+Penulis,
+Noor Achmad Rozaq Ramdhani NIM. 243107030100
+DAFTAR ISI
+DAFTAR GAMBAR
+DAFTAR TABEL
+BAB I PENDAHULUAN
+1.1 Latar Belakang
+Perkembangan pesat media sosial sebagai instrumen utama pemasaran digital telah mengubah paradigma komunikasi bisnis secara fundamental. Platform-platform seperti Instagram, TikTok, Facebook, dan X (formerly Twitter) kini bukan sekadar sarana interaksi sosial, melainkan menjadi channel strategis bagi perusahaan untuk membangun brand awareness, menjangkau target pasar yang lebih luas, dan mendorong konversi penjualan secara terukur. Bagi perusahaan yang mengelola banyak merek dagang (multi-brand) secara simultan, kompleksitas produksi konten meningkat secara eksponensial — mulai dari ideasi, desain visual, penulisan caption, proses persetujuan berjenjang, hingga penjadwalan dan publikasi ke berbagai platform.
+PT. Elecomp Indonesia, sebagai perusahaan yang bergerak di bidang pengembangan perangkat lunak, digital marketing, dan manajemen media sosial, menghadapi tantangan operasional serupa. Dengan portofolio beberapa brand bisnis aktif yang masing-masing memerlukan strategi konten tersendiri, tim kreatif perusahaan menghadapi beberapa permasalahan krusial:
+Alur Persetujuan (Approval) Belum Terstandarisasi: Pengajuan ide, revisi desain, penulisan caption, hingga persetujuan akhir dari Manajer masih dilakukan melalui aplikasi pesan instan grup chat dan spreadsheet terpisah. Hal ini menyebabkan risiko terlewatnya revisi (human error) dan ketidakjelasan status pengerjaan konten.
+Ketiadaan Pemisahan Hak Akses (Role-Based Access Control): Belum terdapat pembatasan wewenang yang tegas antara Manajer, Tim Kreatif, Desainer (Content Creator), dan Admin Media Sosial. Siapa pun dapat mengubah data tanpa validasi otorisasi, sehingga rentan terhadap kesalahan modifikasi konten.
+Absennya Pencatatan Jejak Audit (Audit Trail): Tidak ada sistem pencatatan otomatis yang merekam siapa melakukan perubahan apa, kapan, dan mengapa — sehingga akuntabilitas dan transparansi dalam proses produksi konten sulit dijamin.
+Isolasi Data Antar Bisnis yang Lemah: Konten, aset desain, dan jadwal tayang dari beberapa brand yang berbeda tercampur dalam satu dokumen kerja yang sama, meningkatkan potensi kebocoran informasi dan kesalahan cross-posting.
+Untuk mengatasi permasalahan tersebut, dibutuhkan sebuah solusi perangkat lunak terpadu melalui "Rancang Bangun Sistem Manajemen Konten Media Sosial Berbasis Web dengan Approval Workflow dan Role-Based Access Control pada PT. Elecomp Indonesia". Sistem ini dikembangkan menggunakan framework CodeIgniter 4 berbasis arsitektur MVC (Model-View-Controller) dan database MySQL, dengan menerapkan mesin status (state machine) 8 tahapan approval yang ketat serta pemisahan peran 6 role pengguna (Superadmin, Owner, Manager, Creative Team, Content Creator, dan Admin Media Sosial). Sistem ini juga dilengkapi fitur pencatatan audit trail otomatis, notifikasi in-app, manajemen multi-bisnis dengan Business Switcher, kalender jadwal tayang, serta modul pendukung kreatif terintegrasi.
+1.2 Tujuan
+Tujuan dari pelaksanaan Praktik Kerja Lapangan (PKL) ini terbagi menjadi:
+1. Tujuan Umum:
+a. Menerapkan dan mengintegrasikan ilmu rekayasa perangkat lunak dan manajemen basis data yang telah dipelajari di perkuliahan ke dalam proyek industri nyata.
+b. Melatih kedisiplinan, etika profesional, dan kemampuan kerja sama tim di lingkungan kerja PT. Elecomp Indonesia.
+c. Memahami secara mendalam proses bisnis manajemen media sosial pada perusahaan teknologi.
+2. Tujuan Khusus:
+a. Menganalisis permasalahan alur kerja produksi konten multi-bisnis pada PT. Elecomp Indonesia dan merumuskan solusi perangkat lunak terintegrasi.
+b. Merancang arsitektur sistem berbasis State Machine dengan 8 status transisi dan Role-Based Access Control (RBAC) 6 peran pengguna.
+c. Mengimplementasikan Service Layer terpusat (TransisiKonten.php) yang mengendalikan seluruh mutasi status konten secara atomik dan tervalidasi.
+d. Membangun sistem pencatatan Audit Trail otomatis yang merekam setiap perubahan status beserta identitas pelaku dan catatan evaluasi.
+e. Mengembangkan fitur manajemen multi-bisnis (multi-tenancy) dengan isolasi data yang ketat antar entitas bisnis.
+f. Mengimplementasikan fitur pendukung operasional: notifikasi in-app, kalender jadwal tayang, modul laporan, dan Asset Library.
+1.3 Manfaat
+Pelaksanaan PKL ini diharapkan memberikan manfaat sebagai berikut:
+1. Bagi Mahasiswa:
+a. Memperoleh pengalaman langsung dalam merancang dan mengembangkan sistem informasi tingkat enterprise berbasis workflow state machine.
+b. Meningkatkan keahlian teknis pemrograman PHP modern (CodeIgniter 4), pengelolaan database MySQL, dan penerapan konsep keamanan web (CSRF, AuthFilter, RBAC).
+c. Mengasah kemampuan komunikasi dan pemecahan masalah teknis di lingkungan kerja nyata.
+2. Bagi Politeknik Negeri Malang:
+a. Memperkuat hubungan kemitraan strategis (link and match) antara institusi pendidikan dan dunia industri teknologi informasi.
+b. Memperoleh umpan balik (feedback) mengenai relevansi kurikulum akademik terhadap kebutuhan kompetensi industri terkini.
+c. Menjadi rujukan contoh implementasi proyek berbasis State Machine dan RBAC bagi mahasiswa angkatan selanjutnya.
+3. Bagi PT. Elecomp Indonesia:
+a. Memperoleh sistem manajemen media sosial internal yang terpadu, aman, dan siap dioperasikan.
+b. Meningkatkan efisiensi dan akuntabilitas proses produksi konten melalui otomatisasi alur persetujuan, pemisahan wewenang, dan pencatatan jejak audit transparan.
+c. Memiliki infrastruktur pengelolaan multi-brand yang skalabel untuk mendukung ekspansi bisnis di masa mendatang.
+1.4 Waktu Pelaksanaan
+Praktik Kerja Lapangan dilaksanakan selama kurang lebih 8 (delapan) minggu, terhitung mulai tanggal 29 Juni 2026 sampai dengan 21 Agustus 2026. Pelaksanaan bertempat di kantor PT. Elecomp Indonesia dengan hari kerja Senin hingga Jumat, pukul 08.00 – 16.30 WIB.
+1.5 Daftar Istilah
+Tabel 1.1 memuat daftar istilah teknis yang digunakan dalam laporan ini beserta penjelasan artinya sesuai urutan alfabet:
+Tabel 1.1 Daftar Istilah dan Definisi
+BAB II HASIL KEGIATAN PKL
+2.1 Gambaran Umum Instansi
+Subbab ini menjelaskan profil umum PT. Elecomp Indonesia sebagai lokasi pelaksanaan Praktik Kerja Lapangan, meliputi sejarah berdirinya, lokasi geografis, struktur organisasi, serta bidang usaha yang dijalankan.
+2.1.1 Sejarah
+PT. Elecomp Indonesia didirikan sebagai badan usaha yang berfokus pada penyediaan solusi teknologi informasi, digital marketing, pengembangan perangkat lunak, dan layanan transformasi digital untuk mendukung percepatan bisnis di era digital. Berawal dari penyedia jasa konsultasi IT berskala lokal, PT. Elecomp Indonesia terus berkembang pesat menjadi perusahaan teknologi terpercaya yang menangani berbagai portofolio brand komersial, kemitraan institusi, dan layanan e-commerce di berbagai kota.
+Visi: "Menjadi perusahaan teknologi dan digital marketing terdepan yang inovatif, solutif, dan berdaya saing global dalam menghadirkan nilai tambah bagi mitra bisnis."
+Misi:
+Menyediakan solusi digital dan rekayasa perangkat lunak berkualitas tinggi.
+Mengembangkan strategi pemasaran media sosial yang kreatif dan berbasis data.
+Mendorong transformasi digital yang berkelanjutan bagi pelaku usaha mikro, kecil, menengah, hingga korporasi.
+Menciptakan lingkungan kerja yang kolaboratif dan berorientasi pada pengembangan kompetensi SDM.
+2.1.2 Lokasi
+Kantor PT. Elecomp Indonesia berlokasi strategis di kawasan perkantoran dan bisnis yang mudah diakses dengan sarana transportasi yang memadai. Lingkungan kerja dilengkapi dengan fasilitas penunjang teknologi informasi modern, ruang kerja tim kreatif, ruang server, jaringan internet berkecepatan tinggi, dan ruang diskusi kolaboratif yang mendukung produktivitas kerja tim pengembang dan pemasaran.
+2.1.3 Struktur Organisasi
+Struktur organisasi PT. Elecomp Indonesia dipimpin oleh seorang Direktur Utama yang membawahi beberapa divisi utama, yaitu: Divisi Marketing & Strategic Communication, Divisi Creative & Multimedia, Divisi Software Engineering / IT Development, serta Divisi Administrasi & Keuangan. Selama kegiatan PKL, mahasiswa ditempatkan di bawah koordinasi Divisi Software Engineering dan berkolaborasi erat dengan Divisi Marketing & Creative dalam merancang sistem manajemen media sosial.
+                      ┌──────────────────────────────┐
+                      │       Direktur Utama          │
+                      │    (CEO / Founder)            │
+                      └──────────────┬───────────────┘
+                                     │
+         ┌───────────────────────────┼───────────────────────────┐
+         │                           │                           │
+┌────────▼────────┐      ┌───────────▼───────────┐   ┌──────────▼──────────┐
+│   Div. Marketing│      │  Div. Software Eng.   │   │  Div. Administrasi  │
+│ & Communication │      │  / IT Development     │   │  & Keuangan         │
+└────────┬────────┘      └───────────┬───────────┘   └─────────────────────┘
+         │                           │
+         │               ┌───────────┼───────────┐
+         │               │                       │
+         │      ┌────────▼────────┐    ┌─────────▼────────┐
+         │      │ Project Manager │    │    Programmer     │
+         │      └─────────────────┘    │  (Posisi PKL)    │
+         │                             └──────────────────┘
+         │
+┌────────▼────────┐
+│  Div. Creative  │
+│  & Multimedia   │
+└─────────────────┘
+(Gambar 2.1 Struktur Organisasi PT. Elecomp Indonesia)
+2.1.4 Bidang Usaha
+Bidang usaha dan layanan utama PT. Elecomp Indonesia mencakup:
+Software & Web Application Development: Jasa perancangan dan pembangunan aplikasi web, sistem enterprise, dan solusi cloud.
+Social Media Management & Branding: Pengelolaan konten, perancangan visual kampanye, dan penjadwalan publikasi multi-platform.
+Digital Advertising & Performance Marketing: Manajemen kampanye iklan digital berbasis data analitik.
+IT Support & Consulting: Layanan konsultasi infrastruktur teknologi informasi, integrasi API, dan digitalisasi proses bisnis.
+2.2 Aktivitas yang Dilakukan
+Aktivitas kerja praktik yang dilaksanakan selama 8 minggu (29 Juni 2026 – 21 Agustus 2026) dirangkum dalam jurnal kegiatan pada Tabel 2.1:
+Tabel 2.1 Rekapitulasi Jurnal Aktivitas PKL Mingguan
+2.3 Masalah yang Dihadapi dan Penanganannya
+Selama pelaksanaan PKL, penulis menghadapi beberapa kendala teknis dan non-teknis yang timbul dari perbedaan antara teori perkuliahan dengan kompleksitas sistem di industri. Rincian kendala beserta solusinya dijabarkan berikut ini:
+2.3.1 Masalah
+Masalah Kepatuhan State Machine: Perubahan status konten rawan dimanipulasi jika dilakukan secara langsung pada query database tanpa melalui pemeriksaan aturan bisnis (business logic) yang terpusat. Tanpa validasi yang ketat, status dapat melompat ke tahapan yang tidak sesuai urutan.
+Masalah Granularitas Hak Akses (RBAC 6 Role): Terdapat kebutuhan unik di mana Creative Team diperbolehkan mengajukan ide baru dan mengerjakan desain, sedangkan Content Creator hanya boleh mengerjakan desain yang ditugaskan tanpa hak membuat ide baru. Pemisahan ini memerlukan kontrol akses yang sangat granular.
+Masalah Isolasi Data Multi-Bisnis: Dalam pengelolaan beberapa brand secara simultan, data konten, master platform, dan aset desain dari satu bisnis tidak boleh tampil atau termodifikasi oleh pengguna yang sedang bekerja pada bisnis lain. Implementasi isolasi data ini perlu diterapkan secara konsisten di seluruh lapisan aplikasi.
+Masalah Ketahanan Integrasi Eksternal: Pemanggilan REST API pihak ketiga (khususnya untuk fitur pendukung kreatif) berpotensi mengalami timeout, pemblokiran oleh ekstensi cURL, atau pembatasan akses dari server hosting, sehingga memerlukan mekanisme fallback yang tangguh.
+2.3.2 Penanganan
+Membangun Service Terpusat TransisiKonten.php: Semua perubahan status konten diwajibkan melewati metode transition() dan canTransition(). Kolom status pada model ContentPlanModel sengaja dikeluarkan dari $allowedFields untuk mencegah pembaruan langsung dari form tanpa validasi state machine. Setiap transisi dicatat secara atomik ke tabel content_status_log menggunakan transaksi database.
+Penerapan Matriks Otorisasi Berjenjang: Membuat aturan izin peran spesifik pada TransisiKonten.php dan memisahkan modul antarmuka — IdeKonten (khusus Superadmin, Owner, Manager, Creative Team) dan TugasCreator (khusus Content Creator, Creative Team) — sehingga setiap role hanya mengakses fitur sesuai wewenangnya.
+Implementasi Session-Based Business Scope: Menambahkan mekanisme bisnis_aktif_id pada session pengguna melalui Business Switcher di navbar atas, serta menyematkan kondisi WHERE bisnis_id = ? secara konsisten pada seluruh method pengambilan data di setiap Model.
+Mekanisme Fallback Berlapis pada Service Eksternal: Merancang kelas AiService dengan tiga lapis metode HTTP: koneksi utama berbasis cURL, fallback sekunder berbasis file_get_contents (stream context), dan fallback tersier berbasis fsockopen, sehingga fitur pendukung kreatif tetap dapat berfungsi pada berbagai konfigurasi server.
+2.4 Rancang Bangun Sistem Manajemen Konten Media Sosial Berbasis Web dengan Approval Workflow dan Role-Based Access Control
+Bagian ini merupakan inti pembahasan teknis dari kontribusi yang dikerjakan selama masa PKL pada PT. Elecomp Indonesia, yang mencakup tahap analisis kebutuhan, perancangan sistem terstruktur, implementasi kode program, dan pengujian fungsionalitas secara menyeluruh.
+2.4.1 Analisis Sistem
+1. Analisis Permasalahan
+Sebelum sistem ini dikembangkan, operasional produksi media sosial di PT. Elecomp Indonesia menghadapi inefisiensi signifikan. Alur kerja yang mengandalkan grup chat komunikasi tidak memiliki batasan peran dan otorisasi, sehingga siapa pun dapat mengubah konten tanpa validasi. Tidak ada mekanisme pelacakan kronologis (audit trail) atas setiap perubahan yang terjadi, serta pengelolaan beberapa brand sekaligus tercampur dalam dokumen kerja yang sama.
+Analisis permasalahan mengidentifikasi 4 (empat) isu utama:
+Proses persetujuan konten (approval workflow) masih bersifat manual dan rawan human error.
+Tidak adanya pembatasan hak akses (access control) yang tegas antar peran dalam tim.
+Tidak tersedianya catatan jejak audit yang sistematis dan tidak dapat dimanipulasi.
+Pengelolaan data multi-brand yang tidak terisolasi menimbulkan risiko cross-posting dan kebocoran informasi.
+2. Analisis Pemecahan Masalah
+Solusi yang dibangun adalah aplikasi web terpadu Sistem Manajemen Media Sosial (SMMS) dengan arsitektur modern berbasis state machine approval workflow dan Role-Based Access Control (RBAC). Solusi ini mencakup:
+State Machine 8 Tahapan: Siklus hidup konten dikendalikan oleh 8 status tetap (ide_diajukan → acc_ide → in_design → review_design → acc_final → published, serta revisi dan ditolak sebagai status cabang) dengan aturan transisi yang hanya dapat dieksekusi oleh role tertentu.
+RBAC 6 Peran: Enam peran pengguna (Superadmin, Owner, Manager, Creative Team, Content Creator, Admin Media Sosial) masing-masing memiliki batas wewenang yang tegas dan tervalidasi pada setiap aksi.
+Audit Trail Otomatis: Setiap perpindahan status dicatat secara atomik ke tabel content_status_log yang mencakup status lama, status baru, identitas pelaku, timestamp, dan catatan evaluasi.
+Multi-Bisnis Terisolasi: Setiap entitas bisnis memiliki data master, konten, dan aset yang terpisah secara logis melalui kolom bisnis_id pada seluruh tabel terkait.
+3. Analisis Kebutuhan Fungsional & Non-Fungsional
+Kebutuhan fungsional sistem didefinisikan dalam 15 poin kebutuhan pada Tabel 2.2, sedangkan kebutuhan non-fungsional dirangkum dalam 9 poin pada Tabel 2.3:
+Tabel 2.2 Spesifikasi Kebutuhan Fungsional Sistem (F-01 s/d F-15)
+Tabel 2.3 Spesifikasi Kebutuhan Non-Fungsional Sistem (NF-01 s/d NF-09)
+2.4.2 Perancangan Sistem
+1. Use Case Diagram
+Sistem SMMS memiliki 6 aktor pengguna dengan wewenang yang berbeda. Matriks pembagian 27 use case untuk masing-masing aktor dirangkum pada Tabel 2.4:
+Tabel 2.4 Matriks Aktor dan Use Case Sistem (UC-01 s/d UC-27)
+(Gambar 2.2 Use Case Diagram Sistem SMMS — terlampir)
+2. Activity Diagram
+Activity diagram menggambarkan aliran kerja nyata pada sistem. Terdapat 5 alur aktivitas utama yang dirancang:
+a. Alur Autentikasi Pengguna: Pengguna memasukkan email dan password → sistem memverifikasi data dan status akun → jika valid, sistem menyimpan sesi login dan mengarahkan ke dashboard utama sesuai role → jika tidak valid, sistem menampilkan pesan kesalahan dan kembali ke halaman login.
+(Gambar 2.3 Activity Diagram – Alur Autentikasi Pengguna — terlampir)
+b. Alur Pengajuan Ide Konten: Pengguna dengan role yang berhak mengisi form ide konten (judul, deskripsi, platform tujuan, jenis konten, content pillar, dan tanggal tayang) → sistem menyimpan data ke content_plan dengan status awal ide_diajukan → sistem mencatat entri pertama ke content_status_log → notifikasi dikirim ke Manager untuk review.
+(Gambar 2.4 Activity Diagram – Alur Pengajuan Ide Konten — terlampir)
+c. Alur Review & Approval Desain: Manager membuka modul Approval Manager → memilih konten berstatus review_design → meninjau visual desain, caption, dan link Canva → memilih aksi (ACC Final / Minta Revisi / Tolak) → sistem memvalidasi via TransisiKonten::canTransition() → jika valid, status berpindah dan dicatat ke audit trail.
+(Gambar 2.5 Activity Diagram – Alur Review & Approval Desain — terlampir)
+d. Alur Publikasi Konten: Admin Medsos membuka modul Jadwal Upload → memilih konten berstatus acc_final → menginput link bukti postingan media sosial → klik konfirmasi publish → sistem mentransisikan status ke published dan menyimpan link ke tabel bukti_upload.
+(Gambar 2.6 Activity Diagram – Alur Publikasi Konten — terlampir)
+e. Alur Business Switcher: Pengguna mengklik dropdown Business Switcher pada navbar → memilih bisnis tujuan → sistem memperbarui session bisnis_aktif_id → seluruh data pada halaman otomatis terfilter sesuai bisnis yang baru dipilih.
+(Gambar 2.7 Activity Diagram – Alur Business Switcher — terlampir)
+3. State Machine Diagram
+Alur siklus hidup konten dikendalikan oleh State Machine yang terdiri dari 8 status tetap. Setiap transisi status memiliki batasan peran dan kewajiban pengisian catatan audit log, seperti dijabarkan pada Tabel 2.5:
+Tabel 2.5 Matriks Aturan Transisi Status State Machine (8 Status Konten)
+                    ┌─────────────────────────────────────────────┐
+                    │              STATE MACHINE                   │
+                    │        Siklus Hidup Konten SMMS              │
+                    └─────────────────────────────────────────────┘
+
+    [START]
+       │
+       ▼
+ ┌─────────────┐    Manager     ┌─────────┐   Otomatis   ┌───────────┐
+ │ ide_diajukan │──────────────▶│ acc_ide  │────────────▶│ in_design │
+ └──────┬───────┘               └─────────┘              └─────┬─────┘
+        │                                                       │
+        │ Manager                                    Creator    │
+        │ (wajib catatan)                                       │
+        ▼                                                       ▼
+ ┌──────────┐                                          ┌──────────────┐
+ │  ditolak  │◀── (terminal)                           │ review_design │
+ └──────────┘                                          └──────┬───────┘
+                                                              │
+        ┌─────────────────────────────────────────────────────┤
+        │                                                     │
+        │ Manager (wajib catatan)                   Manager   │
+        ▼                                                     ▼
+ ┌──────────┐          Creator / Creative         ┌───────────┐
+ │  revisi   │─────────────────────────────────▶  │ acc_final  │
+ └──────────┘   (ajukan ulang → ide_diajukan)     └─────┬─────┘
+        │                                                │
+        │                                      Admin     │
+        └──── (loop kembali ke ide_diajukan)   Medsos    │
+                                                         ▼
+                                                 ┌───────────┐
+                                                 │ published  │
+                                                 └───────────┘
+                                                   [END]
+
+    ※ Superadmin & Owner dapat melakukan override semua transisi
+      (wajib catatan, tetap dicatat di audit trail)
+(Gambar 2.8 State Machine Diagram – Siklus Status Konten 8 Tahapan)
+4. Sequence Diagram
+Sequence diagram memodelkan interaksi dinamis antara objek antarmuka (View), pengontrol (Controller), layanan bisnis (Service), dan model data (Model). Skenario penting mencakup:
+Skenario Login: Browser → Auth::prosesLogin() → UserModel::getByEmail() → validasi password_verify() → simpan session → redirect /dashboard.
+Skenario Transisi Status Konten: Browser → ContentPlan::transition($id) → TransisiKonten::canTransition() → validasi 3 syarat (rute valid, role valid, catatan terisi) → TransisiKonten::transition() → ContentPlanModel::update() + ContentStatusLogModel::insert() dalam satu transaksi → NotificationService::kirim() → response JSON.
+Skenario Unified Save (Tugas Creator): Browser → ContentPlan::updateDetails($id) → simpan caption, link Canva, image URL → cek kelengkapan materi → jika lengkap, otomatis panggil TransisiKonten::transition() untuk pindah ke review_design.
+(Gambar 2.9 & 2.10 Sequence Diagram — terlampir)
+5. Class Diagram
+Arsitektur kelas perangkat lunak dibangun di atas fondasi OOP (Object-Oriented Programming) CodeIgniter 4 yang terdiri dari 4 kelompok kelas utama:
+Controller Layer: BaseController, Auth, ContentPlan, Dashboard, ApprovalManager, TugasCreator, JadwalUpload, IdeKonten, TrendAi, AssetLibrary, AuditTrail, KalenderTayang, Laporan, MasterData, UserManagement, Bisnis, Profile, Notifications (18 controller).
+Model Layer: UserModel, ContentPlanModel, ContentStatusLogModel, BisnisModel, BuktiUploadModel, NotificationModel, AiGenerationLogModel, MetaApiLogModel (8 model).
+Service Layer: TransisiKonten (state machine engine), NotificationService (notifikasi in-app), AiService (integrasi Google Gemini API), GraphApiService (integrasi Meta Graph API), AutoPublishService (penjadwalan auto-publish).
+Filter Layer: AuthFilter (proteksi route middleware).
+(Gambar 2.11 Class Diagram Sistem SMMS — terlampir)
+6. Entity Relationship Diagram (ERD)
+Rancangan basis data relasional sistem SMMS terdiri dari 9 tabel utama yang saling berelasi dengan integritas referensial (Foreign Key):
+a. Tabel roles berelasi satu-ke-banyak (1:N) dengan tabel users melalui role_id.
+b. Tabel users berelasi satu-ke-banyak (1:N) dengan tabel content_plan melalui relasi dibuat_oleh, assigned_to, dan acc_ide_oleh.
+c. Tabel bisnis berelasi satu-ke-banyak (1:N) dengan tabel content_plan, platforms, jenis_konten, dan content_types melalui bisnis_id.
+d. Tabel content_plan berelasi satu-ke-banyak (1:N) dengan tabel content_status_log dan bukti_upload.
+e. Tabel platforms berelasi satu-ke-banyak (1:N) dengan tabel bukti_upload melalui platform_id.
+(Gambar 2.12 Entity Relationship Diagram — terlampir)
+7. Arsitektur Sistem
+Sistem dibangun menggunakan pola arsitektur MVC (Model-View-Controller) yang diperkaya dengan Service Layer. Alur kerja arsitektur meliputi:
+Browser (HTTP Request)
+    │
+    ▼
+Routes.php ──▶ AuthFilter (verifikasi session login)
+                    │
+                    ▼
+              Controller (menerima input, koordinasi)
+                    │
+                    ├──▶ Service Layer (TransisiKonten, NotificationService, AiService)
+                    │         │
+                    │         ▼
+                    │    Validasi Aturan Bisnis
+                    │         │
+                    ▼         ▼
+              Model (membaca/menulis Database MySQL secara atomik)
+                    │
+                    ▼
+              View / JSON Response ──▶ Browser
+(Gambar 2.13 Arsitektur Sistem MVC + Service Layer)
+8. Rancangan Antarmuka
+Rancangan antarmuka pengguna (UI Design) mencakup:
+Halaman Login: Form autentikasi modern dengan validasi kredensial.
+Dashboard Utama: Panel ringkasan statistik konten per status, widget jadwal tayang terdekat, dan Business Switcher pada navbar atas.
+Modul Content Plan: Tabel manajemen seluruh ide konten dilengkapi filter bisnis aktif, status badge, dan fitur pencarian.
+Modul Tugas Creator: Tampilan khusus desainer dengan filter tugas (In Design, Review, Revisi, Overdue) dan area form penulisan caption, link Canva, serta unggah media.
+Modul Approval Manager: Antarmuka khusus manajer untuk meninjau materi visual, menyetujui, meminta revisi dengan modal catatan, atau menolak konten.
+Modul Jadwal Upload: Antarmuka admin media sosial untuk memantau konten berstatus ACC Final dan menginput URL bukti postingan.
+Modul Master Data & Bisnis: Antarmuka konfigurasi platform, jenis konten, content pillar, serta manajemen profil brand/bisnis.
+9. Rancangan Pengujian Sistem
+Pengujian sistem dirancang menggunakan metode Black Box Testing yang berfokus pada pengujian masukan (input) dan keluaran (output) fungsionalitas aplikasi tanpa harus memeriksa struktur internal kode. Skenario pengujian mencakup fungsi login, hak akses role, pembuatan ide, transisi state machine, penolakan transisi ilegal, penyimpanan aset, hingga konfirmasi publish.
+2.4.3 Implementasi Sistem
+1. Implementasi Data
+Implementasi skema database diwujudkan menggunakan fitur Database Migration CodeIgniter 4 untuk memastikan konsistensi struktur tabel pada lingkungan pengembangan lokal dan server hosting. Struktur 9 tabel utama dijabarkan pada Tabel 2.6:
+Tabel 2.6 Struktur Implementasi Tabel Basis Data MySQL
+2. Implementasi Proses & Antarmuka
+Implementasi proses logika bisnis dikonsolidasikan pada Service Layer App\Services\TransisiKonten.php. Service ini menerapkan enkapsulasi ketat di mana method canTransition() memeriksa 3 syarat mutlak:
+Validitas rute transisi status lama ke status baru (apakah transisi tersebut terdaftar dalam matriks TRANSISI_VALID).
+Kesesuaian role pengguna yang sedang login terhadap izin transisi (apakah role pengguna termasuk dalam daftar roles yang diperbolehkan).
+Kewajiban pengisian catatan pada aksi revisi dan penolakan (apakah parameter catatan sudah diisi jika catatan_wajib = true).
+Jika ketiga syarat terpenuhi, method transition() mengeksekusi pembaruan status pada tabel content_plan dan menyisipkan record baru ke content_status_log dalam satu kesatuan transaksi database (atomic transaction), sehingga data dijamin konsisten.
+Pada antarmuka Tugas Creator (App\Views\tugas_creator\index.php), diimplementasikan fitur Unified Save yang menggabungkan penyimpanan draft caption, link Canva, dan unggah media dalam satu aksi tombol. Fitur ini secara cerdas mendeteksi kelengkapan materi untuk mentransisikan status konten secara otomatis ke review_design.
+Selain itu, sistem dilengkapi dengan 5 Service Layer untuk mendukung operasional:
+TransisiKonten.php — engine state machine (14.514 bytes, 362 baris kode)
+NotificationService.php — layanan notifikasi in-app otomatis
+AiService.php — integrasi Google Gemini API untuk asisten kreatif (IDE generator, caption generator, pre-review checklist)
+GraphApiService.php — integrasi Meta Graph API untuk auto-publish ke Instagram
+AutoPublishService.php — penjadwalan publikasi otomatis berbasis cron
+2.4.4 Pengujian Sistem
+Pengujian fungsionalitas sistem dilakukan secara menyeluruh menggunakan metode Black Box Testing. Hasil pengujian dari 15 butir skenario kunci dirangkum pada Tabel 2.7:
+Tabel 2.7 Hasil Pengujian Fungsionalitas Sistem (Black Box Testing)
+Berdasarkan seluruh butir pengujian pada Tabel 2.7, diperoleh tingkat keberhasilan pengujian sebesar 100% (Valid), yang membuktikan bahwa seluruh fungsionalitas sistem telah memenuhi spesifikasi kebutuhan yang ditetapkan.
+BAB III SIMPULAN DAN SARAN
+3.1 Simpulan
+Berdasarkan hasil analisis, perancangan, implementasi, dan pengujian yang telah dilaksanakan selama kegiatan Praktik Kerja Lapangan di PT. Elecomp Indonesia, dapat ditarik beberapa kesimpulan penting sebagai berikut:
+Telah berhasil dirancang dan dibangun Sistem Manajemen Konten Media Sosial (SMMS) berbasis web menggunakan framework CodeIgniter 4 dan basis data MySQL yang mampu mendigitalisasi dan mengotomasi alur produksi konten pada PT. Elecomp Indonesia.
+Sistem berhasil menerapkan mekanisme State Machine Approval Workflow 8 tahapan (ide_diajukan, acc_ide, in_design, review_design, revisi, acc_final, published, dan ditolak) yang menjamin kualitas konten terkontrol secara bertahap dan mencegah kesalahan terbitnya konten yang belum disetujui.
+Penerapan Role-Based Access Control (RBAC) pada 6 peran pengguna (Superadmin, Owner, Manager, Creative Team, Content Creator, Admin Media Sosial) berhasil memberikan batasan wewenang yang tegas dan akuntabel pada setiap tahapan kerja.
+Fitur pencatatan Audit Trail terbukti mampu merekam seluruh riwayat perpindahan status, identitas pelaku, dan catatan evaluasi revisi secara kronologis dan tidak dapat dimanipulasi.
+Fitur Multi-Bisnis terintegrasi dengan Business Switcher memungkinkan pengelolaan beberapa merek dagang secara simultan dengan isolasi data yang terjamin aman.
+Hasil pengujian menggunakan metode Black Box Testing menunjukkan bahwa seluruh 15 butir skenario pengujian fungsionalitas berstatus 100% Valid dan berjalan sesuai dengan spesifikasi kebutuhan yang diharapkan.
+3.2 Saran
+Untuk pengembangan dan penyempurnaan sistem informasi manajemen konten ini di masa mendatang, penulis menyampaikan beberapa saran sebagai berikut:
+Pengembangan Notifikasi Real-Time: Mengintegrasikan protokol WebSockets atau Webhook pesan instan (seperti Telegram Bot / WhatsApp Business API) agar pemberitahuan revisi dan persetujuan konten dapat diterima secara langsung (real-time) oleh tim terkait.
+Pengembangan Aplikasi Mobile: Membangun versi aplikasi mobile (Android / iOS) khusus untuk Manager dan Content Creator guna mempermudah proses review dan pemantauan tugas secara fleksibel dari perangkat genggam.
+Integrasi Analitik Performa Konten: Menambahkan modul analitik yang dapat menarik data statistik performa konten yang telah terbit (jumlah likes, comments, shares, reach) dari platform media sosial untuk bahan evaluasi efektivitas strategi konten berikutnya.
+DAFTAR PUSTAKA
+CodeIgniter Foundation. (2024). CodeIgniter 4 User Guide (Version 4.7). https://codeigniter.com/user_guide/
+Connolly, T. M., & Begg, C. E. (2015). Database Systems: A Practical Approach to Design, Implementation, and Management (6th ed.). Boston: Pearson Education.
+Dennis, A., Wixom, B. H., & Tegarden, D. (2015). Systems Analysis and Design: An Object-Oriented Approach with UML (5th ed.). Hoboken: John Wiley & Sons.
+Fowler, M. (2018). Patterns of Enterprise Application Architecture. Boston: Addison-Wesley Professional.
+Pressman, R. S., & Maxim, B. R. (2020). Software Engineering: A Practitioner's Approach (9th ed.). New York: McGraw-Hill Education.
+Sommerville, I. (2016). Software Engineering (10th ed.). Boston: Pearson Education.
+Tim Penyusun. (2021). Pedoman Pelaksanaan Praktik Kerja Industri Program Studi DIII Manajemen Informatika PSDKU Politeknik Negeri Malang di Kota Kediri. Kediri: Politeknik Negeri Malang.
+DAFTAR LAMPIRAN
+LAMPIRAN 1: SURAT PENERIMAAN PRAKTIK KERJA LAPANGAN
+LAMPIRAN 2: DAFTAR KEHADIRAN PRAKTIK KERJA LAPANGAN
+LAMPIRAN 3: JURNAL KEGIATAN PRAKTIK KERJA LAPANGAN
+LAMPIRAN 4: FORMULIR PENILAIAN PEMBIMBING LAPANGAN
+LAMPIRAN 5: KARTU BIMBINGAN PRAKTIK KERJA LAPANGAN
+LAMPIRAN 6: FOTO KEGIATAN DAN DOKUMENTASI SISTEM
+Mengetahui, | Menyetujui,
+Koordinator Program Studi | Dosen Pembimbing
+D3 Manajemen Informatika PSDKU Kediri | 
+____________________________________ | ____________________________________
+Benni Agung Nugroho, S.Kom, M.Cs. | Ferry Sofian Efendi, S.Kom, M.Cs.
+NIDN. .................................... | NIDN. ....................................
+Kediri, 21 Agustus 2026 | 
+Pembimbing Lapangan PT. Elecomp Indonesia | 
+____________________________________ | 
+Fernandes Raymond, S.Kom, M.M. | 
+NIK. .................................... | 
+HALAMAN JUDUL | 1
+HALAMAN PENGESAHAN KAMPUS | 2
+HALAMAN PENGESAHAN PERUSAHAAN | 3
+PERNYATAAN KEASLIAN TULISAN | 4
+KATA PENGANTAR | 5
+DAFTAR ISI | 7
+DAFTAR GAMBAR | 8
+DAFTAR TABEL | 9
+BAB I PENDAHULUAN | 10
+1.1 Latar Belakang | 10
+1.2 Tujuan | 11
+1.3 Manfaat | 12
+1.4 Waktu Pelaksanaan | 13
+1.5 Daftar Istilah | 13
+BAB II HASIL KEGIATAN PKL | 15
+2.1 Gambaran Umum Instansi | 15
+2.1.1 Sejarah | 15
+2.1.2 Lokasi | 15
+2.1.3 Struktur Organisasi | 16
+2.1.4 Bidang Usaha | 16
+2.2 Aktivitas yang Dilakukan | 17
+2.3 Masalah yang Dihadapi dan Penanganannya | 18
+2.3.1 Masalah | 18
+2.3.2 Penanganan | 18
+2.4 Rancang Bangun Sistem Manajemen Konten Media Sosial Berbasis Web dengan Approval Workflow dan Role-Based Access Control | 19
+2.4.1 Analisis Sistem | 19
+2.4.2 Perancangan Sistem | 22
+2.4.3 Implementasi Sistem | 29
+2.4.4 Pengujian Sistem | 31
+BAB III SIMPULAN DAN SARAN | 33
+3.1 Simpulan | 33
+3.2 Saran | 34
+DAFTAR PUSTAKA | 35
+DAFTAR LAMPIRAN | 36
+No. | Keterangan Gambar | Halaman
+2.1 | Struktur Organisasi PT. Elecomp Indonesia | ...
+2.2 | Use Case Diagram Sistem SMMS | ...
+2.3 | Activity Diagram – Alur Autentikasi Pengguna | ...
+2.4 | Activity Diagram – Alur Pengajuan Ide Konten | ...
+2.5 | Activity Diagram – Alur Review & Approval Desain | ...
+2.6 | Activity Diagram – Alur Publikasi Konten | ...
+2.7 | Activity Diagram – Alur Business Switcher | ...
+2.8 | State Machine Diagram – Siklus Status Konten 8 Tahapan | ...
+2.9 | Sequence Diagram – Login & Dashboard | ...
+2.10 | Sequence Diagram – Transisi Status Konten | ...
+2.11 | Class Diagram Sistem SMMS | ...
+2.12 | Entity Relationship Diagram (ERD) | ...
+2.13 | Arsitektur Sistem MVC + Service Layer | ...
+No. | Keterangan Tabel | Halaman
+1.1 | Daftar Istilah dan Definisi | ...
+2.1 | Rekapitulasi Jurnal Aktivitas PKL Mingguan | ...
+2.2 | Spesifikasi Kebutuhan Fungsional Sistem (F-01 s/d F-15) | ...
+2.3 | Spesifikasi Kebutuhan Non-Fungsional Sistem (NF-01 s/d NF-09) | ...
+2.4 | Matriks Aktor dan Use Case Sistem (UC-01 s/d UC-27) | ...
+2.5 | Matriks Aturan Transisi Status State Machine (8 Status Konten) | ...
+2.6 | Struktur Implementasi Tabel Basis Data MySQL | ...
+2.7 | Hasil Pengujian Fungsionalitas Sistem (Black Box Testing) | ...
+Istilah | Definisi / Keterangan
+Approval Workflow | Alur kerja terstruktur yang mengatur proses peninjauan dan persetujuan suatu objek digital (dalam konteks ini: konten media sosial) secara berjenjang oleh pihak yang berwenang sebelum dipublikasikan.
+Audit Trail | Catatan log kronologis yang merekam riwayat seluruh perubahan status data, pelaku perubahan, dan keterangan terkait untuk keperluan akuntabilitas dan transparansi.
+CodeIgniter 4 | Framework pengembangan aplikasi web berbasis PHP dengan arsitektur MVC yang ringan, cepat, dan memiliki dukungan fitur modern seperti Migration, Seeder, dan CLI.
+CSRF Protection | Cross-Site Request Forgery Protection, mekanisme pengamanan untuk mencegah eksekusi aksi berbahaya pada aplikasi web melalui permintaan palsu yang berasal dari situs lain.
+Entity Relationship Diagram (ERD) | Diagram grafis yang memodelkan struktur entitas basis data relasional beserta atribut dan hubungan (relationship) antar entitas.
+Model-View-Controller (MVC) | Pola arsitektur perangkat lunak yang memisahkan logika bisnis (Model), antarmuka pengguna (View), dan pengontrol alur aplikasi (Controller) untuk meningkatkan modularitas dan pemeliharaan kode.
+Multi-Tenancy / Multi-Bisnis | Arsitektur perangkat lunak di mana satu instalasi aplikasi dapat melayani banyak entitas bisnis/merek dengan isolasi data yang terjamin.
+MySQL | Sistem manajemen basis data relasional (RDBMS) berbasis SQL yang digunakan untuk menyimpan, mengelola, dan mengakses data secara terstruktur.
+Role-Based Access Control (RBAC) | Mekanisme pengendalian hak akses pengguna berdasarkan peran dan wewenang yang ditetapkan secara hierarkis dalam organisasi.
+State Machine | Model komputasi perilaku yang terdiri dari sekumpulan status tetap (states) dan aturan perpindahan (transitions) antar status berdasarkan kondisi dan peristiwa tertentu.
+Unified Modeling Language (UML) | Bahasa standar visualisasi dan pemodelan berorientasi objek untuk merancang struktur dan perilaku sistem perangkat lunak.
+Waktu Pelaksanaan | Deskripsi Aktivitas | Hasil / Output
+Minggu 1 (29 Jun – 3 Jul 2026) | Orientasi perusahaan, pengenalan lingkungan kerja, observasi alur kerja manajemen konten media sosial eksisting, identifikasi proses bisnis dan pain points. | Memahami struktur organisasi, alur kerja konten, dan menemukan kesenjangan proses yang perlu diotomasi.
+Minggu 2 (6 – 10 Jul 2026) | Analisis kebutuhan sistem (kebutuhan fungsional dan non-fungsional), studi pustaka state machine dan RBAC, penyusunan spesifikasi 6 role pengguna. | Terbentuknya daftar kebutuhan F-01 s/d F-15, NF-01 s/d NF-09, dan spesifikasi 6 peran pengguna dengan matriks wewenang.
+Minggu 3 (13 – 17 Jul 2026) | Perancangan sistem perangkat lunak: penyusunan Use Case Diagram, Activity Diagram, State Machine Diagram, Sequence Diagram, Class Diagram, dan ERD. | Menghasilkan dokumen perancangan UML lengkap dan rancangan basis data relasional 9 tabel.
+Minggu 4 (20 – 24 Jul 2026) | Inisialisasi proyek CodeIgniter 4, konfigurasi basis data MySQL, implementasi migrasi database, pembuatan antarmuka dasar (layout, sidebar, navbar). | Database schema berhasil dibuat via CodeIgniter Migration dan antarmuka dasar web terkonfigurasi.
+Minggu 5 (27 – 31 Jul 2026) | Pengembangan modul otentikasi (AuthFilter, Session, CSRF Protection) dan modul RBAC: pembatasan akses route berdasarkan 6 peran pengguna. | Modul login aman dengan pembatasan hak akses berbasis peran berhasil diimplementasikan dan diuji.
+Minggu 6 (3 – 7 Agu 2026) | Implementasi Service TransisiKonten (State Machine 8 Status) dan Modul Content Plan, Tugas Creator, serta fitur Unified Save. | Alur transisi status konten berjalan otomatis dengan validasi peran dan pencatatan audit trail pada setiap transisi.
+Minggu 7 (10 – 14 Agu 2026) | Pengembangan modul Approval Manager (review ide dan desain final), Dashboard Jadwal Upload, dan fitur isolasi Multi-Bisnis (Business Switcher). | Fitur approval, publikasi bukti upload, dan isolasi multi-bisnis tuntas diuji tanpa cross-data leak.
+Minggu 8 (17 – 21 Agu 2026) | Penyusunan laporan akhir PKL, dokumentasi sistem, pengujian akhir Black Box Testing 15 skenario, presentasi hasil karya. | Laporan PKL dan dokumen teknis terselesaikan secara komprehensif. Seluruh 15 skenario uji 100% Valid.
+Kode | Deskripsi Kebutuhan Fungsional
+F-01 | Sistem harus dapat melakukan autentikasi pengguna melalui email dan kata sandi.
+F-02 | Sistem harus dapat mengelola pengguna dengan 6 level peran (Superadmin, Owner, Manager, Creative Team, Content Creator, Admin Medsos).
+F-03 | Sistem harus dapat mengelola pengajuan ide konten baru dengan status awal ide_diajukan.
+F-04 | Sistem harus menerapkan state machine 8 status untuk mengontrol alur produksi konten secara berjenjang.
+F-05 | Sistem harus mencatat setiap perubahan status ke tabel audit trail content_status_log secara atomik.
+F-06 | Sistem harus memvalidasi setiap transisi status berdasarkan role pengguna yang sedang login.
+F-07 | Sistem harus mewajibkan pengisian catatan evaluasi saat Manager meminta revisi atau menolak konten.
+F-08 | Sistem harus mengirimkan notifikasi internal aplikasi (in-app notification) saat status konten berubah kepada pengguna terkait.
+F-09 | Sistem harus dapat mengelola data master (platform media sosial, jenis format konten, content pillar/type).
+F-10 | Sistem harus mendukung pengelolaan multi-bisnis dengan fitur Business Switcher dan isolasi data.
+F-11 | Sistem harus dapat menampilkan jadwal tayang konten dalam format kalender interaktif.
+F-12 | Sistem harus dapat menghasilkan laporan rekapitulasi data konten berdasarkan periode dan status.
+F-13 | Content Creator hanya dapat melihat dan mengerjakan tugas desain yang ditugaskan, tanpa hak membuat ide baru.
+F-14 | Admin Medsos hanya dapat melihat konten yang sudah berstatus acc_final dan published pada modul Jadwal Upload.
+F-15 | Manager hanya melihat daftar konten yang memerlukan persetujuan pada dashboard Approval Manager.
+Kode | Aspek | Deskripsi Kebutuhan Non-Fungsional
+NF-01 | Keamanan | Semua route URL berawalan /dashboard/* diproteksi menggunakan filter middleware AuthFilter yang memverifikasi keberadaan session login aktif.
+NF-02 | Keamanan | Proteksi CSRF (Cross-Site Request Forgery) diaktifkan untuk seluruh request metode POST pada form aplikasi.
+NF-03 | Keamanan | Status konten hanya dapat diubah melalui service layer TransisiKonten::transition(), bukan via update langsung dari form atau query.
+NF-04 | Keamanan | Kata sandi pengguna dienkripsi menggunakan algoritma hashing standar industri (password_hash dengan PASSWORD_BCRYPT).
+NF-05 | Performa | Penyusunan data default diurutkan berdasarkan tanggal tayang paling mepet (deadline-first ordering).
+NF-06 | Usabilitas | Antarmuka berbasis web responsif, modern, dan kompatibel dengan peramban (browser) desktop dan mobile.
+NF-07 | Keandalan | Pembaruan status dan pencatatan log dijamin menggunakan transaksi database atomik (database transaction).
+NF-08 | Pemeliharaan | Arsitektur berbasis MVC dengan pemisahan Controller, Model, View, dan Service Layer untuk kemudahan pengembangan dan perawatan kode.
+NF-09 | Skalabilitas | Struktur basis data mendukung ekspansi pengelolaan hingga banyak entitas bisnis tanpa perubahan skema.
+Kode | Nama Use Case | Aktor yang Berwenang
+UC-01 | Login & Logout Sistem | Semua Role
+UC-02 | Ganti Password Profil | Semua Role
+UC-03 | Beralih Bisnis Aktif (Business Switcher) | Semua Role
+UC-04 | Melihat Notifikasi In-App | Semua Role
+UC-05 | Melihat Kalender Jadwal Tayang | Semua Role
+UC-06 | Melihat Riwayat Audit Trail | Semua Role
+UC-07 | Kelola Data Pengguna (User CRUD) | Superadmin
+UC-08 | Kelola Data Bisnis (Bisnis CRUD) | Superadmin, Owner
+UC-09 | Kelola Master Data (Platform, Jenis, Pillar) | Superadmin, Owner
+UC-10 | Membuat Ide Konten Baru | Superadmin, Owner, Manager, Creative Team
+UC-11 | Mengakses Modul Ide & Trend | Superadmin, Owner, Creative Team
+UC-12 | Mengedit & Menghapus Data Konten | Superadmin, Owner, Manager
+UC-13 | Menyetujui Ide Konten (ACC Ide) | Superadmin, Owner, Manager
+UC-14 | Meminta Revisi Ide Konten | Superadmin, Owner, Manager
+UC-15 | Menolak Ide Konten | Superadmin, Owner, Manager
+UC-16 | Melihat Daftar Tugas Desain (Tugas Creator) | Content Creator, Creative Team
+UC-17 | Menginput Link Desain (Canva / Figma) | Superadmin, Owner, Creative Team, Content Creator
+UC-18 | Menginput Draft Caption Postingan | Superadmin, Owner, Creative Team, Content Creator
+UC-19 | Mengunggah Gambar / Link Media Publik | Superadmin, Owner, Creative Team, Content Creator, Admin Medsos
+UC-20 | Menyimpan Seluruh Aset Desain (Unified Save) | Superadmin, Owner, Creative Team, Content Creator
+UC-21 | Mengajukan Desain ke Review (Auto Transisi) | Creative Team, Content Creator
+UC-22 | Menyetujui Desain Final (ACC Final) | Superadmin, Owner, Manager
+UC-23 | Meminta Revisi Desain | Superadmin, Owner, Manager
+UC-24 | Mengajukan Ulang Konten Pasca Revisi | Creative Team, Content Creator
+UC-25 | Melihat Konten Siap Publish (Jadwal Upload) | Superadmin, Owner, Admin Medsos
+UC-26 | Menginput Link Bukti Publikasi Postingan | Superadmin, Owner, Admin Medsos
+UC-27 | Konfirmasi Konten Terbit (Published) | Superadmin, Owner, Admin Medsos
+Status Awal | Status Tujuan | Peran Berwenang | Wajib Catatan | Keterangan Aksi
+ide_diajukan | acc_ide | Manager | Tidak | Manager menyetujui ide konten.
+ide_diajukan | revisi | Manager | Ya | Manager meminta perbaikan konsep ide awal.
+ide_diajukan | ditolak | Manager | Ya | Ide konten ditolak permanen (status terminal).
+acc_ide | in_design | Sistem (Otomatis) | Tidak | Otomatis berlanjut ke pengerjaan desainer.
+in_design | review_design | Content Creator, Creative Team | Tidak | Desainer melampirkan link desain dan mengajukan review.
+review_design | acc_final | Manager | Tidak | Desain dan caption disetujui final untuk tayang.
+review_design | revisi | Manager | Ya | Manager meminta revisi visual atau teks caption.
+revisi | ide_diajukan | Content Creator, Creative Team | Tidak | Tim kreatif memperbaiki dan mengajukan ulang konten.
+acc_final | published | Admin Medsos | Tidak | Admin mengonfirmasi postingan tayang dan input link bukti.
+Semua Status | Semua Status | Superadmin, Owner | Ya (Override) | Hak akses istimewa untuk perbaikan darurat status.
+Nama Tabel | Daftar Kolom Utama | Fungsi Tabel
+roles | id (PK), kode_role, nama_role | Menyimpan 6 role tetap sistem.
+users | id (PK), role_id (FK), nama, email, password, status, created_at | Menyimpan data otentikasi dan profil pengguna.
+bisnis | id (PK), nama_bisnis, deskripsi, warna, logo_url, status, url_website | Menyimpan entitas bisnis/brand pada sistem multi-bisnis.
+content_plan | id (PK), bisnis_id (FK), judul_konten, deskripsi, tanggal_publish, status, dibuat_oleh (FK), assigned_to (FK) | Tabel inti penyimpan data ide konten dan aset visual.
+content_status_log | id (PK), content_id (FK), status_lama, status_baru, user_id (FK), catatan, created_at | Tabel audit trail pencatat riwayat transisi status.
+bukti_upload | id (PK), content_id (FK), platform_id (FK), link_postingan, created_at | Menyimpan link bukti postingan yang telah terbit.
+platforms | id (PK), bisnis_id (FK), nama_platform, status | Menyimpan data master platform media sosial.
+jenis_konten | id (PK), bisnis_id (FK), nama_jenis | Menyimpan format konten (Reels, Carousel, Feed, dll).
+content_types | id (PK), bisnis_id (FK), nama_type | Menyimpan pilar konten (Edukasi, Promosi, Hiburan).
+No | Skenario Uji | Masukan (Input) | Hasil yang Diharapkan | Hasil Uji | Kesimpulan
+1 | Login dengan kredensial valid | Email dan password benar | Login berhasil, session tersimpan, redirect ke dashboard | Sesuai | Valid
+2 | Login dengan password salah | Password tidak cocok | Sistem menolak dan menampilkan pesan kesalahan | Sesuai | Valid
+3 | Akses URL /dashboard/* tanpa login | Membuka URL langsung di browser | Sistem memblokir dan mengarahkan kembali ke halaman login | Sesuai | Valid
+4 | Beralih bisnis aktif (Business Switcher) | Memilih bisnis lain di navbar | Session bisnis_aktif_id berganti dan data terfilter otomatis | Sesuai | Valid
+5 | Pengajuan ide konten baru oleh Manager | Isi form ide lengkap | Data tersimpan dengan status awal ide_diajukan | Sesuai | Valid
+6 | Content Creator mencoba membuat ide baru | Mengakses form pembuatan ide | Sistem memblokir aksi sesuai kebijakan hak akses (403) | Sesuai | Valid
+7 | Manager menyetujui ide konten (ACC Ide) | Klik tombol Approve Ide | Status berpindah ke acc_ide lalu otomatis ke in_design | Sesuai | Valid
+8 | Manager meminta revisi tanpa mengisi catatan | Klik Minta Revisi tanpa catatan | Sistem menolak dan mewajibkan pengisian catatan | Sesuai | Valid
+9 | Manager meminta revisi dengan mengisi catatan | Klik Minta Revisi + isi catatan | Status berubah ke revisi dan catatan tersimpan di log audit | Sesuai | Valid
+10 | Creator menyimpan desain & caption | Isi caption dan link Canva | Data tersimpan dan status otomatis beralih ke review_design | Sesuai | Valid
+11 | Manager menyetujui desain final (ACC Final) | Klik ACC Final pada status review | Status berubah ke acc_final dan masuk antrean upload | Sesuai | Valid
+12 | Admin Medsos konfirmasi publish | Input link postingan media sosial | Status berubah ke published dan link tercatat di bukti_upload | Sesuai | Valid
+13 | Admin Medsos mencoba ubah status ilegal | Mencoba edit ide yang belum ACC | TransisiKonten memblokir aksi karena role tidak berwenang | Sesuai | Valid
+14 | Pencatatan riwayat audit trail log | Setiap kali status berubah | Semua transisi terekam utuh di tabel content_status_log | Sesuai | Valid
+15 | Isolasi data antar bisnis | Buka menu dengan bisnis berbeda | Konten bisnis A tidak pernah muncul pada bisnis B | Sesuai | Valid

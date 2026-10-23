@@ -6,12 +6,10 @@ use App\Models\Bantuan;
 use App\Models\Berita;
 use App\Models\Donasi;
 use App\Models\Donatur;
-use App\Models\JenisKunjungan;
 use App\Models\KategoriBantuan;
 use App\Models\KategoriDonasi;
 use App\Models\Kebutuhan;
 use App\Models\Kegiatan;
-use App\Models\Kunjungan;
 use App\Models\Record;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -32,7 +30,6 @@ class DummyDataSeeder extends Seeder
         DB::transaction(function () {
             $donationCategory = KategoriDonasi::firstOrCreate(['nama' => 'DUMMY - Donasi simulasi']);
             $goodsCategory = KategoriBantuan::firstOrCreate(['nama' => 'DUMMY - Barang simulasi']);
-            $visitType = JenisKunjungan::firstOrCreate(['nama' => 'DUMMY - Kunjungan simulasi']);
 
             $donors = collect(range(1, 12))->map(fn ($i) => Donatur::firstOrCreate(
                 // Intentionally non-routable; these are not real WhatsApp contacts.
@@ -63,39 +60,10 @@ class DummyDataSeeder extends Seeder
                 $this->history($record);
             }
 
-            $visits = collect();
-            foreach (['Menunggu', 'Disetujui', 'Hadir', 'Selesai', 'Ditolak', 'Dijadwalkan ulang', 'Disetujui', 'Menunggu'] as $i => $status) {
-                $date = today()->addDays(match ($status) {
-                    'Hadir' => 0,
-                    'Selesai' => -7,
-                    'Ditolak' => -3,
-                    default => $i + 1,
-                });
-                $visit = Kunjungan::firstOrCreate(['kode' => sprintf('DUMMY-KUN-%03d', $i + 1)], [
-                    'token_hash' => hash('sha256', Str::random(64)),
-                    'jenis_kunjungan_id' => $visitType->id,
-                    'nama' => $donors[$i]->nama,
-                    'whatsapp' => $donors[$i]->whatsapp,
-                    'instansi' => 'DUMMY - Komunitas simulasi '.($i + 1),
-                    'peserta' => 5 + $i * 2,
-                    'tanggal' => $date,
-                    'jam' => '09:00:00',
-                    'jam_selesai' => '10:30:00',
-                    'tujuan' => 'DUMMY - Contoh kunjungan untuk pengujian sistem.',
-                    'catatan' => 'Data simulasi, bukan jadwal pengunjung sebenarnya.',
-                    'status' => $status,
-                    'sumber' => 'online',
-                    'created_at' => today()->subDays(14),
-                ]);
-                $this->history($visit);
-                $visits->push($visit);
-            }
-
             foreach (['Diajukan', 'Dikonfirmasi', 'Diterima', 'Ditolak', 'Diterima', 'Diajukan'] as $i => $status) {
                 $record = Bantuan::firstOrCreate(['kode' => sprintf('DUMMY-BAN-%03d', $i + 1)], [
                     'token_hash' => hash('sha256', Str::random(64)),
                     'donatur_id' => $donors[$i]->id,
-                    'kunjungan_id' => $i === 2 ? $visits[3]->id : null,
                     'nama' => $donors[$i]->nama,
                     'whatsapp' => $donors[$i]->whatsapp,
                     'catatan' => 'DUMMY - Simulasi bantuan barang untuk demonstrasi.',

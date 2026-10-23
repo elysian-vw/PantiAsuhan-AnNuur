@@ -8,14 +8,14 @@
         <title>@yield('title', 'Beranda') · An-Nuur 2</title>
 
         {{-- Meta Description --}}
-        <meta name="description" content="@yield('og_description', 'Informasi Panti Asuhan NU An-Nuur 2 Kota Kediri — donasi, bantuan barang, dan kunjungan.')">
+        <meta name="description" content="@yield('og_description', 'Informasi Panti Asuhan NU An-Nuur 2 Kota Kediri — donasi dan bantuan barang.')">
 
         {{-- Open Graph (Facebook, WhatsApp, Telegram, dll.) --}}
         <meta property="og:site_name" content="Panti Asuhan NU An-Nuur 2">
         <meta property="og:locale" content="id_ID">
         <meta property="og:type" content="@yield('og_type', 'website')">
         <meta property="og:title" content="@yield('og_title', config('app.name', 'An-Nuur 2'))">
-        <meta property="og:description" content="@yield('og_description', 'Informasi Panti Asuhan NU An-Nuur 2 Kota Kediri — donasi, bantuan barang, dan kunjungan.')">
+        <meta property="og:description" content="@yield('og_description', 'Informasi Panti Asuhan NU An-Nuur 2 Kota Kediri — donasi dan bantuan barang.')">
         <meta property="og:url" content="{{ url()->current() }}">
         @hasSection('og_image')
             <meta property="og:image" content="@yield('og_image')">
@@ -26,7 +26,7 @@
         {{-- Twitter / X Card --}}
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="@yield('og_title', config('app.name', 'An-Nuur 2'))">
-        <meta name="twitter:description" content="@yield('og_description', 'Informasi Panti Asuhan NU An-Nuur 2 Kota Kediri — donasi, bantuan barang, dan kunjungan.')">
+        <meta name="twitter:description" content="@yield('og_description', 'Informasi Panti Asuhan NU An-Nuur 2 Kota Kediri — donasi dan bantuan barang.')">
         @hasSection('og_image')
             <meta name="twitter:image" content="@yield('og_image')">
         @endif
@@ -56,10 +56,10 @@
                         aria-hidden="true">ن</span><span><strong>AN-NUUR 2</strong><small>PANTI ASUHAN ·
                             KEDIRI</small></span></a>
                 <nav class="desktop-nav" aria-label="Navigasi utama">
-                    @foreach (['home' => 'Beranda', 'profil' => 'Profil', 'kegiatan' => 'Kegiatan', 'kebutuhan' => 'Kebutuhan', 'kunjungan' => 'Kunjungan'] as $key => $label)
+                    @foreach (['home' => 'Beranda', 'profil' => 'Profil', 'kegiatan' => 'Kegiatan', 'kebutuhan' => 'Kebutuhan'] as $key => $label)
                         <a @if (request()->path() === ($key === 'home' ? '/' : $key)) aria-current="page" @endif
                             class="{{ request()->path() === ($key === 'home' ? '/' : $key) ? 'active' : '' }}"
-                            href="{{ $key === 'home' ? route('home') : ($key === 'kunjungan' ? route('submission.form', $key) : route('page', $key)) }}">{{ $label }}</a>
+                            href="{{ $key === 'home' ? route('home') : route('page', $key) }}">{{ $label }}</a>
                     @endforeach
                 </nav>
                 <a href="{{ route('submission.form', 'donasi') }}" class="button small header-donate">Donasi <svg
@@ -88,9 +88,7 @@
                         @if (request()->is($key)) aria-current="page" @endif>{{ $label }}</a>
                 @endforeach
                 <a href="{{ route('submission.form', 'bantuan') }}"
-                    @if (request()->is('bantuan')) aria-current="page" @endif>Bantuan Barang</a><a
-                    href="{{ route('submission.form', 'kunjungan') }}"
-                    @if (request()->is('kunjungan')) aria-current="page" @endif>Kunjungan</a>
+                    @if (request()->is('bantuan')) aria-current="page" @endif>Bantuan Barang</a>
             </nav>
         </header>
         <main id="main">@yield('content')</main>
@@ -108,10 +106,9 @@
                         href="{{ route('page', 'kontak') }}">Kontak
                         & lokasi</a></div>
                 <div><strong>Mari berpartisipasi</strong><a href="{{ route('submission.form', 'donasi') }}">Donasi
-                        uang</a><a href="{{ route('submission.form', 'bantuan') }}">Bantuan barang</a><a
-                        href="{{ route('submission.form', 'kunjungan') }}">Rencanakan kunjungan</a></div>
-                <div><strong>Waktu kunjungan</strong>
-                    <p>07.00–21.00 WIB<br>Melalui persetujuan pengurus.</p><a href="{{ route('login') }}"
+                        uang</a><a href="{{ route('submission.form', 'bantuan') }}">Bantuan barang</a></div>
+                <div><strong>Pengelolaan panti</strong>
+                    <p>Akses khusus pengurus panti.</p><a href="{{ route('login') }}"
                         class="inline-flex items-center gap-1">Masuk pengurus <svg class="w-3.5 h-3.5" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

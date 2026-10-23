@@ -2,16 +2,13 @@
 @php(
     $title = match ($kind) {
         'donasi' => 'Berbagi untuk harapan',
-        'bantuan' => 'Kebaikan dalam setiap pemberian',
-        'kunjungan' => 'Mari menjalin silaturahmi'
+        'bantuan' => 'Kebaikan dalam setiap pemberian'
     }
 )
 @section('title', ucfirst($kind))
 @section('content')
-    <x-public-heading :title="$title" :eyebrow="['donasi' => 'DONASI UANG', 'bantuan' => 'BANTUAN BARANG', 'kunjungan' => 'PENDAFTARAN KUNJUNGAN'][
-        $kind
-    ]" description="Isi formulir di bawah ini. Tidak perlu membuat akun.">
-        @foreach (['donasi' => 'Donasi uang', 'bantuan' => 'Bantuan barang', 'kunjungan' => 'Kunjungan'] as $key => $label)
+    <x-public-heading :title="$title" :eyebrow="['donasi' => 'DONASI UANG', 'bantuan' => 'BANTUAN BARANG'][$kind]" description="Isi formulir di bawah ini. Tidak perlu membuat akun.">
+        @foreach (['donasi' => 'Donasi uang', 'bantuan' => 'Bantuan barang'] as $key => $label)
             <a href="{{ route('submission.form', $key) }}"
                 @if ($key === $kind) aria-current="page" @endif>{{ $label }}</a>
         @endforeach
@@ -53,15 +50,13 @@
                     </div>
                 @else
                     <div class="form-section"><span class="step-number">01</span>
-                        <h2>{{ $kind === 'kunjungan' ? 'Penanggung jawab' : 'Data pemberi bantuan' }}</h2>
+                        <h2>Data pemberi bantuan</h2>
                     </div>
                 @endif
                 <div class="form-grid"><x-field name="nama" label="Nama lengkap" autocomplete="name" maxlength="150"
                         required /><x-field name="whatsapp" label="Nomor WhatsApp" type="tel" inputmode="tel"
                         autocomplete="tel" placeholder="081234567890" required /></div>
-                @if ($kind !== 'kunjungan')
-                    <x-field name="email" label="Email (opsional)" type="email" autocomplete="email" />
-                @endif
+                <x-field name="email" label="Email (opsional)" type="email" autocomplete="email" />
                 @if ($kind === 'bantuan')
                     <hr>
                     <div class="form-section"><span class="step-number">02</span>
@@ -100,12 +95,6 @@
                             </svg> Tambah barang</button>
                     </div>
                     <x-field class="mt-6" name="catatan" label="Catatan (opsional)" type="textarea" maxlength="2000" />
-                @elseif($kind === 'kunjungan')
-                    <hr>
-                    <div class="form-section"><span class="step-number">02</span>
-                        <h2>Rencana kunjungan</h2>
-                    </div>
-                    @include('public.partials.visit-fields')
                 @endif
                 <hr><label class="checkbox-label"><input type="checkbox" name="consent" value="1" required
                         @checked(old('consent'))><span>Saya menyetujui penggunaan data ini oleh pengurus untuk memproses
@@ -125,8 +114,6 @@
             @elseif($kind === 'bantuan')
                 <p>Pengurus akan memeriksa dan mengonfirmasi bantuan Anda. Tanggal penerimaan dicatat setelah barang
                     benar-benar diterima.</p>
-            @else<p>Waktu kunjungan 07.00–21.00 WIB. Jadwal berlaku setelah disetujui pengurus. Perubahan jadwal akan
-                    dikonfirmasi kembali kepada Anda.</p>
             @endif
             <div class="aside-divider"></div>
             <h3>Simpan tautan pribadi Anda</h3>

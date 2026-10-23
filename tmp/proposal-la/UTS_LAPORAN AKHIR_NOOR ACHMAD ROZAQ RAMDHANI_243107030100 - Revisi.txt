@@ -1,0 +1,166 @@
+JAWABAN UJIAN TENGAH SEMESTER
+PROPOSAL LAPORAN AKHIR
+ Semester Ganjil Tahun Akademik 2026/2027
+Nama 	: Noor Achmad Rozaq Ramdhani
+ NIM   	: 243107030100
+ Kelas 	: 3E
+Judul penelitian
+Sistem Informasi Profil dan Pengelolaan Donasi serta Bantuan Berbasis Web dan Mobile pada Panti Asuhan NU An-Nuur 2 Kota Kediri
+1. Masalah yang Melatarbelakangi Penelitian
+Berdasarkan identifikasi awal dalam bahan proposal, Panti Asuhan NU An-Nuur 2 Kota Kediri membutuhkan sistem informasi untuk mendukung publikasi profil dan kegiatan panti sekaligus pengelolaan donasi serta bantuan. Informasi profil, kegiatan, dan kebutuhan panti perlu disajikan melalui media yang mudah diakses agar masyarakat dan calon donatur memperoleh informasi yang memadai.
+Dalam kegiatan administrasi, data donatur, donasi uang, bantuan barang, dan pengeluaran dana perlu dicatat secara terstruktur. Pengurus membutuhkan rekapitulasi penerimaan dan penggunaan dana beserta bukti transaksi agar laporan dapat disusun secara konsisten. Ketidaksesuaian atau keterlambatan pencatatan berpotensi menyulitkan penelusuran transaksi dan penyampaian informasi kepada donatur.
+Kebutuhan layanan donatur dibedakan menjadi donatur biasa dan donatur tetap. Donatur biasa memerlukan formulir donasi melalui web tanpa kewajiban memiliki akun. Donatur tetap memerlukan akses akun melalui aplikasi mobile untuk berdonasi, melihat riwayat dan total sumbangan pribadi, serta memantau penerimaan dan pengeluaran dana panti. Pembagian layanan ini perlu diikuti pembatasan akses dan perlindungan data pribadi.
+Penelitian ini mengusulkan sistem informasi berbasis web dan mobile. Web menyediakan informasi publik serta sarana pengelolaan data, donasi, bantuan barang, pengeluaran, dan laporan bagi pengurus. Aplikasi mobile Flutter digunakan oleh donatur tetap, dengan pemulihan akun melalui email. Transparansi didukung melalui pencatatan penggunaan dana dan bukti transaksi yang dapat dipublikasikan sesuai kewenangan pengurus. Kebutuhan awal akan dikonfirmasi melalui observasi dan wawancara. Fitur permintaan kunjungan dan buku tamu tidak termasuk dalam ruang lingkup sistem.
+
+ 
+2. Deskripsi Kegiatan Penelitian
+Penelitian direncanakan melalui pengumpulan data, analisis kebutuhan, perancangan, implementasi, pengujian, dan evaluasi. Data diperoleh melalui observasi, wawancara dengan pengurus, serta studi dokumentasi. Metode Waterfall diusulkan apabila kebutuhan sistem telah disepakati sejak awal. Perancangan mencakup web, aplikasi mobile Flutter, API, dan basis data bersama. Antarmuka web menggunakan Tailwind CSS, sedangkan mobile menggunakan widget dan tema Flutter.
+2.1 Analisis Penyelesaian Masalah
+Tabel 1. Analisis Penyelesaian Masalah
+2.2 Analisis Data Penelitian
+Tabel 2. Data Penelitian
+Analisis memetakan alur kerja dan hubungan antara akun, profil donatur, transaksi donasi, penerimaan bantuan barang, dan pengeluaran. Transaksi dikelompokkan berdasarkan periode, jenis, dan status. Donasi uang dihitung sebagai penerimaan setelah berstatus berhasil; pengeluaran mengurangi saldo setelah dibukukan. Saldo dihitung dari saldo awal ditambah penerimaan bersih setelah biaya pembayaran yang tercatat, kemudian dikurangi pengeluaran. Riwayat pribadi hanya dihubungkan dengan akun berdasarkan transaksi dari akun tersebut atau verifikasi kepemilikan oleh pengurus; kesamaan nomor WhatsApp belum menjadi bukti kepemilikan.
+
+ 
+2.3 Analisis Kebutuhan Sistem
+2.3.1 Kebutuhan Fungsional
+Tabel 3. Kebutuhan Fungsional
+ 
+2.3.2 Kebutuhan Nonfungsional
+Tabel 4. Kebutuhan Nonfungsional
+
+3. Rancangan Use Case Diagram
+Gambar 1. Diagram Use Case Sistem Informasi Panti Berbasis Web dan Mobile
+
+3.1 Deskripsi Aktor
+Tabel 5. Deskripsi Aktor
+Aktor sistem terdiri atas pengunjung, donatur biasa, donatur tetap, dan pengurus. Pengunjung mengakses informasi publik. Donatur biasa berdonasi melalui formulir web dan menelusuri transaksi melalui tautan rahasia. Donatur tetap menggunakan akun mobile yang disiapkan pengurus dan diaktifkan melalui email. Login menjadi prasyarat fitur yang dilindungi. Seluruh pengurus menggunakan peran akses yang sama; pimpinan tidak dirancang sebagai peran akun tersendiri. Pemrosesan pembayaran dan notifikasi dapat menggunakan layanan pendukung sesuai konfigurasi, tanpa menjadi penekanan judul penelitian.
+3.2 Penjelasan Relasi
+Tabel 6. Penjelasan Relasi Use Case
+Garis utuh menunjukkan asosiasi aktor dengan fungsi yang digunakan. Relasi extend pada ekspor laporan menunjukkan tindakan opsional setelah laporan ditampilkan. Autentikasi menjadi prasyarat bagi fitur pengurus dan donatur tetap, sehingga tidak perlu digambar sebagai include pada setiap fungsi. Diagram merangkum kebutuhan utama; login, aktivasi, dan pemulihan akun dirinci pada kebutuhan fungsional.
+
+ 
+4. Penelitian yang Relevan
+Sepuluh penelitian berikut menjadi acuan untuk layanan informasi panti, pengelolaan donatur, donasi uang dan bantuan barang, pencatatan keuangan, serta evaluasi sistem. Penelitian mengenai pembayaran digital dan notifikasi digunakan sebagai acuan teknis pendukung. Nomor sumber merujuk pada daftar referensi di bagian akhir.
+Tabel 7. Penelitian Terdahulu yang Relevan
+4.1 Relevansi Tiga Penelitian Utama
+Vincentius, Hiryanto, dan Wasino (2026) [10] relevan karena menggabungkan layanan informasi panti, donasi uang, dan donasi barang. Penelitian tersebut menjadi acuan pemisahan alur donasi uang dan bantuan barang. Sistem yang diusulkan menyesuaikan layanan melalui web dan mobile, dengan aplikasi mobile khusus untuk donatur tetap.
+Purnadi dan Apandi (2022) [5] relevan dalam pencatatan pemasukan, pengeluaran, dan pelaporan donasi. Penelitian tersebut menjadi acuan penyusunan informasi arus dana. Pada sistem yang diusulkan, pengurus mencatat pengeluaran dan bukti transaksi melalui web, sedangkan donatur tetap dapat memantau penerimaan dan penggunaan dana melalui mobile.
+Winarti, Adhara, dan Budiman (2025) [9] relevan dalam pengelolaan donatur, pencatatan donasi, publikasi program, dan laporan otomatis. Pengujian Black Box dan SUS dapat menjadi acuan untuk mengevaluasi fungsi serta kemudahan penggunaan. Pengujian sistem yang diusulkan juga perlu mencakup kesesuaian data antara web dan mobile.
+Penelitian yang diusulkan berfokus pada kebutuhan Panti Asuhan NU An-Nuur 2 Kota Kediri melalui pembagian layanan web dan mobile, klasifikasi donatur biasa dan tetap, donasi langsung melalui mobile, riwayat sumbangan pribadi, serta transparansi penerimaan dan pengeluaran dana. Bantuan barang tetap dikelola melalui web. Integrasi gateway merupakan pendukung implementasi dan tidak dijadikan pembeda utama pada judul penelitian.
+
+ 
+5. Jadwal Penelitian
+Penelitian direncanakan selama enam bulan. Bulan pertama dimulai ketika pelaksanaan penelitian disetujui. Penyusunan laporan dilakukan sepanjang proses agar setiap tahapan terdokumentasi.
+Tabel 8. Jadwal Penelitian Selama Enam Bulan
+Keterangan: X menunjukkan bulan pelaksanaan kegiatan.
+5.1 Target Capaian per Tahap
+Bulan 1–2: identifikasi masalah, data awal, kebutuhan pengurus dan kedua kelompok donatur, serta batasan sistem.
+Bulan 2–3: rancangan UML, basis data, kontrak API, antarmuka web dan mobile, serta implementasi awal web dan akun donatur.
+Bulan 4–5: implementasi donasi mobile, riwayat sumbangan, pengeluaran, transparansi dana, laporan, serta pengujian fungsi dan integrasi web–mobile.
+Bulan 6: perbaikan hasil pengujian, dokumentasi penggunaan, laporan penelitian, dan demonstrasi sistem.
+
+ 
+Daftar Referensi
+[1] Mauliana, P., Firmansyah, R., dan Sutardi, A. (2019). Perancangan Sistem Informasi Panti Asuhan e-Panti Berbasis Web. JUST IT, 10(1), 62–71.
+https://doi.org/10.24853/justit.10.1.62-71
+[2] Mulandari, S., Fitriani, Y., Utami, S., dan Junadi, B. (2021). Sistem Informasi Donasi Online Berbasis Website. JISICOM, 5(2), 232–251.
+https://doi.org/10.52362/jisicom.v5i2.630
+[3] Mardiyono, A., Suhandana, A. A., dan Vidyasari, R. (2021). Integrasi QRIS pada Aplikasi Donasi Elektronik Berbasis Web di Masa Pandemi Covid-19. Jurnal Teknologi Informatika dan Komputer, 7(1), 146–155.
+https://doi.org/10.37012/jtik.v7i1.526
+[4] Chandra, Hendrik, J., dan Leonardo. (2022). Perancangan Sistem Informasi Geografis dan Donasi Online Panti Asuhan di Kota Medan Menggunakan Metode WebQual 4.0. Jurnal TIMES, 11(1), 1–8.
+https://doi.org/10.51351/jtm.11.1.2022650
+[5] Purnadi, M., dan Apandi, A. (2022). Sistem Infromasi Manajemen Keuangan Pengelolaan Donasi pada Yayasan Islam Media Kasih Banda Aceh. Journal of Informatics and Computer Science, 8(2).
+https://doi.org/10.33143/jics.v8i2.5125
+[6] Raphael, L., dan Ziveria, M. (2023). Sistem Informasi Pengelolaan Panti Asuhan Yayasan Komunitas Anak Maria Immaculatta. KALBISCIENTIA, 10(2), 112–130.
+https://doi.org/10.53008/kalbiscientia.v10i2.2138
+[7] Anwar, A. K., Widjianto, dan Jasri, M. (2023). Sistem Informasi Manajemen Koin NU dengan Fitur WhatsApp Notification pada LAZISNU MWC Krejengan Berbasis Web. Jurnal Ilmiah Sistem Informasi, 3(2), 257–266.
+https://doi.org/10.46306/sm.v3i2.48
+[8] Widyansyah, A. P., Nugroho, B. A., dan Yusuf, A. (2024). Implementasi Fungsi Payment Gateway Midtrans pada Website Aplikasi Donasi QAILAZ. JUMISTIK, 3(2), 299–305.
+https://doi.org/10.70247/jumistik.v3i2.107
+[9] Winarti, Adhara, A. A., dan Budiman. (2025). Perancangan Sistem Informasi Yayasan Kurnia Asih Jombang untuk Transparansi Pengelolaan Donasi dengan Metode Waterfall. Indonesian Journal of Applied Informatics, 10(1), 228–240.
+https://jurnal.uns.ac.id/ijai/article/view/108177
+[10] Vincentius, Hiryanto, L., dan Wasino. (2026). Rancangan Sistem Website Delarosa untuk Layanan Informasi dan Donasi. Jurnal Ilmu Komputer dan Sistem Informasi, 14(1).
+https://doi.org/10.24912/hvrdjs11
+
+Permasalahan | Penyelesaian yang diusulkan
+Informasi panti perlu mudah diakses. | Menyediakan web publik untuk profil, kegiatan, kontak, dan kebutuhan panti.
+Layanan dua kelompok donatur memiliki kebutuhan berbeda. | Menyediakan formulir web bagi donatur biasa dan akun mobile bagi donatur tetap.
+Riwayat sumbangan pribadi sulit dipantau. | Menampilkan riwayat dan total donasi berhasil milik donatur tetap melalui mobile.
+Penerimaan dan penggunaan dana perlu ditelusuri. | Mencatat penerimaan, pengeluaran dibukukan, keterangan penggunaan dana, dan bukti transaksi.
+Informasi dana perlu konsisten antarplatform. | Menghubungkan web dan Flutter melalui API dan basis data yang sama dengan akses sesuai peran.
+Penerimaan bantuan barang perlu dicatat. | Menyediakan pengajuan bantuan melalui web dan konfirmasi penerimaan fisik oleh pengurus.
+Akun donatur perlu dapat dipulihkan. | Menyediakan aktivasi dan pemulihan akun melalui tautan email yang terbatas masa berlaku dan sekali pakai.
+Data | Atribut utama dan kegunaan
+Profil dan kegiatan | Identitas panti, alamat, sejarah, visi dan misi, kontak, kegiatan, kebutuhan, dan dokumentasi untuk publikasi web.
+Donatur | Nama, kontak, jenis biasa atau tetap, dan hubungan profil dengan akun donatur tetap.
+Akun pengguna | Nama, email, kata sandi terproteksi, peran, status akses, dan verifikasi email untuk autentikasi dan pemulihan akun.
+Donasi uang | Kode, donatur, nominal, biaya pembayaran, tanggal, sumber online atau manual, status, dan kepemilikan transaksi untuk riwayat pribadi.
+Bantuan barang | Donatur, nama barang, jumlah, satuan, kondisi, tanggal pengajuan, dan status penerimaan fisik.
+Pengeluaran | Kategori, tanggal, keperluan, nominal, penerima, status draft atau dibukukan, bukti transaksi, dan izin publikasi bukti.
+Saldo pembukaan dan laporan | Tanggal mulai pembukuan, nominal saldo awal, pengesahan pengurus, periode, penerimaan bersih, pengeluaran, dan saldo akhir.
+Jejak audit | Aktor, waktu, dan tindakan penting pada akun, verifikasi kepemilikan donasi, serta pembukuan pengeluaran untuk penelusuran perubahan.
+Kode | Kebutuhan | Deskripsi
+F01 | Informasi publik | Pengunjung melihat profil, kegiatan, kontak, dan kebutuhan panti melalui web.
+F02 | Donasi web | Donatur biasa mengisi formulir donasi tanpa akun dan mengakses status transaksi melalui tautan rahasia.
+F03 | Akun donatur tetap | Pengurus mengklasifikasikan donatur, menyiapkan akun, mengirim undangan aktivasi email, serta mengatur status akses.
+F04 | Login dan pemulihan | Donatur tetap login melalui mobile, mengganti kata sandi, dan meminta pemulihan akun melalui email.
+F05 | Donasi mobile | Donatur tetap membuat donasi langsung melalui mobile; identitas dan pemilik transaksi mengikuti akun yang terautentikasi.
+F06 | Status pembayaran | Status transaksi diperbarui berdasarkan hasil verifikasi backend; redirect pembayaran saja tidak dianggap bukti pembayaran berhasil.
+F07 | Riwayat pribadi | Donatur tetap melihat riwayat dan total donasi berhasil miliknya. Transaksi lama memerlukan verifikasi pengurus sebelum dikaitkan.
+F08 | Bantuan barang | Donatur mengajukan bantuan barang melalui web; pengurus mengonfirmasi barang yang diterima secara fisik.
+F09 | Pengelolaan data | Pengurus mengelola profil, kegiatan, kebutuhan panti, kategori, dan data donatur melalui web.
+F10 | Donasi manual | Pengurus mencatat penerimaan tunai atau transfer langsung beserta tanggal, referensi, dan bukti yang diperlukan.
+F11 | Pengeluaran | Pengurus mencatat draft pengeluaran, mengunggah bukti, menentukan publikasi bukti, dan membukukan pengeluaran.
+F12 | Transparansi dana | Donatur tetap memantau ringkasan penerimaan, pengeluaran, saldo, serta bukti yang diizinkan untuk dipublikasikan melalui mobile.
+F13 | Saldo dan laporan | Pengurus menetapkan saldo pembukaan serta melihat, mencetak, atau mengekspor laporan donasi, bantuan, pengeluaran, dan arus kas.
+F14 | Pembatasan akses | Sistem membatasi akses sesuai peran dan pemilik transaksi; akun donatur tidak dapat membuka panel pengurus.
+Aspek | Kebutuhan
+Kemudahan penggunaan | Web responsif dan antarmuka Flutter mudah dipahami; istilah, nominal, status, dan periode disajikan konsisten.
+Keamanan | Kata sandi disimpan sebagai hash; token dan akses akun dilindungi; data pribadi serta bukti privat tidak ditampilkan kepada pihak yang tidak berhak.
+Konsistensi transaksi | Pembaruan status berulang tidak mencatat penerimaan ganda. Riwayat pribadi hanya menampilkan transaksi dengan kepemilikan terverifikasi.
+Ketepatan perhitungan | Laporan memakai saldo pembukaan sesuai periode, penerimaan berhasil bersih setelah biaya tercatat, serta pengeluaran dibukukan tanpa pengurangan biaya ganda.
+Keandalan integrasi | Kegagalan jaringan ditampilkan dengan jelas dan tidak dianggap pembayaran berhasil. Kegagalan notifikasi tidak membatalkan transaksi yang telah sah.
+Pencadangan | Basis data dan bukti transaksi dicadangkan secara berkala dengan prosedur pemulihan yang terdokumentasi.
+Pemeliharaan | Source web dan Flutter berada di folder terpisah. Kontrak API, konfigurasi, struktur basis data, dan prosedur pengujian didokumentasikan.
+Aktor | Peran dalam sistem
+Pengunjung | Melihat informasi profil, kegiatan, kontak, dan kebutuhan panti pada web publik.
+Donatur biasa | Berdonasi melalui formulir web tanpa akun, mengajukan bantuan barang, dan melihat status transaksi melalui tautan rahasia.
+Donatur tetap | Menggunakan akun mobile untuk berdonasi, melihat riwayat serta total sumbangan pribadi, dan memantau penerimaan serta pengeluaran dana.
+Pengurus | Mengelola web, akun dan klasifikasi donatur, donasi manual, penerimaan bantuan, pengeluaran, saldo pembukaan, serta laporan.
+Relasi | Makna pada rancangan
+Pengunjung — Melihat informasi publik | Asosiasi menunjukkan akses informasi web yang tidak memerlukan login.
+Donatur biasa — Donasi web, bantuan barang, dan status transaksi | Asosiasi menunjukkan penggunaan formulir publik serta tautan rahasia untuk transaksi tertentu.
+Donatur tetap — Donasi mobile, riwayat pribadi, dan transparansi dana | Asosiasi menunjukkan fitur mobile yang memerlukan akun aktif dan terautentikasi.
+Pengurus — Pengelolaan data, akun, transaksi, dan laporan | Asosiasi menunjukkan kewenangan pengurus melalui panel web setelah login.
+Mengekspor laporan → Melihat laporan <<extend>> | Ekspor atau cetak merupakan tindakan opsional ketika laporan telah ditampilkan; melihat laporan tidak mewajibkan ekspor.
+Peneliti (tahun) | Objek dan Metode | Hasil
+Mauliana, Firmansyah, dan Sutardi (2019) [1] | Sistem informasi panti asuhan e-Panti. Waterfall, UML, PHP, MySQL; pengujian Black Box dan USE Questionnaire. | Website menyajikan profil, data anak asuh, kegiatan, dan informasi donasi. Penilaian responden mencapai 85,50%.
+Mulandari, Fitriani, Utami, dan Junadi (2021) [2] | Sistem donasi online berbasis website. Pengumpulan data melalui observasi dan studi pustaka; pengembangan Waterfall. | Menghasilkan website untuk memfasilitasi kegiatan donasi dan penggalangan dana masyarakat.
+Mardiyono, Suhandana, dan Vidyasari (2021) [3] | Donasi elektronik pada masjid binaan DMI Kota Depok. Metode SDLC dengan integrasi QRIS. | Menghasilkan aplikasi donasi web dengan QRIS yang dapat dipindai langsung dari halaman website.
+Chandra, Hendrik, dan Leonardo (2022) [4] | Sistem informasi geografis dan donasi online panti asuhan di Kota Medan. Evaluasi kualitas menggunakan WebQual 4.0. | Menghasilkan sistem informasi geografis dan donasi online yang dinilai responden memenuhi atribut kualitas WebQual 4.0 dengan baik.
+Purnadi dan Apandi (2022) [5] | Manajemen donasi Yayasan Islam Media Kasih Banda Aceh. Perancangan sistem informasi berbasis website. | Rancangan mencakup informasi yayasan, layanan donasi, pencatatan pemasukan dan pengeluaran, serta pelaporan.
+Raphael dan Ziveria (2023) [6] | Pengelolaan Panti Asuhan Yayasan Komunitas Anak Maria Immaculatta. Waterfall, UML, Java, MySQL, dan Black Box. | Menghasilkan aplikasi desktop untuk mengelola data anak asuh, pengurus panti, dan donatur.
+Anwar, Widjianto, dan Jasri (2023) [7] | Manajemen Koin NU pada LAZISNU MWC Krejengan. Metode RAD dengan pengujian Black Box. | Sistem berbasis web mendukung pengelolaan Koin NU dan notifikasi WhatsApp. Penelitian melaporkan penilaian rata-rata 84,8%.
+Widyansyah, Nugroho, dan Yusuf (2024) [8] | Integrasi Midtrans pada aplikasi donasi QAILAZ. Analisis data kualitatif dan implementasi Payment Gateway. | Menyediakan pilihan pembayaran digital. Peneliti melaporkan kemudahan donasi dan peningkatan kepercayaan terhadap keamanan transaksi.
+Winarti, Adhara, dan Budiman (2025) [9] | Pengelolaan donasi Yayasan Kurnia Asih Jombang. Waterfall; pengujian Black Box dan SUS. | Sistem menyediakan pengelolaan donatur, donasi, publikasi program, dan laporan otomatis. Skor rata-rata SUS sebesar 80,5.
+Vincentius, Hiryanto, dan Wasino (2026) [10] | Website Delarosa pada Panti Asuhan Amin. Waterfall, Django, MySQL, Midtrans; pengujian Black Box. | Menghasilkan layanan informasi, donasi uang melalui Midtrans, dan pengajuan donasi barang. Pengujian menunjukkan kesesuaian dengan kebutuhan panti.
+Kegiatan | Bulan
+ 1 | Bulan
+ 2 | Bulan
+ 3 | Bulan
+ 4 | Bulan
+ 5 | Bulan
+ 6
+Identifikasi masalah dan studi pustaka | X |   |   |   |   |  
+Observasi, wawancara, dan dokumentasi | X | X |   |   |   |  
+Analisis data dan kebutuhan sistem |   | X |   |   |   |  
+Perancangan UML, basis data, dan antarmuka |   | X | X |   |   |  
+Implementasi web dan akun donatur tetap |   |   | X |   |   |  
+Implementasi donasi, bantuan, dan pengeluaran |   |   | X | X |   |  
+Pengembangan Flutter dan integrasi API |   |   |   | X | X |  
+Implementasi transparansi dana dan laporan |   |   |   | X | X |  
+Pengujian fungsi, integrasi, dan penerimaan pengguna |   |   |   |   | X |  
+Perbaikan dan evaluasi sistem |   |   |   |   | X | X
+Penyusunan laporan akhir |   | X | X | X | X | X
+Finalisasi laporan dan demonstrasi sistem |   |   |   |   |   | X

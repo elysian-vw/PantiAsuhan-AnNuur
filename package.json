@@ -23,9 +23,6 @@
         "vite": "^7.0.7"
     },
     "dependencies": {
-        "@fullcalendar/core": "^6.1.21",
-        "@fullcalendar/daygrid": "^6.1.21",
-        "@fullcalendar/list": "^6.1.21",
         "alpinejs": "^3.17.4",
         "chart.js": "^4.5.1"
     }

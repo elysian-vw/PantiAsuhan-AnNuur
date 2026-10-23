@@ -138,6 +138,14 @@ p {
     border-bottom: 1px solid #e7ebe4;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.02);
 }
+@media (max-width: 359px) {
+    .site-header .header-inner { gap: 6px; }
+    .site-header .brand { gap: 5px; }
+    .site-header .brand strong { font-size: 13px; }
+    .site-header .header-donate.button { padding-inline: 9px; }
+    .site-header .header-donate svg { display: none; }
+    .site-header .menu-toggle { flex: 0 0 40px; }
+}
 .header-inner {
     display: flex;
     align-items: center;
@@ -636,8 +644,7 @@ p {
     margin-bottom: 32px;
 }
 .section-heading h2,
-.about-band h2,
-.visit-banner h2 {
+.about-band h2 {
     font-family: var(--font-serif);
     font-size: 36px;
     font-weight: 500;
@@ -827,37 +834,6 @@ p {
 }
 .card-body h3 {
     margin-top: 14px;
-}
-.visit-banner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 32px;
-    background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
-    color: white;
-    border-radius: 14px;
-    padding: 45px;
-    margin-bottom: 75px;
-    box-shadow: 0 10px 30px rgba(14, 53, 34, 0.18);
-}
-.visit-banner p {
-    color: #d5e2d4;
-    font-size: 15px;
-    margin-bottom: 0;
-    line-height: 1.7;
-}
-.visit-banner .eyebrow {
-    color: #d0e0b3;
-    margin-bottom: 12px;
-    font-size: 10px;
-}
-.visit-banner h2 {
-    font-size: 32px;
-    margin-bottom: 12px;
-    color: #fff;
-}
-.visit-banner .button {
-    flex-shrink: 0;
 }
 
 /* Site Footer */
@@ -2771,19 +2747,7 @@ tr:last-child td {
     .beneficiary strong {
         font-size: 46px;
     }
-    .visit-banner {
-        padding: 30px 25px;
-        flex-direction: column;
-        align-items: start;
-        gap: 25px;
-        margin-bottom: 45px;
-    }
-    .visit-banner h2 {
-        font-size: 29px;
-    }
-    .visit-banner .button {
-        width: 100%;
-    }
+
     .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 30px 22px;

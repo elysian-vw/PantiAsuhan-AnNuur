@@ -1,0 +1,519 @@
+
+PAGE 1
+14 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+SISTEM INFORMASI PENGELOLAAN DONASI  
+PADA PANTI ASUHAN AL-RASYID  
+ 
+Maya Destriani1, Muhamad Iksan Saepul Bahri2 
+Fakultas Ilmu Komputer, Universitas Subang1,2 
+ 
+mayadesrtiani@unsub.ac.id 
+ 
+Abstract 
+Information and communication technology are developing rapidly, facilitating access to 
+information and decision-making. Its application helps resolve system issues and improve work 
+efficiency in various government and private institutions. This study aims to create a donation 
+management information system at the Al -Rasyid Orphanage to capture donor data, record 
+donation receipts, manage the orphanage's expenses, and provide a transparent reporting 
+process. This study uses the Waterfall method, a software development approach that 
+emphasizes a structured and planned sequence of stages in the software development process. 
+The results show that the application is capable of automating the process of recording 
+donations, recording expenses, and providing donation reports. This research can be a solution 
+to increase efficiency in recording donations and minimize errors in recording donation reports 
+at the orphanage. 
+Keywords: Waterfall, Information System Donations, Orphanage, Efficiency 
+ 
+Abstrak 
+Teknologi informasi dan komunikasi berkembang pesat, memudahkan akses informasi dan 
+pengambilan keputusan. Penerapannya membantu menyelesaikan masalah sistem dan 
+meningkatkan efisiensi kerja di berbagai instansi pemerintah maupun swasta. Penelitian ini 
+bertujuan untuk membuat sistem informa si pengelolaan donasi pada Panti Asuhan Al -Rasyid 
+untuk mengetahui pencatatan data donatur, pencatatan penerimaan donasi, pengelolaan beban 
+panti asuhan, serta proses penerbitan laporan yang transparan. Penelitian ini menggunakan 
+metode Waterfall yaitu pen dekatan dalam pengembangan perangkat lunak, Pendekatan ini 
+menekankan urutan tahapan yang terstruktur dan terencana dalam proses pengembangan 
+perangkat lunak. Hasil penelitian menunjukan bahwa aplikasi yang dibangun mampu 
+mengotomatisasi proses pencatatan donasi, pencatatan pengeluaran, serta menyediakan laporan 
+donasi. Penelitian ini dapat menjadi solusi peningkatan efisiensi dalam pencatatan donasi dan 
+meminimalkan kesalahan dalam pencatatan laporan donasi panti asuhan. 
+Kata Kunci: Waterfall, Sistem Informasi Donasi, Panti Asuhan, Efisiensi  
+ 
+Pendahuluan 
+       Donasi adalah bentuk partisipasi sukarela yang dilakukan oleh perorangan, kelompok, atau 
+institusi kepada pihak yang membutuhkan, tanpa mengharapkan balasan secara langsung. 
+Bentuk donasi bisa berupa uang, barang, tenaga, atau layanan, dan umumnya dimaksudkan 
+untuk mendukung berbagai kegiatan seperti sosial, kemanusiaan, keagamaan, pendidikan, serta 
+
+PAGE 2
+15 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+pelestarian lingkungan. Aktivitas ini telah menjadi bagian yang tak terpisahkan dari kehidupan 
+sosial masyarakat, karena mencerminkan semangat gotong royong, empati, dan rasa tanggung 
+jawab terhadap sesama. 
+       Panti asuhan adalah lembaga yang menyediakan tempat tinggal bagi anak yatim piatu dan 
+anak-anak yang tidak dapat diasuh oleh keluarga kandu ngnya karena berbagai alasan. Orang 
+tua mereka mungkin sudah meninggal, tidak ada, atau melakukan kekerasan. Panti asuhan 
+sering kali menjadi satu-satunya pilihan bagi anak-anak yang tidak memiliki keluarga atau yang 
+keluarganya tidak mampu merawat mereka. 
+       Panti Asuhan Al -Rasyid terletak di Tanjungwangi dan menaungi anak -anak yatim dan 
+piatu dengan mengedepankan nilai -nilai serta pendidikan Islam. Panti asuhan ini tidak hanya 
+berfungsi sebagai tempat tinggal, tetapi juga sebagai sarana pendidikan aga r anak-anak asuh 
+dapat memiliki masa depan yang cerah dan menjadi pribadi yang bertanggung jawab terhadap 
+diri sendiri maupun masyarakat di kemudian hari. 
+       Dalam melaksanakan kegiatannya, Panti Asuhan Al -Rasyid menggunakan cara 
+konvensional untuk men golah data donasi, yaitu dengan mencatat data anak asuh, donatur, 
+penerimaan donasi, dan pengeluaran panti. Data tersebut kemudian dipindahkan ke komputer 
+menggunakan aplikasi Microsoft Excel. Metode ini dirasa kurang efisien dalam pengelolaan 
+data donasi dan kurang transparan dalam menampilkan laporan hasil pengelolaannya. Selain 
+itu, jika hanya mengandalkan cara ini, penerimaan donasi dari donatur tidak akan meningkat 
+secara signifikan karena tidak ada sistem atau media yang dapat menarik minat donatur un tuk 
+berkontribusi pada Panti Asuhan Al -Rasyid. Panti Asuhan Al -Rasyid masih belum 
+menggunakan sebuah payment gateway untuk melakukan variasi transfer online dari e-wallet, 
+dan galeri dokumentasi seperti foto dan video kegiatan panti, yang mana dari hal -hal tersebut 
+merupakan bentuk transparansi yang nantinya akan menrik minat donatur untuk melakukan 
+donasi. 
+Kajian Teori 
+Sistem Informasi 
+       Menurut Prabowo (2020), secara garis besar, sistem informasi merupakan sebuah sistem 
+yang terintegrasi dan mampu menyajikan informasi yang berguna bagi para penggunanya. 
+Sistem ini terdiri dari beberapa komponen utama, antara lain: perangkat keras komputer, 
+perangkat lunak komputer, basis data, jaringan, prosedur, serta pengguna yang menjalankan 
+dan mengelola operasional sistem. 
+       Menurut Mulyanto (seperti dikutip dalam Prabowo, 2020), sistem informasi terdiri dari 
+komponen-komponen seperti manusia, teknologi informasi, dan prosedur kerja yang bekerja 
+sama untuk mengolah dan menyebarkan informasi guna mencapai tujuan tertentu.  
+       Jogiyanto (seperti dikutip dalam Prabowo, 2020) , menjelaskan bahwa sistem informasi 
+merupakan sebuah sistem dalam organisasi yang berfungsi untuk mengelola transaksi harian, 
+mendukung aktivitas manajerial dan strategi organisasi, serta menyajikan laporan-laporan yang 
+dibutuhkan oleh pihak eksternal tertentu. 
+ 
+ 
+ 
+Panti Asuhan 
+
+PAGE 3
+16 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+       "Lembaga Perlindungan Anak adalah lembaga yang melakukan kegiatan perlindungan 
+anak secara khusus dan/atau menyeluruh di bidang perlindungan anak yang  dibentuk oleh 
+masyarakat." (Undang-Undang No. 35 Tahun 2014, Pasal 1 angka 12). 
+       "Pengasuhan Anak dalam Lembaga adalah upaya pengasuhan, perlindungan, dan 
+pemenuhan kebutuhan anak yang diselenggarakan oleh lembaga pengasuhan sosial, baik oleh 
+pemerintah, masyarakat, maupun swasta." (Kementerian Sosial RI, 2011). 
+Donasi 
+       Donasi, sumbangan, atau derma merupakan bentuk pemberian yang umumnya bersifat fisik 
+dan dilakukan oleh individu maupun lembaga. Pemberian ini dilakukan secara sukarela ta npa 
+mengharapkan keuntungan. Meskipun donasi bisa berupa makanan, pakaian, barang, mainan, 
+atau kendaraan, jenis bantuannya tidak terbatas pada hal -hal tersebut, terutama dalam situasi 
+darurat seperti bencana atau kondisi khusus lainnya (Dewantry et al, 2015). 
+Transparan 
+       Menurut Hood (2016, seperti dikutip dalam Rosidah et al, 2023), transparansi merupakan 
+suatu prinsip atau keadaan di mana informasi, keputusan, dan tindakan yang dilakukan oleh 
+individu atau organisasi disampaikan secara terbuka, jelas, dan dapat diakses oleh pihak-pihak 
+yang memiliki kepentingan. Dalam konteks pemerintahan, transparansi mencerminkan sejauh 
+mana pemerintah bersikap terbuka dalam melaksanakan tugas -tugasnya, seperti dalam proses 
+pengambilan keputusan, penge lolaan sumber daya publik, serta pelaksanaan fungsi -fungsi 
+pemerintahan lainnya. 
+ 
+Metode 
+       Metode waterfall merupakan model yang paling banyak digunakan dalam pengembangan 
+sebuah software. Model ini melakukan pendekatan secara urut mulai dari kebutuhan sistem 
+sampai pada maintenance. Berikut adalah penjelasan fase dari model waterfall. 
+1. Requirement Analysis 
+       Pada tahap pertama Penulis melakukan penelitian langsung di  Panti Asuhan Al – Rasyid, 
+hasil observasi yang di dapat yaitu system pelaporan donasi masih berifat manual. 
+       Teknik yang digunakan dalam pengumpulan kebutuhan adalah dengan melakukan 
+observasi, wawancara dan studi literatur dengan mencari data dan mengumpulkannya sebagai 
+kebutuhan pengembangan sistem. Proses observasi dan wawancara dilakukan di Panti Asuhan 
+Al – Rasyid, dimana pada tahap ini penulis mewawancari pegawai yang bekerja di tempat. Hasil 
+wawancara penulis mendapatkan beberapa data seperti alur yang sedang berjalan pada Panti 
+Asuhan Al – Rasyid, proses pelaporan, mendapatkan formulir donasi, penulis juga menemukan 
+permasalahan yang ada pada di tempat terkait transparansi dana, pelaporan dan pendataan yang 
+masih manual.  
+2. Design 
+       Proses ini nantinya akan dilakukan pendesainan sistem baik itu dar i segi pemodelan 
+maupun tampilan. Proses pemodelan menggunakan jenis pemodelan UML. Hasil dari 
+pemodelan ini adalah mendapatkan gambaran dari hasil rancangan sistem berupa alur dan 
+diagram sistem. Pemodelan UML ini menghasilkan beberapa diagram yang akan berguna untuk 
+pengembangan sistem seperti usecase diagram, Activity Diagram , class Diagram, Sequence 
+
+PAGE 4
+17 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+Diagram. Adapun tools atau aplikasi yang digunakan untuk membangun pemodelan ini adalah 
+aplikasi starUML.  
+3. Development 
+       Pada tahap ini, penulis melakukan studi literature terhadap jurnal, artikel, skripsi yang 
+relavan dengan sistem yang akan dibangun sebagai bahan rujukan dan memperkuat argumentasi 
+dari informasi diperoleh. 
+4. Testing 
+       Tahapan terakhir adalah proses pengujian, dimana bertujuan untuk menguji apakah sistem 
+yang sudah dikembangkan tersebut sesuai dengan rancangan awal baik dari segi spesifikasi 
+maupun fungsionalitas. Metode pengujian yang dilakukan adalah blackbox dengan penyusunan 
+testcase sebagai acuan pengujian. 
+5. Maintenance 
+Tahapan terakSetelah sistem diluncurkan, pemeliharaan dilakukan untuk menangani bug yang 
+mungkin muncul, memperbarui sistem, dan menambah fitur baru sesuai kebutuhan pengguna. 
+Hasil dan Pembahasan 
+Proses Bisnis yang Berjalan 
+ 
+Gambar 1. Proses Bisnis yang Berjalan 
+ 
+Kebutuhan Fungsional 
+        Kebutuhan fungsional merupakan semua proses apa saja yang dilakukan oleh sistem serta 
+menunjukan fasilitas yang dibutuhkan dalam sistem. 
+ 
+
+
+PAGE 5
+18 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+Table 1 Kebutuhan Fungsional 
+No. SRS Deskripsi 
+ Donatur 
+SRS-F-01 Sistem dapat melakukan donasi 
+SRS-F-02 Sistem dapat memproses Login 
+Pegawai, Ketua Panti, 
+SRS-F-02 Sistem dapat memproses Login. 
+Pegawai 
+SRS-F-03 Sistem dapat mengelola data User 
+SRS-F-04 Sistem dapat mengelola data donatur 
+SRS-F-05 Sistem dapat mengelola data donasi 
+SRS-F-06 Sistem dapat mengelola rencana kegiatan 
+SRS-F-07 Sistem dapat mengelola kategori pengeluaran 
+SRS-F-08 Sistem dapat menampilkan laporan pendapatan 
+SRS-F-09 Sistem dapat menampilkan laporan pengeluaran 
+Ketua Panti 
+SRS-F-03 Sistem dapat mengelola data User 
+SRS-F-04 Sistem dapat mengelola data donatur 
+SRS-F-05 Sistem dapat mengelola data donasi 
+SRS-F-06 Sistem dapat mengelola rencana kegiatan 
+SRS-F-07 Sistem dapat mengelola pengeluaran 
+SRS-F-08 Sistem dapat menampilkan laporan pendapatan 
+SRS-F-09 Sistem dapat menampilkan laporan pengeluaran 
+SRS-F-10 Sistem dapat mengelola pelaksanaan kegiatan 
+ 
+Kebutuhan Non Fungsional 
+        Merupakan suatu kebutuhan pendukung atau perlengkapan dari suatu sistem yang akan 
+dibangun. 
+ 
+Table 2 Kebutuhan Non Fungsional 
+No. SRS Deskripsi 
+SRS-NF-01 Sistem memiliki tampilan yang mudah untuk dipahami 
+SRS-NF-02 Sistem dirancang dengan menggunakan aplikasi berbasis Web 
+ 
+ 
+
+PAGE 6
+19 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Use Case Diagram 
+       Use case diagram adalah sebuah model untuk menggambarkan perilaku sistem informasi 
+yang akan dibangun. Use case menjelaskan interaksi antara satu atau lebih aktor dengan sistem 
+informasi yang dikembangkan. Secara umum, use case digunakan untuk mengidentifikasi 
+berbagai fungsi dalam sebuah sistem serta pihak -pihak yang berhak mengakses fungsi -fungsi 
+tersebut. 
+ 
+Gambar 2. Use Case Diagram 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+PAGE 7
+20 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Class Diagram 
+        Class diagram atau diagram kelas merupakan gambaran struktur sistem dari sudut pandang 
+definisi kelas-kelas yang nantinya dibuat menciptakan sistem.  
+ 
+ 
+Gambar 3. Class Diagram 
+ 
+Implementasi Antar Muka 
+1. Testimoni 
+       Testimoni adalah pernyataan atau kesaksian dari seseorang mengenai pengalaman, 
+pendapat, atau kepuasan mereka terhadap suatu produk, layanan, atau pengalaman tertentu. 
+Biasanya testimoni digunakan dalam konteks promosi atau pemasaran untuk menunjukkan 
+bahwa produk atau layanan tersebut bermanfaat atau memuaskan. 
+ 
+
+
+PAGE 8
+21 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Gambar 4. Testimoni 1 
+ 
+ 
+Gambar 5. Testimoni 2 
+ 
+2. Form Donasi 
+       Merupakan form yang diisi oleh donator tentang data diri hingga pemberian donasi secara 
+online.  
+ 
+ 
+Gambar 6. Form Donasi 1 
+ 
+
+
+PAGE 9
+22 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Gambar 7. Form Donasi 2 
+ 
+ 
+Gambar 8. Midtrans 1 
+ 
+Gambar 9. Midtrans 2 
+
+
+PAGE 10
+23 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Gambar 10. Midtrans 3 
+ 
+3. Login 
+        Form login digunakan untuk user yang diberi hak akses untuk masuk pada backend system 
+donasi, pada Panti Asuhan ini, yang diberi akses untuk login yaitu Pegawai (admin) dan ketua 
+panti Asuhan.  
+ 
+ 
+Gambar 11. Login 
+
+
+PAGE 11
+24 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Gambar 12. Buat Akun 
+ 
+4. Tampilan Dashboard 
+       Dashboard dalam aplikasi sistem informasi adalah tampilan antarmuka yang menyajikan 
+data dan informasi penting secara ringkas, visual, dan interaktif untuk membantu pengguna 
+memahami kondisi atau performa sistem secara cepat.  
+       Dashboard adalah halaman ringkasan yang menyajikan informasi utama dalam bentuk 
+grafik, tabel, indikator, dan notifikasi, yang digunakan untuk monitoring, analisis, dan 
+pengambilan keputusan. 
+       Terlihat tampilan awal dashboard terdapat total donasi, t otal pengeluaran, dan saldo kas 
+saat ini.  
+ 
+Gambar 13. Tampilan Admin 
+ 
+ 
+
+
+PAGE 12
+25 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Gambar 14. Kelola User 
+ 
+Gambar 15. Kelola Donatur 
+
+
+PAGE 13
+26 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Gambar 16. Kelola Kegiatan 
+ 
+Gambar 17. Kelola Donasi 
+
+
+PAGE 14
+27 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Gambar 18. Kelola Pengeluaran 
+ 
+Gambar 19. Laporan Donasi 
+
+
+PAGE 15
+28 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Gambar 20. Laporan Pengeluaran 
+ 
+Implementasi Database 
+1. Tabel Donasi 
+ 
+Gambar 21. Tabel Donasi 
+ 
+ 
+2. Tabel Kegiatan  
+ 
+Gambar 22 Tabel Kegiatan 
+ 
+ 
+ 
+
+
+PAGE 16
+29 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+3. Tabel Pengeluaran  
+ 
+Gambar 23 Tabel Pengeluaran 
+4. Tabel User   
+ 
+Gambar 24 Tabel User 
+ 
+Penutup  
+Kesimpulan 
+        Sistem Informasi Pengelolaan Donasi pada Panti Asuhan Al -Rasyid dapat memudahkan 
+pihak Panti asuhan. Sistem telah mencakup pengelolaan data Panti Asuhan seperti data donatur, 
+penerimaan donasi, dan pengeluaran panti asuhan yang nantinya menghasilkan laporan. 
+Dengan mengikuti pengembangan sistem perangkat lunak model Waterfall, sistem informasi 
+ini memiliki dokumentasi proses perancangan yang terarah. Sistem informasi ini 
+mempermudah juga untuk donatur melakukan donasi secara online, yang bermanfaat untuk 
+panti asuhan baik penerimaan donasi dan keterjangkauan pada donatur baru.  
+ 
+Saran 
+       Berdasarkan pemaparan di atas, sistem informasi ini dapat digunakan dan dimanfaatkan 
+pihak panti asuhan. Pihak panti asuhan dapat memanfaatkan sistem informasi pengelolaan 
+donasi ini untuk pengelolaan donasi terutama untuk donatur yang ingin memberi donasi secara 
+online. Pihak panti asuhan disarankan melakukan promosi sistem informasi ini aga r semakin 
+banyak yang melakukan donasi. Seiring berjalannya waktu dan perkembangan zaman, penulis 
+berharap agar sistem ini dapat dikembangkan ke tahap yang lebih lanjut, seperti penggunaan 
+kecerdasan buatan. Selebihnya sistem ini sudah bermanfaat besar untuk pihak panti asuhan dan 
+donatur dalam kelola dan melakukan donasi. 
+
+
+PAGE 17
+30 
+Global p-ISSN 2086-7395 | e-ISSN 2964-8785 
+Vol. 13 No. 01 Bulan Januari 2026  http://ejournal.unsub.ac.id/index.php/Fasilkom 
+ 
+ 
+Sistem Informasi Pengelolaan Donasi Pada Panti Asuhan Al-Rasyid 
+Maya Destriani, Muhamad Iksan Saepul Bahri 
+ 
+ 
+Daftar Pustaka   
+Prabowo, M. (2020).  Metodologi pengembangan sistem informasi . LP2M Press IAIN 
+Salatiga. 
+Undang-Undang Republik Indonesia Nomor 35 Tahun 2014. (2014). Perubahan atas 
+Undang-Undang Nomor 23 Tahun 2002 tentang Perlindungan Anak. Republik 
+Indonesia. 
+Kementerian Sosial Republik Indonesia. (2011). Pengasuhan anak dalam lembaga. 
+Kementerian Sosial Republik Indonesia. 
+Dewantry, Z. W., Budiwati, S. D., & Sanjaya, M. B. (2015).  Aplikasi Pengelolaan Dana 
+Donasi Untuk Penderita Kanker (studi Kasus: Yayasan Kanker 
+Indonesia). EProceedings of Applied Science, 1(3). 
+Rosidah, I., Kesumah, P ., & Rizka, R. B. (2023). Transparasi Dan Akuntabilitas Dalam 
+Pencegahan Fraud Diinstansi Pemeri ntah (Studi Kasus Kantor Kec. Ciwidey).  Jurnal 
+Ekonomi Manajemen Bisnis Dan Akuntansi: EMBA, 2(1), 137-156. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

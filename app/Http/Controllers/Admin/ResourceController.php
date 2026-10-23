@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\DonorAccountService;
 use App\Support\AdminResources;
 use App\Support\Phone;
 use Illuminate\Database\QueryException;
@@ -18,6 +19,15 @@ class ResourceController extends Controller
     {
         [$title, $model, $fields] = AdminResources::get($resource);
         $query = $model::query();
+        if ($resource === 'pengguna') {
+            $query->where('role', 'pengurus');
+        }
+        if ($resource === 'donatur') {
+            $query->with('user');
+            if (in_array($request->input('jenis'), ['biasa', 'tetap'])) {
+                $query->where('jenis', $request->input('jenis'));
+            }
+        }
         if ($request->filled('q')) {
             $column = isset($fields['nama']) ? 'nama' : (isset($fields['name']) ? 'name' : 'judul');
             $query->where($column, 'like', '%'.substr($request->string('q'), 0, 150).'%');
@@ -31,6 +41,7 @@ class ResourceController extends Controller
     {
         [$title, $model, $fields] = AdminResources::get($resource);
         $item = $id ? $model::findOrFail($id) : new $model;
+        abort_if($resource === 'pengguna' && $item->exists && $item->role !== 'pengurus', 404);
 
         return view('admin.resources.form', compact('title', 'resource', 'fields', 'item'));
     }
@@ -39,6 +50,7 @@ class ResourceController extends Controller
     {
         [$title, $model, $fields] = AdminResources::get($resource);
         $item = $id ? $model::findOrFail($id) : new $model;
+        abort_if($resource === 'pengguna' && $item->exists && $item->role !== 'pengurus', 404);
         $rules = collect($fields)->map(fn ($f) => $f[2])->all();
         if ($resource === 'pengguna') {
             $rules['email'] = ['required', 'email', 'max:200', Rule::unique('users')->ignore($item->id)];
@@ -47,8 +59,9 @@ class ResourceController extends Controller
         if ($resource === 'donatur') {
             $request->merge(['whatsapp' => Phone::normalize($request->input('whatsapp'))]);
             $rules['whatsapp'][] = Rule::unique('donatur')->ignore($item->id);
+            $rules['email'] = 'nullable|required_if:jenis,tetap|email|max:200';
         }
-        if (in_array($resource, ['kategori-donasi', 'kategori-bantuan', 'jenis-kunjungan'])) {
+        if (in_array($resource, ['kategori-donasi', 'kategori-bantuan', 'kategori-pengeluaran'])) {
             $rules['nama'] = [
                 'required',
                 'string',
@@ -60,6 +73,11 @@ class ResourceController extends Controller
             $rules['foto'] = 'required|image|mimes:jpg,jpeg,png,webp|max:2048';
         }
         $data = $request->validate($rules);
+        if ($resource === 'donatur') {
+            $donor = app(DonorAccountService::class)->save($id, $data, $request->user());
+
+            return redirect()->route('admin.donor.account', $donor)->with('success', 'Data donatur berhasil disimpan.');
+        }
         if (empty($data['password'])) {
             unset($data['password']);
         }
@@ -77,6 +95,13 @@ class ResourceController extends Controller
                         : 'Dibutuhkan');
         }
         $item->fill($data)->save();
+        if ($resource === 'pengguna') {
+            $item->forceFill(['role' => 'pengurus'])->save();
+            if (isset($data['password'])) {
+                $item->increment('auth_version');
+                DB::table('sessions')->where('user_id', $item->id)->delete();
+            }
+        }
 
         return redirect()
             ->route('admin.resource.index', $resource)
@@ -89,12 +114,16 @@ class ResourceController extends Controller
         try {
             DB::transaction(function () use ($model, $id, $resource, $request) {
                 if ($resource === 'pengguna') {
-                    $users = User::lockForUpdate()->get();
+                    $users = User::where('role', 'pengurus')->lockForUpdate()->get();
+                    abort_unless($users->contains('id', $id), 404);
                     if ($users->count() <= 1 || $request->user()->id === $id) {
                         throw ValidationException::withMessages([
                             'hapus' => 'Akun sendiri atau admin terakhir tidak boleh dihapus.',
                         ]);
                     }
+                }
+                if ($resource === 'donatur' && $model::findOrFail($id)->user_id) {
+                    throw ValidationException::withMessages(['hapus' => 'Donatur yang terhubung ke akun tidak dapat dihapus. Nonaktifkan akses akun untuk menghentikan penggunaan.']);
                 }
                 $model::findOrFail($id)->delete();
             });

@@ -1,0 +1,338 @@
+
+PAGE 1
+Jurnal Ilmiah MATRIK , Vol.22 No.2, Agustus 2020     ISSN : 1411-1624 
+                                                                                                                             e-ISSN: 2621-8089 
+ 
+Rancang Bangun Sistem Informasi Administrasi untuk … …  (Rin Rin Meilani Salim )           195 
+ 
+ RANCANG BANGUN SISTEM INFORMASI ADMINISTRASI 
+UNTUK PANTI ASUHAN 
+ 
+Rin Rin Meilani Salim 
+Dosen Program Studi Sistem Informasi, STMIK Mikroskil 
+Jalan Thamrin No. 140 Medan 
+Sur-el : rinrin.meilani@mikroskil.ac.id 
+ 
+ 
+Abstract :   An Orphanage manages quite a number of transactions ranging from recording 
+children's data, receiving donations to expenses. All these transactions need to be recorded and 
+recorded properly. Every period the orphanage is required to make child reports, income reports 
+to expense reports. Errors in recording and preparing reports can cause loss of donor trust. 
+Manual data recording is vulnerable to errors, time and data loss. Manually report generation is 
+slow, inaccurate and ineffective. Therefore, the orphanage needs an information system that can 
+help in recording data, managing transactions and producing reports. Information systems are 
+developed with business processes commonly used in orphanages with the ai m that this developed 
+system can be used by many orphanages. This system applies the concept of best practice.  
+ 
+Keywords: Administration, Information System, Orphanage, Donor 
+ 
+Abstrak :   Sebuah Panti Asuhan mengelola cukup banyak transaksi mulai dari pencatatan data anak, 
+penerimaan sumbangan hingga pengeluaran. Seluruh transaksi ini perlu didata dan dicatat dengan baik. 
+Setiap periode panti asuhan wajib membuat laporan anak, laporan pemasukan hingga laporan 
+pengeluaran. Kesalahan pencatatan dan pembuatan laporan dapat menyebabkan hilangnya kepercayaan 
+donatur. Pencatatan data dengan cara manual rentan terhadap kesalahan, lama dan kehilangan data. 
+Pembuatan laporan dengan cara manual menyebabkan lambat, tidak akurat dan tidak efektif. Oleh karena 
+itu, panti asuhan memerlukan sebuah sistem informasi yang dapat membantu dalam mencatat data, 
+mengelola transaksi dan menghasilkan laporan. Sistem Informasi dikembangkan dengan proses bisnis 
+yang umum dipakai pada panti asuhan dengan tujuan agar sistem yang dikembangkan ini dapat dipakai 
+oleh banyak panti asuhan. Sistem ini menerapkan konsep praktik terbaik. 
+ 
+Kata kunci: Administrasi, Sistem Informasi, Panti Asuhan, Donatur 
+ 
+1. PENDAHULUAN  
+ 
+Peran dari sebuah sistem informasi untuk 
+sebuah instansi sangatlah penting.  Sistem 
+Informasi merupakan sebuah sistem untuk 
+mendukung fungsi operasi organisasi untuk 
+dapat menghasilkan l aporan-laporan yang 
+diperlukan [1]. Sistem Informasi dapat 
+membantu instansi dalam mengolah data, 
+mempercepat pembuatan laporan, dan 
+menghilangkan redudansi. 
+Panti asuhan biasanya merawat anak -anak 
+dengan batas umur 18 tahun dan diharapkan 
+dapat diadposi oleh orang tua sebelum mencapai 
+usia 18 tah un [2]. Bagi sebuah panti asuhan, 
+pengolahan data anak,  adposi, pencatatan 
+penerimaan dana dan barang dari  donatur, 
+pengeluaran dana dan barang menjadi hal yang 
+penting. Transaksi -transaksi tersebut jika tidak 
+diolah dengan baik akan menimbulkan 
+ketidakpercayaan para donatur.  Tentu pihak 
+panti perlu men catat dan mengelola data dengan 
+baik.  
+Di samping itu, pengurus panti asuhan 
+perlu m embuat laporan donatur, laporan da ftar 
+anak, laporan sumbangan, dan laporan lainnya. 
+
+PAGE 2
+Jurnal Ilmiah MATRIK , Vol.22 No.2, Agustus 2020     ISSN : 1411-1624 
+                                                                                                                             e-ISSN: 2621-8089 
+ 
+Rancang Bangun Sistem Informasi Administrasi untuk … …  (Rin Rin Meilani Salim )           196 
+ 
+Jika transaksi diolah dengan cara manual atau 
+tulis tangan, tentunya data -data tersebut rentan 
+kesalahan, lama dan mudah hilang. Pembuatan 
+laporan dengan cara manual  juga membutuhkan 
+waktu yang lama, tidak akurat dan tidak efektif . 
+Selain itu , banyak panti yang masih kesulitan 
+menghasilkan laporan pengeluaran dana dan 
+barang. Tentunya ini menjadi masalah untuk 
+pengurus panti. 
+Jumlah penghuni panti juga menjadi faktor 
+penentu banyaknya data dan transaksi yang perlu 
+diolah. Seluruh transaksi di panti perlu dicatat 
+dan diolah dengan baik agar meningkatkan 
+kepercayaan dan kredibilitas panti asuhan. 
+Berdasarkan alasan tersebut, maka penulis 
+mencoba membangun sebuah sistem inf ormasi 
+untuk pencatatan data,  transaksi, dan 
+menghasilkan laporan pada panti asuhan. 
+Dengan mempelajari sistem pencatatan 
+transaksi berdasarkan best practice  seperti SAP  
+[3] maupun Accurate [4], maka s istem ini 
+dibangun dengan menerapkan best practice agar 
+dapat digunakan oleh semua panti asuhan.  
+Pengembangan sistem informasi panti asuhan 
+akan sangat membantu untuk berbagi informasi 
+dengan data -data yang terkelola dengan  baik 
+sehingga mudah didapatkan  [2]. Dengan adanya 
+sistem informasi tentunya pengur us panti dapat 
+memperoleh informasi. Informasi yang 
+diharapkan yaitu bersifat akurat, tepat waktu dan 
+relevan [1]. 
+ 
+ 
+ 
+ 
+2. METODOLOGI PENELITIAN  
+ 
+Metodologi penelitian yang digunakan 
+Siklus Hidup Pengembangan Sistem (SHPS) atau 
+Systems Development Life Cycle (SDLC) dimana 
+dari 7 tahapan yang ada pada SHPS, penulis 
+melakukan penelitian ini hingga tahapan 5. Kelima 
+tahap tersebut adalah: [5] [6]  
+ 
+Gambar 1. Metodologi SHPS 
+ 
+1. Mengidentifikasi masala h, peluang  dan 
+tujuan 
+Adapun masalah yang dirangkum penulis 
+adalah sebagai berikut: 
+a. Pencatatan data dan transaksi rentan 
+terhadap kesalahan, lama dan sering 
+terjadi kehilangan dokumen. 
+b. Pembuatan laporan lambat, tidak akurat 
+dan tidak efektif. 
+Dari permasalahan yang ada, penulis 
+mencoba menawarkan sebuah sistem 
+informasi administrasi untuk membantu 
+panti asuhan dalam mengelola data, transaksi 
+dan laporan. Dengan adanya sistem ini, 
+penulis yakin adanya peluang untuk 
+meningkatkan kepercayaan dan kredibilitas 
+panti asuhan terhadap pertanggungjawaban 
+donasi. Dengan p emanfataan teknologi, 
+tujuan panti asuhan dapat dicapai. 
+
+
+PAGE 3
+Jurnal Ilmiah MATRIK , Vol.22 No.2, Agustus 2020     ISSN : 1411-1624 
+                                                                                                                             e-ISSN: 2621-8089 
+ 
+Rancang Bangun Sistem Informasi Administrasi untuk … …  (Rin Rin Meilani Salim )           197 
+ 
+2. Menentukan syarat-syarat informasi 
+Pada tahap ini penulis mencoba mengkaji 
+proses bisnis yang ada pada panti asuhan. 
+Penulis menentukan ruang lingkup sistem 
+informasi administrasi yang akan dibangun 
+dengan fitur: 
+a. Input meliput : data anak panti, da ta 
+biaya, data barang, data donatur, data 
+pegawai, data sumbangan  barang, data 
+sumbangan uang,  data pengeluaran 
+barang, data pengeluaran uang , data 
+riwayat kesehatan, data pelanggaran 
+anak, data prestasi ana k dan data anak 
+keluar. 
+b. Proses meliputi : pendataan anak panti, 
+sumbangan dan pengeluaran panti. 
+c. Output meliputi : laporan anak, laporan 
+donatur, laporan sumbangan barang, 
+laporan sumbangan uang,  laporan 
+pengeluaran barang, laporan pengeluaran 
+uang, laporan pegawai, laporan anak 
+keluar, laporan riwayat kesehatan anak, 
+laporan pelanggaran anak, dan laporan 
+prestasi anak. 
+3. Menganalisis kebutuhan sistem 
+Pada tahap ini penulis menggambarkan 
+kebutuhan sistem menggunakan Use Case 
+Diagram [7]. 
+4. Merancang sistem yang direkomendasikan 
+Sistem informasi administrasi Panti Asuhan  
+dirancang menggunakan Microsoft Visual 
+Studio 2012. Kemudian penulis melakukan 
+normalisasi dan merancang basis data. Basis 
+data dirancang pada Microsoft SQL Server 
+2012. Basis data in i digunakan untuk 
+menyimpan dan mengolah data operasional 
+sehingga mampu menghasilkan informasi 
+yang optima l untuk pengambilan keputusan 
+[8]. 
+ 
+Gambar 2. Use Case Diagram Sistem 
+Informasi Administrasi Panti Asuhan 
+ 
+5. Mengembangkan dan mendokumentasikan 
+sistem 
+Sistem yang dirancang pada tahapan 
+sebelumnya dikembangkan menggunakan 
+bahasa pemrograman visual basic  dan basis 
+data Microsoft SQL Server 2012 [9]. Seluruh 
+proses perancangan dan pengembangan 
+didokumentasikan agar dapat dikembangkan 
+kembali oleh peneliti yang lain. 
+ 
+3. HASIL  DAN PEMBAHASAN 
+ 
+Berikut ini adalah beberapa tampilan dari 
+sistem informasi panti asuhan yang dikembangkan: 
+Form data anak panti digunakan untuk 
+mencatat anak panti asuhan. Baik anak panti yang 
+
+
+PAGE 4
+Jurnal Ilmiah MATRIK , Vol.22 No.2, Agustus 2020     ISSN : 1411-1624 
+                                                                                                                             e-ISSN: 2621-8089 
+ 
+Rancang Bangun Sistem Informasi Administrasi untuk … …  (Rin Rin Meilani Salim )           198 
+ 
+memiliki orang tua atau dititip dan anak panti yang 
+tidak memiliki orang tua. 
+ 
+Gambar 3. Form Data Anak Panti 
+ 
+Form data donatur digunakan untuk mencatat 
+data para donatur baik donatur tetap maupun donatur 
+tidak tetap panti asuhan. 
+ 
+Gambar 4. Form Data Donatur 
+ 
+Form data sumbangan uang digunakan untuk 
+mencatat sumbangan berupa uang yang diberikan 
+oleh donatur. Pada form ini dicatat juga data pegawai 
+yang menerima donasi. 
+ 
+Gambar 5. Form Data Sumbangan Uang 
+ 
+Form data sumbangan barang digunakan untuk 
+mencatat sumbangan berupa barang yang diberikan 
+oleh donatur. Pada form ini dicatat juga data pegawai 
+yang menerima donasi. 
+ 
+Gambar 6. Form Data Sumbangan Barang 
+ 
+Form data pengeluaran uang digunakan untuk 
+mencatat setiap transaksi pengeluaran uang di panti. 
+Form ini mencatat dengan lengkap biaya yang 
+dikeluarkan untuk keperluan apa dan siapa pegawai 
+yang bertanggung jawab atas pengeluaran uang. 
+ 
+Gambar 7. Form Data Pengeluaran Uang 
+
+
+PAGE 5
+Jurnal Ilmiah MATRIK , Vol.22 No.2, Agustus 2020     ISSN : 1411-1624 
+                                                                                                                             e-ISSN: 2621-8089 
+ 
+Rancang Bangun Sistem Informasi Administrasi untuk … …  (Rin Rin Meilani Salim )           199 
+ 
+Form data pengeluaran barang digunakan untuk 
+mencatat setiap pengeluaran barang atau pemakaian 
+barang di panti. Form ini mencatat dengan lengkap 
+siapa pegawai yang bertanggung jawab atas 
+pengeluaran barang dan pengeluaran barang 
+didasarkan pada keperluan apa. 
+ 
+Gambar 8. Form Pengeluaran Barang 
+ 
+Form Prestasi Anak digunakan untuk mencatat 
+segala prestasi anak panti, bai k dari perlombaan 
+maupun prestasi di sekolah. 
+ 
+Gambar 9. Form Prestasi Anak 
+ 
+Form pelanggaran anak digunakan untuk 
+mencatat setiap pelanggaran yang dilakukan anak 
+panti dan sanksi apa yang diberikan kepada anak 
+panti. 
+ 
+Gambar 10. Form Pelanggaran Anak 
+ 
+4. KESIMPULAN DAN SARAN 
+ 
+Berdasarkan hasil dan pembahasan yang 
+telah penulis lakukan terkait rancang bangun 
+sistem informasi administrasi panti asuhan, maka 
+beberapa kesimpulan yang dapat diambil adalah 
+sebagai berikut: 
+1. Sistem yang dibangun dapat membantu panti 
+asuhan dalam mengelola data dan transaksi 
+menggunakan sistem terkomputerisasi 
+sehingga mengurangi resiko kesalahan, 
+lambat dan kehilangan data 
+2. Sistem yang dibangun dapat menghasilkan 
+laporan yang cepat, akurat dan tepat kapan 
+saja jika diperlukan. 
+Adapun saran yang dapat diberikan bagi 
+pengembang atau peneliti selanjutnya: 
+1. Menambah fitur untuk melihat riwayat 
+logistik barang per perio de pada s istem 
+informasi administrasi panti asuhan. 
+2. Mengembangkan laporan keuangan sesuai 
+standar akuntansi. 
+
+
+PAGE 6
+Jurnal Ilmiah MATRIK , Vol.22 No.2, Agustus 2020     ISSN : 1411-1624 
+                                                                                                                             e-ISSN: 2621-8089 
+ 
+Rancang Bangun Sistem Informasi Administrasi untuk … …  (Rin Rin Meilani Salim )           200 
+ 
+DAFTAR PUSTAKA 
+ 
+[1] Tata Sutabri, Analisa Sistem Informasi , 
+Yogyakarta: Penerbit Andi, 2003. 
+[2] Abdul Rahman, Taking “Anak Emas” 
+System (MyAnakEmas) To The Cloud , 
+Malaysia: International Islamic University 
+Malaysia, Selangor, 2012 
+[3] SAP, SAP01 – SAP Fundamental, SAP AG. 
+2006. 
+[4] Perdiasari, L., Latihan Accurate dalam 240 
+menit, Bisnis 2030 Internet Business 
+Provider. 2009. 
+[5] Kendall, K. E., Kendall, J. E., Analisis dan 
+Perancangan Sistem , Jilid 1 Edisi Kelima, 
+Jakarta: Penerbit Indeks, 2010. 
+[6] Kendall, K. E., Kendall, J. E., Analisis dan 
+Perancangan Sistem , Jilid 2 Edisi Kelima, 
+Jakarta: Penerbit Indeks, 2010. 
+[7] Whitten, J. L., Bentley, L.D., Ditmann, 
+K.C., Metode Desain & Analisis Sistem , 
+Edisi ke -6, Yogyakarta: Penerbit Andi, 
+2004. 
+[8] Marlinda, L., Sistem Basis Data , 
+Yogyakarta: Penerbit Andi, 2004. 
+[9] Kusrini., A. Kinoyo., Tuntutan Praktis 
+Membangun Sistem Informasi Akuntansi 
+dengan Visual Basic dan Microsoft SQL 
+Server, Ed. 1, Yogyakarta: Penerbit Andi, 
+2007. 
+ 
+ 

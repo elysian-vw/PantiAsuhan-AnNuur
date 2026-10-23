@@ -4,11 +4,9 @@ namespace Tests\Feature;
 
 use App\Models\Bantuan;
 use App\Models\Donasi;
-use App\Models\JenisKunjungan;
 use App\Models\KategoriBantuan;
 use App\Models\KategoriDonasi;
 use App\Models\Kegiatan;
-use App\Models\Kunjungan;
 use App\Models\User;
 use App\Services\MidtransService;
 use App\Support\AdminResources;
@@ -32,18 +30,6 @@ class PantiTest extends TestCase
     private function donorData(): array
     {
         return ['nama' => 'Donatur Uji', 'whatsapp' => '081234567890', 'consent' => '1'];
-    }
-
-    private function visitData(): array
-    {
-        return $this->donorData() + [
-            'jenis_kunjungan_id' => JenisKunjungan::first()->id,
-            'peserta' => 5,
-            'tanggal' => now()->addDay()->format('Y-m-d'),
-            'jam' => '09:00',
-            'jam_selesai' => '10:00',
-            'tujuan' => 'Silaturahmi',
-        ];
     }
 
     private function donation(): Donasi
@@ -84,7 +70,6 @@ class PantiTest extends TestCase
                 '/kebutuhan',
                 '/donasi',
                 '/bantuan',
-                '/kunjungan',
                 '/admin/login',
             ] as $url
         ) {
@@ -144,40 +129,6 @@ class PantiTest extends TestCase
         $this->get($url)->assertOk();
     }
 
-    public function test_visit_hours_reschedule_confirmation_and_attendance(): void
-    {
-        $this->post('/kunjungan', array_replace($this->visitData(), ['jam' => '06:00']))->assertSessionHasErrors('jam');
-        $this->post(
-            '/kunjungan',
-            array_replace($this->visitData(), ['jam_selesai' => '21:30']),
-        )->assertSessionHasErrors('jam_selesai');
-        $this->post('/kunjungan', $this->visitData())->assertSessionHasNoErrors();
-        $record = Kunjungan::first();
-        $this->actingAs(User::factory()->create());
-        $url = '/admin/transaksi/kunjungan/'.$record->id;
-        $this->put($url, [
-            'status' => 'Dijadwalkan ulang',
-            'tanggal' => now()->addDays(2)->format('Y-m-d'),
-            'jam' => '10:00',
-            'jam_selesai' => '11:00',
-            'alasan' => 'Penyesuaian kegiatan',
-        ])->assertSessionHasNoErrors();
-        $this->put($url, ['status' => 'Disetujui'])->assertSessionHasErrors('konfirmasi');
-        $this->put($url, ['status' => 'Disetujui', 'konfirmasi' => 1])->assertSessionHasNoErrors();
-        $this->assertNotNull($record->fresh()->konfirmasi_ulang_pada);
-        $this->put($url, ['status' => 'Hadir'])->assertSessionHasNoErrors();
-        $this->put($url, ['status' => 'Selesai'])->assertSessionHasNoErrors();
-        $this->get($url)->assertOk();
-    }
-
-    public function test_walk_in_is_recorded_as_present(): void
-    {
-        $this->actingAs(User::factory()->create())
-            ->post('/admin/tamu-langsung', array_replace($this->visitData(), ['tanggal' => today()->format('Y-m-d')]))
-            ->assertSessionHasNoErrors();
-        $this->assertDatabaseHas('kunjungan', ['status' => 'Hadir', 'sumber' => 'langsung']);
-    }
-
     public function test_webhook_checks_signature_amount_and_is_idempotent(): void
     {
         $donation = $this->donation();
@@ -197,6 +148,31 @@ class PantiTest extends TestCase
         $this->assertEquals(1000, $donation->fresh()->biaya);
         $this->assertCount(2, $donation->histories);
         $this->assertDatabaseCount('whatsapp_logs', 1);
+    }
+
+    public function test_dashboard_notification_test_requires_signature_and_does_not_update_donations(): void
+    {
+        $donation = $this->donation();
+        config(['panti.midtrans_key' => 'test-server-key']);
+        $payload = $this->notification($donation);
+        $payload['order_id'] = 'payment_notif_test_merchant_example';
+        $payload['signature_key'] = str_repeat('0', 128);
+        $this->postJson('/webhooks/midtrans', $payload)->assertForbidden();
+
+        $payload['signature_key'] = hash(
+            'sha512',
+            $payload['order_id'].$payload['status_code'].$payload['gross_amount'].'test-server-key',
+        );
+        $this->postJson('/webhooks/midtrans', $payload)->assertOk()->assertJson(['ok' => true]);
+        $this->assertSame('Menunggu pembayaran', $donation->fresh()->status);
+        $this->assertDatabaseCount('whatsapp_logs', 0);
+
+        $payload['order_id'] = 'unknown-real-order';
+        $payload['signature_key'] = hash(
+            'sha512',
+            $payload['order_id'].$payload['status_code'].$payload['gross_amount'].'test-server-key',
+        );
+        $this->postJson('/webhooks/midtrans', $payload)->assertNotFound();
     }
 
     public function test_expired_payment_cannot_be_reopened_by_pending_notification(): void
@@ -253,11 +229,8 @@ class PantiTest extends TestCase
             [
                 '/admin',
                 '/admin/pengaturan',
-                '/admin/kalender',
-                '/admin/tamu-langsung',
                 '/admin/transaksi/donasi',
                 '/admin/transaksi/bantuan',
-                '/admin/transaksi/kunjungan',
                 '/admin/transaksi/donasi/'.$donation->id,
             ] as $url
         ) {
@@ -267,7 +240,7 @@ class PantiTest extends TestCase
             $this->get('/admin/data/'.$key)->assertOk();
             $this->get('/admin/data/'.$key.'/tambah')->assertOk();
         }
-        foreach (['donasi', 'bantuan', 'kunjungan'] as $kind) {
+        foreach (['donasi', 'bantuan'] as $kind) {
             $this->get('/admin/laporan/'.$kind)->assertOk();
             $this->get('/admin/laporan/'.$kind.'?format=pdf')
                 ->assertOk()

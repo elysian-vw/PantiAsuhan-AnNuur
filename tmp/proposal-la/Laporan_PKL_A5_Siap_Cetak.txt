@@ -1,0 +1,1044 @@
+LAPORAN
+PRAKTIK KERJA LAPANGAN
+
+SISTEM MANAJEMEN KONTEN MEDIA SOSIAL BERBASIS WEB DENGAN APPROVAL WORKFLOW DAN ROLE-BASED ACCESS CONTROL STUDI KASUS PT ELECOMP INDONESIA GROUP
+
+PT ELECOMP INDONESIA GROUP
+Disusun sebagai syarat untuk mengikuti ujian akhir
+Politeknik Negeri Malang
+
+
+Disusun oleh: 
+
+
+
+Pembimbing:
+FERRY SOFIAN EFENDI, S.Kom, M.Cs.
+
+
+PROGRAM STUDI D3 MANAJEMEN INFORMATIKA 
+PSDKU POLITEKNIK NEGERI MALANG 
+DI KOTA KEDIRI
+2026
+LAPORAN
+PRAKTIK KERJA LAPANGAN
+
+SISTEM MANAJEMEN KONTEN MEDIA SOSIAL BERBASIS WEB DENGAN APPROVAL WORKFLOW DAN ROLE-BASED ACCESS CONTROL STUDI KASUS PT ELECOMP INDONESIA GROUP
+
+PT ELECOMP INDONESIA GROUP 
+Disusun sebagai syarat untuk mengikuti ujian akhir
+Politeknik Negeri Malang
+
+
+Disusun oleh: 
+
+
+
+Pembimbing:
+FERRY SOFIAN EFENDI, S.Kom, M.Cs.
+
+
+PROGRAM STUDI D3 MANAJEMEN INFORMATIKA 
+PSDKU POLITEKNIK NEGERI MALANG 
+DI KOTA KEDIRI
+2026
+HALAMAN PENGESAHAN
+LAPORAN PRAKTIK KERJA LAPANGAN
+
+SISTEM MANAJEMEN KONTEN MEDIA SOSIAL BERBASIS WEB DENGAN APPROVAL WORKFLOW DAN ROLE-BASED ACCESS CONTROL STUDI KASUS PT ELECOMP INDONESIA GROUP
+
+
+PT ELECOMP INDONESIA GROUP
+(29 JUNI 2026 – 21 AGUSTUS 2026)
+
+
+
+
+Disusun oleh: 
+
+
+
+
+Laporan PKL ini telah diujikan pada tanggal 25 September 2026
+
+HALAMAN PENGESAHAN
+LAPORAN PRAKTIK KERJA LAPANGAN
+DI
+PT ELECOMP INDONESIA GROUP
+(29 JUNI – 21 AGUSTUS 2026)
+
+
+
+
+
+
+
+
+Disusun oleh: 
+
+
+
+
+Malang, 21 Agustus 2026
+
+PERNYATAAN KEASLIAN TULISAN
+LAPORAN PRAKTIK KERJA LAPANGAN
+
+
+Saya menyatakan dengan sebenar-benarnya bahwa sepanjang pengetahuan saya, di dalam Naskah Laporan Praktik Kerja Lapangan ini tidak terdapat karya ilmiah yang pernah diajukan oleh orang lain dan tidak terdapat karya atau pendapat orang lain kecuali yang secara tertulis dikutip dalam naskah ini dan disebutkan dalam sumber kutipan dan daftar pustaka.
+Apabila ternyata di dalam naskah LAPORAN PRAKTIK KERJA LAPANGAN ini dapat dibuktikan terdapat unsur-unsur PLAGIASI, saya bersedia LAPORAN PRAKTIK KERJA LAPANGAN ini digugurkan dan dibatalkan serta diproses sesuai dengan peraturan perundang-undangan yang berlaku.
+
+
+Malang, 25 September 2026 
+Mahasiswa,
+
+
+
+
+Noor Achmad Rozaq Ramdhani
+NIM. 243107030100
+
+
+KATA PENGANTAR
+
+Puji syukur kami panjatkan kepada Allah SWT yang telah memberikan rahmat dan hidayahnya sehingga penulis dapat menyelesaikan laporan Praktik Kerja Lapangan (PKL) ini dengan judul Sistem Manajemen Konten Media Sosial Berbasis Web Dengan Approval Workflow Dan Role-Based Access Control Studi Kasus PT ELECOMP INDONESIA GROUP di PT ELECOMP INDONESIA GROUP. Laporan ini dibuat untuk memenuhi persyaratan mengikuti ujian akhir dan sebagai bukti telah melaksanakan PKL di Politeknik Negeri Malang. Laporan ini disusun sebaik mungkin dan berdasarkan fakta-fakta dari berbagai hal yang didapatkan di lapangan.Ucapan terima kasih penulis sampaikan kepada:
+Bapak Benni Agung Nugroho, S.Kom, M.Cs. selaku koordinator program studi D3 	Manajemen Informatika PSDKU Kediri.
+Bapak Fery Sofian Efendi, S.Kom, M.Cs. selaku dosen pembimbing
+Bapak Fernandes, S.Kom, M.M. selaku pembimbing lapangan  dan juga selaku Kepala Cabang PT ELECOMP INDONESIA GROUP. Kota Malang
+Serta berbagai pihak yang tidak bisa penulis sebutkan satu-persatu  
+Penulis menyadari bahwa laporan ini masih jauh dari sempurna karena keterbatasan ilmu dan pengalaman yang dimiliki. Oleh karena itu, saran dan kritik yang bersifat membangun akan Penulis terima dengan senang hati. Penulis berharap semoga laporan ini dapat bermanfaat bagi semua pihak yang memerlukan. 
+
+Malang, 25 September 2026
+Penulis
+
+
+
+Noor Achmad Rozaq Ramdhani
+NIM. 243107030100
+
+DAFTAR ISI
+
+
+
+
+
+DAFTAR GAMBAR
+
+
+DAFTAR TABEL
+
+
+
+DAFTAR LAMPIRAN
+
+
+
+
+PENDAHULUAN
+Latar Belakang
+Politeknik Negeri Malang merupakan salah satu perguruan tinggi vokasi negeri terkemuka di Jawa Timur yang berkomitmen mencetak lulusan siap kerja melalui pembelajaran berbasis kompetensi dan praktik industri. Program Studi D3 Manajemen Informatika PSDKU Politeknik Negeri Malang di Kota Kediri hadir sebagai perpanjangan akses pendidikan vokasi bidang teknologi informasi bagi masyarakat di wilayah Kediri dan sekitarnya, dengan membekali mahasiswa kompetensi teknis di bidang pengembangan maupun pengujian perangkat lunak (software testing) agar siap terjun langsung ke dunia industri (Tim Penyusun, 2021).
+Perkembangan pesat media sosial sebagai instrumen utama pemasaran digital telah mengubah paradigma komunikasi bisnis secara fundamental. Platform-platform seperti Instagram, TikTok, dan Facebook kini bukan sekadar sarana interaksi sosial, melainkan menjadi channel strategis bagi perusahaan untuk membangun brand awareness, menjangkau target pasar yang lebih luas, dan mendorong konversi penjualan secara terukur. Bagi perusahaan yang mengelola banyak merek dagang (multi-brand) secara simultan, kompleksitas produksi konten meningkat secara eksponensial mulai dari ideasi, desain visual, penulisan caption, proses persetujuan berjenjang, hingga penjadwalan dan publikasi ke berbagai platform.
+PT. Elecomp Indonesia, sebagai perusahaan yang bergerak di bidang pengembangan perangkat lunak, digital marketing, dan manajemen media sosial, menghadapi tantangan operasional serupa. Dengan portofolio beberapa brand bisnis aktif yang masing-masing memerlukan strategi konten tersendiri, tim kreatif perusahaan menghadapi beberapa permasalahan krusial:
+Alur Persetujuan (Approval) Belum Terstandarisasi: Pengajuan ide, revisi desain, penulisan caption, hingga persetujuan akhir dari Manajer masih dilakukan melalui aplikasi pesan instan grup chat dan spreadsheet terpisah. Hal ini menyebabkan risiko terlewatnya revisi (human error) dan ketidakjelasan status pengerjaan konten.
+Ketiadaan Pemisahan Hak Akses (Role-Based Access Control): Belum terdapat pembatasan wewenang yang tegas antara Manajer, Tim Kreatif, Desainer (Content Creator), dan Admin Media Sosial. Siapa pun dapat mengubah data tanpa validasi otorisasi, sehingga rentan terhadap kesalahan modifikasi konten.
+Absennya Pencatatan Jejak Audit (Audit Trail): Tidak ada sistem pencatatan otomatis yang merekam siapa melakukan perubahan apa, kapan, dan mengapa sehingga akuntabilitas dan transparansi dalam proses produksi konten sulit dijamin.
+Isolasi Data Antar Bisnis yang Lemah: Konten, aset desain, dan jadwal tayang dari beberapa brand yang berbeda tercampur dalam satu dokumen kerja yang sama, meningkatkan potensi kebocoran informasi dan kesalahan cross-posting.
+Untuk mengatasi permasalahan tersebut, dibutuhkan sebuah solusi perangkat lunak terpadu melalui "Rancang Bangun Sistem Manajemen Konten Media Sosial Berbasis Web dengan Approval Workflow dan Role-Based Access Control pada PT. Elecomp Indonesia". Sistem ini dikembangkan menggunakan framework CodeIgniter 4 berbasis arsitektur MVC (Model-View-Controller) dan database MySQL, dengan menerapkan mesin status (state machine) 8 tahapan approval yang ketat serta pemisahan peran 6 role pengguna (Superadmin, Owner, Manager, Creative Team, Content Creator, dan Admin Media Sosial). Sistem ini juga dilengkapi fitur pencatatan audit trail otomatis, notifikasi in-app, manajemen multi-bisnis dengan Business Switcher, kalender jadwal tayang, serta modul pendukung kreatif terintegrasi.
+Tujuan
+ Adapun tujuan dilaksanakannya Praktik Kerja Lapangan dan pembangunan sistem ini adalah:
+Memenuhi salah satu kurikulum wajib Program Studi DIII Manajemen Informatika PSDKU Politeknik Negeri Malang di Kota Kediri.
+Menerapkan kompetensi analisis, perancangan, pemrograman web (MVC), dan basis data pada permasalahan operasional nyata di industri.
+Merancang dan mengimplementasikan arsitektur State Machine pada sistem persetujuan konten (approval workflow) dengan delapan status kerja yang tervalidasi.
+Menerapkan model keamanan Role-Based Access Control (RBAC) pada enam tingkatan peran pengguna guna menjamin integritas data dan pemisahan tugas (separation of duties).
+Mengintegrasikan Google Gemini API sebagai asisten pembuatan ide/caption dan Meta Graph API untuk publikasi otomatis konten media sosial.
+Manfaat
+Pelaksanaan PKL ini diharapkan memberikan manfaat sebagai berikut:
+Bagi Mahasiswa
+Memperoleh wawasan praktis mengenai standar pengembangan perangkat lunak skala industri.
+Meningkatkan kemahiran teknis (hard skills) dalam framework CodeIgniter 4, arsitektur State Machine, RBAC, dan integrasi RESTful API eksternal.
+Melatih keterampilan non-teknis (soft skills) seperti komunikasi profesional, manajemen waktu, dan penyelesaian masalah (problem solving).
+Bagi PT. Elecomp Indonesia Group
+Memperoleh sistem manajemen media sosial internal yang terintegrasi, aman, dan siap pakai.
+Meningkatkan efisiensi kerja tim melalui otomatisasi alur persetujuan, notifikasi terpusat, dan integrasi publikasi ke Instagram.
+Menyediakan catatan jejak audit (audit trail) yang transparan dan akuntabel untuk seluruh proses produksi konten.
+Waktu Pelaksanaan
+Praktik Kerja Lapangan dilaksanakan selama kurang lebih 8 (delapan) minggu, terhitung mulai tanggal 29 Juni 2026 sampai dengan 21 Agustus 2026.
+Daftar Istilah
+Dibawah ini terdapat daftar istilah teknis yang digunakan dalam laporan ini beserta penjelasan artinya sesuai urutan alfabet:
+
+
+
+HASIL KEGIATAN PKL
+Gambaran Umum Instansi
+Berisi uraian singkat tentang sejarah, lokasi, strukur organisasi, serta bisnis proses dan bidang usaha instansi. Jika ada hal penting lain yang perlu disampaikan maka bisa disesuaikan
+Sejarah
+ PT. Elecomp Indonesia Group didirikan pada tahun 2014 di Kota Malang, Jawa Timur. Berawal dari penyedia solusi teknologi informasi skala mikro, perusahaan terus bertumbuh menjadi entitas bisnis berbadan hukum perseroan terbatas yang menaungi berbagai layanan transformasi digital.
+Perusahaan mengusung filosofi slogan "Every Client is VIP", yang menempatkan kepuasan dan kualitas kemitraan pelanggan sebagai prioritas tertinggi. Komitmen tersebut dibangun melalui standarisasi mutu layanan, pengembangan perangkat lunak berbasis kebutuhan riil, serta layanan purna jual yang andal.
+
+Gambar 2.1 Logo Perusahaan PT. Elecomp Indonesia Group
+Lokasi
+ Kantor operasional PT. Elecomp Indonesia Group berkedudukan di Kota Malang, Jawa Timur. Letak geografis Kota Malang yang strategis didukung oleh ekosistem pendidikan tinggi dan komunitas IT yang dinamis menjadikan lokasi perusahaan sangat kondusif dalam merekrut talenta terampil dan melayani klien di seluruh Indonesia.
+
+Gambar 2.2 Lokasi Kantor PT. Elecomp Indonesia Group
+Struktur Organisasi
+Struktur organisasi PT. Elecomp Indonesia Group dirancang responsif dan fleksibel dalam menangani proyek-proyek teknologi informasi:
+
+Gambar 2.3 Struktur Organisasi PT. Elecomp Indonesia Group
+Selama masa PKL, penulis ditempatkan pada divisi Programmer di bawah arahan VP Project Manager dan Project Manager, bertanggung jawab dalam pengembangan platform internal perusahaan.
+Bidang Usaha
+PT. Elecomp Indonesia Group melayani beragam produk dan jasa digital, di antaranya:
+Pengembangan Sistem Informasi & Web Enterprise: Pembangunan aplikasi berbasis web kustom untuk kebutuhan tata kelola perusahaan, manajemen operasional, dan analitik.
+Jasa Pembuatan Website Company Profile: Pengembangan situs profil perusahaan modern, berkecepatan tinggi, responsif, dan teroptimasi mesin pencari (Search Engine Optimization).
+Pembangunan WebGIS (Geographic Information System): Solusi pemetaan digital dan visualisasi data spasial interaktif berbasis web untuk instansi pemerintahan dan swasta.
+Konsultasi & Transformasi Digital: Layanan pendampingan infrastruktur IT, integrasi API, dan digital marketing.
+Klien yang telah bekerja sama mencakup kementerian dan lembaga pemerintah (Kementerian PUPR RI, Pemkab Sorong Selatan, Pemkot Malang, Pemkot Probolinggo), perusahaan swasta nasional (PT Gaya Baru, PT KTG, RSI Gondanglegi), asosiasi profesi (KADIN, IMA, HIPMI), hingga ratusan pelaku UMKM.
+Aktivitas yang Dilakukan
+Kegiatan Praktik Kerja Lapangan dilaksanakan dengan membagi tahapan kerja ke dalam fase metodologi rekayasa perangkat lunak secara terstruktur.
+Tabel 2.1 Aktivitas PKL
+Masalah yang Dihadapi dan Penanganannya
+Selama melaksanakan kegiatan Praktik Kerja Lapangan dan mengembangkan sistem SMMS di PT. Elecomp Indonesia Group, penulis menghadapi berbagai kendala yang berkaitan dengan kesenjangan materi perkuliahan terhadap implementasi industri, baik dari segi teknis pemrograman maupun adaptasi lingkungan kerja.
+Masalah
+Selama pelaksanaan PKL, penulis menghadapi beberapa masalah, antara lain:
+Penulis belum memiliki pengalaman dalam mengimplementasikan alur persetujuan bertingkat dengan aturan transisi status yang ketat, termasuk validasi peran pengguna dan pencatatan audit trail pada setiap perubahan status.
+Penulis belum pernah mengintegrasikan layanan API eksternal (Google Gemini API dan Meta Graph API) ke dalam aplikasi web berbasis CodeIgniter 4, termasuk penanganan autentikasi token, pengelolaan kredensial terenkripsi, dan mekanisme fallback saat terjadi kegagalan koneksi.
+Penulis belum memiliki pengalaman dalam merancang sistem yang mampu mengisolasi data secara penuh berdasarkan bisnis aktif yang dipilih pengguna melalui mekanisme session.
+Penulis belum memahami cara menyimpan kredensial API pihak ketiga (API Key, Access Token) secara aman menggunakan enkripsi AES-256 dalam basis data.
+Penanganan
+ 	Penanganan terhadap masalah-masalah tersebut adalah sebagai berikut:
+Penulis mempelajari konsep finite state machine dan mengimplementasikannya melalui class TransisiKonten yang berfungsi sebagai service terpusat. Setiap transisi status divalidasi berdasarkan tiga aspek: 
+Apakah transisi dari status lama ke status baru valid,
+Apakah peran pengguna diizinkan untuk melakukan transisi tersebut,
+Apakah catatan wajib sudah diisi untuk transisi tertentu. Pendekatan ini dipelajari secara mandiri melalui dokumentasi resmi dan referensi teknis di internet.
+Penulis mempelajari dokumentasi resmi Google Gemini API dan Meta Graph API, kemudian mengimplementasikan service layer terpisah (AiService dan GraphApiService) dengan mekanisme fallback tiga tingkat (cURL → PHP Stream → SSL Socket) untuk memastikan kompatibilitas dengan berbagai konfigurasi hosting. Penulis juga membangun logika retry otomatis untuk menangani kegagalan sementara pada API.
+Penulis merancang mekanisme Business Switcher yang menyimpan bisnis_aktif_id dalam session pengguna. Setiap query pada model dan controller difilter berdasarkan bisnis aktif menggunakan kolom bisnis_id sebagai foreign key pada tabel-tabel terkait (content_plan, platforms, jenis_konten, content_types, trend_bank, brand_assets).
+Penulis mempelajari penggunaan library Encrypter bawaan CodeIgniter 4 untuk mengenkripsi dan mendekripsi kredensial API menggunakan algoritma AES-256. Kredensial disimpan dalam format hex-encoded di basis data dan didekripsi saat runtime menggunakan kunci enkripsi yang dikonfigurasi di file .env.
+ Sistem Manajemen Konten Media Sosial Berbasis Web Dengan Approval Workflow Dan Role-Based Access Control Studi Kasus PT. ELECOMP INDONESIA
+Pengembangan sistem ini termasuk dalam kategori pembangunan dan perancangan aplikasi sistem informasi berbasis web dengan pendekatan berorientasi objek (Object-Oriented). Kontribusi pengembangan sistem dijabarkan secara sistematis dan berkaidah ilmiah mengikuti tahapan siklus pengembangan perangkat lunak (Software Development Life Cycle - SDLC) yang mencakup:
+Menganalisis permasalahan operasional, pemecahan masalah yang diusulkan, serta identifikasi kebutuhan fungsional dan non-fungsional sistem.
+Memodelkan sistem menggunakan kerangka Unified Modeling Language (UML) yang terdiri dari Use Case Diagram, Activity Diagram, State Machine Diagram, matriks Role-Based Access Control (RBAC), Entity Relationship Diagram (ERD), dan Arsitektur MVC.
+Menjelaskan realisasi rancangan ke dalam bentuk kode program, struktur data, antarmuka pengguna (User Interface), layanan logika bisnis (Service Layer), serta integrasi antarmuka eksternal (Google Gemini API dan Meta Graph API).
+Melakukan pengujian fungsionalitas perangkat lunak secara menyeluruh menggunakan metode Black Box Testing untuk memvalidasi kesesuaian sistem terhadap kebutuhan yang telah ditentukan.
+Analisis Sistem 
+Tahap analisis sistem merupakan langkah awal yang krusial dalam rekayasa perangkat lunak untuk mengidentifikasi akar permasalahan pada alur kerja operasional tim media sosial eksisting, merumuskan solusi berbasis teknologi informasi, serta mendefinisikan spesifikasi kebutuhan sistem secara terperinci.
+Analisis Permasalahan
+Sebelum Sistem Manajemen Media Sosial (SMMS) dikembangkan, pengelolaan konten media sosial di PT. Elecomp Indonesia Group menghadapi beberapa permasalahan sebagai berikut:
+Proses produksi konten dari ide hingga publikasi tidak memiliki tahapan persetujuan yang jelas. Konten dapat dipublikasikan tanpa melalui proses review oleh manager, sehingga berpotensi menurunkan kualitas konten yang dipublikasikan.
+Tidak terdapat mekanisme pencatatan riwayat perubahan status konten. Tim kesulitan mengetahui pada tahap mana suatu konten berada, siapa yang melakukan perubahan terakhir, serta alasan di balik penolakan atau permintaan revisi.
+Pembagian tugas antara content creator, designer, dan admin media sosial dilakukan secara manual melalui pesan, sehingga sering terjadi tumpang tindih atau kelalaian tugas.
+Perusahaan mengelola beberapa akun media sosial untuk klien/bisnis yang berbeda, namun tidak memiliki sistem yang mampu mengisolasi data antar bisnis secara terpisah.
+Proses pengunggahan konten ke platform media sosial (Instagram) dilakukan secara manual satu per satu, tanpa fitur penjadwalan otomatis.
+Analisis Pemecahan Masalah
+Berdasarkan analisis permasalahan di atas, dikembangkan Sistem Manajemen Media Sosial (SMMS) dengan solusi sebagai berikut:
+Siklus hidup konten dikendalikan oleh 8 status tetap (ide_diajukan, acc_ide, in_design, review_design, acc_final, published, serta revisi dan ditolak sebagai status cabang) dengan aturan transisi yang hanya dapat dieksekusi oleh role tertentu.
+Setiap perubahan status konten dicatat secara otomatis di tabel content_status_log, termasuk informasi pelaku, status sebelum dan sesudah, catatan revisi/penolakan, serta waktu perubahan. Hal ini memungkinkan pelacakan riwayat konten secara lengkap.
+Sistem menerapkan Role-Based Access Control dengan enam peran pengguna yang masing-masing memiliki hak akses dan tanggung jawab yang jelas. Fitur notifikasi in-app juga diimplementasikan untuk memberitahu pengguna terkait secara otomatis saat terjadi perubahan status konten.
+Sistem mendukung pengelolaan hingga 10 bisnis secara terisolasi. Setiap bisnis memiliki data platform, jenis konten, content pillar, konten, bank tren, dan aset brand tersendiri. Pengguna dapat berpindah bisnis aktif melalui Business Switcher tanpa harus logout.
+Sistem terintegrasi dengan Meta Graph API v26.0 untuk publikasi konten ke Instagram (foto, video/reels, carousel, story). Fitur penjadwalan otomatis (auto-publish) memungkinkan konten dipublikasikan secara otomatis sesuai jadwal yang telah ditentukan.
+Analisis Kebutuhan Fungsional dan Non-Fungsional
+Tahap analisis kebutuhan bertujuan untuk mengidentifikasi kebutuhan fungsional serta kebutuhan nonfungsional, dengan rincian sebagai berikut.
+Kebutuhan Fungsional
+Kebutuhan fungsional adalah kebutuhan yang berkaitan dengan fungsi utama sistem, mencakup fitur dan layanan yang harus tersedia untuk mendukung pengguna. Kebutuhan ini menjelaskan respons sistem terhadap input serta bagaimana sistem beroperasi pada situasi tertentu. Kebutuhan fungsional dalam sistem ini diklasifikasikan berdasarkan peran pengguna (role) yang terlibat, yaitu Superadmin, Owner, Manager, Creative Team, Content Creator, dan Admin Medsos, sebagaimana dijelaskan berikut ini.
+Superadmin dapat melakukan aksi sebagai berikut:
+Superadmin dapat melakukan login ke dalam sistem.
+Superadmin dapat mengelola data pengguna (user management).
+Superadmin dapat mengelola data bisnis (multi-business management).
+Superadmin dapat mengelola data master platform media sosial.
+Superadmin dapat mengelola data master jenis konten.
+Superadmin dapat mengelola data master content pillar.
+Superadmin dapat melihat dashboard performa dan ringkasan statistik konten.
+Superadmin dapat mengelola rencana konten (content plan).
+Superadmin dapat melakukan persetujuan konten (approval workflow: ACC ide, revisi, tolak, dan ACC final).
+Superadmin dapat mengakses dan menggunakan seluruh fitur AI (AI Caption, AI Idea, AI Brief, AI Viral Hook, dan AI Trend Radar).
+Superadmin dapat mengelola dan mempublikasikan konten ke Instagram (langsung maupun auto-publish via Meta Graph API).
+Superadmin dapat melihat riwayat audit trail transisi status konten.
+Superadmin dapat melihat laporan dan mengekspor rekap konten ke dalam format CSV.
+Superadmin dapat mengelola data bank tren dan asset library.
+Superadmin dapat berpindah bisnis aktif melalui fitur business switcher.
+Superadmin dapat mengelola profil diri dan mengganti password.
+Superadmin dapat melakukan logout dari sistem.
+Owner dapat melakukan aksi sebagai berikut:
+Owner dapat melakukan login ke dalam sistem.
+Owner dapat melihat ringkasan performa dan statistik konten pada dashboard.
+Owner dapat mengelola data bisnis serta konfigurasi token Meta Graph API.
+Owner dapat mengelola data master platform, jenis konten, dan content pillar.
+Owner dapat memantau dan mengelola seluruh rencana konten (content plan).
+Owner dapat menyetujui ide konten, meminta revisi, menolak, maupun memberikan persetujuan final (ACC Final).
+Owner dapat mengakses kalender tayang konten visual.
+Owner dapat menggunakan fitur AI Assistant.
+Owner dapat melihat riwayat audit trail perubahan status konten.
+Owner dapat melihat laporan performa konten dan mengekspor rekap data ke format CSV.
+Owner dapat mengelola data bank tren dan asset library.
+Owner dapat berpindah bisnis aktif melalui fitur business switcher.
+Owner dapat mengelola profil diri dan mengganti password.
+Owner dapat melakukan logout dari sistem.
+Manager dapat melakukan aksi sebagai berikut:
+Manager dapat melakukan login ke dalam sistem.
+Manager dapat melihat ringkasan status dan aktivitas konten pada dashboard.
+Manager dapat meninjau pengajuan ide konten yang diajukan oleh tim kreatif.
+Manager dapat menyetujui ide konten (ACC Ide) agar dapat dilanjutkan ke tahap pengerjaan desain.
+Manager dapat meminta revisi ide atau desain konten dengan menyertakan catatan perbaikan secara wajib.
+Manager dapat menolak ide konten dengan menyertakan alasan penolakan secara wajib.
+Manager dapat meninjau hasil desain yang diajukan oleh Content Creator (Review Design).
+Manager dapat menyetujui hasil desain final (ACC Final) agar siap dijadwalkan dan dipublikasikan.
+Manager dapat memanfaatkan fitur AI Pre-Review Checklist untuk membantu evaluasi kepatuhan konten.
+Manager dapat melihat kalender tayang konten dan daftar content plan.
+Manager dapat melihat riwayat audit trail perubahan status konten.
+Manager dapat melihat laporan dan mengekspor data konten ke format CSV.
+Manager dapat mengelola data bank tren dan asset library.
+Manager dapat berpindah bisnis aktif melalui fitur business switcher.
+Manager dapat mengelola profil diri dan mengganti password.
+Manager dapat melakukan logout dari sistem.
+Creative Team dapat melakukan aksi sebagai berikut:
+Creative Team dapat melakukan login ke dalam sistem.
+Creative Team dapat melihat statistik dan status konten pada dashboard.
+Creative Team dapat membuat dan mengajukan rencana/ide konten baru ke dalam sistem.
+Creative Team dapat memperbaiki ide konten yang mendapatkan catatan revisi dan mengajukannya kembali.
+Creative Team dapat menggunakan fitur AI Idea Generator untuk menghasilkan inspirasi konsep konten.
+Creative Team dapat menggunakan fitur AI Brief Generator untuk menyusun deskripsi ide konten terstruktur.
+Creative Team dapat menggunakan fitur AI Viral Hook Generator untuk membuat kalimat pembuka konten yang menarik.
+Creative Team dapat menggunakan fitur AI Trend Radar untuk mengeksplorasi topik hangat di media sosial.
+Creative Team dapat mengelola referensi konten pada modul Bank Tren.
+Creative Team dapat melihat kalender tayang konten dan daftar content plan.
+Creative Team dapat melihat panduan brand dan mengunduh berkas pada Asset Library.
+Creative Team dapat berpindah bisnis aktif melalui fitur business switcher.
+Creative Team dapat mengelola profil diri dan mengganti password.
+Creative Team dapat melakukan logout dari sistem.
+Content Creator dapat melakukan aksi sebagai berikut:
+Content Creator dapat melakukan login ke dalam sistem.
+Content Creator dapat melihat ringkasan tugas dan status pengerjaan konten pada dashboard.
+Content Creator dapat mengakses modul Tugas Creator untuk melihat daftar tugas desain yang dialokasikan.
+Content Creator dapat mengunggah berkas desain visual/video dan menyematkan tautan lembar kerja desain.
+Content Creator dapat menyusun draft teks caption konten.
+Content Creator dapat memanfaatkan fitur AI Caption Generator untuk menyusun teks caption media sosial yang sesuai dengan gaya bahasa target audiens.
+Content Creator dapat mengajukan hasil desain untuk ditinjau oleh Manager (Review Design).
+Content Creator dapat memperbaiki hasil desain berdasarkan catatan revisi Manager dan mengajukannya kembali.
+Content Creator dapat mengajukan ide konten baru ke dalam sistem.
+Content Creator dapat melihat asset visual pada Asset Library.
+Content Creator dapat melihat kalender tayang konten.
+Content Creator dapat berpindah bisnis aktif melalui fitur business switcher.
+Content Creator dapat mengelola profil diri dan mengganti password.
+Content Creator dapat melakukan logout dari sistem.
+Admin Medsos dapat melakukan aksi sebagai berikut:
+Admin Medsos dapat melakukan login ke dalam sistem.
+Admin Medsos dapat melihat ringkasan jadwal konten yang siap tayang pada dashboard.
+Admin Medsos dapat mengakses halaman Jadwal Upload untuk melihat konten berstatus ACC Final.
+Admin Medsos dapat menjadwalkan waktu publikasi otomatis (auto-publish) ke Instagram via Meta Graph API.
+Admin Medsos dapat melakukan publikasi konten secara manual ke platform media sosial.
+Admin Medsos dapat memperbarui status konten menjadi tayang (published) dengan mencatat tautan postingan serta tangkapan layar bukti publikasi.
+Admin Medsos dapat memantau jadwal tayang konten melalui kalender tayang visual.
+Admin Medsos dapat melihat referensi aset pada Asset Library dan tren pada Bank Tren.
+Admin Medsos dapat berpindah bisnis aktif melalui fitur business switcher.
+Admin Medsos dapat mengelola profil diri dan mengganti password.
+Admin Medsos dapat melakukan logout dari sistem.
+Kebutuhan Non-Fungsional
+Kebutuhan non-fungsional adalah kebutuhan yang berhubungan dengan aspek kinerja, keterbatasan teknis, dan kualitas layanan sistem. Kebutuhan ini meliputi spesifikasi perangkat keras dan perangkat lunak yang dibutuhkan untuk mendukung kinerja sistem secara optimal. Kebutuhan nonfungsional yang diperlukan dalam pembangunan sistem ini diuraikan sebagai berikut.
+Perangkat Keras (Hardware)
+Merupakan perangkat fisik yang berfungsi untuk menunjang pengembangan dan operasional sistem. Adapun spesifikasi minimum yang digunakan dalam penelitian ini meliputi sebagai berikut:
+Prosessor: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz (atau prosesor setara dengan minimal 4 core)
+Memori (RAM): 8 GB
+Penyimpanan (Storage): Solid State Drive (SSD) / Hard Disk 500 GB
+Perangkat Masukan/Keluaran: Monitor dengan resolusi layar minimum 1366 x 768 piksel, keyboard, dan mouse.
+Perangkat Lunak (Software)
+Perangkat lunak yang digunakan selama proses pengembangan dan operasional sistem antara lain:
+Sistem Operasi: Microsoft Windows 11 / Windows 10 (64-bit)
+Local development environment: Laragon (Apache 2.4, PHP 8.2, MySQL)
+Backend framework: CodeIgniter 4 (PHP 8.2)
+Frontend: HTML5, Vanilla CSS3 (Custom Design System dengan Glassmorphism), dan Vanilla JavaScript (ES6+)
+Database: MySQL versi 8.0 / MariaDB
+Text editor: Visual Studio Code
+Web browser: Google Chrome
+Application Programming Interface (API): Meta Graph API v26.0 (Instagram Content Publishing) dan Google Gemini API (Generative AI)
+Perancangan Sistem Manajemen Media Sosial
+Diagram Use Case
+Diagram Use Case memodelkan interaksi antara pengguna (actor) dengan fungsi-fungsi utama yang disediakan oleh Sistem Manajemen Media Sosial (SMMS). Sistem ini dirancang untuk mengatasi hambatan alur kerja konvensional dalam pengelolaan media sosial multi-bisnis di PT. Elecomp Indonesia Group melalui penerapan Role-Based Access Control (RBAC) yang memisahkan hak akses dan wewenang ke dalam 6 (enam) peran utama, yaitu: Superadmin, Owner, Manager, Creative Team, Content Creator, dan Admin Medsos.
+Seluruh interaksi fungsional terpusat pada pengelolaan siklus hidup konten (content lifecycle) yang diatur melalui mesin status (state machine) 8 tahapan, mulai dari inisiasi ide, peninjauan kelayakan, proses desain, evaluasi akhir, hingga penerbitan konten secara otomatis ke platform Instagram via Meta Graph API v26.0 dan pemanfaatan asisten kecerdasan buatan Google Gemini API.
+
+Gambar 2.4 Diagram Use Case
+Daftar Aktor
+Tabel 2.2 Daftar Aktor
+
+Daftar Use Case
+Tabel 2.3 Daftar Use Case
+
+Activity Diagram
+Activity Diagram digunakan untuk menggambarkan aliran kerja (workflow) dan urutan aktivitas operasional dalam sistem dari status awal, percabangan keputusan, hingga status akhir. Pada perancangan Sistem Manajemen Media Sosial (SMMS), pemodelan activity diagram mencakup 6 (enam) alur proses operasional utama sebagai berikut.
+Autentikasi Pengguna (Login)
+Activity Diagram autentikasi pengguna memodelkan alur proses masuk (login) pengguna ke dalam sistem SMMS. Alur dimulai ketika pengguna mengakses halaman login, mengisikan alamat email dan kata sandi, lalu menekan tombol masuk; sistem SMMS selanjutnya memvalidasi kelengkapan format masukan, di mana jika format tidak valid maka sistem memunculkan notifikasi validasi ke layar, sedangkan jika format valid sistem melanjutkan verifikasi kredensial serta pencocokan enkripsi kata sandi ke basis data. Apabila kredensial tidak cocok, sistem menampilkan pesan kesalahan login dan mengembalikan pengguna ke form input, namun jika kredensial terbukti valid, sistem langsung menginisialisasi sesi login (session), menetapkan hak akses peran pengguna, serta mengarahkan tampilan secara otomatis ke dashboard utama sesuai dengan peran pengguna yang bersangkutan.
+ 
+
+Gambar 2.5 Activity Diagram Autentikasi Pengguna
+Pengajuan Ide Konten Baru
+Activity Diagram pengajuan ide konten baru menggambarkan tahapan inisiasi rencana konten yang dilakukan oleh Creative Team maupun Manager. Alur kerja dimulai saat pengguna membuka menu Content Plan, menekan tombol tambah ide baru, mengisi parameter konten (judul, brief, pillar, dan target tanggal), lalu menekan tombol simpan ide; sistem SMMS kemudian memvalidasi kelengkapan isian formulir, di mana jika data belum lengkap sistem menampilkan pesan peringatan input agar pengguna melengkapi formulir kembali. Apabila seluruh parameter valid dan lengkap, sistem menyimpan data rencana konten ke tabel content_plan, menetapkan status awal ide_diajukan, mencatat jejak transaksi pada log audit trail, mengirimkan notifikasi otomatis ke akun Manager, serta menampilkan pesan konfirmasi berhasil sehingga kartu rencana konten langsung tampil pada kolom antrean Ide Diajukan.
+
+Gambar 2.6 Activity Diagram Pengajuan Ide Konten Baru
+Approval Ide Konten oleh Manager
+Activity Diagram approval final desain konten memodelkan tahap evaluasi akhir oleh Manager terhadap kelayakan visual grafis, kelengkapan teks takarir (caption), dan rekomendasi kepatuhan dari AI Pre-Review Checklist sebelum konten dijadwalkan untuk terbit. Alur kerja diawali saat Manager membuka konten berstatus review_design, di mana jika ditemukan ketidaksesuaian maka Manager mengirimkan status revisi dengan catatan koreksi wajib yang akan mengembalikan tugas ke Content Creator, sedangkan jika konten telah memenuhi seluruh standar mutu brand maka Manager menetapkan persetujuan akhir (ACC Final); sistem kemudian memvalidasi hak akses, memperbarui status siklus hidup konten menjadi acc_final, mencatat riwayat transaksi ke dalam log audit trail, dan mengirimkan notifikasi konfirmasi ke tim terkait.
+
+Gambar 2.7 Activity Diagram Approval Ide Konten oleh Manager
+Pengerjaan dan Penyerahan Desain Konten
+Activity Diagram pengerjaan dan penyerahan desain konten memodelkan alur kerja operasional Content Creator dalam merealisasikan ide konten menjadi aset visual siap tayang. Proses dimulai ketika Content Creator membuka menu Content Plan atau antrean desain, memilih konten yang telah berstatus in_design, mengerjakan materi visual serta mengunggah berkas gambar atau tautan lembar kerja Canva, kemudian menekan tombol ajukan review, sistem SMMS segera memvalidasi lampiran berkas gambar atau URL desain, di mana jika lampiran kosong sistem memunculkan pesan peringatan agar berkas wajib diunggah. Apabila aset visual dinyatakan valid, sistem menyimpan data aset beserta draf takarir (caption), memperbarui status konten menjadi review_design, mencatat log audit trail, mengirim notifikasi peninjauan kepada Manager, serta memunculkan notifikasi konfirmasi penyerahan sukses sehingga status kartu konten berpindah ke kolom peninjauan desain.
+
+Gambar 2.8 Activity Diagram Pengerjaan dan Penyerahan Desain Konten
+
+Approval Final Desain Konten
+Menggambarkan tahap evaluasi akhir kelayakan konten oleh Manager sebelum tayang. Manager memeriksa kesesuaian grafis visual, teks caption, dan kepatuhan identitas merek berstatus review_design; jika memenuhi standar, status ditetapkan menjadi acc_final dan dialokasikan ke antrean publikasi. Jika belum sesuai, Manager memberikan catatan instruksi revisi yang mengembalikan tugas ke Content Creator.	
+
+Gambar 2.9 Activity Diagram Approval Final Desain Konten
+Publikasi Konten ke Instagram via Meta Graph API
+Activity Diagram publikasi konten ke Instagram memodelkan proses penayangan konten baik melalui trigger manual oleh Admin Medsos maupun eksekusi otomatis terjadwal menggunakan Meta Graph API v26.0. Alur dimulai ketika Admin Medsos memilih konten berstatus acc_final dan memicu proses publikasi, di mana sistem SMMS melakukan validasi terhadap format berkas media serta masa aktif token akses Instagram, menerapkan penguncian atomik (atomic lock) berstatus diproses untuk mencegah publikasi ganda, dan mengirimkan permintaan payload media container ke server Meta; apabila respons API berhasil, sistem menyimpan tautan postingan ke tabel bukti_upload, memperbarui status akhir konten menjadi published, dan mencatat transaksi ke dalam log jejak audit.
+
+Gambar 2.10 Activity Diagram Publikasi Konten ke Instagram via Meta Graph API
+
+
+Penggunaan Asisten Kecerdasan Buatan (Google Gemini API)
+Activity Diagram penggunaan asisten kecerdasan buatan menggambarkan alur interaksi pengguna saat memanfaatkan fitur generasi konten otomatis berbasis Google Gemini API (seperti AI Caption, AI Idea, AI Brief, dan AI Viral Hook). Proses diawali saat pengguna menginput parameter berupa topik konten, kata kunci relevan, serta gaya bahasa (tone of voice), lalu sistem mengonstruksi sistem prompt terstruktur dan mengirimkannya ke endpoint Google Gemini API melalui koneksi aman, setelah respons berhasil diterima, sistem secara otomatis mencatat riwayat generasi ke tabel ai_generation_log dan merender draf teks ke layar antarmuka sehingga pengguna dapat langsung menerapkannya ke dalam draf rencana konten.
+
+Gambar 2.11 Activity Diagram Penggunaan Asisten Kecerdasan Buatan (Google Gemini API)
+Rancangan Relasi Antar Tabel
+Rancangan relasi antar tabel menggambarkan arsitektur basis data relasional (Relational Database) yang mendasari Sistem Manajemen Media Sosial (SMMS). Sistem ini terdiri dari 15 entitas/tabel yang dirancang memenuhi kaidah normalisasi data (hingga bentuk normalisasi ketiga/3NF) guna menghindari redundansi data, menjaga konsistensi, serta menjamin integritas referensial (Referential Integrity) melalui penerapan Primary Key (PK) dan Foreign Key (FK).
+
+Basis data ini dibangun di atas konsep Arsitektur Multi-Tenancy Berbasis Bisnis, di mana seluruh parameter operasional media sosial (platform, format jenis konten, pilar tema, hingga bank tren) diisolasi berdasarkan unit bisnis aktif di bawah naungan PT. Elecomp Indonesia Group.
+
+Gambar 2.12 Rancangan Relasi Antar Tabel
+
+Daftar Entitiy
+Tabel 2.4 Daftar Entity
+
+Arsitektur Sistem
+Sistem Manajemen Media Sosial (SMMS) menggunakan arsitektur Model-View-Controller (MVC) yang disediakan oleh framework CodeIgniter 4, diperkaya dengan Service Layer untuk logika bisnis kompleks dan integrasi API pihak ketiga.
+
+Gambar 2.13 Arsitektur Sistem
+Rancangan Antarmuka
+Rancangan antarmuka disusun sebagai acuan visual dan panduan tata letak (wireframe/mockup) dalam membangun sistem informasi sebelum diimplementasikan ke dalam bentuk kode program. Perancangan ini berfokus pada aspek kejelasan tata letak, kemudahan navigasi, efisiensi alur kerja operasional. Adapun rancangan antarmuka pengguna pada Sistem Manajemen Media Sosial (SMMS) mencakup beberapa halaman utama sebagai berikut:
+Rancangan Antarmuka Halaman Login
+Rancangan antarmuka halaman login mengusung tata letak kartu terpusat (centered card) yang minimalis dan fokus. Antarmuka memuat identitas logo sistem, formulir isian email dan kata sandi dengan tombol visibilitas (toggle show/hide password), tombol aksi login, serta area pesan peringatan validasi jika kredensial tidak sesuai.
+
+Gambar 2.14 Rancangan Antarmuka Halaman Login
+Rancangan Antarmuka Halaman Dashboard
+Rancangan antarmuka halaman dashboard menyajikan ringkasan metrik statistik operasional sistem secara real-time. Komponen utama meliputi kartu metrik (total ide konten, status ACC, antrean jadwal tayang, dan kebutuhan revisi), grafik perkembangan produksi, kalender jadwal mini, serta fitur pemilihan unit bisnis aktif (business switcher) di bilah atas.
+
+Gambar 2.15 Rancangan Antarmuka Halaman Dashboard
+Rancangan Antarmuka Halaman Ide Konten
+Rancangan antarmuka halaman ide konten berfungsi sebagai repositori penampung seluruh inisiasi ide kreatif. Halaman ini memuat bilah pencarian topik, filter status usulan, tombol penambahan draf ide baru, serta tabel daftar ide yang dilengkapi tombol aksi cepat untuk mengajukan atau mengubah ide terpilih.
+
+Gambar 2.16 Rancangan Antarmuka Halaman Ide Konten
+
+
+Rancangan Antarmuka Halaman Content Plan
+Rancangan antarmuka halaman content plan menjadi pusat pengelolaan rencana publikasi konten media sosial. Antarmuka dilengkapi filter multi-kriteria (status siklus konten, platform tujuan, dan pilar tema), tombol tambah rencana konten, serta tabel rencana terstruktur yang menampilkan judul, format konten, tanggal target tayang, dan indikator status persetujuan.
+
+Gambar 2.17 Rancangan Antarmuka Halaman Content Plan
+Rancangan Antarmuka Halaman Approval Manager
+Rancangan antarmuka halaman approval manager memfasilitasi proses kendali mutu materi konten oleh peran Manager. Halaman menyajikan detail komparasi naskah caption dan visual desain, panel riwayat evaluasi, serta tombol keputusan utama (Setujui, Minta Revisi, Tolak) yang terintegrasi dengan dialog pop-up catatan arahan revisi wajib.
+
+Gambar 2.18 Rancangan Antarmuka Halaman Approval Manager
+Rancangan Antarmuka Halaman Tugas Desain 
+Rancangan antarmuka halaman tugas desain dikhususkan bagi peran Content Creator untuk memantau tugas visual yang dialokasikan. Tata letak menyajikan kartu ringkasan tugas aktif, lembar instruksi (brief), formulir input tautan Canva atau unggah berkas grafis, editor draf caption, serta tombol penyerahan tugas untuk ditinjau oleh Manager.
+
+Gambar 2.19 Rancangan Antarmuka Halaman Tugas Desain
+Rancangan Antarmuka Halaman Jadwal dan Upload
+Rancangan antarmuka halaman jadwal upload dirancang untuk mengeksekusi penayangan materi konten yang telah berstatus ACC Final. Fitur utama mencakup tabel antrean publikasi, formulir penjadwalan otomatis (datetime picker), tombol aksi posting langsung via Meta Graph API, serta formulir pengarsipan bukti tayang permanen.
+
+Gambar 2.20 Rancangan Antarmuka Halaman Tugas Desain
+Rancangan Antarmuka Halaman Bank Tren dan Asisten AI
+Rancangan antarmuka halaman bank tren dan asisten AI dirancang untuk mempermudah riset tren media sosial terkini. Antarmuka menyediakan galeri kartu tren viral dengan indikator popularitas, filter platform (TikTok dan Instagram), serta modal generator AI berbasis Google Gemini API untuk merumuskan hook pembuka dan draf takarir secara otomatis.
+
+Gambar 2.21 Rancangan Antarmuka Halaman Bank Tren dan Asisten AI
+Rancangan Antarmuka Halaman Laporan dan Analitik
+Rancangan antarmuka halaman laporan menyajikan rekapitulasi performa operasional tim media sosial secara komprehensif. Komponen antarmuka memuat filter rentang periode, diagram rasio status konten, tabel rincian produktivitas masing-masing anggota tim, serta tombol ekspor rekapitulasi data ke dalam format CSV.
+
+Gambar 2.22 Rancangan Antarmuka Halaman Laporan dan Analitik
+Rancangan Antarmuka Halaman Audit Trail Log
+Rancangan antarmuka halaman audit trail dirancang untuk memastikan tata kelola dan akuntabilitas sistem yang transparan. Halaman menyajikan tabel kronologis jejak aktivitas yang mencatat riwayat perubahan status konten, identitas pengguna pelaksana aksi, catatan evaluasi yang diberikan, serta stempel waktu sistem yang tercatat secara permanen.
+
+Gambar 2.23 Rancangan Antarmuka Halaman Log Audit Trail
+Rancangan Antarmuka Halaman Manajemen Pengguna (User Management)
+Rancangan antarmuka halaman manajemen pengguna dikhususkan bagi Superadmin untuk mengelola seluruh akun pengguna. Antarmuka memuat tabel daftar pengguna, filter peran kerja (RBAC), tombol pendaftaran akun baru, serta formulir modal untuk mengubah data akun dan mengaktifkan atau menonaktifkan status akun pengguna.
+
+Gambar 2.24 Rancangan Antarmuka Halaman Manajemen Pengguna (User Management)
+Rancangan Antarmuka Halaman Manajemen Bisnis (Multi-Tenancy)
+Rancangan antarmuka halaman manajemen bisnis digunakan untuk mengelola portofolio multi-bisnis PT. Elecomp Indonesia Group. Halaman menyajikan daftar unit usaha aktif, pengaturan identitas visual merek (logo dan warna aksen), serta panel konfigurasi kredensial API eksternal (Instagram Graph API dan Google Gemini API).
+
+Gambar 2.25 Rancangan Antarmuka Halaman Manajemen Bisnis (Multi-Tenancy)
+Rancangan Antarmuka Halaman Master Data
+Rancangan antarmuka halaman master data mengadopsi navigasi berbasis tab terpadu untuk mengelola parameter referensi sistem. Tab konfigurasi mencakup pengelolaan platform media sosial (Instagram, TikTok, dsb.), klasifikasi jenis format konten (Reels, Carousel, Feed), serta pilar tema konten yang berlaku pada masing-masing unit bisnis.
+
+Gambar 2.26 Rancangan Antarmuka Halaman Master Data
+Rancangan Antarmuka Halaman Brand Kit dan Asset Library
+Rancangan antarmuka halaman brand kit dan aset berfungsi sebagai pustaka digital terpadu untuk menjaga konsistensi identitas merek. Halaman ini menyajikan katalog logo resmi berbagai format, pedoman palet warna korporat (HEX/RGB), panduan tipografi, serta galeri aset multimedia yang dapat diakses langsung oleh tim kreatif.
+
+Gambar 2.27 Rancangan Antarmuka Halaman Brand Kit dan Asset Library
+Rancangan Antarmuka Halaman Kalender Tayang
+Rancangan antarmuka halaman kalender tayang menyajikan visualisasi jadwal rilis konten dalam format kisi kalender bulanan dan mingguan. Setiap agenda tayang ditandai dengan lencana warna berdasarkan platform media sosial dan status publikasi, memudahkan tim melihat keteraturan jadwal tayang dan menghindari kekosongan publikasi.
+
+Gambar 2.28 Rancangan Antarmuka Halaman Kalender Tayang
+Rancangan Pengujian Sistem
+Pengujian sistem dirancang menggunakan metode Black Box Testing yang berfokus pada pengujian masukan (input) dan keluaran (output) fungsionalitas aplikasi tanpa harus memeriksa struktur internal kode. Skenario pengujian mencakup fungsi login, hak akses role, pembuatan ide, transisi state machine, penolakan transisi ilegal, penyimpanan aset, hingga konfirmasi publish.
+Implementasi Sistem
+Impelementasi Proses
+Implementasi proses merupakan tahap penerapan rancangan antarmuka pengguna yang telah disusun pada tahap sebelumnya. Berikut ini disajikan hasil implementasi rancangan antarmuka pengguna pada Sistem Manajemen Media Sosial(SMMS)
+Implementasi Halaman Login
+Halaman login diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Pengguna diminta untuk memasukkan email dan kata sandi yang valid. Sistem akan memverifikasi data tersebut sebelum memberikan akses ke dashboard utama sesuai peran pengguna. Halaman login dapat dilihat pada Gambar 2.29.
+
+Gambar 2.29 Implementasi Halaman Login
+Implementasi Halaman Dashboard
+Halaman dashboard diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Pengguna dapat melihat ringkasan statistik performa konten, metrik status persetujuan, kalender tayang, dan informasi bisnis aktif yang sedang dikelola secara terpusat. Sistem akan menampilkan metrik data operasional terkini sesuai dengan hak akses peran pengguna yang sedang login. Halaman dashboard dapat dilihat pada Gambar 2.30.
+
+Gambar 2.30 Implementasi Halaman Dashboard
+Implementasi Halaman Content Plan
+Halaman content plan diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Tim kreatif dan content creator dapat mengelola rencana konten, mulai dari menambahkan usulan ide baru, memilih pilar dan jenis format, hingga mengatur jadwal tayang. Sistem akan mencatat data rencana konten ke basis data dengan status awal ide diajukan serta memfasilitasi transisi status konten. Halaman content plan dapat dilihat pada Gambar 2.31.
+
+Gambar 2.31 Implementasi Halaman Content Plan
+Berdasarkan implementasi pada Gambar 2.31, berikut adalah potongan kode yang digunakan.
+
+Implementasi Halaman Approval Manager
+Halaman approval manager diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Manager dapat meninjau detail usulan ide maupun hasil desain konten, serta memberikan keputusan berupa persetujuan (ACC), permintaan revisi, atau penolakan dengan catatan koreksi wajib. Sistem akan memproses keputusan tersebut melalui aturan state machine dan memperbarui status konten secara otomatis. Halaman approval manager dapat dilihat pada Gambar 2.32.
+
+Gambar 2.32 Implementasi Halaman Approval Manager
+Berdasarkan implementasi pada Gambar 2.32, berikut adalah potongan kode yang digunakan.
+
+Implementasi Halaman Tugas Creator
+Halaman tugas creator diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Content creator dapat melihat daftar tugas desain visual yang dialokasikan, mengunggah berkas gambar atau tautan lembar kerja Canva, menyusun draf takarir (caption), dan menyerahkan hasil karya untuk direview. Sistem akan memvalidasi kelengkapan lampiran desain sebelum memindahkan status konten ke tahap peninjauan desain. Halaman tugas creator dapat dilihat pada Gambar 2.33.
+
+Gambar 2.33 Implementasi Halaman Tugas Creator
+Implementasi Halaman Jadwal dan Auto-Publish
+Halaman jadwal upload dan auto-publish diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Admin media sosial dapat memantau konten yang telah berstatus ACC final, mengatur jadwal publikasi otomatis, atau mempublikasikan konten secara langsung ke akun Instagram bisnis. Sistem akan memverifikasi URL berkas media serta token Meta Graph API sebelum memproses penayangan konten. Halaman jadwal upload dan auto-publish dapat dilihat pada Gambar 2.34.
+
+Gambar 2.34 Implementasi Halaman Jadwal Upload dan Auto-Publish
+Implementasi Halaman Bank Trend dan AI Trend Radar
+Halaman bank trend dan AI trend radar diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Pengguna dapat menginput topik dan kata kunci untuk mencari inspirasi tren media sosial serta menghasilkan kalimat pembuka (viral hook) secara otomatis. Sistem akan memanggil Google Gemini API untuk mengkurasi tren terkini dan menyimpan referensi ide ke dalam bank tren bisnis. Halaman bank trend dan AI trend radar dapat dilihat pada Gambar 2.35.
+
+Gambar 2.35 Implementasi Halaman Bank Trend dan AI Trend Radar
+Implementasi Halaman Laporan
+Halaman laporan diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Pengguna dapat memfilter rekapitulasi data konten berdasarkan periode bulan dan tahun tertentu untuk meninjau produktivitas tim dan distribusi platform. Sistem akan menyajikan visualisasi data statistik serta menyediakan tombol ekspor data ke dalam format berkas CSV. Halaman laporan dapat dilihat pada Gambar 2.36.
+
+Gambar 2.36 Implementasi Halaman Laporan
+Implementasi Halaman Audit Trail
+Halaman audit trail diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Pengguna dapat memantau riwayat log aktivitas dan perubahan status konten secara kronologis dan transparan. Sistem akan menampilkan rincian informasi mengenai pengguna yang melakukan aksi, status sebelum dan sesudah transisi, catatan perbaikan, serta stempel waktu kejadian. Halaman audit trail dapat dilihat pada Gambar 2.37.
+
+Gambar 2.37 Implementasi Halaman Audit Trail
+
+Implementasi Halaman Manajemen User
+Halaman manajemen user diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Superadmin dapat mengelola data pengguna sistem, mencakup penambahan akun baru, pengubahan profil, penetapan hak akses peran, serta pengelolaan status keaktifan akun. Halaman manajemen user dapat dilihat pada Gambar 2.38.
+
+Gambar 2.38 Implementasi Halaman Manajemen User
+Implementasi Halaman Manajemen Bisnis
+Halaman manajemen bisnis diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Superadmin dan owner dapat mengelola data identitas multi-bisnis (nama, logo, dan warna identitas merek) serta mengonfigurasi kredensial API pihak ketiga. Halaman manajemen bisnis dapat dilihat pada Gambar 2.39.
+
+Gambar 2.39 Implementasi Halaman Manajemen Bisnis
+Berdasarkan implementasi pada Gambar 2.39, berikut adalah potongan kode yang digunakan.
+
+Implementasi Halaman Master Data 
+Halaman master data diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Superadmin dan owner dapat mengelola data referensi operasional yang meliputi platform media sosial, format atau jenis konten, serta pilar konten per bisnis. Sistem akan mengelompokkan data master sesuai bisnis aktif pengguna dan menyediakan antarmuka pengelolaan data. Halaman master data dapat dilihat pada Gambar 2.40.
+
+Gambar 2.40 Implementasi Halaman Master Data
+Implementasi Halaman Ide Konten
+Halaman ide konten diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Tim kreatif dan content creator dapat mengajukan inisiasi ide materi baru, memantau kartu metrik statistik pengajuan ide (total ide, menunggu review, disetujui/in design, revisi, dan lewat tenggat), memfilter ide berdasarkan status, serta memanfaatkan tombol pemicu fitur Ide AI untuk menghasilkan inspirasi topik baru secara instan. Halaman ide konten dapat dilihat pada Gambar 2.41.
+
+Gambar 2.41 Implementasi Halaman Ide Konten
+Implementasi Halaman Brand Kit dan Asset Library
+Halaman brand kit dan asset library diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Pengguna dapat mengakses dan mengelola seluruh aset identitas visual merek per unit bisnis secara terpadu, yang memuat dokumen panduan merek (Brand Guidelines PDF viewer), kode warna resmi perusahaan (color swatches HEX/RGB), panduan tipografi, serta repositori berkas logo dan media pendukung materi promosi. Halaman brand kit dan asset library dapat dilihat pada Gambar 2.42.
+
+Gambar 2.42 Implementasi Halaman Brand Kit dan Asset Library
+
+Implementasi Halaman Kalender Tayang
+Halaman kalender tayang diimplementasikan sesuai dengan rancangan antarmuka yang telah dibuat sebelumnya. Pengguna dapat memantau jadwal penayangan konten media sosial dalam format kisi kalender bulanan dan mingguan interaktif. Halaman ini juga dilengkapi tabel acuan waktu tayang terbaik (Best Hours Guide) per platform, penanda lencana warna status siklus konten, serta modal rincian informasi konten saat tanggal tayang diklik. Halaman kalender tayang dapat dilihat pada Gambar 2.43.
+
+Gambar 2.43 Implementasi Halaman Kalender Tayang
+Implementasi Data
+Implementasi tahap penyimpanan basis data pada sistem ini dilakukan berdasarkan rancangan yang telah disusun sebelumnya. Basis data yang digunakan dalam pengembangan sistem adalah MySQL, yang mendukung integrasi secara langsung dengan framework CodeIgniter4. Selanjutnya, bagian ini membahas implementasi rancangan antarmuka pengguna pada Sistem Manajemen Media Sosial (SMMS)
+Tabel roles
+Tabel roles digunakan untuk menyimpan data tingkat peran atau hak akses pengguna pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi kode unik peran, nama peran yang ditampilkan pada sistem, serta informasi waktu pembuatan dan pembaruan data. Tabel ini berfungsi sebagai acuan utama otorisasi pengguna berbasis peran (Role-Based Access Control) dalam mengakses dashboard serta membatasi hak akses fitur sesuai wewenang. Berikut adalah implementasi dari tabel roles yang ditunjukkan pada Gambar. 2.45
+
+Gambar 2.44 Tabel Roles
+Tabel users
+Tabel users digunakan untuk menyimpan data akun pengguna pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi nama lengkap, alamat email unik, kata sandi yang telah dienkripsi menggunakan algoritma hashing bcrypt, relasi peran pengguna (role), status keaktifan akun, serta informasi waktu pembuatan dan pembaruan akun. Tabel ini berfungsi sebagai dasar autentikasi dan otorisasi pengguna dalam mengakses dashboard serta mengelola seluruh fitur sistem sesuai hak aksesnya. Berikut adalah implementasi dari tabel users yang ditunjukkan pada Gambar. 2.45.
+
+Gambar 2.45 Tabel Users
+Tabel bisnis
+Tabel bisnis digunakan untuk menyimpan data profil merek atau unit usaha yang dikelola pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi nama bisnis, deskripsi, kode warna visual, URL logo, status keaktifan, urutan tampilan, kredensial integrasi Meta Graph API, kunci API Google Gemini yang terenkripsi, serta informasi waktu pembuatan dan pembaruan data. Tabel ini berfungsi sebagai fondasi arsitektur multi-tenancy dalam mengisolasi data, pengaturan API, dan aktivitas operasional media sosial antar unit usaha. Berikut adalah implementasi dari tabel bisnis yang ditunjukkan pada Gambar. 2.46.
+
+Gambar 2.46 Tabel Bisnis
+Berdasarkan implementasi pada Gambar 2.46, berikut adalah sintaks SQL yang digunakan.
+
+Tabel platforms
+Tabel platforms digunakan untuk menyimpan data saluran atau platform media sosial tujuan penayangan konten pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi nama platform media sosial, relasi kepemilikan bisnis, serta status keaktifan platform. Tabel ini berfungsi sebagai referensi master data saluran publikasi konten yang terikat pada masing-masing unit bisnis. Berikut adalah implementasi dari tabel platforms yang ditunjukkan pada Gambar. 2.47.
+
+Gambar 2.47 Tabel Platforms
+Tabel jenis_konten
+Tabel jenis_konten digunakan untuk menyimpan data format atau bentuk penyajian konten pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi nama jenis format konten, keterangan atau spesifikasi format, serta relasi kepemilikan unit bisnis. Tabel ini berfungsi sebagai referensi format kreatif konten seperti Single Image, Carousel, Reels, atau Story dalam penyusunan rencana konten. Berikut adalah implementasi dari tabel jenis_konten yang ditunjukkan pada Gambar. 2.48.
+
+Gambar 2.48 Tabel Jenis_Konten
+Tabel content_types
+Tabel content_types digunakan untuk menyimpan data kategori pilar tema konten pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi nama pilar tema konten dan relasi kepemilikan unit bisnis. Tabel ini berfungsi sebagai klasifikasi strategi pemasaran media sosial seperti edukasi, promosi, interaksi, atau hiburan guna menjaga konsistensi tema konten. Berikut adalah implementasi dari tabel content_types yang ditunjukkan pada Gambar. 2.49.
+
+Gambar 2.49 Tabel Content_Types
+Tabel content_plan
+Tabel content_plan digunakan untuk menyimpan data seluruh rencana produksi dan siklus hidup konten pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi judul konten, deskripsi brief, draf takarir (caption), tanggal rencana tayang, waktu penjadwalan otomatis, status antrean publikasi, riwayat percobaan penerbitan, pesan galat terakhir, relasi format konten, relasi pilar konten, status alur persetujuan, penanggung jawab pembuat ide, perancang desain, admin pengunggah, tautan lembar kerja desain, URL berkas media, serta informasi waktu pembuatan dan pembaruan data. Tabel ini berfungsi sebagai entitas utama yang mengatur alur kerja persetujuan berbasis state machine, kolaborasi antar anggota tim, dan eksekusi publikasi konten. Berikut adalah implementasi dari tabel content_plan yang ditunjukkan pada Gambar. 2.50.
+
+Gambar 2.50 Tabel Content_Plan
+Berdasarkan implementasi pada Gambar 2.50, berikut adalah sintaks SQL yang digunakan.
+
+Tabel content_platforms
+Tabel content_platforms digunakan untuk menyimpan data relasi pemetaan antara rencana konten dengan saluran platform tujuan publikasi pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi identifikasi relasi rencana konten dan identifikasi relasi platform media sosial yang dipilih. Tabel ini berfungsi sebagai tabel perantara (pivot table) relasi banyak-ke-banyak (many-to-many) yang memungkinkan satu materi rencana konten didistribusikan ke berbagai saluran platform media sosial secara bersamaan. Berikut adalah implementasi dari tabel content_platforms yang ditunjukkan pada Gambar 2.51.
+
+Gambar 2.51 Tabel Content_Platforms
+Tabel content_status_log
+Tabel content_status_log digunakan untuk menyimpan data riwayat transisi status dan rekam jejak audit konten pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi relasi rencana konten, status lama, status baru setelah perubahan, identitas pengguna yang melakukan aksi, catatan koreksi atau alasan penolakan, serta stempel waktu terjadinya perubahan. Tabel ini berfungsi sebagai log audit trail untuk memantau kedisiplinan alur kerja persetujuan, transparansi histori revisi, dan akuntabilitas kolaborasi tim. Berikut adalah implementasi dari tabel content_status_log yang ditunjukkan pada Gambar. 2.52.
+
+Gambar 2.52 Tabel Content_Status_Log
+Tabel bukti_upload
+Tabel bukti_upload digunakan untuk menyimpan data konfirmasi bukti penayangan konten yang telah berhasil terbit pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi relasi rencana konten, relasi platform penerbitan, tautan URL postingan permanen, identitas admin yang menerbitkan, serta stempel waktu publikasi. Tabel ini berfungsi sebagai bukti fisik dokumentasi digital dan verifikasi bahwa konten telah benar-benar ditayangkan ke platform media sosial terkait. Berikut adalah implementasi dari tabel bukti_upload yang ditunjukkan pada Gambar. 2.53.
+
+Gambar 2.53 Tabel bukti_upload
+Tabel notifications
+Tabel notifications digunakan untuk menyimpan data pemberitahuan internal sistem bagi para pengguna pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi identitas pengguna penerima notifikasi, judul pemberitahuan, isi pesan informasi, tautan URL rujukan, status penandaan keterbacaan, serta waktu pembuatan pemberitahuan. Tabel ini berfungsi sebagai media komunikasi otomatis dan pengingat waktu nyata (real-time alert) ketika terjadi pengajuan ide baru, penugasan desain, permintaan revisi, atau konten siap terbit. Berikut adalah implementasi dari tabel notifications yang ditunjukkan pada Gambar. 2.54.
+
+Gambar 2.54 Tabel Notifications
+Tabel trend_bank
+Tabel trend_bank digunakan untuk menyimpan data referensi ide dan tren viral media sosial pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi judul tren, label lencana (badge), deskripsi penjelasan tren, contoh implementasi atau tautan referensi, kategori platform media sosial, relasi kepemilikan bisnis, status keaktifan, serta informasi waktu pembuatan dan pembaruan data. Tabel ini berfungsi sebagai bank materi inspirasi dan referensi kreatif bagi tim konten dalam merancang strategi konten yang relevan dengan tren terkini. Berikut adalah implementasi dari tabel trend_bank yang ditunjukkan pada Gambar. 2.55.
+
+Gambar 2.55 Tabel Trend_Bank
+Tabel brand_assets
+Tabel brand_assets digunakan untuk menyimpan data aset visual dan pedoman identitas merek (Asset Library) pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi nama aset, kategori jenis aset, nilai kode warna atau URL berkas aset, keterangan pedoman penggunaan, relasi kepemilikan bisnis, identitas pengguna pengunggah, serta informasi waktu pembuatan dan pembaruan data. Tabel ini berfungsi sebagai pustaka aset dan panduan identitas merek terpusat untuk menjaga konsistensi visual pada seluruh karya desain konten media sosial. Berikut adalah implementasi dari tabel brand_assets yang ditunjukkan pada Gambar 2.56.
+
+Gambar 2.56 Tabel Brand_assests
+Tabel ai_generation_log
+Tabel ai_generation_log digunakan untuk menyimpan data riwayat aktivitas pemanggilan dan generasi kecerdasan buatan pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi relasi rencana konten, identitas pengguna pemanggil fitur AI, jenis fitur AI yang digunakan, teks prompt masukan, teks hasil generasi AI, serta waktu eksekusi generasi. Tabel ini berfungsi sebagai rekam jejak audit teknis dan bahan pemantauan utilisasi layanan Google Gemini API dalam memproduksi draf takarir, ide konten, maupun analisis kepatuhan konten. Berikut adalah implementasi dari tabel ai_generation_log yang ditunjukkan pada Gambar. 2.57.
+
+Gambar 2.57 Tabel Ai_Generation_Log
+Tabel meta_api_log
+Tabel meta_api_logs digunakan untuk menyimpan data riwayat transaksi dan komunikasi jaringan integrasi Meta Graph API v26.0 pada Sistem Manajemen Media Sosial (SMMS) PT. Elecomp Indonesia Group. Data yang tersimpan meliputi alamat endpoint API yang diakses, metode HTTP yang digunakan, muatan data yang dikirimkan (payload), kode status HTTP respons server, seluruh isi tubuh balasan server (response body), status hasil transaksi, serta waktu perekaman log. Tabel ini berfungsi sebagai instrumen pemantauan teknis dan diagnosis kendala komunikasi sistem saat menjalankan mekanisme publikasi otomatis ke akun Instagram Bisnis. Berikut adalah implementasi dari tabel meta_api_logs yang ditunjukkan pada Gambar. 2.58.
+
+Gambar 2.58 Tabel Meta_Api_Logs
+Pengujian Sistem
+ Pengujian sistem merupakan tahapan krusial dalam siklus pengembangan perangkat lunak untuk memastikan bahwa seluruh modul dan fungsionalitas yang telah diimplementasikan bekerja sesuai dengan spesifikasi kebutuhan yang telah ditetapkan pada tahap analisis. Pengujian ini bertujuan untuk memverifikasi keandalan sistem, mendeteksi potensi kesalahan (bug) atau celah logika bisnis, serta menjamin bahwa aplikasi bebas dari kegagalan operasional saat digunakan oleh pengguna akhir.
+Metode pengujian yang digunakan dalam penelitian ini adalah metode Black Box Testing (pengujian kotak hitam). Metode Black Box Testing berfokus pada pengujian fungsionalitas perangkat lunak dari sudut pandang pengguna tanpa perlu mengetahui atau menguji struktur kode program internal secara langsung. Pengujian dilakukan dengan memberikan serangkaian masukan (input) tertentu ke antarmuka sistem, memprosesnya melalui fungsi aplikasi, dan mengamati apakah keluaran (output) atau respons sistem yang dihasilkan telah sesuai dengan hasil yang diharapkan (expected result).
+Cakupan pengujian fungsionalitas Sistem Manajemen Media Sosial (SMMS) ini mencakup seluruh modul utama, meliputi mekanisme autentikasi dan otorisasi Role-Based Access Control (RBAC), isolasi data multi-bisnis (Business Switcher), alur kerja persetujuan berbasis state machine 8 status, integrasi eksternal Meta Graph API v26.0 dan Google Gemini API, fitur otomatisasi penayangan (auto-publish), pencatatan jejak audit (audit trail), hingga rekapitulasi data laporan. Hasil pengujian fungsionalitas sistem secara rinci disajikan pada Tabel 2.5.
+Tabel 2.5 Hasil Pengujian Fungsionalitas Sistem 
+
+Berdasarkan hasil pengujian fungsionalitas yang terangkum pada Tabel 2.5, seluruh 20 (dua puluh) butir skenario pengujian yang mencakup proses autentikasi, manajemen hak akses, alur persetujuan state machine, integrasi API pihak ketiga, hingga pelaporan menunjukkan hasil yang sesuai dengan hasil yang diharapkan (expected result = actual result). Dengan demikian, diperoleh tingkat keberhasilan pengujian fungsionalitas sebesar 100% dengan kesimpulan Valid. Hasil ini membuktikan bahwa Sistem Manajemen Media Sosial (SMMS) telah memenuhi seluruh spesifikasi kebutuhan fungsional maupun non-fungsional yang telah dirancang, memiliki stabilitas alur kerja yang baik, dan layak untuk diimplementasikan dalam menunjang operasional digital di PT. Elecomp Indonesia Group.
+
+SIMPULAN DAN SARAN
+3.1. Simpulan
+Berdasarkan pelaksanaan Praktik Kerja Lapangan (PKL) di PT. Elecomp Indonesia Group serta merujuk pada lima tujuan yang telah dirumuskan pada BAB I, dapat ditarik simpulan sebagai berikut:
+1. Terkait pemenuhan kurikulum wajib Program Studi DIII Manajemen Informatika PSDKU Politeknik Negeri Malang di Kota Kediri, penulis telah berhasil menyelesaikan seluruh rangkaian kegiatan Praktik Kerja Lapangan (PKL) di PT. Elecomp Indonesia Group serta menyusun laporan pertanggungjawaban ilmiah ini sesuai dengan kaidah akademik dan standar kompetensi yang ditetapkan.
+2. Terkait penerapan kompetensi analisis, perancangan, pemrograman web (MVC), dan basis data pada permasalahan operasional nyata di industri, penulis telah berhasil menganalisis proses bisnis pengelolaan konten media sosial, memodelkannya ke dalam diagram UML (Use Case Diagram dan Activity Diagram), membangun arsitektur MVC menggunakan framework CodeIgniter 4, serta merancang basis data relasional MySQL yang terdiri dari 15 tabel terintegrasi. Sistem telah diuji menggunakan metode Black Box Testing dengan 20 butir skenario pengujian fungsional dan menghasilkan tingkat keberhasilan 100% (Valid).
+3. Terkait perancangan dan implementasi arsitektur State Machine pada sistem persetujuan konten (approval workflow), sistem telah berhasil merealisasikan mesin status dengan delapan tahapan kerja yang tervalidasi (ide_diajukan, acc_ide, in_design, review_design, revisi, acc_final, published, dan ditolak). Mekanisme ini berhasil mendisiplinkan alur produksi konten secara bertahap, mencegah terjadinya kesalahan publikasi konten yang belum disetujui manajer, serta memastikan setiap perubahan terekam secara kronologis pada tabel log jejak audit (audit trail).
+4. Terkait penerapan model keamanan Role-Based Access Control (RBAC) pada enam tingkatan peran pengguna, sistem telah berhasil membatasi wewenang dan hak akses secara presisi pada setiap peran (Superadmin, Owner, Manager, Creative Team, Content Creator, dan Admin Media Sosial). Penerapan RBAC ini berhasil mewujudkan prinsip pemisahan tugas (separation of duties), melindungi kredensial integrasi API, serta mendukung operasional banyak unit bisnis (multi-tenancy) secara aman dan terisolasi melalui fitur Business Switcher.
+5. Terkait integrasi layanan pihak ketiga, sistem telah berhasil mengintegrasikan Google Gemini API sebagai asisten cerdas dalam pembuatan ide konten, draf takarir (caption), hook generator, dan evaluasi kesesuaian konten pra-review. Selain itu, sistem berhasil mengintegrasikan Meta Graph API v26.0 untuk penayangan langsung maupun penjadwalan penerbitan otomatis (auto-publish) konten gambar, carousel, reels, dan story ke akun Instagram Bisnis dengan pencatatan log transaksi jaringan secara terpusat pada tabel meta_api_logs.
+3.2. Saran
+Berdasarkan simpulan yang diperoleh dari hasil analisis, perancangan, implementasi, dan pengujian Sistem Manajemen Media Sosial (SMMS), penulis menyampaikan beberapa saran yang diharapkan dapat menjadi masukan konstruktif untuk pengembangan sistem lebih lanjut di masa mendatang:
+1. Pengembangan Notifikasi Eksternal Berbasis Real-Time: Sistem saat ini baru menyediakan notifikasi internal di dalam aplikasi (in-app notification). Untuk meningkatkan responsivitas tim kerja, disarankan untuk mengintegrasikan protokol WebSocket atau layanan pesan instan pihak ketiga (seperti WhatsApp Business Cloud API atau Telegram Bot) agar notifikasi penugasan baru atau instruksi revisi mendesak dapat diterima secara langsung pada perangkat pengguna.
+2. Perluasan Integrasi Multi-Platform Media Sosial: Saat ini fitur penerbitan otomatis (auto-publish) baru terintegrasi secara penuh ke akun Instagram melalui Meta Graph API. Disarankan untuk memperluas konektivitas API resmi ke platform media sosial populer lainnya seperti TikTok (TikTok Content Posting API) dan YouTube (YouTube Data API v3) guna memfasilitasi publikasi konten lintas platform dalam satu langkah.
+3. Pengembangan Modul Analisis Performa Konten Pasca-Tayang (Insights Analytics): Disarankan untuk menambahkan modul analitik performa yang mampu menarik data statistik (seperti reach, impressions, engagement rate, likes, dan shares) dari platform media sosial secara berkala. Data analitik ini dapat dimanfaatkan oleh manajemen untuk mengevaluasi efektivitas strategi konten pemasaran pada setiap unit bisnis.
+
+DAFTAR PUSTAKA
+
+Choirudin, M., Satyareni, D. H., & Kurniawan, E. (2023). Implementasi Framework Codeigniter Pada Pengembangan Sistem Informasi Manajemen Kerja Praktik di Program Studi Sistem Informasi. Jurnal Nasional Teknologi dan Sistem Informasi (TEKNOSI), 9(1), 67-77. https://doi.org/10.25077/teknosi.v9i1.2023.67-77
+Farhanuddin, & Triase. (2025). Sistem Informasi Pengaduan Dengan Fitur Tracking Status Menggunakan Model Finite State Machine. Decode: Jurnal Pendidikan Teknologi Informasi, 5(3), 953-966. https://doi.org/10.51454/decode.v5i3.1367
+Gunawan, N., & Nasution, M. (2025). Perancangan Sistem Perencanaan Konten Media Sosial Berbasis Web Terintegrasi Artificial Intelligence (AI) Bagi UMKM Menggunakan Framework Next.js dengan Model Prototype. JUSIFOR : Jurnal Sistem Informasi dan Informatika, 4(2), 233-242. https://doi.org/10.70609/jusifor.v4i2.8343
+Kurniawan, F., Khrisnawati, E. A., Hadiwiyanti, R., & Fitri, A. S. (2022). Pengujian Sistem Informasi Manajemen Siswa Berbasis Website Menggunakan Metode Black Box dan White Box. Prosiding Seminar Nasional Teknologi dan Sistem Informasi (SITASI), 2(1), 249-261. https://doi.org/10.33005/sitasi.v2i1.306
+Mahmuda, B. H., Samsudin, & Nurzanah, L. (2025). Sistem Informasi Approval Magang dengan Metode Workflow Management pada PT. Telkom Akses. Jurnal Publikasi Manajemen Informatika, 4(1), 155-167. https://doi.org/10.55606/jupumi.v3i3.3656
+Mary, T., & Febriyani, N. (2025). Peningkatan Keamanan Sistem Informasi Berbasis Web dengan Rate Limiting dan Role-Based Access Control (RBAC). Jurnal Teknologi dan Sistem Informasi Bisnis (JTEKSIS), 7(3), 473-481. https://doi.org/10.47233/jteksis.v7i3.1976
+Novianto, M., & Munir, S. (2022). Analisis dan Implementasi Restful API guna Pengembangan Sistem Informasi Akademik pada Perguruan Tinggi. Jurnal Informatika Terpadu, 8(1), 47-61. https://doi.org/10.54914/jit.v8i1.409
+Rosmiati, R. (2021). Analisis Dan Pengujian Sistem Menggunakan Black Box Testing Equivalence Partitioning. Jurnal Sains Komputer dan Teknologi Informasi (J-SAKTI), 3(2), 56-63. https://doi.org/10.33084/jsakti.v3i2.1932
+Saepuloh, M. (2021). Perancangan Sistem Informasi Manajemen Helpdesk Berbasis Web dengan Framework Codeigniter dan Mysql. JATISI (Jurnal Teknik Informatika dan Sistem Informasi), 8(4), 2261-2276. https://doi.org/10.35957/jatisi.v8i4.1245
+Tim Penyusun. (2021). Pedoman Pelaksanaan Praktik Kerja Industri Program Studi DIII Manajemen Informatika PSDKU Politeknik Negeri Malang di Kota Kediri. Kediri: Politeknik Negeri Malang.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LAMPIRAN 1
+SURAT PENERIMAAN PKL
+
+
+LAMPIRAN 2
+DAFTAR KEHADIRAN PKL
+
+
+LAMPIRAN 3
+JURNAL KEGIATAN PKL
+
+
+
+LAMPIRAN 4
+FORMULIR PENILAIAN PEMBIMBING LAPANGAN
+
+
+LAMPIRAN 5
+KARTU BIMBINGAN PKL
+
+\LAMPIRAN 6
+FOTO KEGIATAN
+NOOR ACHMAD ROZAQ RAMDHANI |  NIM. 243107030100
+NOOR ACHMAD ROZAQ RAMDHANI |  NIM. 243107030100
+NOOR ACHMAD ROZAQ RAMDHANI |  NIM. 243107030100
+Mengetahui,
+
+Koordinator Program Studi
+D3 Manajemen Informatika PSDKU Kediri
+
+
+Benni Agung Nugroho, S.Kom, M.Cs.
+NIDN. 0724068102 |  | Menyetujui,
+
+Dosen Pembimbing
+
+
+Fery Sofian Efendi, S.Kom, M.Cs.
+NIDN. 0720097801
+NOOR ACHMAD ROZAQ RAMDHANI |  NIM. 243107030100
+Menyetujui,
+Pembimbing Lapangan
+
+
+
+
+
+Fernandes, S.Kom, M.M.
+NIK. -
+API (Application Programming Interface) | : | Sekumpulan protokol dan alat yang memungkinkan komunikasi antar perangkat lunak
+Approval Workflow | : | Alur kerja persetujuan bertingkat yang mengatur proses validasi konten sebelum dipublikasikan
+Audit Trail | : | Catatan kronologis yang mencatat seluruh aktivitas perubahan dalam sistem untuk keperluan pelacakan dan akuntabilitas
+Auto-Publish | : | Fitur publikasi otomatis konten ke platform media sosial sesuai jadwal yang telah ditentukan
+Bcrypt | : | Algoritma hashing adaptif yang digunakan untuk mengamankan password pengguna
+CRUD (Create, Read, Update, Delete) | : | Operasi dasar pengelolaan data dalam sistem informasi
+CodeIgniter 4 | : | Framework PHP berbasis MVC (Model-View-Controller) yang digunakan untuk membangun aplikasi web
+Content Pillar | : | Kategori atau pilar konten yang menjadi panduan strategi konten media sosial (misalnya: Edukasi, Promosi, Hiburan)
+ERD (Entity Relationship Diagram) | : | Diagram yang menggambarkan hubungan antar entitas dalam basis data
+FK (Foreign Key) | : | Kunci asing yang menghubungkan satu tabel dengan tabel lain dalam basis data relasional
+Google Gemini API | : | Layanan kecerdasan buatan dari Google yang digunakan untuk menghasilkan teks (caption, ide konten, evaluasi)
+Meta Graph API | : | Antarmuka pemrograman dari Meta (Facebook/Instagram) yang digunakan untuk publikasi konten ke Instagram
+Multi-Bisnis | : | Kemampuan sistem untuk mengelola beberapa bisnis/akun secara terisolasi dalam satu platform
+MySQL | : | Sistem manajemen basis data relasional yang digunakan untuk menyimpan data aplikasi
+MVC (Model-View-Controller) | : | Pola arsitektur perangkat lunak yang memisahkan komponen data (Model), tampilan (View), dan logika kontrol (Controller)
+PK (Primary Key) | : | Kunci utama yang menjadi pengenal unik setiap baris data dalam tabel basis data
+RBAC (Role-Based Access Control) | : | Metode pengendalian akses berdasarkan peran pengguna dalam sistem
+State Machine | : | Model komputasi yang mendefinisikan sekumpulan status dan aturan transisi antar status
+UML (Unified Modeling Language) | : | Bahasa pemodelan standar yang digunakan untuk merancang dan mendokumentasikan sistem perangkat lunak
+Tanggal / Bulan | Kegiatan | Hasil
+29 Juni 2026 | Penjelasan jam kerja, framework yang digunakan di perusahaan dan juga jobdesk yang akan dilakukan. | Pemahaman mengenai jam kerja, framework yang digunakan, dan jobdesk yang akan dikerjakan selama PKL
+30 Juni 2026 | Belajar Menggunakan Framework CodeIgniter 4 sesuai standart perusahaan.
+Belajar menggunakan hostingan CPanel | CRUD sederhana menggunakan framework CodeIgniter 4
+1 Juli 2026 | Desain postingan untuk feed instagram | Desain postingan feed Instagram
+2 Juli 2026 | Discuss LMS milik PT. ELECOMP INDONESIA | Pemahaman mengenai kebutuhan dan alur LMS milik PT. ELECOMP INDONESIA
+3-4 Juli 2026 | Desain postingan untuk feed instagram | Desain postingan feed Instagram
+6 Juli 2026 | Presentasi hasil desain feed Instagram | Masukan dan catatan revisi dari hasil presentasi desain feed Instagram
+7 Juli 2026 | Revisi desain feed Instagram | Desain feed Instagram hasil revisi
+8 - 11 Juli 2026 |  Design 3 web profile menggunakan PHP Native |  Profile web sederhana
+13 - 14 Juli 2026 | Cek desain web temen - temen sudah sesuai standar apa belum | Catatan hasil pengecekan kesesuaian desain web dengan standar perusahaan
+15 - 16 Juli 2026 | Mempelajari struktur database, penamaan file pada CodeIgniter 4 yang sesuai dengan perusahaan | Pemahaman struktur database dan konvensi penamaan file pada CodeIgniter 4 sesuai standar perusahaan
+17 - 18 Juli 2026 |  Penambahan fitur dashboard unverified user untuk melakukan edit file yang perlu direvisi, menambah preview image pada formulir daftar agar meminimalisir kesalahan upload gambar lagi oleh calon member, pada web client | Fitur edit file revisi pada dashboard unverified user dan preview image pada formulir pendaftaran web client
+20 Juli 2026 |  Cek desain web temen - temen sudah sesuai standar apa belum | Catatan hasil pengecekan kesesuaian desain web dengan standar perusahaan
+21 Juli 2026 | Testing web company profile checker
+Presentasi hasil revisi desain feed Instagram | Hasil testing web company profile checker dan masukan dari presentasi revisi desain feed Instagram
+22 - 23 Juli 2026 |  Revisi desain feed Instagram | Desain feed Instagram hasil revisi
+24 Juli 2026 |  Belajar hosting pada hostingan perusahaan yang menggunakan Cpanel | Pemahaman proses hosting website menggunakan CPanel perusahaan
+25 Juli 2026 |  Presentasi hasil desain web company profil yang sudah di rubah menggunakan framework CodeIgniter 4 dan juga disesusaikan dengan standar perusahaan. | Masukan dari presentasi desain web company profile berbasis CodeIgniter 4
+27 – 28 Juli 2026 |  Revisi desain feed Instagram | Desain feed Instagram hasil revisi
+29 - 31 Juli 2026 |  Mengerjakan proyek Sistem Manajemen Media Sosial | ER Diagram 
+Database mysqll
+Design antarmuka
+1 - 19 Agustus 2026 | Mengerjakan proyek Sistem Manajemen Media Sosial | Progres pengembangan modul Content Plan dan Role & Approval Workflow pada Sistem Manajemen Media Sosial
+20 Agustus 2026 | Mendemokan sistem kepada teman-teman yang akan menjalankan sistem | Sistem berhasil didemokan dan mendapat masukan dari teman-teman
+21 Agustus 2026 | Mengerjakan Laporan PKL |  Laporan PKL
+No | Actor | Deskripsi
+1 | Superadmin | Pengguna dengan akses teknis penuh ke seluruh sistem, bertanggung jawab atas pengelolaan akun user
+2 | Owner | Pimpinan/penanggung jawab tim dengan akses penuh, bertanggung jawab atas pengelolaan bisnis dan master data
+3 | Manager | Pengguna yang bertanggung jawab menyetujui, menolak, atau meminta revisi konten
+4 | Creative Team | Pengguna yang mengajukan ide konten dan mengirim ulang konten setelah revisi
+5 | Content Creator | Pengguna yang mengerjakan desain dan mengajukan hasil desain untuk review
+6 | Admin Medsos | Pengguna yang mengunggah konten ke platform media sosial dan mencatat bukti upload
+No | Use Case | Actor yang Terkait | Deskripsi
+1 | Login | Semua actor | Melakukan autentikasi ke sistem
+2 | Logout | Semua actor | Keluar dari sistem
+3 | Melihat Dashboard | Semua actor | Melihat ringkasan statistik konten
+4 | Mengajukan Ide Konten | Superadmin, Owner, Manager, Creative Team | Membuat dan mengajukan ide konten baru
+5 | Menyetujui Ide Konten (ACC Ide) | Superadmin, Owner, Manager | Menyetujui ide konten untuk lanjut ke proses desain
+6 | Meminta Revisi Konten | Superadmin, Owner, Manager | Meminta perbaikan atas konten yang diajukan (wajib catatan)
+7 | Menolak Konten | Superadmin, Owner, Manager | Menolak ide konten secara permanen (wajib catatan)
+8 | Mengerjakan Desain | Superadmin, Owner, Content Creator | Mengerjakan tugas desain dan mengisi caption/aset
+9 | Mengajukan Review Desain | Superadmin, Owner, Content Creator | Mengirimkan hasil desain untuk di-review manager
+10 | Menyetujui Desain Final (ACC Final) | Superadmin, Owner, Manager | Menyetujui desain final untuk siap dipublikasikan
+11 | Mempublikasikan Konten | Superadmin, Owner, Admin Medsos | Mengunggah konten ke platform media sosial
+12 | Menjadwalkan Auto-Publish | Superadmin, Owner, Admin Medsos | Mengatur jadwal publikasi otomatis ke Instagram
+13 | Mengelola Content Plan | Superadmin, Owner, Manager, Creative Team, Content Creator | Membuat, mengedit, menghapus, dan melihat rencana konten
+14 | Melihat Audit Trail | Superadmin, Owner, Manager | Melihat riwayat perubahan status konten
+15 | Melihat Laporan | Superadmin, Owner, Manager | Melihat dan mengekspor rekap data konten
+16 | Menggunakan Fitur AI | Superadmin, Owner, Manager, Creative Team, Content Creator | Menggunakan fitur AI (caption, ide, brief, hook, trend radar)
+17 | Mengelola Bank Tren | Superadmin, Owner, Manager, Creative Team, Content Creator, Admin Medsos | Mengelola koleksi tren konten per bisnis
+18 | Mengelola Asset Library | Superadmin, Owner, Manager, Creative Team, Content Creator, Admin Medsos | Mengelola aset brand per bisnis
+19 | Mengelola User | Superadmin | Membuat, mengedit, dan menghapus akun pengguna
+20 | Mengelola Master Data | Superadmin, Owner | Mengelola platform, jenis konten, dan content pillar
+21 | Mengelola Bisnis | Superadmin, Owner | Membuat, mengedit, dan menghapus data bisnis
+22 | Berpindah Bisnis Aktif | Semua actor | Memilih bisnis aktif yang ingin dikelola
+23 | Mengelola Profil | Semua actor | Mengedit profil dan mengganti password
+24 | Melihat Notifikasi | Semua actor | Melihat dan menandai notifikasi sebagai sudah dibaca
+25 | Melihat Kalender Tayang | Semua actor | Melihat kalender visual rencana tayang konten
+No | Entity/Tabel | Primary Key | Keterangan
+1 | roles | id | Menyimpan 6 role pengguna tetap
+2 | users | id | Data pengguna sistem
+3 | bisnis | id | Data bisnis/brand yang dikelola
+4 | platforms | id | Platform media sosial per bisnis
+5 | jenis_konten | id | Format/jenis konten per bisnis
+6 | content_types | id | Content pillar per bisnis
+7 | content_plan | id | Tabel utama rencana konten
+8 | content_platforms | id | Pivot konten dan platform
+9 | content_status_log | id | Audit trail status konten
+10 | bukti_upload | id | Bukti publikasi konten
+11 | notifications | id | Notifikasi in-app
+12 | trend_bank | id | Bank tren media sosial
+13 | brand_assets | id | Aset brand per bisnis
+14 | ai_generation_log | id | Log penggunaan fitur AI
+15 | meta_api_logs | id | Log API Meta Graph
+public function store(): \CodeIgniter\HTTP\ResponseInterface
+{
+    $userId   = (int) session('user_id');
+    $kodeRole = session('kode_role');
+
+    if (in_array($kodeRole, ['admin_medsos'], true)) {
+        return $this->jsonGagal('Anda tidak memiliki akses untuk membuat ide konten.', 403);
+    }
+
+    $db = \Config\Database::connect();
+
+
+    $assignedDesigner = $this->request->getPost('assigned_designer') ?: null;
+    $assignedUploader = $this->request->getPost('assigned_uploader') ?: null;
+
+    $rawTgl = $this->request->getPost('tanggal_publish');
+    $tglPublish = $rawTgl ? date('Y-m-d H:i:s', strtotime(str_replace('T', ' ', $rawTgl))) : null;
+
+    $data = [
+        'bisnis_id'         => (int) session('bisnis_aktif_id'),
+        'judul_konten'      => $this->request->getPost('judul_konten'),
+        'deskripsi'         => $this->request->getPost('deskripsi'),
+        'tanggal_publish'   => $tglPublish,
+        'jenis_konten_id'   => $this->request->getPost('jenis_konten_id') ?: null,
+        'content_type_id'   => $this->request->getPost('content_type_id') ?: null,
+        'assigned_designer' => $assignedDesigner,
+        'assigned_uploader' => $assignedUploader,
+    ];
+
+    $contentId = $this->model->buatIde($data, $userId);
+    if (!$contentId) {
+        return $this->jsonGagal('Validasi gagal: ' . implode(', ', $this->model->errors()), 422);
+    }
+
+    $platforms = $this->request->getPost('platforms') ?? [];
+    if (!empty($platforms)) {
+        foreach ($platforms as $platId) {
+            $db->table('content_platforms')->insert([
+                'content_id'  => $contentId,
+                'platform_id' => (int) $platId,
+            ]);
+        }
+    }
+
+    $logModel = new \App\Models\ContentStatusLogModel();
+    $logModel->insert([
+        'content_id'  => $contentId,
+        'status_lama' => null,
+        'status_baru' => 'ide_diajukan',
+        'user_id'     => $userId,
+        'catatan'     => 'Ide baru diajukan ke sistem.',
+    ]);
+
+    return $this->jsonSukses('Ide konten berhasil dibuat.', ['id' => $contentId], 201);
+}
+class TransisiKonten
+{
+    private const TRANSISI_VALID = [
+        'ide_diajukan' => [
+            'acc_ide'  => ['roles' => ['manager'], 'catatan_wajib' => false],
+            'revisi'   => ['roles' => ['manager'], 'catatan_wajib' => true],
+            'ditolak'  => ['roles' => ['manager'], 'catatan_wajib' => true],
+        ],
+        'revisi' => [
+            'ide_diajukan' => ['roles' => ['creative_team', 'content_creator'], 'catatan_wajib' => false],
+        ],
+        'acc_ide' => [
+            'in_design' => ['roles' => ['content_creator'], 'catatan_wajib' => false],
+        ],
+        'in_design' => [
+            'review_design' => ['roles' => ['content_creator'], 'catatan_wajib' => false],
+        ],
+        'review_design' => [
+            'acc_final' => ['roles' => ['manager'], 'catatan_wajib' => false],
+            'revisi'    => ['roles' => ['manager'], 'catatan_wajib' => true],
+        ],
+        'acc_final' => [
+            'published' => ['roles' => ['admin_medsos'], 'catatan_wajib' => false],
+        ],
+    ];
+
+    public function transition(int $contentId, string $statusBaru, int $userId, string $catatan = ''): array
+    {
+        $konten = $this->contentPlanModel->find($contentId);
+        $statusLama = $konten['status'];
+
+        // 1. Validasi Matriks Aturan Transisi
+        $aturan = self::TRANSISI_VALID[$statusLama][$statusBaru] ?? null;
+        if (!$aturan) {
+            return ['sukses' => false, 'pesan' => "Transisi dari {$statusLama} ke {$statusBaru} tidak diizinkan."];
+        }
+
+        if ($aturan['catatan_wajib'] && empty(trim($catatan))) {
+            return ['sukses' => false, 'pesan' => 'Catatan arahan wajib diisi untuk tindakan ini.'];
+        }
+
+        $this->contentPlanModel->update($contentId, ['status' => $statusBaru]);
+
+        $this->statusLogModel->insert([
+            'content_id'  => $contentId,
+            'status_lama' => $statusLama,
+            'status_baru' => $statusBaru,
+            'user_id'     => $userId,
+            'catatan'     => $catatan,
+            'created_at'  => date('Y-m-d H:i:s'),
+        ]);
+
+        return ['sukses' => true, 'pesan' => "Status berhasil diperbarui menjadi {$statusBaru}."];
+    }
+}
+public function store(): \CodeIgniter\HTTP\ResponseInterface
+{
+    $role = session('kode_role');
+    if (!in_array($role, ['superadmin', 'owner'], true)) {
+        return $this->jsonGagal('Akses ditolak. Khusus Superadmin dan Owner.', 403);
+    }
+
+    $encrypter   = \Config\Services::encrypter();
+    $secretPlain = trim($this->request->getPost('meta_app_secret') ?? '');
+    $tokenPlain  = trim($this->request->getPost('meta_access_token') ?? '');
+    $geminiPlain = trim($this->request->getPost('gemini_api_key') ?? '');
+
+    $secretEnc = !empty($secretPlain) ? bin2hex($encrypter->encrypt($secretPlain)) : null;
+    $tokenEnc  = !empty($tokenPlain)  ? bin2hex($encrypter->encrypt($tokenPlain))  : null;
+    $geminiEnc = !empty($geminiPlain) ? bin2hex($encrypter->encrypt($geminiPlain)) : null;
+
+    $data = [
+        'nama_bisnis'        => trim($this->request->getPost('nama_bisnis')),
+        'deskripsi'          => trim($this->request->getPost('deskripsi')),
+        'warna'              => $this->request->getPost('warna') ?: '#6C5CE7',
+        'logo_url'           => $this->request->getPost('logo_url') ?: null,
+        'status'             => 'aktif',
+        'meta_app_id'        => trim($this->request->getPost('meta_app_id')) ?: null,
+        'meta_app_secret'    => $secretEnc,
+        'meta_access_token'  => $tokenEnc,
+        'meta_ig_account_id' => trim($this->request->getPost('meta_ig_account_id')) ?: null,
+        'meta_ig_username'   => trim($this->request->getPost('meta_ig_username')) ?: null,
+        'gemini_api_key'     => $geminiEnc,
+    ];
+
+    if (!$this->bisnisModel->insert($data)) {
+        return $this->jsonGagal('Gagal menyimpan bisnis: ' . implode(', ', $this->bisnisModel->errors()), 422);
+    }
+
+    $newId = (int) $this->bisnisModel->getInsertID();
+    return $this->jsonSukses('Bisnis baru berhasil ditambahkan.', ['id' => $newId], 201);
+}
+CREATE TABLE `bisnis` (
+    `id`                    INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `nama_bisnis`           VARCHAR(100) NOT NULL,
+    `deskripsi`             TEXT NULL DEFAULT NULL,
+    `warna`                 VARCHAR(7) NOT NULL DEFAULT '#6C5CE7',
+    `logo_url`              VARCHAR(500) NULL DEFAULT NULL,
+    `status`                ENUM('aktif', 'nonaktif') NOT NULL DEFAULT 'aktif',
+    `urutan`                TINYINT(3) UNSIGNED NOT NULL DEFAULT 1,
+    `meta_app_id`           VARCHAR(100) NULL DEFAULT NULL,
+    `meta_app_secret`       TEXT NULL DEFAULT NULL,
+    `meta_access_token`     TEXT NULL DEFAULT NULL,
+    `meta_ig_account_id`    VARCHAR(100) NULL DEFAULT NULL,
+    `meta_ig_username`      VARCHAR(100) NULL DEFAULT NULL,
+    `gemini_api_key`        TEXT NULL DEFAULT NULL,
+    `created_at`            DATETIME NULL DEFAULT NULL,
+    `updated_at`            DATETIME NULL DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    INDEX `idx_bisnis_status` (`status`),
+    INDEX `idx_bisnis_urutan` (`urutan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `content_plan` (
+    `id`                    INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `bisnis_id`             INT(11) UNSIGNED NOT NULL,
+    `judul_konten`          VARCHAR(200) NOT NULL,
+    `deskripsi`             TEXT NULL DEFAULT NULL,
+    `caption`               TEXT NULL DEFAULT NULL,
+    `tanggal_publish`       DATETIME NULL DEFAULT NULL,
+    `scheduled_at`          DATETIME NULL DEFAULT NULL,
+    `auto_publish_status`   ENUM('menunggu', 'diproses', 'berhasil', 'gagal') NULL DEFAULT NULL,
+    `publish_attempts`      INT(10) UNSIGNED NOT NULL DEFAULT 0,
+    `last_error`            TEXT NULL DEFAULT NULL,
+    `jenis_konten_id`       INT(11) UNSIGNED NULL DEFAULT NULL,
+    `content_type_id`       INT(11) UNSIGNED NULL DEFAULT NULL,
+    `status`                VARCHAR(30) NOT NULL DEFAULT 'ide_diajukan',
+    `dibuat_oleh`           INT(11) UNSIGNED NOT NULL,
+    `assigned_designer`     INT(11) UNSIGNED NULL DEFAULT NULL,
+    `assigned_uploader`     INT(11) UNSIGNED NULL DEFAULT NULL,
+    `design_url`            VARCHAR(500) NULL DEFAULT NULL,
+    `image_url`             TEXT NULL DEFAULT NULL,
+    `created_at`            DATETIME NULL DEFAULT NULL,
+    `updated_at`            DATETIME NULL DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    INDEX `idx_cp_bisnis` (`bisnis_id`),
+    INDEX `idx_cp_status` (`status`),
+    INDEX `idx_cp_dibuat_oleh` (`dibuat_oleh`),
+    INDEX `idx_cp_designer` (`assigned_designer`),
+    INDEX `idx_cp_uploader` (`assigned_uploader`),
+    INDEX `idx_cp_jenis` (`jenis_konten_id`),
+    INDEX `idx_cp_pillar` (`content_type_id`),
+    
+    -- Definisi Relasi Kunci Asing (Foreign Keys)
+    CONSTRAINT `fk_cp_bisnis` 
+        FOREIGN KEY (`bisnis_id`) REFERENCES `bisnis` (`id`) 
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_cp_jenis_konten` 
+        FOREIGN KEY (`jenis_konten_id`) REFERENCES `jenis_konten` (`id`) 
+        ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT `fk_cp_content_type` 
+        FOREIGN KEY (`content_type_id`) REFERENCES `content_types` (`id`) 
+        ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT `fk_cp_dibuat_oleh` 
+        FOREIGN KEY (`dibuat_oleh`) REFERENCES `users` (`id`) 
+        ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT `fk_cp_designer` 
+        FOREIGN KEY (`assigned_designer`) REFERENCES `users` (`id`) 
+        ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT `fk_cp_uploader` 
+        FOREIGN KEY (`assigned_uploader`) REFERENCES `users` (`id`) 
+        ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+No | Skenario Uji | Masukan (Input) | Hasil yang Diharapkan | Hasil Uji | Kesimpulan
+1 | Autentikasi dengan email dan kata sandi valid | Memasukkan email dan password yang terdaftar dengan benar, lalu klik tombol Masuk | Sistem berhasil memvalidasi kredensial, menginisialisasi sesi login pengguna, dan mengarahkan tampilan ke dashboard utama | Sesuai | Valid
+2 | Autentikasi dengan kata sandi salah | Memasukkan email terdaftar namun kata sandi salah, lalu klik tombol Masuk | Sistem menolak autentikasi dan menampilkan pesan peringatan 'Email atau Password Salah' | Sesuai | Valid
+3 | Akses URL terproteksi tanpa melakukan login | Membuka tautan langsung /dashboard atau /content-plan pada peramban web tanpa login | Sistem memblokir akses melalui AuthFilter dan secara otomatis mengarahkan pengguna kembali ke halaman login | Sesuai | Valid
+4 | Pengalihan bisnis aktif (Business Switcher) | Memilih unit bisnis lain melalui menu dropdown pemilih bisnis di topbar | Sistem memperbarui variabel bisnis_aktif_id pada sesi dan memfilter seluruh data konten sesuai bisnis aktif yang dipilih | Sesuai | Valid
+5 | Pembuatan dan pengajuan ide konten baru | Mengisi formulir ide konten (judul, brief, pilar, jenis konten, dan target tanggal) secara lengkap, lalu klik Simpan Ide | Sistem menyimpan data ke tabel content_plan dengan status awal ide_diajukan dan mengirim notifikasi in-app ke Manager | Sesuai | Valid
+6 | Pembatasan hak akses pembuatan ide oleh Content Creator | Akun dengan peran Content Creator mencoba mengakses formulir penambahan ide konten baru | Sistem membatasi hak akses pengguna dan menampilkan kode status larangan akses (HTTP 403 Forbidden) | Sesuai | Valid
+7 | Persetujuan ide konten (ACC Ide) oleh Manager | Manager menekan tombol 'ACC Ide' pada kartu konten berstatus ide_diajukan | Status konten otomatis beralih menjadi in_design, tugas dialokasikan ke Content Creator, dan riwayat dicatat di audit trail | Sesuai | Valid
+8 | Permintaan revisi ide oleh Manager tanpa catatan | Manager memilih opsi 'Minta Revisi' namun membiarkan kolom catatan instruksi perbaikan kosong | Sistem menolak proses transisi status dan memunculkan pesan peringatan 'Catatan Wajib Diisi' | Sesuai | Valid
+9 | Permintaan revisi ide oleh Manager dengan catatan | Manager memilih opsi 'Minta Revisi' dan mengisikan poin-poin koreksi pada kolom catatan | Status konten berubah menjadi revisi, catatan perbaikan tersimpan di content_status_log, dan notifikasi terkirim ke pembuat ide | Sesuai | Valid
+10 | Penolakan ide konten oleh Manager | Manager memilih opsi 'Tolak Konten' dengan menyertakan alasan penolakan pada modal | Status konten berubah menjadi ditolak, siklus pengerjaan konten diakhiri, dan alasan tercatat permanen di sistem | Sesuai | Valid
+11 | Pengerjaan dan penyerahan desain oleh Content Creator | Content Creator mengunggah berkas desain visual, menyusun draf takarir (caption), lalu klik Ajukan Review | Sistem menyimpan aset desain dan draf takarir, mengeksekusi AI Pre-Review Checklist, dan mengubah status menjadi review_design | Sesuai | Valid
+12 | Evaluasi kepatuhan desain oleh AI Pre-Review Checklist | Konten berpindah ke status review_design | Sistem secara otomatis memicu layanan AI untuk menganalisis kesesuaian takarir terhadap pedoman merek dan menyajikan checklist evaluasi | Sesuai | Valid
+13 | Persetujuan desain final (ACC Final) oleh Manager | Manager meninjau hasil karya desain dan teks takarir, lalu menekan tombol 'ACC Final' | Status konten berhasil diperbarui menjadi acc_final, dan konten secara otomatis diteruskan ke modul jadwal upload | Sesuai | Valid
+14 | Publikasi konten manual ke Instagram | Admin Media Sosial menekan tombol 'Publish Instagram' pada konten berstatus acc_final | Sistem memanggil Meta Graph API v26.0, menerbitkan konten ke Instagram, menyimpan URL ke tabel bukti_upload, dan mengubah status ke published | Sesuai | Valid
+15 | Penjadwalan publikasi otomatis (Auto-Publish) | Admin Media Sosial menentukan tanggal dan jam tayang konten pada kolom jadwal publikasi | Sistem menetapkan nilai kolom scheduled_at dan mengatur status publikasi otomatis menjadi menunggu | Sesuai | Valid
+16 | Eksekusi otomatis Auto-Publish oleh layanan latar belakang | Layanan latar belakang berbasis web ping mengeksekusi kueri konten yang telah jatuh tempo | Sistem menerapkan atomic locking, mempublikasikan materi ke Instagram via API, dan memperbarui status konten menjadi published | Sesuai | Valid
+17 | Penanganan kegagalan koneksi API Instagram | Menjalankan proses publikasi saat token akses tidak valid atau jaringan server terputus | Sistem mencatat pesan galat ke tabel meta_api_logs, melakukan percobaan ulang (retry jika < 3x), dan mengirimkan peringatan galat | Sesuai | Valid
+18 | Generasi takarir otomatis (AI Caption Generator) | Pengguna menginputkan topik konten dan gaya bahasa (tone), lalu menekan tombol Generate AI | Sistem mengirim prompt ke Google Gemini API, menerima hasil narasi takarir dan tagar, serta mencatat transaksi ke ai_generation_log | Sesuai | Valid
+19 | Integritas pencatatan jejak audit (Audit Trail) | Melakukan serangkaian transisi status konten mulai dari pengajuan hingga publikasi | Seluruh riwayat perubahan status, identitas pengguna pengubah, stempel waktu, dan catatan tersimpan kronologis tanpa data yang hilang | Sesuai | Valid
+20 | Rekapitulasi laporan dan ekspor berkas CSV | Memilih filter rentang bulan dan tahun operasional pada modul Laporan, lalu menekan tombol Ekspor CSV | Sistem mengunduh berkas laporan berekstensi .csv berformat BOM UTF-8 yang menyajikan data statistik secara akurat saat dibuka di Excel | Sesuai | Valid

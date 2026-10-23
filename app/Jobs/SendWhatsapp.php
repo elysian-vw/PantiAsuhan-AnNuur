@@ -23,6 +23,11 @@ class SendWhatsapp implements ShouldQueue
         if ($log->status !== 'Antrean') {
             return;
         }
+        if (str_starts_with($log->jenis, 'kunjungan:')) {
+            $log->update(['status' => 'Dibatalkan', 'keterangan' => 'Modul kunjungan telah dihapus.']);
+
+            return;
+        }
         if (! config('panti.whatsapp_enabled') || ! config('panti.fonnte_token')) {
             $log->update(['status' => 'Nonaktif']);
 

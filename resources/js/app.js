@@ -12,7 +12,7 @@ Alpine.data('assistanceItems', (initial) => ({
 window.Alpine = Alpine;
 Alpine.data('givingGuide', () => ({
     active: 'donasi',
-    keys: ['donasi', 'bantuan', 'kunjungan'],
+    keys: ['donasi', 'bantuan'],
     select(key) {
         this.active = key;
         this.$nextTick(() => document.getElementById('tab-' + key)?.focus());
@@ -90,27 +90,5 @@ if (chartElement) {
                 },
             },
         });
-    });
-}
-const calendarElement = document.getElementById('visit-calendar');
-if (calendarElement) {
-    Promise.all([
-        import('@fullcalendar/core'),
-        import('@fullcalendar/daygrid'),
-        import('@fullcalendar/list'),
-        import('@fullcalendar/core/locales/id'),
-    ]).then(([{ Calendar }, dayGrid, list, locale]) => {
-        const calendar = new Calendar(calendarElement, {
-            plugins: [dayGrid.default, list.default],
-            locale: locale.default,
-            initialView: window.innerWidth < 700 ? 'listMonth' : 'dayGridMonth',
-            height: 'auto',
-            headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,listMonth' },
-            events: JSON.parse(calendarElement.dataset.events),
-            displayEventEnd: true,
-            eventTimeFormat: { hour: '2-digit', minute: '2-digit', hour12: false },
-            windowResize: () => calendar.changeView(window.innerWidth < 700 ? 'listMonth' : 'dayGridMonth'),
-        });
-        calendar.render();
     });
 }

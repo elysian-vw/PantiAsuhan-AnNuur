@@ -19,12 +19,13 @@ class AuthController extends Controller
                 'email' => 'Terlalu banyak percobaan. Coba lagi dalam satu menit.',
             ]);
         }
-        if (! Auth::attempt($data)) {
+        if (! Auth::attempt($data + ['role' => 'pengurus', 'account_status' => 'aktif'])) {
             RateLimiter::hit($key, 60);
             throw ValidationException::withMessages(['email' => 'Email atau password tidak sesuai.']);
         }
         RateLimiter::clear($key);
         $request->session()->regenerate();
+        $request->session()->put('auth_version', $request->user()->auth_version);
 
         return redirect()->intended(route('admin.dashboard'));
     }

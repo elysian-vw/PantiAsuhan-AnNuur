@@ -1,0 +1,275 @@
+
+PAGE 1
+Jurnal Ilmiah Sistem Informasi Akuntansi  (JIMASIA) 
+Vol 2, No.2, Desember 2022, pp. 62 – 68 
+      62 
+  
+Journal homepage: http://jim.teknokrat.ac.id/index.php/jimasia/  
+ 
+Analisis Perancangan Sistem Informasi Akuntansi Pencatatan 
+Dan Pengelolaan Keuangan Pada Yayasan Panti Asuhan 
+Harapan Karomah 
+ 
+1Linda Yunita, 2Neneng, 3Auliya Rahman Isnain , 4Prita Dellia 
+1Program Studi Sistem Informasi Akuntansi , Fakultas Teknik  dan Ilmu Komputer, Universitas Teknokrat Indonesia 
+2,3Program Studi Informatika, Fakultas Teknik dan Ilmu Komputer , Universitas Teknokrat Indonesia  
+4Prodi Pendidikan Informatika, Universitas Trunojoyo Madura  
+                 Email: 1lindayunita542@gmail.com , 2fikrihamidy@@teknokrat.ac.id, 3auliyarahman@teknokrat.ac.id, 
+4prita.dellia@trunojoyo.ac.id  
+  ABSTRACT 
+  
+Yayasan Panti Asuahan Hrapan Karomah is a social institution or 
+non-profit institution that has the responsibility to provide social 
+welfare services to the children of the residents of the orphanage. 
+Therefore, the manager of the orphanage must be able to manage the 
+orphanage properly, one of which is in terms of financial management. 
+Currently the Harapan Karamah orphanage is in the process of 
+recording both revenues and expenses using a manual system. Manual 
+system causes many errors of risk. Therefore, to minimize the risks that 
+exist and also facilitate the financial management of the orphanage, a 
+computerized information system is needed. In addition, it can also 
+make it easier for the manager of the orphanage and also donors to 
+monitor and evaluate the orphanage's finances which can be accessed 
+quickly and at any time. This study aims to create a website -based 
+financial administration information system. The software 
+development method used is the Waterfall method which includes 
+requirements analysis, system design, implementation, testing and 
+system maintenance. The development of this system us es the PHP 
+programming language, MySQL database and the CodeIgniter 
+framework. The result of this research is an information system that 
+can be used to process data and financial data reports. Based on the 
+test results, the system being developed can run a ccording to its 
+function. 
+Keyword: 
+Evaluation 
+Financial 
+Non-Profit 
+Computerized 
+Information Systems 
+ 
+Corresponding Author: 
+Linda Yunita,  
+Program Studi Sistem Informasi Akuntansi,  
+Universitas Teknokrat Indonesia, 
+Jl. Zainal Abidin Pagar Alam No 9-11 Labuhan Ratu, Bandara Lampung.  
+Email: lindayunita542@gmail.com 
+ 
+1. PENDAHULUAN 
+Sistem Informasi Akuntansi (SIA) adalah sebuah sistem informasi yang dibuat sebagai media khusus 
+yang berkaitan dengan akuntansi. Dengan adanya sistem informasi akuntansi dapat mempermudah kegiatan 
+yang berhubungan dengan akuntansi, yang menjelaskan bahwa sistem informasi akuntansi adalah sebuah 
+sistem informasi yang dibuat khsusus untuk mempermudah kegiatan dan segala sesuaty yang berkaitan dengan 
+akuntansi[1], [2]. 
+
+PAGE 2
+63 
+JIMASIA Vol 2, No.2, Desember 2022, pp. 62 – 68  
+ 
+Analisis Perancangan Sistem Informasi Akuntansi Pencatatan Dan Pengelolaan … (Linda Yunita) 
+Sistem informasi akuntansi adalah sekumpulan dari manusia dan sumber -sumber daya modal dalam 
+suatu organisasi yang bertanggungjawab untuk menyediakan informasi keuangan dan juga informasi yang 
+didapat dari pengumpulan dan pengelolahan data transaksi keuangan instansi seperti panti asuhan [3]. 
+Panti asuhan adalah suatu lembaga usaha yang mensejahterakan sosial, yang memiliki tanggung jawab 
+untuk memberikan pelayanan kesejahteraan sosial kepada anak terlantar, kaum dhuafa, yatim -piatu dengan 
+melaksanakan penyantunan dan memberikan pelayanan pengganti fisik, mental pada anak asuh. Akan tetapi 
+memperoleh kesejahteraan yang telah diberikan untuk meli ndungi hak -hak anak, untuk mendapatkan 
+kehidupan dan pendidikan yang layak  
+Yayasan Panti  Asuhan Harapan Karomah  merupakan Panti asuhan yang berlokasi di Jalan Imam 
+Bonjol No. 323 Kel. Gunung Agung Kec. Langkapura Bandar Lampung.  Panti Asuhan Harapan Karoma h 
+adalah salah satu amal usaha di Daerah Bandar Lampung yang bergerak di bidang sosialyang mengayomi anak 
+yatim, dhua’fa,  yatim-piatu. Panti asuhan harapan  karomah tidak lepas dari kebutuhan informasi dalam 
+menjalankan aktivitasnya, sehingga sangat penting informasi tersebut untuk dapat memperlancar aktivitas 
+danmembantu pihak panti dalam pengambilan keputusan.Salah satu sistem yang berguna dalam  hal ini adalah 
+informasi yang berkaitan dengan keuangan yang terdapat pada panti asuhan. 
+Untuk pendanaan dalam panti asuhan harapan karomah ini, seperti dari donatur tetap dan donatur 
+tidak tepat mereka tidak hanya memberikan bantuan sumbangan berupa uang tunai, pakaian layak dipakai, 
+berbagai jenis sembako dan kebutuhan lainnya. untuk keberlangsungan panti dalam hal pengelolaan keuangan 
+panti asuhan, masih dilakukan dengan cara mencatat tidak terkomputerasasi [4], [5]. 
+Permasalahan yang dialami panti asuhan dalam pencatatan dan pengelolaan keuangan baik 
+penerimaan dan pengeluaran dana sering terjadi kesalahan pencatatan data keuangannya, atau kerangkapan 
+data dan juga mengalami kesulitan dalam membe rikan laporan keuangan kepada donatur seperti laporan 
+penerimaan dana dari donatur dan laporan pengeluaran dana setiap bulannya. Oleh karena itu untuk mengatasi 
+permasalahan yang terjadi diperlukan sebuah sistem informasi yang dapat digunakan sebagai saran a 
+pendukung kegiatan panti asuhan khususnya pada bidang pengelolaan keuangan panti asuhan, sehingga 
+nantinya dapat terwujud sistem informasi pengelolaan keuangan yang akurat [2], [6], [7]. 
+Berdasarkan permasalahan tersebut maka perlu mengembangkan suatu sistem informasi keuangan 
+berbasis website, untuk pencatatan dan pengelolaan keuangan yayasan panti asuhan, sehingga memudahkan 
+pihak panti asuhan dalam memproses pengelolaan data keuangan , laporan data anak asuh, pencatatan  data 
+keuangan  dan pembuatan laporan keuangan di yayasan panti asuhan harapan karomah. Solusi yang diharapkan 
+dalam sistem yang dikembangkan, untuk mendukung dan mempermudah aktifitas dan kelancaran penyusunan 
+tiap-tiap laporan di panti asuhan serta mampu mengatasi semua permasalahan alam proses pencatatan data 
+keuangan dan  pembuatan laporan keuangan[8]–[11]. 
+ 
+2. METODE PENELITIAN  
+Metode Extreme Programming  (XP) adalah sesuatupendekatan ataupun model pendekatan untuk 
+pengmebangan perangkat lunak yang mencoba untuk menyesederhanakan berbagai tahapan dalam proses 
+pengembanagan tersebut sehingga menjadi lebih adaptif atau fleksibel . 
+Design
+CodingPlanning
+Testing
+Extreme Programming
+ 
+Gambar 1. Metode Extreme Programming 
+Pada bagian ini disampaikan bahan/ materi yang digunakan dalam penelitian. Perlu disampaikan 
+secara cukup detail metoda penelitian yang digunakan untuk menjamin bahwa hasil yang diperoleh dapat 
+diulang atau direproduksi. Jika manuskrip yang disampaikan mer upakan suatu pengembangan model, maka 
+perlu disampaikan deskripsi model yang diajukan dan bagaimana model tersebut dievaluasi/ digunakan. 
+
+PAGE 3
+64 
+                Vol 2, No.2, Desember 2022, pp. 62 – 68 
+JIMASIA Vol 2, No.2, Desember 2022, pp. 62 – 68 
+Penulisan dalam metode menyesuaikan dengan tema penelitian yang digunakan, usahakan menggunakan 
+flowchart untuk menejelaskan alur penelitian[12]–[14]. 
+ 
+3. HASIL DAN ANALISIS 
+3.1.  Analisis PIECES 
+Analisis sistem dapat didefinisikan sebagai prosedur sistem yang berjalan  dari suatu sistem informasi 
+untuk mengiden tifikasi masalah dan dapat merancang sistem baru dengan menggunakan sistem analisis 
+PIECES. Analisis dapat dilihat pada tabel 1. 
+Tabel 1. Analisis PIECES 
+Analisis Permasalahan 
+Performance Sistem informasi yang dibutuhkan  pengguna tidak dapat dikemukakan secara jelas oleh 
+pengguna karena harus mencari dan menyiapkan berkas -berkas data baik infromasi data 
+panti asuhan ataupun pengeluaran dan pemasukkan  yang ada di  dalam panti asuhan 
+harapan karomah. 
+Information Untuk i nformasi masi h tidak terkomputerasasi dan mengalami  terjadi kesalahan saat 
+mencatat data donatur dan pemasukkan atau penggeluaranbaik pengeluaran  masuk 
+ataupun. 
+Economy Dalam masalah ekonomi di panti asuhan tidak terkomputerasasi saat pencatatan sehingga 
+tidak menghemat pengeluaran dikarenakan untuk membeli peralatan yang terkait dengan 
+pencatatat didalam buku besar. 
+Control Kontrol yang dihadapi pada jumlah pemasukan data donatur, tidak dapat merangkap 
+secara merata sehingga harus menghitung  kembali beberapa informas i sehingga  
+memperlambat untuk keperluan panti asuhan harapan karomah.  
+ 
+3.2.  Implementasi Sistem 
+Panti Asuhan harapan karomah yang menjadi awl ketika pertama kali membuka sistem terdapat form yang 
+dapat diisi donatur untuk melakukan donasi. Terdapat menu login yang digunakan admin melakukan login 
+yang telah diberikan sistem untuk mendapatkan akses gambar 2. 
+ 
+Gambar 2. Menu Login 
+Admin yang telah memiliki hak akses dapat melakukan login kedalam sistem, ditunjukkan dengan dengan 
+halaman dashboard pada Gambar . Halaman ini berisi Saldo, total donasi, total pengeluaran dan total donatur. 
+Terdapat juga submenu dari Data Master yang terdiri dari Data asuh, pengurus, donatur dan donasi, 
+Pengeluaran yang terdapat dua data yaitu Kategori dan pen geluaran dan Laporan terdiri dua laporan yaitu 
+laporan global dan laporan individual. 
+
+
+PAGE 4
+65 
+JIMASIA Vol 2, No.2, Desember 2022, pp. 62 – 68  
+ 
+Analisis Perancangan Sistem Informasi Akuntansi Pencatatan Dan Pengelolaan … (Linda Yunita) 
+ 
+Gambar 3. Menu utama 
+Terdapat tiga tab page pada form tabel Master Pengurus, yaitu Form tambah data pengurus. Untuk melihat 
+detail dan menghapus data pengurus, pilih tab yang telah disediakan yaitu tab Aksi, dapat dilihat di gambar 4 
+ 
+ 
+Gambar 4. Menu Pengurus 
+Terdapat tiga ta b page pada form tabel Master Donatur, yaitu Form tambah data pengurus, pencarian dan 
+mencetak data tersebut secara keseluruhan . Untuk melihat detail, mengubah dan menghapus data pengurus, 
+pilih tab yang telah disediakan yaitu tab Aksi, dapat dilihat di g ambar 5. 
+ 
+Gambar 5. Menu Donatur 
+Terdapat hanya satu tab page pada form tabel Master Donasi, terdapat berbagai donasi yang donatur berikam 
+kepada pihak panti asuhan, didalam form donasi terdapat yaitu Form tambah data donasi.Untuk melihat detail 
+dan menghapus data donasi, pilih tab yang telah disediakan yaitu tab Aksi, dapat dilihat gambar 6 
+ 
+Gambar 6. Menu Donasi 
+
+
+PAGE 5
+66 
+                Vol 2, No.2, Desember 2022, pp. 62 – 68 
+JIMASIA Vol 2, No.2, Desember 2022, pp. 62 – 68 
+Terdapat dua  tab page  pada form tabel Pengeluaran  yaitu kategori dan pengeluaran yang terdapat berbagai 
+kategori atas pengeluaran pihak pant i  yang telah diberikan oleh donatur kepada pihak panti asuhan, didalam 
+form pengeluran terdapat satu tab yaitu Form tambah data .Untuk melihat detail dan menghapus data kategori, 
+pilih tab yang telah disediakan yaitu tab Aksi, dapat dilihat di gambar beri kut ini : 
+ 
+ 
+Gambar 7. Menu Kategori 
+Terdapat dua  tab page  pada form tabel Transaksi yaitu form pengeluaran yang terjadi setiap transaksi yang 
+dilakukan oleh pihak panti, dengan dana dari donatur yang diberikan kepada donatur untuk panti asuhan. 
+didalam form pengeluaran terdapat yaitu Form tambah data pengeluaran.Untuk melihat detail dan menghapus 
+data pengeluaran pilih tab yang telah disediakan yaitu tab Aksi, dapat dilihat di gambar 8 : 
+ 
+Gambar 8. Menu Pengeluaran 
+Merupakan halaman laporan  yang dapat dicetak secara keseluruhan maupun individual, sesuai kebutuhan yang 
+dibutuhkan pihak panti asuhan, gambar 9.  
+ 
+Gambar 9. Menu Laporan 
+Merupakan laporan seluruh pengeluaran dari panti asuhan yang dapat di akses oleh bendahara panti asuhan 
+harapan karomah gambar dapat dilihat gambar 10: 
+
+
+PAGE 6
+67 
+JIMASIA Vol 2, No.2, Desember 2022, pp. 62 – 68  
+ 
+Analisis Perancangan Sistem Informasi Akuntansi Pencatatan Dan Pengelolaan … (Linda Yunita) 
+ 
+Gambar 10. Laporan Pengeluaran 
+ 
+4. KESIMPULAN 
+Yayasan Panti Asuahan Harpan Karomah adalah sebuah lembaga sosial atau lembaga nirlaba yang 
+memiliki tanggung jawab untuk memberikan pelayanan kesejahteraan sosial kepada anak-anak penghuni panti 
+asuhan. S aat ini panti asuhan Harapan Karomah sedang dalam proses pencatatan baik pemasukan maupun 
+pengeluaran dengan menggunakan sistem manual. Sistem manual menyebabkan banyak kesalahan resiko. Oleh 
+karena itu, untuk meminimalisir risiko yang ada dan juga memperm udah pengelolaan keuangan panti asuhan, 
+diperlukan sistem informasi yang terkomputerisasi. Selain itu juga dapat mempermudah pengelola panti asuhan 
+dan juga para donatur untuk memantau dan mengevaluasi keuangan panti asuhan yang dapat diakses dengan 
+cepat dan setiap saat. Penelitian ini bertujuan untuk membuat sistem informasi administrasi keuangan berbasis 
+website. Metode pengembangan perangkat lunak yang digunakan adalah metode Waterfall yang meliputi 
+analisis kebutuhan, perancangan sistem, implementasi, pengujian dan pemeliharaan sistem. Pengembangan 
+sistem ini menggunakan bahasa pemrograman PHP, database MySQL dan framework CodeIgniter. Hasil dari 
+penelitian ini adalah sebuah sistem informasi yang dapat digunakan untuk mengolah data dan laporan data 
+keuangan. Berdasarkan hasil pengujian, sistem yang dikembangkan dapat berjalan sesuai dengan fungsinya.  
+ 
+REFERENSI 
+[1] D. Damayanti, H. Sulistiani, and E. Umpu, “Analisis dan Perancangan Sistem Informasi Akuntansi Pengelolaan 
+Tabungan Siswa pada SD Ar -Raudah Bandarlampung,” J. Teknol. dan Inf. , vol. 11, no. 1, pp. 40 –50, 2021. 
+[2] A. T. Atmadja and A. K. Saputra, “Pencegah an Fraud dalam Pengelolaan Keuangan Desa,” J. Ilm. Akunt. dan 
+Bisnis, vol. 12, no. 2, pp. 7–16, 2017. 
+[3] S. Maulida, F. Hamidy, and A. D. Wahyudi, “Monitoring Aplikasi Menggunakan Dashboard Untuk Sistem 
+Informasi Akuntansi Pembelian Dan Penjualan,” J. TEKNO KOMPAK , vol. 14, no. 1, pp. 47 –53, 2020. 
+[4] H. Sulistiani, A. Sulistiyawati, and A. Hajizah, “Perancangan Sistem Pengelolaan Keuangan Komite 
+Menggunakan Web Engineering (Studi Kasus: SMK Negeri 1 Gedong Tataan),” Komputika J. Sist. Komput. , vol. 
+10, no. 2, pp. 163–171, 2021. 
+[5] A. A. Aldino, E. D. Pratiwi, Setiawansyah, S. Sintaro, and A. D. Putra, “Comparison Of Market Basket Analysis 
+To Determine Consumer Purchasing Patterns Using Fp -Growth And Apriori Algorithm,” in 2021 International 
+Conference on Computer Science, Information Technology, and Electrical Engineering (ICOMITEE) , 2021, pp. 
+29–34, doi: 10.1109/ICOMITEE53461.2021.9650317.  
+[6] S. Nasional, P. Akuntansi, D. A. N. Keuangan, P. Akuntansi, U. Sebelas, and M. Surakarta, “DI KOTA 
+SURAKARTA Inta n Kartikasari , Sri Witurachmi * Latar Belakang Masalah Otonomi daerah telah membawa 
+jiwa dan semangat demokratisasi , akuntabilitas , dan transparasi dalam setiap aspek dalam desentralisasi daerah . 
+Desentralisasi dalam otonomi daer,” no. d, pp. 527 –550, 2007. 
+[7] D. A. Megawaty, “Penerimaan Layanan Keuangan Dalam Belanja Online Berdasarkan Tingkatan Generasi.” 
+Institut Technology Sepuluh Nopember, 2015.  
+[8] A. T. Priandika, “Model Penunjang Keputusan Penyeleksian Pemberian Beasiswa Bidikmisi Menggunakan 
+Metode Analytical Hierarchy Process,” J. Teknoinfo, vol. 10, no. 2, p. 26, 2016, doi: 10.33365/jti.v10i2.7.  
+[9] A. Wantoro, “Sistem Monitoring Perawatan dan Perbaikan Fasilitas Gardu PT PLN Area Kota Metro,” J. Tekno 
+Kompak, vol. 15, no. 1, pp. 116 –130, 2021. 
+[10] R. Rusliyawati, T. M. Putri, and D. Darwis, “Penerapan Metode Garis Lurus dalam Sistem Informasi Akuntansi 
+Perhitungan Penyusutan Aktiva Tetap pada PO Puspa Jaya,” J. Ilm. Sist. Inf. Akunt., vol. 1, no. 1, pp. 1–13, 2021. 
+[11] D. Damayanti, H. Suli stiani, B. Permatasari, E. F. G. S. Umpu, and T. Widodo, “Penerapan Teknologi Tabungan 
+Untuk Siswa Di Sd Ar Raudah Bandar Lampung,” in Prosiding Seminar Nasional Darmajaya , 2020, vol. 1, pp. 
+25–30. 
+[12] W. M. Sari, A. Amran, and H. O. L. Wijaya, “PENERAPAN  E-COMMERCE MENGGUNAKAN METODE 
+EXTREME PROGRAMMING PADA UMKM KABUPATEN MURATARA,” Jusikom J. Sist. Komput. 
+Musirawas, vol. 5, no. 2, pp. 136–144, 2020. 
+
+
+PAGE 7
+68 
+                Vol 2, No.2, Desember 2022, pp. 62 – 68 
+JIMASIA Vol 2, No.2, Desember 2022, pp. 62 – 68 
+[13] S. D. Riskiono and U. Reginal, “Sistem Informasi Pelayanan Jasa Tour Dan Travel Berbasis Web (Studi  Kasus 
+Smart Tour),” Inf. Dan Komput. , vol. 06, no. 02, pp. 51 –62, 2018. 
+[14] R. Indra, A. Thyo, and A. Rahman, “Implementasi Metode Pengembangan Sistem Extreme Programming ( XP ) 
+pada Aplikasi Investasi Peternakan Implementation of Extreme Programming ( XP ) System Development Method 
+in Livestock Investment Aplication,” vol. 8, no. 3, pp. 272 –277, 2020, doi: 10.26418/justin.v8i3.40273.  
+ 
+ 

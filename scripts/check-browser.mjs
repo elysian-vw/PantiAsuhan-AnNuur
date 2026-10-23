@@ -1,7 +1,12 @@
 import { chromium, expect } from '@playwright/test';
 import { readFile, mkdir } from 'node:fs/promises';
 
-const access = JSON.parse(await readFile(new URL('../.runtime/admin-access.json', import.meta.url), 'utf8'));
+const access = JSON.parse(
+    await readFile(
+        process.env.BROWSER_ACCESS_FILE || new URL('../.runtime/admin-access.json', import.meta.url),
+        'utf8',
+    ),
+);
 const base = 'http://127.0.0.1:8000';
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 await mkdir(new URL('../.runtime/screenshots/', import.meta.url), { recursive: true });
@@ -11,7 +16,7 @@ try {
     for (const width of [360, 390, 768, 1440]) {
         const page = await browser.newPage({ viewport: { width, height: 900 }, deviceScaleFactor: 1 });
         page.on('pageerror', (error) => errors.push(width + ': ' + error.message));
-        for (const path of ['/', '/profil', '/kebutuhan', '/donasi', '/bantuan', '/kunjungan', '/admin/login']) {
+        for (const path of ['/', '/profil', '/kontak', '/kebutuhan', '/donasi', '/bantuan', '/admin/login']) {
             const response = await page.goto(base + path);
             if (response.status() !== 200) throw new Error(path + ' returned ' + response.status());
             await page.waitForTimeout(250);
@@ -21,6 +26,7 @@ try {
             }));
             if (dimensions.scroll > dimensions.viewport + 1)
                 throw new Error('Horizontal overflow ' + width + ' ' + path + ': ' + JSON.stringify(dimensions));
+            await expect(page.locator('a[href*="/kunjungan"]')).toHaveCount(0);
             if (path === '/' && [390, 1440].includes(width))
                 await page.screenshot({ path: '.runtime/screenshots/home-' + width + '.png', fullPage: true });
             if (path === '/' && width < 1000) {
@@ -51,18 +57,22 @@ try {
         ]);
         for (const path of [
             '/admin',
-            '/admin/kalender',
+            '/admin/transaksi/bantuan',
             '/admin/data/pengguna',
             '/admin/data/kegiatan/tambah',
             '/admin/pengaturan',
             '/admin/laporan/donasi',
-            '/admin/tamu-langsung',
         ]) {
             const response = await page.goto(base + path);
             if (response.status() !== 200) throw new Error(path + ' returned ' + response.status());
             await page.waitForTimeout(300);
             if (await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1))
                 throw new Error('Admin overflow ' + width + ' ' + path);
+            await expect(
+                page.locator(
+                    'a[href*="/kunjungan"], a[href*="/jenis-kunjungan"], a[href*="/kalender"], a[href*="/tamu-langsung"]',
+                ),
+            ).toHaveCount(0);
             if (path === '/admin' && width === 390)
                 await page.screenshot({ path: '.runtime/screenshots/admin-mobile.png', fullPage: true });
             checked.push(width + ' ' + path);

@@ -1,0 +1,874 @@
+
+PAGE 1
+Teknik Informatika 
+Fakultas Teknik  
+Universitas Muhammadiyah Jakarta 
+Jl. Cempaka Putih Tengah 27 
+Jakarta Pusat, Indonesia 10510 
+T. 62 21 4256024, 4244016 ext 207 
+E. jurnal.justit@ftumj.ac.id 
+H. https://jurnal.umj.ac.id  
+ 
+62                           JUST IT : Jurnal Sistem Informasi, Teknologi Informatika dan Komputer 
+ 
+PERANCANGAN SISTEM INFORMASI PANTI ASUHAN “e-PANTI” 
+BERBASIS WEB  
+ 
+Phitsa Mauliana1, Ricky Firmansyah2, Agus Sutardi3 
+1,2AMIK BSI Bandung, PSAA Nugraha Bandung 
+phitsa.phu@gmail.com1, ricky.rym@bsi.ac.id2, agussutardi@yahoo.co.id3 
+ 
+Abstrak  
+ 
+Saat ini di Indonesia masih banyak panti asuhan yang memiliki banyak keterbatasan finansial, 
+fasilitas, dan afeksi mengingat panti asuhan merupakan tempat anak yang ditinggalkan satu bahkan 
+kedua orang tuanya. Keluarga yang tidak mampu juga kadang menitipkan anaknya di panti asuhan. 
+Oleh karena itu, donasi dari berbagai pihak sangat diperlukan untuk menghidupi anak asuh yang 
+jumlahnya terus bertambah seperti makan, pendidikan anak asuh, iuran listrik/air asrama dan 
+sebagainya. Tidak sedikit juga yang berusa ha mandiri sekaligus mengajarkan anak asuh agar tidak 
+selalu mengandalkan donasi, dengan kewirausahaan secara perorangan maupun bekerja sama. 
+Salah satu sumber dana dan donasi panti asuhan di berbagai negara maju dan berkembang berasal 
+dari situs donasi on line. Penelitian ini bertujuan untuk merancang sistem informasi panti asuhan 
+berbasis web sebagai sarana penggalangan donasi. Sistem dikembangkan dengan metode waterfall 
+yang dirancang menggunakan diagram arsitektur UML kemudian  implementasikan dengan bah asa 
+pemrograman web PHP dan MySQL sebagai sistem basis datanya. Sistem diuji menggunakan 
+pengujian Blackbox dan uji daya guna menggunakan USE Questionnaire dengan hasil sebanyak 
+85,50% penilaian responden menyatakan sesuai dengan kebutuhan dan mudah dipela jari. Dengan 
+sistem ini, panti asuhan dapat lebih dikenal melalui informasi yang lengkap pada website.  
+Dermawan dapat melihat profil panti asuhan, daftar anak asuh, jadwal kegiatan panti, dan cara 
+melakukan donasi. 
+Kata Kunci: donasi, internet, panti asuhan, sistem informasi, website 
+ 
+Abstract 
+ 
+Today, there are many orphanages still have many financial, facilities, and affection limitations 
+considering the orphanage is a place where children are abandoned by one or both parents. 
+Sometimes, poor families a lso leave their children at the orphanage. Donations are needed to 
+support the growing number of orphans such as food, orphans education, and electricity/water and 
+so on. There are orphanages also trying to be independent and teach orphans not to always re ly on 
+donations, with entrepreneurship individually or in collaboration. One source of donations in 
+various developed and developing countries comes from online donation sites. This study focuses 
+design a Web-Based Orphanage Fundraising Information System. The system was developed by the 
+waterfall method which was designed using UML architecture diagrams and then implemented 
+with the PHP web programming languages and MySQL database. The system was tested using the 
+Black Box test and the usability test used the USE Questionnaire with 85.50% of respondents said 
+the system was in accordance with their needs and easy to learn. With this system, orphanages can 
+be better known through complete information on the website. Generous can see the profile of the 
+orphanage, the list of foster children, schedule of activities of the orphanage, and how to make a 
+donation. 
+Keywords: donations, information systems, internet, orphanages,  websites 
+
+PAGE 2
+Phitsa Mauliana, Ricky Firmansyah, dan Agus Sutardi Volume x, Nomor x 
+ p-ISSN 2089-0265 
+  e-ISSN 2598-3016 
+ 
+63                           JUST IT : Jurnal Sistem Informasi, Teknologi Informatika dan Komputer 
+ 
+ 
+ 
+1. Pendahuluan   
+Saat ini di Indonesia masih banyak 
+panti asuhan yang memiliki banyak 
+keterbatasan finansial, fasilitas, dan afeksi 
+mengingat panti asuhan merupakan tempat 
+anak yang ditinggalkan satu bahkan kedua 
+orang tuanya. Selain itu, keluarga yang tidak 
+mampu juga kadang menitipkan anaknya di 
+panti asuhan. Oleh karena itu, donasi dari 
+berbagai pihak sangat diperlukan untuk 
+menghidupi anak asuh yang jumlahnya terus 
+bertambah seperti makan, pendidikan anak 
+asuh, iuran listrik/air asrama dan sebagainya. 
+Tidak sedikit juga panti asuhan yang 
+berusaha lebih mandiri untuk menghidupi 
+anak asuhnya sekaligus untuk mengajarkan 
+anak asuh agar tidak selalu mengandalkan 
+dan mengharapkan donasi, misalkan dengan 
+menerapkan kewirausahaan yang dijalankan 
+perorangan maupun bekerja sama 
+(Taumimiyah, 2017).  
+Salah satu sumber dana dan donasi 
+panti asuhan di berbagai negara m aju dan 
+berkembang berasal dari beberapa situs 
+donasi online yang ada di internet. Namun, 
+situs-situs tersebut saat ini tidak memiliki 
+transparansi dan cara untuk melibatkan para 
+dermawan secara aktif meningkatkan 
+partisipasi donasi. Saat ini, para dermawa n 
+yang tertarik untuk melakukan donasi sering 
+kali secara pribadi harus melakukan 
+penelusuran tentang suatu organisasi sosial 
+atau panti asuhan. Dengan kondisi seperti itu, 
+seorang individu tentu saja tidak akan tertarik 
+untuk menyumbangkan waktu dan uang 
+mereka. Sistem donasi yang transparan dapat 
+menjadi solusi yang efektif. Para dermawan 
+tidak hanya memiliki akses ke informasi 
+tentang bagaimana donasi akan digunakan, 
+oleh siapa, dan apa dampaknya, tetapi juga 
+akan memberikan platform yang lebih 
+interaktif bagi para dermawan untuk tetap 
+tertarik dan terhubung dengan panti asuhan 
+secara offline karena panti asuhan dapat 
+langsung mengko munikasikan kebutuhan 
+mereka (Gooyabadi, 2011).  
+Penelitian ini fokus pada perancangan 
+sistem informasi panti asuhan berbasis web 
+sebagai sarana penggalangan donasi. Melalui 
+sistem ini, para dermawan akan dapat melihat 
+profil panti asuhan, daftar anak asuh (yatim), 
+jadwal kegiatan panti, bagaimana cara 
+melakukan donasi dan menampilkan daftar 
+para dermawan (yang berkenan untuk 
+ditampilkan). Diharapkan dengan adanya 
+sistem informasi ini, panti asuhan dapat lebih 
+dikenal melalui informasi yang lengkap pada 
+website dan mengetuk hati para dermawan 
+untuk member ikan donasi. Adapun donasi 
+yang dapat diberikan tidak hanya dalam 
+bentuk uang, namun dapat pula berbentuk 
+barang, makanan, pakaian, wakaf, hibah, 
+pelatihan/pendidikan dan sebagainya. Secara 
+tidak langsung, sistem ini akan lebih banyak 
+lagi membantu anak-anak yatim yang kurang 
+beruntung pada khususnya dan secara umum 
+akan membantu negara dalam mewujudkan 
+amanat Undang-undang Dasar 1945 Pasal 34 
+ayat 1 yang menyebutkan bahwa “Fakir 
+miskin dan anak -anak terlantar dipelihara 
+oleh negara”. Guna mempermudah sebut an, 
+sistem ini akan diberi nama “e-Panti”. 
+ 
+Sistem Informasi 
+Sistem merupakan sekumpulan unsur 
+yang memiliki keterkaitan satu dan yang lain 
+yang bekerja bersama -sama untuk mencapai 
+satu tujuan. Sistem dapat berupa abstraksi 
+maupun fisik, Sistem abstrak ada lah suatu 
+konsep yang tersusun secara teratur dan 
+saling berhubungan. Sedangkan sistem yang 
+berkarakteristik fisik adalah sekumpulan 
+unsur yang bekerja bersama -sama guna 
+mencapai suatu tujuan  (Sutabri, 2012) . 
+Manfaat sistem adalah untuk menggabungkan 
+seluruh unsur dalam suatu lingkup  yang 
+setiap komponennya tidak berdiri sendiri. 
+Sub-sistem harus saling berintegrasi agar 
+membentuk satu kesatuan yang membuat 
+tujuan sistem itu dapat dicapai. Data adalah 
+sekumpulan fakta yang tida k teratur dan 
+belum memiliki arti. Pengolahan data akan 
+mengubahnya menjadi suatu informasi yang 
+lebih bermanfaat, mudah dipahami dan 
+dimanfaatkan dalam pengambilan suatu 
+keputusan. Terdapat tiga aspek yang 
+menentukan kualitas dari suatu informasi 
+yaitu (Sutabri, 2012): 
+1. Akurat, yaitu informasi harus 
+menjelaskan apa yang dimaksud dan 
+
+PAGE 3
+Phitsa Mauliana, Ricky Firmansyah, dan Agus Sutardi Volume 10, Nomor 1 
+ p-ISSN 2089-0265 
+  e-ISSN 2598-3016 
+ 
+ 64                                                   JUST IT : Jurnal Sistem Informasi, Teknologi Informatika dan Komputer  
+                                                                               
+minim kesalahan. 
+2. Tepat waktu, yaitu informasi yang 
+disampaikan jangan sampai tertunda. 
+Informasi yang kadaluarsa akan 
+berkurang nilai manfaatnya, m engingat 
+informasi adalah suatu acuan untuk 
+pengambilan keputusan. 
+3. Relevan, yaitu sebuah informasi harus 
+bermanfaat bagi penerimanya. Relevansi 
+suatu informasi bagi setiap orang yang 
+satu dan yang lain pasti berbeda 
+sehingga harus sesuai dengan kebutuhan 
+masing-masing. 
+ 
+Website 
+Website adalah sekumpulan halaman 
+web yang disimpan dalam hosting dan 
+memiliki nama domain atau sub -domain 
+sehingga dapat diakses melalui Internet. Web 
+page merupakan halaman yang dibuat dalam 
+format HTML yang dapat diakses dengan 
+protokol HTTP yang mengirim informasi dari 
+server web untuk disampaikan kepada klien 
+menggunakan browser. Semua publikasi pada 
+website akan membentuk suatu pusat 
+informasi yang sangat besar. Seperti halnya 
+buku, web page dapat menyimpan berbagai 
+macam informasi mengenai segala hal yang 
+bersifat komersi al maupun tidak. Di 
+Indonesia, website awal dikenal sejak tahun 
+1998an yang dimiliki terpada pada 
+perusahaan berskala besar. Kala itu, website 
+merupakan suatu teknologi mahal yang 
+membuat banyak pengusaha membatalkan 
+niat untuk memiliki salah satu media promosi 
+online ini. Kini tersedia milyaran website 
+yang terdapat di internet. Rata-rata website 
+tersebut merupakan web komersil yang 
+digunakan untuk berbisnis (Winarno , Zaki, 
+& Community, 2013). 
+ 
+Diagram Arsitektur 
+Diagram Arsitektur Unified Modeling 
+Language (UML) merupakan metode yang 
+digunakan untuk memodelkan sistem yang 
+dirancang dengan tujuan untuk memudahkan 
+programmer saat mengembangakan program 
+menggunakan bahasa pemrograman 
+berorientasi objek. UML terdiri dari diagram-
+diagram yang menampilkan cara kerja suatu 
+sistem. Terdapat banyak diagram -diagram 
+UML, namun tidak seluruhnya wajib 
+digunakan, disesuaikan dengan kebutuhannya 
+saja. Diagram UML yang biasa digunakan 
+diantaranya adalah use case diagram, class 
+diagram, activity diagram , dan  sequence 
+diagram. Membuat diagram UML bukanlah 
+tugas seorang programmer melainkan tugas 
+system analyst. UML nantinya akan menjadi 
+panduan bagi seorang programmer saat 
+mengimplementasikan menggunakan bahasa 
+pemrograman (coding)  (Triandini & 
+Suardika, 2012). 
+ 
+Bahasa Pemrograman 
+Bahasa pemrograman berorientasi 
+objek digunakan dalam penelitian ini adalah 
+PHP. PHP sering digabungkan dengan 
+MySQL untuk mengembangkan suatu 
+aplikasi web. MySQL berfungsi sebagai 
+tempat menyimpan data (database) 
+sedangkan PHP merupakan bahasa yang 
+mengelola database tersebut. Sebetulnya PHP 
+tidak hanya dapat digabungkan dengan 
+MySQL saja. PHP juga dapat digunakan 
+bersama dengan SQLite, PostgreSQL, 
+MongoDB, Ms. Access, dan sebagainya. PHP 
+digunakan karena merupakan bahasa 
+scripting yang sangat cocok untuk 
+pengembangan website dinamis. Sedangkan 
+penggunaan MySQL sebagai database 
+management system (DBMS) karena 
+popularitas dan kehandalannya serta 
+lisensinya yang bersifat sumber terbuka (open 
+source). Dalam pengembangan suatu website 
+dinamis, PHP sering digunakan bersama 
+MySQL sebagai pengelola database  untuk 
+menyimpan data yang diinputkan oleh 
+pengguna (Winarno , Zaki, & Community, 
+2013). 
+ 
+Panti Asuhan 
+Panti asuhan merupakan suatu 
+lembaga atau tempat yang menerima, 
+menampung dan mengasuh anak yang 
+ditinggalkan satu atau kedu a orang tuanya, 
+anak terlantar atau tidak mampu (dhuafa) 
+sehingga para anak tersebut tetap dapat 
+melanjutkan sekolah. Anak yatim piatu 
+sangatlah penting kedudukannya khususnya 
+di dalam ajaran agama Islam . Anak yatim 
+dilarang untuk  disisihkan, disakiti, 
+diremehkan serta dirampas hak -haknya. 
+Dalam agama Islam, yatim merupakan anak 
+
+PAGE 4
+Phitsa Mauliana, Ricky Firmansyah, dan Agus Sutardi Volume 10, Nomor 1 
+ p-ISSN 2089-0265 
+  e-ISSN 2598-3016 
+ 
+ 65                                                   JUST IT : Jurnal Sistem Informasi, Teknologi Informatika dan Komputer  
+                                                                               
+yang telah ditinggalkan orang tuanya dan 
+harus disantuni, dimuliakan dan bahkan 
+diperhatikan masa depannya (Utaminingsih 
+& Hidayati, 2016). 
+ 
+ 
+ 
+Gambar 1. Alur Penelitian 
+ 
+2. Metode 
+Metode waterfall adalah metode yang 
+banyak digunakan untuk dari merancang 
+suatu sistem secara berurutan dimana tahapan 
+sebelumnya akan menjadi input untuk 
+tahapan berikutnya. Kelebihan dari metode 
+waterfall model yakni fleks ibilitas jadwal 
+yang dapat diatur sedemikian rupa dengan 
+rentang waktu untuk setiap tahapan 
+pengembangan. Pengembangan sistem 
+diawali dengan konsep analisa, implementasi, 
+pengujian, dan terakhir yaitu operasi dan 
+pemeliharaan Secara umum,  metode 
+waterfall memiliki langkah-langkah berikut ( 
+(Pressman, 2014)):  
+1. Analisa Kebutuhan, yaitu tahapan 
+analisa terhadap system requirement  
+mulai dari mengumpulkan data melalui 
+penelitian, wawancara maupun studi 
+literatur. Informasi harus didapatkan 
+selengkap mungkin aga sistem yang 
+dibuat sesuai dengan kebutuhan.  
+2. Desain Sistem, yaitu tahapan 
+perancangan yang menjadi solusi dari 
+masalah yang ditemukan dengan 
+memanfaatkan pemodelan sistem 
+semisal diagram alir data (d ata flow 
+diagram), maupun UML.  
+3. Penulisan Kode Program, yaitu 
+implementasi sistem menggunakan kode 
+program yang telah ditentukan. Tahapan 
+ini dilakukan oleh programmer dan 
+merupakan tahapan inti pada saat 
+pengerjaan suatu sistem.  
+4. Pengujian, yaitu tahapan terakhir dalam 
+perancangan sistem untuk memastikan 
+sistem dapat digunakan sesuai 
+rancangan/harapkan. Pengujian pada 
+tahapan ini bersifat teknis oleh internal 
+perancang sistem menggunakan Black 
+box testing.  
+5. Penerapan dan Pemeliharaan, yaitu 
+sistem yang telah selesai dibuat 
+kemudian diimplementasikan di 
+lapangan. Pemeliharaan diperlukan 
+untuk menjaga agar sistem tetap bekerja 
+dengan baik. 
+ 
+Usability Testing 
+Usability Testing adalah   jenis 
+pengujian yang biasa dimanfaaatkan untuk 
+evaluasi produk berupa aplikasi atau website 
+dengan peran pengujian sebagai pengguna 
+atau memang pengguna aslinya. Rata -rata 
+cara software testing untuk usability testing 
+selalu memposisikan dirinya sebagai 
+pengguna yang belum pernah menggunakan 
+software tersebut. Pengguna akan 
+menyampaikan alur suatu software/website 
+sesuai dengan user experience (UX) nya 
+apakah penggunaanya mudah atau sulit. 
+Antarmuka pengguna juga akan dicoba 
+apakah membingungkan atau tidak. Informasi 
+tersebut diberikan oleh pengguna yang telah 
+diberikan tugas tertentu menggunakan sistem 
+yang diuji dalam bentuk kuesioner 
+(Firmansyah, 2018) . Responden dalam 
+penelitian ini adalah 40 orang pengguna 
+sistem informas i ini yang berasal dari 
+pengelola panti asuhan dan 
+donatur/dermawan. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+PAGE 5
+Phitsa Mauliana, Ricky Firmansyah, dan Agus Sutardi Volume 10, Nomor 1 
+ p-ISSN 2089-0265 
+  e-ISSN 2598-3016 
+ 
+ 66                                                   JUST IT : Jurnal Sistem Informasi, Teknologi Informatika dan Komputer  
+                                                                               
+3. Hasil dan Pembahasan 
+Flowchart 
+ 
+Gambar 2. Flowchart Donasii 
+ 
+Use Case Diagram 
+ 
+Gambar 3. Use  case e-Panti 
+Terdapat 3 (tiga) aktor dalam sistem ini, 
+yakni admin, donatur dan anak asuh. Admin 
+memiliki hak akses secara menyeluruh mulai 
+dari verifikasi pengguna, mengelola berita, 
+informasi kegiatan, kelola pengguna dan 
+sebagainya. Aktor anak asuh mendapat hak 
+akses untuk kelola profil, lihat informasi 
+kegiatan dan melihat gallery. Aktor donatur 
+memiliki hak akses untuk kelola profil, kelola 
+donasi, dan melihat informasi panti.    
+Activity Diagram 
+Alur pertama dalam activity diagram Donasi 
+e-Panti ini adalah User mengakses web e -
+Panti kemudian memilih menu donasi  untuk 
+melakukan donasi. Sebelumnya user harus 
+mengisi data pada form donasi kemudian 
+mengirim data donasi tersebut melalui sistem. 
+Setelah melakukan donasi melalui transfer 
+bank, user diharuskan untuk mengkonfirmasi 
+dan menyerahkan bukti transaksi kepada 
+amin melalui sistem. Jika admin menyatakan 
+valid, maka user akan mendapatkan resi. 
+ 
+Gambar 4. Activity Diagram Donasi e-Panti 
+Implementasi Sistem 
+ 
+Gambar 5. Halaman Donasi 
+
+
+PAGE 6
+Phitsa Mauliana, Ricky Firmansyah, dan Agus Sutardi Volume 10, Nomor 1 
+ p-ISSN 2089-0265 
+  e-ISSN 2598-3016 
+ 
+ 67                                                   JUST IT : Jurnal Sistem Informasi, Teknologi Informatika dan Komputer  
+                                                                               
+Halaman donasi dapat diakses oleh seluruh 
+pengguna agar dapat memberikan donasi dari 
+secara langsung dan mudah. Donatur juga 
+dapat melihat daftar namanya pada daftar 
+donatur e -Panti (bila berkenan untuk 
+ditampilkan). 
+  
+  
+Gambar 6. Gallery 
+Setiap pengguna dapat melihat galeri pada 
+sistem informasi panti ini. Gallery ini 
+merupakan kump ulan photo kegiatan dari 
+panti asuhan. Halaman galeri foto dapat 
+diakses dengan memilih menu “Gallery” pada 
+website sistem informasi e-Panti. 
+ 
+Gambar 7. Halaman Kontak 
+Halaman kontak pada sistem e -Panti dapat 
+diakses tanpa perlu login maupun registrasi . 
+Pengguna dapat langsung menghubungi 
+admin panti asuhan melalui halaman kontak 
+yang tersedia di sistem informasi ini. Hal 
+tersebut berguna sebagai alternatif apabila 
+nomor yang tersedia di sistem mengalami 
+gangguan. 
+ 
+ 
+ Gambar 8. Halaman Beranda 
+Halaman ber anda sistem informasi panti 
+asuhan berada pada halaman utama web. 
+Disini para pengguna dapat mengakses dan 
+mengetahui berbagai informasi berupa visi 
+dan misi dari panti asuhan. Pengguna dan 
+donatur dapat mempelajari berbagai fitur 
+yang ada pada sistem info rmasi ini melalui 
+menu tab dan navigasi yang ada pada website 
+panti asuhan. 
+  
+Gambar 9. Halaman Dashboard Admin 
+Dashboard pada halaman admin merupakan 
+tampilan awal ketika admin melakukan login 
+pada sistem. Disini admin dapat mengakses 
+dan melihat halaman  kelola donasi, kelola 
+anak panti, laporan, pengguna. Secara umum 
+admin dapat mengelola data pada sistem 
+secara menyeluruh. 
+ 
+ 
+
+
+PAGE 7
+Phitsa Mauliana, Ricky Firmansyah, dan Agus Sutardi Volume 10, Nomor 1 
+ p-ISSN 2089-0265 
+  e-ISSN 2598-3016 
+ 
+ 68                                                   JUST IT : Jurnal Sistem Informasi, Teknologi Informatika dan Komputer  
+                                                                               
+Gambar 10. Halaman Kegiatan, Artikel dan Berita 
+Pengguna dapat mengakses halaman 
+informasi pada sistem informasi panti asuhan 
+tanpa harus melakukan login. Dalam halaman 
+kegiatan ini pengguna dapat melihat info 
+kegiatan yang ada di panti asuhan. Selain itu 
+pengguna dapat berlangganan menggunakan 
+email sehingga akan mendapatkan 
+pemberitahuan secara otomatis bila ada 
+informasi terbaru dari panti asuhan. 
+ 
+Pengujian Black Box 
+Pengujian Black Box ini dilakukan dengan 
+cara mengamati hasil eksekusi seluruh 
+perintah pada sistem. Melalui pengujian ini, 
+sistem diuji dari segi fungsionalitas. Pada 
+tabel di bawah ini adalah rekap hasil 
+pengujian Black Box e-Panti: 
+ 
+ 
+ 
+TABEL l 
+Pengujian Black Box 
+ 
+Fungsi Hasil 
+Diharapkan Pengujian 
+Beranda Menampilkan halaman 
+utama sistem Sesuai 
+Donasi Menampilkan halaman 
+donasi Sesuai 
+Register 
+Menampilkan halaman  
+pendaftaran dan validasi 
+form 
+Sesuai 
+Login Menampilkan halaman 
+login dan validasi form Sesuai 
+Gallery Menampilkan halaman 
+gallery e-Panti Sesuai 
+Kegiatan Menampilkan halaman 
+kegiatan panti Sesuai 
+Kontak Menampilkan halaman 
+kontak web Sesuai 
+About Menampilkan halaman 
+about web Sesuai 
+ 
+Pengujian Usability 
+Kuesioner yang digunakan untuk uji usability 
+adalah USE Questionnaire, yang mengukur 
+tingkat Kepuasan ( Satisfaction), Kegunaan 
+(Usefulness), dan kemudahan penggunaan 
+(Ease of use) dari pengguna. USE merupakan 
+kuesioner tidak komersial dan digunakan 
+untuk pengukuran usability. Populasi dalam 
+penelitian ini adalah sebanyak 40 responden, 
+terdiri dari pengurus panti, anak asuh dan 
+donatur yang merupakan pengguna sistem 
+informasi ini. Usability testing  dilakukan 
+dengan menghitung p ersentase jawaban 
+seluruh responden yang ada. Kata “usability” 
+mengacu pada cara untuk mengoptimalkan 
+kemudahan penggunaan selama proses 
+desain. Usability ini diukur dengan lima 
+kriteria, yaitu:  
+1. Learnability (LA),  
+2. Efficiency (EF),  
+3. Memorability (MM),  
+4. Errors (ER), dan  
+5. Satisfaction (ST). 
+ 
+Pengujian usability USE Questionnaire ini 
+dilakukan dengan memberikan beberapa 
+tugas yang harus dilakukan oleh 40 orang 
+responden merupakan warga masyarakat 
+sebelum mengisi kuesioner. Adapun beberapa 
+tugas yang diberik an kepada responden 
+sebagai pengguna sistem adalah sebagai 
+berikut: 
+TABEL 2 
+Tugas untuk Usability Testing  
+ 
+No Task/Tugas 
+1 Login ke e-Panti, logout dan kemudian 
+login kembali 
+2 Mencari info mengenai cara untuk 
+memberikan donasi beserta persyaratannya 
+3 Mengisi form donasi 
+4 Edit profil (menambah, mengubah dan 
+menghapus data)  
+5 Mencari informasi mengenai berita terbaru  
+ 
+Kuesioner diberikan setelah pengguna 
+melaksanakan semua tugas yang diberikan 
+untuk mendapatkan penilaian bersumber pada 
+pengalaman masing -masing ketika 
+menggunakan e -Panti ini. Di bawah ini 
+adalah 13 pertanyaan kuesioner yang 
+mencakup 5 kriteria usability (Learnability, 
+efficiency, memorability, errors dan 
+satisfaction) :  
+1. Tampilan e-Panti mudah dikenali 
+2. e-Panti mudah digunakan 
+
+PAGE 8
+Phitsa Mauliana, Ricky Firmansyah, dan Agus Sutardi Volume 10, Nomor 1 
+ p-ISSN 2089-0265 
+  e-ISSN 2598-3016 
+ 
+ 69                                                   JUST IT : Jurnal Sistem Informasi, Teknologi Informatika dan Komputer  
+                                                                               
+3. Tampilan warna pada e -Panti cenderung 
+tidak membosankan 
+4. Tampilan menu dalam e -Panti mudah 
+dikenali 
+5. Navigasi halaman e -Panti mudah 
+digunakan 
+6. Menu e-Panti yang ada mudah dipahami 
+7. Info yang dibutuhkan mudah dicari 
+8. Simbol-simbol gambar mudah dipahami 
+9. Mudah mengakses informasi jasa yang 
+ditawarkan? 
+10. Apakah informasi yang ditawarkan sesuai 
+dengan kebutuhan? 
+11. Navigasi pengajuan permohonan muda h 
+diakses 
+12. Informasi pada setiap halaman e-Panti 
+terjamin keamanannya 
+13. Tampilan dan Menu halaman web e -Panti  
+mudah diingat 
+ 
+Aspek yang digunakan  melalui survei yaitu,  
+Ease of Use, Usefulness, Ease of Learning 
+dan Satisfaction. Kuesioner dibuat dalam 
+bentuk skor lima dengan model skala Likert, 
+untuk mengukur masing -masing parameter.  
+Sebagai analisis data kuantitatif penelitian, 
+masing-masing responden mendapatkan lima 
+rentang pilihan penilaian menggunakan skala 
+Likert berikut ini:  
+ 
+TABEL 3 
+ Kriteria Pengukuran Skala Likert 
+ 
+PK STS KS N S SS 
+Nilai 1 2 3 4 5 
+ 
+Keterangan: 
+PK : Pertanyaan Kuesioner 
+STS : Sangat Tidak Setuju 
+KS : Kurang Setuju 
+N : Netral 
+S : Setuju 
+SS : Sangat Setuju 
+ 
+Rekap nilai usability yang didapatkan 
+berdasarkan hasil kuesioner terhadap 40 
+responden ditunjukkan pada tabel 4. 
+Berdasarkan Rekap Nilai dan Aspek Usability 
+pada Tabel 4 memperlihatkan tingkat nilai 
+kepuasan atau penerimaan user ( acceptance) 
+pada setiap atribut. Terlihat bahwa untuk 
+atribut “Apakah informasi yang ditawarkan 
+sesuai dengan kebutuhan?” mendapat nilai 
+penerimaan usability oleh user sebesar 4,28 
+(berada di atas nilai 4 atau hampir mendekati 
+nilai 5) skala 5. Hal ini dapat disimpulkan 
+bahwa e -Panti yang telah dibuat sesuai 
+dengan kebutuhan dari halaman interface. 
+ 
+TABEL 4 
+ Rekap Nilai dan Aspek Usability 
+ 
+Np N % SO SX Aspek 
+Usability 
+L
+A 
+E
+F 
+M
+M 
+E
+R 
+S
+T 
+ASPEK SISTEM (SYSTEM) 
+1 3,80 76,0 152 200      
+2 3,80 76,0 152 200      
+3 3,98 79,5 159 200      
+ASPEK PENGGUNA (USER 
+4 3,83 76,5 153 200      
+5 4,15 83,0 166 200      
+6 4,13 82,5 165 200      
+7 3,80 76,0 152 200      
+8 4,15 83,0 166 200      
+ASPEK INTERAKSI (INTERACTION) 
+9 3,98 79,5 159 200      
+10 4,28 85,5 171 200      
+11 4,15 83,0 166 200      
+12 3,98 79,5 159 200      
+13 4,28 85,5 171 200      
+ 
+Keterangan: 
+NP : No Pertanyaan 
+N : Nilai 
+% : Persentase 
+SO : Skor hasil observasi 
+
+PAGE 9
+Phitsa Mauliana, Ricky Firmansyah, dan Agus Sutardi Volume 10, Nomor 1 
+ p-ISSN 2089-0265 
+  e-ISSN 2598-3016 
+ 
+ 70                                                   JUST IT : Jurnal Sistem Informasi, Teknologi Informatika dan Komputer  
+                                                                               
+SX : Skor maksimum 
+LA : Learnability 
+EF : Efficiency  
+MM : Memorability 
+ER : Errors 
+ST : Satisfaction 
+ 
+Apabila disesuaikan dengan masing -masing 
+aspek usability dalam Tabel 3  di atas , dapat 
+ditarik kesimpulan bahwa sistem informasi 
+yang telah dibuat memiliki nilai Usability: 
+Efficiency, Learnability, Memorability, 
+Errors, dan Satisfaction yang baik. Hal ini 
+ditunjukkan dengan nilai hasil usability pada 
+kelima atribut, sebagai berikut: 
+1. Nilai atribut “Apakah informasi yang 
+ditawarkan sesuai dengan kebutuhan?” 
+sebesar 4,28 yang memperlihatkan bahwa 
+e-Panti telah mendapat nilai aspek 
+Learnability. 
+2. Nilai atribut “Menu dan tampilan halaman 
+web e-Panti  mudah diingat” sebesar 4,28 
+memperlihatkan bahwa e -Panti telah 
+mendapat nilai aspek Efficiency. 
+3. Nilai atribut “Navigasi halaman e -Panti 
+mudah digunakan” sebesar 4,15 
+memperlihatkan bahwa Android telah 
+mendapat nilai aspek Memorability. 
+4. Nilai atribut “Menu e -Panti yang ada 
+mudah dipahami ” sebesar 4,13; atribut 
+“Menu e-Panti yang ada mudah dipahami” 
+sebesar 4,13 dan atribut “Simbol -simbol 
+gambar mudah dipahami” sebesar 4,15 
+membuat e -Panti dapat dikatakan telah 
+meminimalisasi aspek Errors. 
+5. Dan dari keseluruhan atribut yang 
+mendapat nilai rata -rata di atas 3, 
+memperlihatkan jika e -Panti telah 
+mempunyai aspek Satisfaction yang 
+sangat baik. 
+ 
+Pengukuran usability didapatkan dari 
+perhitungan persentase jawaban responden 
+menggunakan persamaan: 
+ 
+PK (%) = 
+𝑆𝑘𝑜𝑟 𝑦𝑎𝑛𝑔 𝑑𝑖𝑜𝑏𝑠𝑒𝑟𝑣𝑎𝑠𝑖
+𝑆𝑘𝑜𝑟 𝑦𝑎𝑛𝑔 𝑚𝑎𝑘𝑠𝑖𝑚𝑢𝑚x 100 
+ 
+ 
+Sebagai contoh, jawaban dari pertanyaan No. 
+10 “Apakah informasi yang ditawarkan 
+sesuai dengan kebutuhan?” memiliki skor 
+171 dengan skor maksimum 200. Sehingga 
+perhitungan persentasenya adalah: 
+ 
+PK (%) = 
+171
+200x 100 = 85,5% 
+ 
+ 
+Data yang diperoleh nantinya dikonversikan 
+berdasarkan tabel kategori kelayakan pada 
+Tabel 5 di bawah ini: 
+ 
+Tabel 5. Kategori Kelayakan 
+ 
+Interval (%) Kategori 
+< 21 Sangat Tidak Layak 
+21-40 Tidak Layak 
+41-60 Cukup 
+61-80 Layak 
+81-100 Sangat Layak 
+ 
+Berdasar pada tabel 5, nilai tertinggi berada 
+pada pertanyaan No. 10 dan No. 13 dengan 
+hasil perhitungan persentase  sebesar 85,50% 
+yang dikonversikan bila termasuk pada 
+kategori “Sangat Layak”. Pertanyaan No. 10 
+menyatakan tentang kesesuaia n sistem 
+dengan kebutuhan, dan pertanyaan No. 13 
+menyatakan tentang kemudahan sistem untuk 
+dipelajari.  
+ 
+4. Kesimpulan 
+Sebagai h asil penelitian ini dapat 
+diambil beberapa kesimpulan berikut: 
+1. Di Indonesia masih banyak panti asuhan 
+yang memiliki banyak keterbatasan 
+finansial, fasilitas, dan afeksi.Donasi dari 
+berbagai pihak sangat diperlukan untuk 
+menghidupi anak asuh yang jumlahnya 
+terus bertambah. Salah satu sumber dana 
+dan donasi panti asuhan  di berbagai 
+negara maju dan berkembang berasal dari 
+situs donasi online.  
+2. Dengan sistem ini, panti asuhan dapat 
+lebih dikenal melalui informasi yang 
+lengkap pada website.  Dermawan dapat 
+melihat profil panti asuhan, daftar anak 
+asuh, jadwal kegiatan panti , dan cara 
+melakukan donasi. 
+
+PAGE 10
+Phitsa Mauliana, Ricky Firmansyah, dan Agus Sutardi Volume 10, Nomor 1 
+ p-ISSN 2089-0265 
+  e-ISSN 2598-3016 
+ 
+ 71                                                   JUST IT : Jurnal Sistem Informasi, Teknologi Informatika dan Komputer  
+                                                                               
+3. Berdasarkan uji daya guna menggunakan 
+USE Questionnaire, nilai tertinggi berada 
+pada pertanyaan No. 10 dan No. 13 
+dengan hasil perhitungan persentase  
+sebesar 85,50% yang bila dikonversikan 
+termasuk pada kategori “Sangat Layak” . 
+Ini berarti sistem telah sesuai dengan 
+kebutuhan dan mudah dipelajari.  
+ 
+Ucapan Terima Kasih  
+Ucapan terima kasih dan penghargaan 
+disampaikan kepada Direktorat Jenderal 
+Penguatan Riset dan Pengem bangan 
+Kementerian Riset, Teknologi, dan 
+Pendidikan Tinggi Republik Indonesia yang 
+telah mendanai penelitian ini sehingga dapat 
+dilaksanakan.  
+ 
+DAFTAR PUSTAKA 
+Firmansyah, R. (2018, March). Usability 
+Testing Dengan Use Questionnaire 
+Pada Aplikasi Sipolin Provinsi Jawa 
+Barat. Swabumi (Suara Wawasan 
+Sukabumi), 6(1), 1-7. 
+Gooyabadi, M. (2011). Considerations for 
+transparent donation systems: 
+proposing a new donation system for 
+Indian orphanages.  Thesis, 
+University of Colorado Boulder, 
+Colorado . 
+Pressman, R. S. (2014). Software 
+Engineering: A Practitioner's 
+Approach. New York, America: 
+McGraw-Hill. 
+Sutabri, T. (2012). Konsep Sistem Informasi.  
+Yogyakarta, Indonesia: CV . Andi 
+Offset. 
+Taumimiyah, S. F. (2017). Mekanisme 
+Survival Panti Asuhan di Era 
+Modern (Studi kasus pada yayasan 
+panti asuhan Assalafiyah Desa 
+Kedung Baruk, Kecamatan Rungkut. 
+Surabaya). Skripsi, Universitas 
+Airlangga, Surabaya. 
+Triandini, E., & Suardika, I. G. (2012). Step 
+by Step Desain Proyek Menggunakan 
+UML. Yogyakarta, Indonesia: CV . 
+Andi Offset. 
+Utaminingsih, S., & Hidayati, R. (2016, 
+Desember). Manajemen Pengasuhan 
+Anak Berbasis Soft Skill Di Panti 
+Darul Hadlonah Demak. 
+P ALASTREN, 9(2), 341-362. 
+Winarno , E., Zaki, A., & Community, S. 
+(2013). Buku Sakti Pemrograman  
+PHP . Jakarta, Indonesia: PT. Elex 
+Media Komputindo. 
+ 

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use App\Models\Galeri;
-use App\Models\JenisKunjungan;
 use App\Models\KategoriBantuan;
 use App\Models\KategoriDonasi;
 use App\Models\Kebutuhan;
@@ -54,13 +53,12 @@ class PublicController extends Controller
 
     public function form(string $kind)
     {
-        abort_unless(in_array($kind, ['donasi', 'bantuan', 'kunjungan']), 404);
+        abort_unless(in_array($kind, ['donasi', 'bantuan']), 404);
 
         return view('public.form', [
             'kind' => $kind,
             'donationCategories' => KategoriDonasi::all(),
             'assistanceCategories' => KategoriBantuan::all(),
-            'visitTypes' => JenisKunjungan::all(),
         ]);
     }
 }

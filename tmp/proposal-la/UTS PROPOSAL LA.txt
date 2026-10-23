@@ -1,0 +1,13 @@
+SOAL UJIAN TENGAH SEMESTER GANJIL  
+TAHUN AKADEMIK 2026/2027
+
+
+Deskripsikan masalah yang melatarbelakangi penelitian yang akan anda kerjakan.
+Deskripsikan kegiatan penelitian anda, meliputi analisis penyelesaian masalah, analisis data penelitian dan analisis kebutuhan system.
+Buat rancangan usecase diagram sistem yang akan anda kembangkan pada penelitian.
+Buat daftar penelitian yang relevan dengan penelitian anda (minimal 10), serta jelaskan relevansinya (minimal 3 yang paling relevan).
+Buat jadwal penelitian dengan durasi waktu maksimal 6 bulan. 
+Dikumpulkan maksimal hari Jumat, 16 Oktober 2026 Jam 24.00 di google sheet.
+Mata Kuliah | : | Proposal LA | Hari | : | 
+Prodi/Kelas | : | MI / 3 (A,B,C,D,E) | Waktu | : | 60 menit
+Dosen Pengampu | : | Ratna Widyastuti, M.Pd | Sifat | : | Open book

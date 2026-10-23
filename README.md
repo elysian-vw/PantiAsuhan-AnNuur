@@ -38,14 +38,21 @@ Untuk akun demonstrasi lokal baru tersedia `php scripts/local-admin.php`. Perint
 ## Modul yang tersedia
 
 - Profil, sejarah, visi-misi, struktur organisasi, kontak/lokasi, kegiatan, berita, dan galeri. Konten sebenarnya diisi pengurus; tidak ada statistik anak atau transaksi fiktif.
-- Pengelolaan pengguna, kategori donasi/bantuan, jenis kunjungan, dan donatur.
+- Pengelolaan pengguna, kategori donasi/bantuan, dan donatur.
 - Kebutuhan dengan target, satuan, jumlah terpenuhi manual, dan status yang dihitung dari realisasi.
 - Donasi tanpa akun: nominal tetap/custom minimal Rp5.000; referensi pembayaran dan tautan riwayat pribadi.
-- Bantuan beberapa jenis barang per pengajuan; konfirmasi, penolakan, penerimaan, dan pengaitan opsional dengan kunjungan.
-- Kunjungan 07.00–21.00 WIB, penjadwalan ulang dengan persetujuan ulang yang dicatat admin, peringatan benturan, buku tamu langsung, riwayat, dan kalender.
+- Bantuan beberapa jenis barang per pengajuan; konfirmasi, penolakan, dan penerimaan barang.
 - Dashboard dengan statistik dan grafik bulanan, laporan web/PDF/Excel, dan log perubahan status serta notifikasi.
 
 Kategori awal dari seeder adalah nilai awal yang dapat diubah di master data, bukan hasil wawancara final.
+
+## Revisi awal: penghapusan kunjungan
+
+Modul kunjungan dan buku tamu telah dihapus dari web publik, dashboard, laporan, dan notifikasi. Dashboard kini menampilkan bantuan yang menunggu konfirmasi. Rencana tahap berikutnya tersedia di `docs/rencana-revisi-sistem.md`.
+
+Untuk database yang sudah ada, jalankan `php artisan migrate`. Migration `2026_10_20_000100_archive_visit_module` memindahkan tabel lama ke `arsip_kunjungan` dan `arsip_jenis_kunjungan`, menyimpan hubungan bantuan lama di `arsip_bantuan_kunjungan`, lalu melepas kolom `bantuan.kunjungan_id`. Isi kunjungan dan riwayat status dipertahankan; arsip tidak memiliki halaman atau endpoint aplikasi.
+
+Migration menyediakan `down()` untuk mengembalikan tabel dan hubungan lama jika diperlukan. Pemulihan fitur juga membutuhkan versi kode sebelum penghapusan. Notifikasi kunjungan yang dibatalkan tidak diantrekan ulang saat rollback. Pada lingkungan dengan worker antrean, hentikan worker sebelum migrasi dan jalankan kembali dengan kode terbaru setelah migrasi selesai.
 
 ## Data dummy untuk demonstrasi lokal
 
@@ -55,7 +62,7 @@ Jalankan secara terpisah setelah migrasi, dengan `APP_ENV=local`:
 php artisan db:seed --class=DummyDataSeeder
 ```
 
-Seeder ini menambahkan 12 donatur, 24 donasi selama enam bulan, 8 kunjungan, 6 bantuan (12 item), 6 kebutuhan, 3 kegiatan, dan 3 berita. Semua memakai label/kode `DUMMY`; dua kegiatan dan dua berita diterbitkan sebagai contoh tampilan publik. Kontak memakai penanda `DUMMY-xxx` dan email `example.invalid`, bukan kontak sungguhan. Foto dan profil resmi tidak diubah.
+Seeder ini menambahkan 12 donatur, 24 donasi selama enam bulan, 6 bantuan (12 item), 6 kebutuhan, 3 kegiatan, dan 3 berita. Semua memakai label/kode `DUMMY`; dua kegiatan dan dua berita diterbitkan sebagai contoh tampilan publik. Kontak memakai penanda `DUMMY-xxx` dan email `example.invalid`, bukan kontak sungguhan. Foto dan profil resmi tidak diubah.
 
 Perintah boleh diulang: data yang sudah ada beserta suntingannya dipertahankan. Seeder tidak membuat akun, pembayaran Midtrans, antrean WhatsApp, atau panggilan provider. Hanya lingkungan `local` dan `testing` yang diizinkan, dan seeder tidak dipanggil oleh seeding standar. Grafik dan laporan akan memasukkan transaksi dummy sebagai simulasi; database demonstrasi ini jangan digunakan sebagai laporan operasional panti. Tanggal contoh ditentukan saat pengisian pertama.
 
@@ -66,6 +73,10 @@ Isi `MIDTRANS_SERVER_KEY` pada `.env`. Implementasi saat ini sengaja hanya mengg
 Callback: `POST /webhooks/midtrans`. Midtrans tidak dapat mengakses localhost secara langsung. Untuk pengujian end-to-end, buat tunnel HTTPS sementara ke port 8000, set `APP_URL` ke alamat tunnel, lalu daftarkan `https://alamat-tunnel/webhooks/midtrans` pada dashboard sandbox. Setelah mengubah konfigurasi, jalankan `php artisan config:clear` dan mulai ulang worker jika ada.
 
 Signature SHA-512 dan nominal diverifikasi. Callback berulang tidak menghitung donasi dua kali atau mengirim notifikasi ganda. Redirect browser tidak mengubah transaksi menjadi berhasil. Status pembayaran tidak dapat dipaksa berhasil melalui dashboard.
+
+Pembatalan mobile menunggu konfirmasi provider; kegagalan/timeout tidak otomatis mengubah status menjadi Dibatalkan. Order yang belum pernah dikirim ke provider dapat dibatalkan lokal secara atomik. Callback `cancel` dipetakan ke Dibatalkan dan callback sukses tidak boleh ditimpa pembatalan. Detail perubahan dan tes regresi: `docs/perbaikan-pembayaran-laporan-2026-10-22.md`.
+
+Dashboard, laporan, dan arus kas memakai aturan bersih yang sama: donasi manual dihitung penuh (termasuk data lama dengan biaya kosong); donasi online hanya masuk bersih setelah biaya tersedia. Online dengan biaya kosong tetap tampil di bruto tetapi belum masuk penerimaan bersih/saldo. Peringatan saldo sementara mencakup transaksi sebelum periode yang ikut menentukan saldo awal, dan tersedia di web, ekspor, serta mobile. Angka ini adalah saldo berdasarkan penerimaan bersih tercatat, bukan rekonsiliasi mutasi bank.
 
 Jika permintaan pembuatan pembayaran mengalami timeout, sistem tidak membuat order baru secara otomatis; pengurus perlu merekonsiliasi referensi order di Midtrans terlebih dahulu. Ini mencegah order ganda ketika hasil permintaan belum diketahui.
 
@@ -79,7 +90,26 @@ Isi `FONNTE_TOKEN`, kemudian ubah `WHATSAPP_ENABLED=true` hanya ketika siap meng
 php artisan queue:work --tries=1
 ```
 
-Tanpa konfigurasi, log ditandai Nonaktif dan tidak ada pesan yang dikirim. Diterima provider berarti permintaan diterima Fonnte, bukan bukti pesan sudah dibaca. Hasil timeout ditandai Tidak diketahui dan tidak diulang otomatis. Persetujuan pengunjung atas jadwal ulang diberikan lewat WhatsApp secara manual; admin mencatatnya sebelum menyetujui jadwal baru.
+Tanpa konfigurasi, log ditandai Nonaktif dan tidak ada pesan yang dikirim. Diterima provider berarti permintaan diterima Fonnte, bukan bukti pesan sudah dibaca. Hasil timeout ditandai Tidak diketahui dan tidak diulang otomatis.
+
+## Lokasi project web dan mobile
+
+Laravel web dan API berada di `D:\apps\laragon\www\projectTA`.
+Flutter Android berada di folder terpisah `D:\apps\laragon\www\annuur_mobile`
+(sejajar dengan folder web). Buka folder tersebut sebagai project Flutter tersendiri.
+Komunikasi keduanya melalui HTTP API `/api/v1`; tidak memerlukan folder source bersama.
+Source mobile berada di luar repository Git web dan perlu dicadangkan/diversioning tersendiri.
+
+Dari folder web, jalankan mobile dengan:
+
+```powershell
+Set-Location ..\annuur_mobile
+flutter pub get
+flutter run --dart-define=API_BASE_URL=https://HOST-BACKEND/api/v1
+```
+
+Ganti `HOST-BACKEND` dengan alamat backend yang dapat diakses perangkat.
+Catatan pemeriksaan revisi tersedia di [review-revisi-2026-10-20.md](docs/review-revisi-2026-10-20.md).
 
 ## Pengujian
 
@@ -89,7 +119,7 @@ npm run build
 node scripts/check-browser.mjs
 ```
 
-Tes PHP memakai SQLite in-memory yang terpisah dari database lokal. Mencakup validasi, pembatasan akses, autentikasi, token riwayat, alur bantuan/kunjungan, signature dan idempotensi callback, serta ekspor. HTTP provider dipalsukan dalam tes; tes tersebut bukan bukti integrasi provider langsung sudah berhasil.
+Tes PHP memakai SQLite in-memory yang terpisah dari database lokal. Mencakup validasi, pembatasan akses, autentikasi, token riwayat, alur bantuan, signature dan idempotensi callback, serta ekspor. HTTP provider dipalsukan dalam tes; tes tersebut bukan bukti integrasi provider langsung sudah berhasil.
 
 Pemeriksaan browser menggunakan Chrome terpasang dan `@playwright/test`, server lokal yang sedang hidup, serta akun lokal dari `.runtime/admin-access.json`. Menguji lebar 360, 390, 768, dan 1440 piksel, overflow halaman, pilihan nominal, penambahan barang, menu admin, dan kesalahan JavaScript. Screenshot disimpan di `.runtime/screenshots`.
 
@@ -108,10 +138,12 @@ Dependensi, cache, hasil build, dan data runtime tidak termasuk dalam pemformata
 
 ## Batas dan tindak lanjut
 
+Perbaikan hasil audit web/API/mobile dan petunjuk migrasi serta signing Android tersedia di [catatan perbaikan lanjutan](docs/perbaikan-lanjutan-audit-2026-10-23.md). Persetujuan akun donatur baru sekarang mengirim tautan aktivasi email; akun aktif setelah token ditukarkan. Pastikan layanan email dikonfigurasi sebelum penggunaan operasional.
+
 - Isi profil, kontak, foto, dan statistik penerima manfaat harus diberikan/divalidasi pengurus.
 - Integrasi langsung Midtrans dan Fonnte menunggu credential pemilik serta tunnel callback. Tidak ada transaksi nyata atau pesan WhatsApp yang dikirim selama setup.
 - Riwayat publik hanya per transaksi/pengajuan menggunakan tautan rahasia. Nomor WhatsApp dipakai untuk pengelompokan kontak, bukan bukti kepemilikan.
 - Pengajuan bantuan dicatat diterima sekaligus; penerimaan parsial bertahap belum termasuk.
-- Laporan donasi berstatus Berhasil menggunakan tanggal pembayaran. Semua status menggunakan tanggal dibuat. Bantuan Diterima menggunakan tanggal diterima; semua status menggunakan tanggal pengajuan. Kunjungan menggunakan tanggal jadwal.
+- Laporan donasi berstatus Berhasil menggunakan tanggal pembayaran. Semua status menggunakan tanggal dibuat. Bantuan Diterima menggunakan tanggal diterima; semua status menggunakan tanggal pengajuan.
 - Hosting/deployment dan UAT pengurus belum dilakukan. Semua pengurus memiliki tingkat akses yang sama.
 - Jangan mengekspos root project, `.env`, `.runtime`, atau server MySQL ke internet. Tunnel pengujian harus mengarah ke server Laravel dengan document root public.

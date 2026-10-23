@@ -7,6 +7,9 @@
         @csrf @if ($item->exists)
             @method('PUT')
         @endif
+        @if ($resource === 'donatur')
+            <p class="help-text mb-5">Donatur tetap wajib memiliki email unik untuk aktivasi dan pemulihan akun. Pengubahan email akun memerlukan aktivasi ulang.</p>
+        @endif
         @foreach ($fields as $name => $field)
             @php([$label, $type, $rules] = $field)
             @if (in_array($type, ['select', 'relation']))

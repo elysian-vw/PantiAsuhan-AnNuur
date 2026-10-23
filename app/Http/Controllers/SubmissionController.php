@@ -6,7 +6,6 @@ use App\Http\Requests\SubmissionRequest;
 use App\Models\Bantuan;
 use App\Models\Donasi;
 use App\Models\Donatur;
-use App\Models\Kunjungan;
 use App\Services\MidtransService;
 use App\Services\StatusService;
 use Illuminate\Http\Request;
@@ -20,7 +19,6 @@ class SubmissionController extends Controller
         return match ($kind) {
             'donasi' => Donasi::class,
             'bantuan' => Bantuan::class,
-            'kunjungan' => Kunjungan::class,
             default => abort(404),
         };
     }
@@ -37,14 +35,12 @@ class SubmissionController extends Controller
                 'nama' => $data['nama'],
                 'whatsapp' => $data['whatsapp'],
             ];
-            if ($kind !== 'kunjungan') {
-                // Public submissions never overwrite a donor's master identity.
-                $donor = Donatur::firstOrCreate(
-                    ['whatsapp' => $data['whatsapp']],
-                    ['nama' => $data['nama'], 'email' => $data['email'] ?? null],
-                );
-                $common['donatur_id'] = $donor->id;
-            }
+            // Public submissions never overwrite a donor's master identity.
+            $donor = Donatur::firstOrCreate(
+                ['whatsapp' => $data['whatsapp']],
+                ['nama' => $data['nama'], 'email' => $data['email'] ?? null],
+            );
+            $common['donatur_id'] = $donor->id;
             $values = match ($kind) {
                 'donasi' => [
                     'kategori_donasi_id' => $data['kategori_donasi_id'],
@@ -53,18 +49,6 @@ class SubmissionController extends Controller
                     'status' => 'Menunggu pembayaran',
                 ],
                 'bantuan' => ['catatan' => $data['catatan'] ?? null, 'status' => 'Diajukan'],
-                'kunjungan' => collect($data)
-                    ->only([
-                        'jenis_kunjungan_id',
-                        'instansi',
-                        'peserta',
-                        'tanggal',
-                        'jam',
-                        'jam_selesai',
-                        'tujuan',
-                        'catatan',
-                    ])
-                    ->all() + ['status' => 'Menunggu'],
             };
             $record = $model::create($common + $values);
             if ($kind === 'bantuan') {

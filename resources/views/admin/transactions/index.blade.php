@@ -3,7 +3,6 @@
     [
     'donasi' => 'Donasi uang',
     'bantuan' => 'Bantuan barang',
-    'kunjungan' => 'Kunjungan & buku tamu',
     ][$kind])
 @section('content')
     <div class="toolbar">
@@ -11,20 +10,16 @@
                 value="{{ request('q') }}" placeholder="Cari nama / kode"><select name="status" aria-label="Status">
                 <option value="">Semua status</option>
                 @foreach (match ($kind) {
-            'donasi' => ['Menunggu pembayaran', 'Berhasil', 'Gagal', 'Kedaluwarsa'],
+            'donasi' => ['Menunggu pembayaran', 'Berhasil', 'Gagal', 'Kedaluwarsa', 'Dibatalkan'],
             'bantuan' => ['Diajukan', 'Dikonfirmasi', 'Diterima', 'Ditolak'],
-            'kunjungan' => ['Menunggu', 'Disetujui', 'Dijadwalkan ulang', 'Ditolak', 'Hadir', 'Selesai'],
         } as $status)
                     <option @selected(request('status') === $status)>{{ $status }}</option>
                 @endforeach
             </select>
             <button class="button outline small">Terapkan</button>
         </form>
-        @if ($kind === 'kunjungan')
-            <a class="button small inline-flex items-center gap-1.5" href="{{ route('admin.walkin') }}"><svg class="w-4 h-4"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                </svg> Tamu langsung</a>
+        @if ($kind === 'donasi')
+            <a href="{{ route('admin.donation.manual.create') }}" class="button small">+ Catat Donasi Manual</a>
         @endif
     </div>
     <div class="card table-card">
@@ -33,7 +28,7 @@
                 <thead>
                     <tr>
                         <th>Nama & referensi</th>
-                        <th>{{ $kind === 'donasi' ? 'Nominal' : 'Tanggal' }}</th>
+                        <th>{{ $kind === 'donasi' ? 'Nominal & Sumber' : 'Tanggal' }}</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -43,7 +38,15 @@
                         <tr>
                             <td><strong>{{ $item->nama }}</strong><small class="block code">{{ $item->kode }}</small>
                             </td>
-                            <td>{{ $kind === 'donasi' ? 'Rp' . number_format($item->nominal, 0, ',', '.') : $item->tanggal ?? ($item->tanggal_diterima ?? $item->created_at->format('Y-m-d')) }}
+                            <td>
+                                @if ($kind === 'donasi')
+                                    <strong>Rp{{ number_format($item->nominal, 0, ',', '.') }}</strong>
+                                    <small class="block text-gray-500">
+                                        {{ $item->isManual() ? 'Manual (' . ucfirst($item->metode) . ')' : 'Online (Midtrans)' }}
+                                    </small>
+                                @else
+                                    {{ $item->tanggal_diterima ?? $item->created_at->format('Y-m-d') }}
+                                @endif
                             </td>
                             <td><span class="status">{{ $item->status }}</span></td>
                             <td><a class="text-link inline-flex items-center gap-1"

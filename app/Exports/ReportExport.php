@@ -44,8 +44,9 @@ class ReportExport extends StringValueBinder implements FromArray, WithCustomVal
         $dateLabel = match ($this->dateColumn) {
             'dibayar_pada' => 'Tanggal pembayaran',
             'tanggal_diterima' => 'Tanggal penerimaan',
-            'tanggal' => 'Tanggal kunjungan',
-            default => 'Tanggal pengajuan',
+            'tanggal' => 'Tanggal pengeluaran',
+            'periode' => 'Periode arus kas',
+            default => 'Tanggal acuan',
         };
         $result = [
             ['Panti Asuhan NU An-Nuur 2 Kota Kediri'],
@@ -57,15 +58,18 @@ class ReportExport extends StringValueBinder implements FromArray, WithCustomVal
             $this->headers,
         ];
         foreach ($this->rows as $row) {
-            if (! empty($row[2])) {
+            if ($this->kind === 'donasi' && ! empty($row[2])) {
                 $row[2] = Date::dateTimeToExcel(Carbon::parse($row[2]));
+            } elseif ($this->kind === 'pengeluaran' && ! empty($row[1])) {
+                $row[1] = Date::dateTimeToExcel(Carbon::parse($row[1]));
             }
             foreach (match ($this->kind) {
                 'donasi' => [4, 5, 6],
-                'kunjungan' => [4],
+                'pengeluaran' => [6],
+                'arus-kas' => [1],
                 default => [],
             } as $index) {
-                if (is_numeric($row[$index])) {
+                if (isset($row[$index]) && is_numeric($row[$index])) {
                     $row[$index] = (float) $row[$index];
                 }
             }
@@ -77,7 +81,11 @@ class ReportExport extends StringValueBinder implements FromArray, WithCustomVal
         $result[] = [null];
         $result[] = ['Ringkasan sesuai filter'];
         foreach ($this->summary as $label => $value) {
-            $result[] = [$label, null, null, is_numeric($value) ? (float) $value : $value];
+            $valueCol = count($this->headers) <= 3 ? (count($this->headers) - 1) : 3;
+            $rowArr = array_fill(0, count($this->headers), null);
+            $rowArr[0] = $label;
+            $rowArr[$valueCol] = is_numeric($value) ? (float) $value : $value;
+            $result[] = $rowArr;
         }
 
         return $result;
@@ -109,6 +117,8 @@ class ReportExport extends StringValueBinder implements FromArray, WithCustomVal
             $widths = match ($this->kind) {
                 'donasi' => [27, 30, 23, 25, 24, 24, 24, 24],
                 'bantuan' => [27, 30, 23, 25, 65],
+                'pengeluaran' => [25, 18, 25, 35, 25, 18, 22, 18],
+                'arus-kas' => [38, 25, 45],
                 default => [27, 30, 23, 20, 14, 25],
             };
             foreach ($widths as $index => $width) {
@@ -127,8 +137,9 @@ class ReportExport extends StringValueBinder implements FromArray, WithCustomVal
                 $lines = 1;
                 foreach ($this->rows[$row - 8] ?? [] as $index => $value) {
                     $cellLines = 0;
+                    $w = $widths[$index] ?? 20;
                     foreach (explode("\n", (string) $value) as $line) {
-                        $cellLines += max(1, (int) ceil(mb_strwidth($line) / ($widths[$index] - 4)));
+                        $cellLines += max(1, (int) ceil(mb_strwidth($line) / max(1, $w - 4)));
                     }
                     $lines = max($lines, $cellLines);
                 }
@@ -138,15 +149,21 @@ class ReportExport extends StringValueBinder implements FromArray, WithCustomVal
                 $sheet->mergeCells("A8:{$lastColumn}8");
             } else {
                 $sheet->setAutoFilter("A7:{$lastColumn}{$lastDataRow}");
-                $sheet->getStyle("C8:C{$lastDataRow}")->getNumberFormat()->setFormatCode($this->kind === 'kunjungan' ? 'dd/mm/yyyy' : 'dd/mm/yyyy hh:mm');
-                $sheet->getStyle("C8:C{$lastDataRow}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+                if (in_array($this->kind, ['donasi', 'bantuan'])) {
+                    $sheet->getStyle("C8:C{$lastDataRow}")->getNumberFormat()->setFormatCode('dd/mm/yyyy hh:mm');
+                    $sheet->getStyle("C8:C{$lastDataRow}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+                } elseif ($this->kind === 'pengeluaran') {
+                    $sheet->getStyle("B8:B{$lastDataRow}")->getNumberFormat()->setFormatCode('dd/mm/yyyy');
+                    $sheet->getStyle("B8:B{$lastDataRow}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+                }
                 $numberRange = match ($this->kind) {
                     'donasi' => "E8:G{$lastDataRow}",
-                    'kunjungan' => "E8:E{$lastDataRow}",
+                    'pengeluaran' => "G8:G{$lastDataRow}",
+                    'arus-kas' => "B8:B{$lastDataRow}",
                     default => null,
                 };
                 if ($numberRange !== null) {
-                    $sheet->getStyle($numberRange)->getNumberFormat()->setFormatCode($this->kind === 'donasi' ? self::MONEY_FORMAT : '#,##0');
+                    $sheet->getStyle($numberRange)->getNumberFormat()->setFormatCode(self::MONEY_FORMAT);
                     $sheet->getStyle($numberRange)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
                 }
             }
@@ -157,14 +174,25 @@ class ReportExport extends StringValueBinder implements FromArray, WithCustomVal
             ]);
             foreach (array_keys($this->summary) as $index => $label) {
                 $row = $summaryRow + $index + 1;
-                $sheet->mergeCells("A{$row}:C{$row}");
-                $sheet->mergeCells("D{$row}:{$lastColumn}{$row}");
-                $sheet->getStyle("D{$row}")->getNumberFormat()->setFormatCode(str_contains($label, '(Rp)') ? self::MONEY_FORMAT : '#,##0.##');
-                $sheet->getStyle("D{$row}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
-                $sheet->getStyle("D{$row}")->getFont()->setBold(true);
+                if (count($this->headers) <= 3) {
+                    $sheet->mergeCells("A{$row}:B{$row}");
+                    $sheet->getStyle("C{$row}")->getNumberFormat()->setFormatCode(str_contains($label, '(Rp)') ? self::MONEY_FORMAT : '#,##0.##');
+                    $sheet->getStyle("C{$row}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
+                    $sheet->getStyle("C{$row}")->getFont()->setBold(true);
+                } else {
+                    $sheet->mergeCells("A{$row}:C{$row}");
+                    $sheet->mergeCells("D{$row}:{$lastColumn}{$row}");
+                    $sheet->getStyle("D{$row}")->getNumberFormat()->setFormatCode(str_contains($label, '(Rp)') ? self::MONEY_FORMAT : '#,##0.##');
+                    $sheet->getStyle("D{$row}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_RIGHT);
+                    $sheet->getStyle("D{$row}")->getFont()->setBold(true);
+                }
                 $sheet->getRowDimension($row)->setRowHeight(max(30, (int) ceil(mb_strwidth($label) / 72) * 16 + 12));
             }
-            $sheet->freezePane('C8');
+            $sheet->freezePane(match ($this->kind) {
+                'pengeluaran' => 'C8',
+                'arus-kas' => 'A8',
+                default => 'C8',
+            });
             $sheet->getPageSetup()->setOrientation(PageSetup::ORIENTATION_LANDSCAPE)
                 ->setPaperSize(PageSetup::PAPERSIZE_A4)->setFitToWidth(1)->setFitToHeight(0)
                 ->setRowsToRepeatAtTopByStartAndEnd(7, 7)->setPrintArea("A1:{$lastColumn}{$lastRow}");
