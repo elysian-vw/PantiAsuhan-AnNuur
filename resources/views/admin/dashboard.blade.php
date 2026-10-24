@@ -13,9 +13,11 @@
     @if (!empty($pendingDonors) && $pendingDonors > 0)
         <div class="notice mb-4 bg-amber-50 border-amber-300 text-amber-950 flex justify-between items-center">
             <div>
-                Terdapat <strong>{{ $pendingDonors }}</strong> pendaftaran donatur tetap baru yang menunggu verifikasi dan persetujuan pengurus.
+                Terdapat <strong>{{ $pendingDonors }}</strong> pendaftaran donatur tetap baru yang menunggu verifikasi dan
+                persetujuan pengurus.
             </div>
-            <a class="text-link font-semibold text-sm underline" href="{{ route('admin.resource.index', 'donatur') }}?jenis=tetap">Lihat pendaftar</a>
+            <a class="text-link font-semibold text-sm underline"
+                href="{{ route('admin.resource.index', 'donatur') }}?jenis=tetap">Lihat pendaftar</a>
         </div>
     @endif
     @if ($unknownFees)

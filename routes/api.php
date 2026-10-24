@@ -22,6 +22,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::get('/transparency/summary', [TransparencyController::class, 'summary'])->name('transparency.summary');
     Route::get('/transparency/categories', [TransparencyController::class, 'categories'])->name('transparency.categories');
     Route::get('/transparency/expenses', [TransparencyController::class, 'expenses'])->name('transparency.expenses');
+    Route::get('/transparency/incomes', [TransparencyController::class, 'incomes'])->name('transparency.incomes');
     Route::get('/transparency/expenses/{id}', [TransparencyController::class, 'expenseDetail'])->whereNumber('id')->name('transparency.expense.detail');
     Route::get('/transparency/expenses/{id}/proof', [TransparencyController::class, 'downloadPublicProof'])->whereNumber('id')->name('transparency.expense.proof');
 

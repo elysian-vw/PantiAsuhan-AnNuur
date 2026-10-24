@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Donasi;
 use App\Models\KategoriPengeluaran;
 use App\Models\Pengeluaran;
 use App\Services\CashflowService;
@@ -59,6 +60,54 @@ class TransparencyController extends Controller
         ]);
     }
 
+    public function incomes(Request $request, CashflowService $cashflowService): JsonResponse
+    {
+        $month = $request->integer('month', (int) now()->format('m'));
+        $year = $request->integer('year', (int) now()->format('Y'));
+
+        if ($month < 1 || $month > 12) {
+            $month = (int) now()->format('m');
+        }
+        if ($year < 2020 || $year > 2099) {
+            $year = (int) now()->format('Y');
+        }
+
+        $startDate = Carbon::createFromDate($year, $month, 1)->startOfMonth()->toDateString();
+        $endDate = Carbon::createFromDate($year, $month, 1)->endOfMonth()->toDateString();
+
+        // Same window as the cashflow summary so list and totals always match.
+        $effectiveStart = $cashflowService->calculate($startDate, $endDate)['effective_start'] ?? $startDate;
+
+        $perPage = min(max($request->integer('per_page', 15), 1), 100);
+        $paginator = Donasi::with('category')
+            ->where('status', 'Berhasil')
+            ->whereDate('dibayar_pada', '>=', $effectiveStart)
+            ->whereDate('dibayar_pada', '<=', $endDate)
+            ->orderByDesc('dibayar_pada')
+            ->orderByDesc('id')
+            ->paginate($perPage);
+
+        $fmt = fn ($v) => 'Rp '.number_format((float) $v, 0, ',', '.');
+
+        $paginator->getCollection()->transform(function (Donasi $d) use ($fmt) {
+            $net = $d->netAmount();
+
+            return [
+                'id' => $d->id,
+                'tanggal' => $d->dibayar_pada?->format('Y-m-d'),
+                'kategori' => $d->category ? ['id' => $d->category->id, 'nama' => $d->category->nama] : null,
+                'sumber' => $d->sumber,
+                'metode' => $d->metode,
+                'nominal' => (string) $d->nominal,
+                'nominal_formatted' => $fmt($d->nominal),
+                'biaya' => $d->recordedFee(),
+                'biaya_formatted' => $d->recordedFee() !== null ? $fmt($d->recordedFee()) : null,
+                'net_formatted' => $net !== null ? $fmt($net) : null,
+            ];
+        });
+
+        return response()->json($paginator);
+    }
     public function categories(): JsonResponse
     {
         $categories = KategoriPengeluaran::select('id', 'nama', 'deskripsi')

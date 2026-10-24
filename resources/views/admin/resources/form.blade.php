@@ -8,7 +8,8 @@
             @method('PUT')
         @endif
         @if ($resource === 'donatur')
-            <p class="help-text mb-5">Donatur tetap wajib memiliki email unik untuk aktivasi dan pemulihan akun. Pengubahan email akun memerlukan aktivasi ulang.</p>
+            <p class="help-text mb-5">Donatur tetap wajib memiliki email unik untuk aktivasi dan pemulihan akun. Pengubahan
+                email akun memerlukan aktivasi ulang.</p>
         @endif
         @foreach ($fields as $name => $field)
             @php([$label, $type, $rules] = $field)
@@ -24,7 +25,14 @@
                 <div class="field"><label for="{{ $name }}">{{ $label }}</label><input type="file"
                         id="{{ $name }}" name="{{ $name }}" accept="image/jpeg,image/png,image/webp">
                     @if ($item->$name)
-                        <img src="{{ asset('storage/' . $item->$name) }}" class="preview-image" alt="Foto saat ini">
+                        <div class="mt-2.5 p-2 bg-gray-50 border border-gray-200 rounded-lg inline-flex items-center gap-3">
+                            <img src="{{ asset('storage/' . $item->$name) }}"
+                                class="w-16 h-16 object-cover rounded-md border border-gray-200" alt="Foto saat ini">
+                            <div>
+                                <span class="text-xs font-semibold text-gray-800 block">Berkas saat ini tersimpan:</span>
+                                <span class="text-[11px] text-gray-500 block break-all">{{ basename($item->$name) }}</span>
+                            </div>
+                        </div>
                     @endif
                 </div>
             @else

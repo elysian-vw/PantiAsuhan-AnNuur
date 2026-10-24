@@ -66,7 +66,8 @@
                 belum memiliki biaya.</p>
         @endif
         @if ($kind === 'arus-kas' && $unknown)
-            <p>{{ $unknown }} donasi online (termasuk sebelum periode) belum masuk penerimaan bersih dan saldo karena biaya belum tersedia. Saldo masih sementara.</p>
+            <p>{{ $unknown }} donasi online (termasuk sebelum periode) belum masuk penerimaan bersih dan saldo
+                karena biaya belum tersedia. Saldo masih sementara.</p>
         @endif
         <table>
             <thead>

@@ -43,7 +43,8 @@
         </div>
     @endif
     @if ($kind === 'arus-kas' && $unknown)
-        <div class="notice">{{ $unknown }} donasi online (termasuk sebelum periode) belum masuk penerimaan bersih dan saldo karena biaya belum tersedia. Saldo masih sementara.</div>
+        <div class="notice">{{ $unknown }} donasi online (termasuk sebelum periode) belum masuk penerimaan bersih dan
+            saldo karena biaya belum tersedia. Saldo masih sementara.</div>
     @endif
     <div class="card table-card">
         <div class="table-scroll">
