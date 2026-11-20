@@ -29,7 +29,7 @@
                             class="grid size-11 shrink-0 place-items-center rounded-full border border-[#d6dfce] text-xl text-[#185237]"
                             aria-hidden="true">♡</span>
                         <p class="mb-0! text-xs leading-6"><strong class="text-[#244936]">Kebaikan kecil, arti yang
-                                besar.</strong><br>Donasi mulai Rp5.000 · Tanpa membuat akun</p>
+                                besar.</strong><br>Donasi uang via Aplikasi Mobile · Bantuan barang via Web</p>
                     </div>
                 </div>
                 <div class="landing-hero-visual relative mx-auto w-full max-w-xl pb-7">
@@ -75,7 +75,7 @@
                 <p class="mb-0! max-w-xs text-sm leading-7">Pilih bentuk dukungan yang paling dekat dengan hati Anda.</p>
             </div>
             <div class="grid gap-4 md:grid-cols-2">
-                @foreach ([['key' => 'donasi', 'number' => '01', 'icon' => 'heart', 'title' => 'Berbagi rezeki', 'copy' => 'Bantu mendukung keseharian anak-anak melalui donasi sesuai kemampuan Anda.', 'label' => 'Donasi uang'], ['key' => 'bantuan', 'number' => '02', 'icon' => 'box', 'title' => 'Penuhi kebutuhan', 'copy' => 'Dari bahan pangan hingga perlengkapan belajar, setiap bantuan punya arti.', 'label' => 'Bantuan barang']] as $way)
+                @foreach ([['key' => 'donasi', 'number' => '01', 'icon' => 'heart', 'title' => 'Berbagi rezeki (Aplikasi Mobile)', 'copy' => 'Salurkan donasi uang mulai Rp5.000 tanpa perlu login melalui Aplikasi Mobile An-Nuur 2.', 'label' => 'Info Donasi Mobile'], ['key' => 'bantuan', 'number' => '02', 'icon' => 'box', 'title' => 'Penuhi kebutuhan', 'copy' => 'Dari bahan pangan hingga perlengkapan belajar, ajukan bantuan barang melalui website ini.', 'label' => 'Bantuan barang']] as $way)
                     <a href="{{ route('submission.form', $way['key']) }}"
                         class="landing-way group {{ $loop->first ? 'landing-way-featured' : '' }}">
                         <div class="mb-9 flex items-center justify-between"><span

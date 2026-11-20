@@ -55,6 +55,8 @@ Route::middleware(['auth', 'account.role:pengurus'])
     ->group(function () {
         Route::get('/donatur/{donor}/akun', [DonorAccountController::class, 'show'])->name('donor.account');
         Route::post('/donatur/{donor}/setujui', [DonorAccountController::class, 'approve'])->name('donor.approve');
+        Route::post('/donatur/{donor}/promosi', [DonorAccountController::class, 'promote'])->name('donor.promote');
+        Route::post('/donatur/{donor}/tolak-promosi', [DonorAccountController::class, 'rejectPromotion'])->name('donor.reject-promotion');
         Route::post('/donatur/{donor}/undangan', [DonorAccountController::class, 'invite'])->middleware('throttle:5,1')->name('donor.invite');
         Route::post('/donatur/{donor}/akses', [DonorAccountController::class, 'access'])->name('donor.access');
         Route::post('/donatur/{donor}/riwayat/{donation}', [DonorAccountController::class, 'verifyDonation'])->name('donor.verify');

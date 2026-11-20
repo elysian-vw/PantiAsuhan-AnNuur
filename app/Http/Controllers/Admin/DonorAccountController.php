@@ -16,11 +16,13 @@ class DonorAccountController extends Controller
 {
     public function show(Donatur $donor)
     {
-        $donor->load('user');
+        $donor->load(['user', 'decider']);
         $donations = $donor->donations()->latest()->paginate(15);
+        $successCount = $donor->donations()->where('status', 'Berhasil')->count();
+        $successTotal = (float) ($donor->donations()->where('status', 'Berhasil')->sum('nominal') ?? 0);
         $audits = DB::table('donor_account_audits')->where('donatur_id', $donor->id)->latest('id')->limit(20)->get();
 
-        return view('admin.donors.account', compact('donor', 'donations', 'audits'));
+        return view('admin.donors.account', compact('donor', 'donations', 'audits', 'successCount', 'successTotal'));
     }
 
     public function invite(Donatur $donor, DonorAccountService $service)
@@ -29,6 +31,15 @@ class DonorAccountController extends Controller
             $donor = Donatur::whereKey($donor->id)->lockForUpdate()->firstOrFail();
             $user = $donor->user_id ? User::whereKey($donor->user_id)->lockForUpdate()->first() : null;
             abort_unless($donor->jenis === 'tetap' && $user?->role === 'donatur' && $user->account_status === 'menunggu', 409);
+
+            if ($donor->status_verifikasi !== 'disetujui') {
+                $donor->forceFill([
+                    'status_verifikasi' => 'disetujui',
+                    'diputuskan_oleh' => auth()->id(),
+                    'diputuskan_pada' => now(),
+                    'alasan_penolakan' => null,
+                ])->save();
+            }
 
             $result = Password::broker('donors')->sendResetLink(['email' => $user->email, 'role' => 'donatur'], function ($user, $token) {
                 $user->notify(new DonorAccountLink($token, true));
@@ -51,6 +62,38 @@ class DonorAccountController extends Controller
         // Approval authorizes an activation invitation; only using the emailed
         // token proves ownership of that email address and activates the account.
         return $this->invite($donor, $service);
+    }
+
+    public function promote(Request $request, Donatur $donor, DonorAccountService $service)
+    {
+        $data = $request->validate([
+            'email' => 'nullable|email|max:200',
+            'verify_history' => 'nullable|boolean',
+            'send_invite' => 'nullable|boolean',
+            'reason' => 'nullable|string|max:2000',
+        ]);
+
+        $donor = $service->promoteToPermanent($donor, $request->user(), $data);
+
+        if (! empty($data['send_invite']) && $donor->user_id) {
+            return $this->invite($donor, $service);
+        }
+
+        return back()->with('success', 'Donatur berhasil diverifikasi dari riwayat donasi dan ditetapkan sebagai Donatur Tetap.');
+    }
+
+    public function rejectPromotion(Request $request, Donatur $donor, DonorAccountService $service)
+    {
+        $data = $request->validate([
+            'reason' => 'required|string|min:5|max:2000',
+        ], [
+            'reason.required' => 'Alasan penolakan wajib diisi.',
+            'reason.min' => 'Alasan penolakan minimal 5 karakter.',
+        ]);
+
+        $service->rejectPermanentPromotion($donor, $request->user(), $data['reason']);
+
+        return back()->with('success', 'Status pengajuan donatur tetap telah ditolak.');
     }
 
     public function access(Request $request, Donatur $donor, DonorAccountService $service)

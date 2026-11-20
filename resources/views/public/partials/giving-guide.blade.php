@@ -1,16 +1,16 @@
 @php
     $guides = [
         'donasi' => [
-            'label' => 'Donasi uang',
-            'title' => 'Pilih nominal, mulai kebaikan.',
-            'description' => 'Mulai dari Rp5.000, setiap donasi menjadi bentuk kepedulian Anda untuk panti.',
+            'label' => 'Donasi uang (Mobile)',
+            'title' => 'Berdonasi mudah lewat Aplikasi Mobile.',
+            'description' => 'Layanan donasi uang difokuskan melalui Aplikasi Mobile An-Nuur 2 mulai dari Rp5.000 tanpa perlu membuat akun terlebih dahulu.',
             'steps' => [
-                'Pilih kategori dan nominal donasi.',
-                'Isi nama serta nomor WhatsApp Anda.',
-                'Lanjutkan pembayaran dan lihat status pada tautan pribadi.',
+                'Buka Aplikasi Mobile An-Nuur 2 dan pilih Donasi Sekarang.',
+                'Pilih kategori, nominal donasi, serta isi nama dan nomor WhatsApp.',
+                'Selesaikan pembayaran via Midtrans dan pantau riwayat langsung di ponsel Anda.',
             ],
-            'action' => 'Isi formulir donasi',
-            'note' => 'Pembayaran saat ini dalam mode pengujian sandbox.',
+            'action' => 'Lihat panduan Aplikasi Mobile',
+            'note' => 'Setelah donasi berhasil, Anda otomatis diajukan ke antrean verifikasi Donatur Tetap.',
         ],
         'bantuan' => [
             'label' => 'Bantuan barang',

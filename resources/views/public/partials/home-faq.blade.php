@@ -7,9 +7,9 @@
     </div>
     <div class="faq-list">
         @foreach ([
-        'Apakah saya perlu membuat akun?' => 'Tidak. Anda dapat mengisi formulir donasi atau bantuan barang tanpa login. Simpan tautan pribadi yang muncul setelah pengajuan untuk melihat perkembangannya.',
-        'Berapa minimal nominal donasi?' => 'Anda dapat memilih nominal yang tersedia atau mengisi nominal sendiri mulai Rp5.000. Pembayaran saat ini menggunakan Midtrans Sandbox untuk pengujian.',
-        'Bolehkah memberikan beberapa jenis barang?' => 'Boleh. Tambahkan rincian nama, jumlah, dan satuan untuk setiap barang di formulir bantuan. Pengurus akan memeriksa dan mengonfirmasi pengajuan Anda.',
+        'Bagaimana cara melakukan donasi uang?' => 'Donasi uang kini dilakukan melalui Aplikasi Mobile An-Nuur 2. Anda dapat langsung berdonasi mulai Rp5.000 tanpa perlu login terlebih dahulu (Donatur Biasa), dan riwayat donasi otomatis tersimpan di perangkat Anda.',
+        'Bagaimana cara menjadi Donatur Tetap?' => 'Setelah Anda memiliki minimal 1 transaksi donasi yang berhasil di Aplikasi Mobile, data Anda otomatis masuk ke antrean verifikasi Pengurus Panti untuk disetujui menjadi Donatur Tetap.',
+        'Bolehkah memberikan bantuan berupa barang lewat website?' => 'Boleh. Pengajuan bantuan barang tetap dapat dilakukan langsung melalui formulir Bantuan Barang di website ini tanpa perlu membuat akun.',
     ] as $question => $answer)
             <details name="home-questions">
                 <summary>{{ $question }}<span aria-hidden="true"></span></summary>

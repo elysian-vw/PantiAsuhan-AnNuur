@@ -23,9 +23,14 @@ class ResourceController extends Controller
             $query->where('role', 'pengurus');
         }
         if ($resource === 'donatur') {
-            $query->with('user');
+            $query->with('user')->withCount([
+                'donations as success_donations_count' => fn ($q) => $q->where('status', 'Berhasil'),
+            ]);
             if (in_array($request->input('jenis'), ['biasa', 'tetap'])) {
                 $query->where('jenis', $request->input('jenis'));
+            }
+            if (in_array($request->input('verifikasi'), ['pending', 'disetujui', 'ditolak'])) {
+                $query->where('status_verifikasi', $request->input('verifikasi'));
             }
         }
         if ($request->filled('q')) {

@@ -68,6 +68,8 @@ class ProfileController extends Controller
                 'whatsapp' => $donor->whatsapp,
                 'email' => $donor->email,
                 'jenis' => $donor->jenis,
+                'status_verifikasi' => $donor->status_verifikasi ?? 'none',
+                'alasan_penolakan' => $donor->alasan_penolakan,
                 'registered_at' => $donor->created_at?->toIso8601String(),
             ] : null,
         ]);
@@ -132,6 +134,8 @@ class ProfileController extends Controller
                 'whatsapp' => $donor->whatsapp,
                 'email' => $donor->email,
                 'jenis' => $donor->jenis,
+                'status_verifikasi' => $donor->status_verifikasi ?? 'none',
+                'alasan_penolakan' => $donor->alasan_penolakan,
             ] : null,
         ]);
     }

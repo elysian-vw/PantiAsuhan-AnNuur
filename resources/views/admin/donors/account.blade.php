@@ -9,7 +9,23 @@
     <section class="card mb-6">
         <h2>{{ $donor->nama }}</h2>
         <p class="mt-4">Jenis: <strong>{{ ucfirst($donor->jenis) }}</strong></p>
+        <p>WhatsApp: {{ $donor->whatsapp }}</p>
         <p>Email: {{ $donor->email ?: 'Belum diisi' }}</p>
+        <p>Riwayat Donasi Berhasil: <strong>{{ $successCount ?? 0 }} transaksi</strong> (Total Rp{{ number_format($successTotal ?? 0, 0, ',', '.') }})</p>
+        <p>Status Verifikasi Donatur Tetap:
+            @if ($donor->status_verifikasi === 'pending')
+                <span class="inline-block px-2.5 py-0.5 text-xs font-bold rounded bg-amber-100 text-amber-900 border border-amber-300">Menunggu Verifikasi Pengurus</span>
+            @elseif ($donor->status_verifikasi === 'disetujui' || $donor->jenis === 'tetap')
+                <span class="inline-block px-2.5 py-0.5 text-xs font-bold rounded bg-green-100 text-green-900 border border-green-300">Disetujui (Donatur Tetap)</span>
+            @elseif ($donor->status_verifikasi === 'ditolak')
+                <span class="inline-block px-2.5 py-0.5 text-xs font-bold rounded bg-red-100 text-red-900 border border-red-300">Ditolak</span>
+            @else
+                <span class="inline-block px-2.5 py-0.5 text-xs font-bold rounded bg-slate-100 text-slate-700 border border-slate-300">Belum Diajukan</span>
+            @endif
+        </p>
+        @if ($donor->alasan_penolakan)
+            <p class="text-xs text-rose-700 mt-1">Alasan penolakan: {{ $donor->alasan_penolakan }}</p>
+        @endif
         @if ($donor->user)
             <p>Status akun:
                 @if ($donor->user->account_status === 'menunggu')
@@ -67,8 +83,50 @@
                 <p class="help-text mt-4">Email masih dalam mode pengujian lokal. Undangan belum dikirim ke kotak masuk.</p>
             @endif
         @else
-            <p class="mt-4">Donatur biasa berdonasi melalui web tanpa akun. Pilih jenis tetap dan isi email untuk
-                menyiapkan akun.</p>
+            <p class="mt-4">Donatur biasa berdonasi melalui aplikasi mobile atau web tanpa akun. Verifikasi riwayat donasi di bawah untuk menetapkan sebagai Donatur Tetap.</p>
+        @endif
+
+        @if ($donor->jenis === 'biasa')
+            <div class="mt-6 pt-5 border-t">
+                <h3 class="font-semibold text-base">Verifikasi Perubahan Menjadi Donatur Tetap</h3>
+                <p class="text-sm mt-1">
+                    @if ($donor->status_verifikasi === 'pending')
+                        Donatur biasa ini telah menyelesaikan donasi dan otomatis masuk ke antrean kandidat Donatur Tetap.
+                    @else
+                        Anda dapat memverifikasi donatur biasa ini menjadi Donatur Tetap berdasarkan riwayat donasinya.
+                    @endif
+                </p>
+                <form method="post" action="{{ route('admin.donor.promote', $donor) }}" class="mt-4 space-y-4">
+                    @csrf
+                    <label class="field" for="promote-email">Email Akun Donatur Tetap (opsional bila hanya mengubah status tanpa membuat akun login)
+                        <input type="email" id="promote-email" name="email" value="{{ old('email', $donor->email) }}" placeholder="contoh@donatur.com">
+                    </label>
+                    <label class="field" for="promote-reason">Catatan Verifikasi Pengurus (opsional)
+                        <input type="text" id="promote-reason" name="reason" value="{{ old('reason', 'Diverifikasi oleh pengurus berdasarkan riwayat donasi berhasil.') }}">
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="verify_history" value="1" checked>
+                        <span>Sekaligus tautkan seluruh riwayat donasi pada profil ini ke akun donatur tetap (bila email diisi).</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="send_invite" value="1" checked>
+                        <span>Kirim email undangan aktivasi akun (bila email diisi).</span>
+                    </label>
+                    <div class="flex flex-wrap gap-3 mt-3">
+                        <button type="submit" class="button bg-green-600 hover:bg-green-700 text-white font-medium">Setujui Jadi Donatur Tetap</button>
+                    </div>
+                </form>
+
+                @if ($donor->status_verifikasi === 'pending')
+                    <form method="post" action="{{ route('admin.donor.reject-promotion', $donor) }}" class="mt-5 pt-4 border-t">
+                        @csrf
+                        <label class="field" for="reject-reason">Alasan Penolakan (jika belum memenuhi syarat Donatur Tetap)
+                            <input type="text" id="reject-reason" name="reason" required minlength="5" placeholder="Tuliskan alasan penolakan...">
+                        </label>
+                        <button type="submit" class="button outline text-rose-700 border-rose-300 hover:bg-rose-50 mt-2">Tolak Pengajuan</button>
+                    </form>
+                @endif
+            </div>
         @endif
     </section>
     <section class="card mb-6">
@@ -77,8 +135,13 @@
             pemeriksaan sebelum menautkan donasi ke akun.</p>
         @forelse ($donations as $donation)
             <div class="mt-6 border-t pt-5">
-                <p><strong>{{ $donation->kode }}</strong> · Rp{{ number_format($donation->nominal, 0, ',', '.') }} ·
-                    {{ $donation->status }}</p>
+                <p>
+                    <strong>{{ $donation->kode }}</strong> · Rp{{ number_format($donation->nominal, 0, ',', '.') }} ·
+                    {{ $donation->status }}
+                </p>
+                <p class="text-xs text-slate-600 mt-1">
+                    Atas nama: <strong>{{ $donation->nama }}</strong> · {{ $donation->created_at?->format('d/m/Y H:i') }} WIB
+                </p>
                 <a class="text-link" href="{{ route('admin.transaction.show', ['donasi', $donation->id]) }}">Lihat detail
                     transaksi</a>
                 @if ($donation->owner_user_id)

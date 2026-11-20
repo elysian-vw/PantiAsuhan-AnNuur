@@ -152,7 +152,11 @@ class MidtransService
     {
         $from = $donation->status;
         $donation->update(['status' => 'Dibatalkan']);
-        $payment->update(['status' => 'cancel']);
+        $payment->update([
+            'status' => 'cancel',
+            'payment_url' => null,
+            'snap_token' => null,
+        ]);
         app(StatusService::class)->record($donation, $from, 'mobile_donatur', 'Dibatalkan oleh donatur');
         app(WhatsappService::class)->notify($donation, 'donasi');
     }
@@ -174,8 +178,19 @@ class MidtransService
                 ->timeout(10)
                 ->post("{$base}/v2/{$payment->order_id}/cancel");
 
-            return $response->successful()
-                && (string) $response->json('status_code') === '200'
+            if (! $response->successful()) {
+                return false;
+            }
+
+            $statusCode = (string) $response->json('status_code');
+
+            // Midtrans Snap tokens that have not yet had a payment method selected
+            // do not exist in Midtrans Core API and return status_code 404 on cancel.
+            if ($statusCode === '404' && ! $payment->provider_id) {
+                return true;
+            }
+
+            return $statusCode === '200'
                 && $response->json('transaction_status') === 'cancel'
                 && $response->json('order_id') === $payment->order_id;
         } catch (\Throwable) {
@@ -240,6 +255,9 @@ class MidtransService
                 }
             }
             $donation->update($values);
+            if ($next === 'Berhasil' && $donation->donor) {
+                app(DonorAccountService::class)->queueForPermanentVerificationIfEligible($donation->donor, $donation);
+            }
             app(StatusService::class)->record($donation, $from, 'midtrans');
             app(WhatsappService::class)->notify($donation, 'donasi');
         });

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Donasi;
+use App\Models\Donatur;
 use App\Models\User;
 use App\Services\MidtransService;
 use App\Services\StatusService;
+use App\Support\Phone;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -168,15 +170,153 @@ class DonationController extends Controller
         ]);
     }
 
-    private function formatDonation(Donasi $donation): array
+    public function storeGuest(Request $request, MidtransService $midtransService): JsonResponse
+    {
+        $normalizedPhone = Phone::normalize($request->input('whatsapp'));
+        $rawEmail = trim((string) $request->input('email', ''));
+        $request->merge([
+            'whatsapp' => $normalizedPhone,
+            'email' => $rawEmail !== '' ? Str::lower($rawEmail) : null,
+        ]);
+
+        $data = $request->validate([
+            'nama' => 'required|string|max:150',
+            'whatsapp' => ['required', 'regex:/^628[0-9]{7,11}$/'],
+            'email' => 'nullable|email|max:200',
+            'kategori_donasi_id' => 'required|exists:kategori_donasi,id',
+            'nominal' => 'required|integer|min:5000|max:999999999',
+            'catatan' => 'nullable|string|max:500',
+            'idempotency_key' => 'nullable|string|max:64',
+        ], [
+            'nama.required' => 'Nama lengkap wajib diisi.',
+            'whatsapp.required' => 'Nomor WhatsApp wajib diisi.',
+            'whatsapp.regex' => 'Format nomor WhatsApp tidak valid (contoh: 081234567890).',
+            'email.email' => 'Format email tidak valid.',
+        ]);
+
+        $key = $data['idempotency_key'] ?? null;
+        $guestToken = $key !== null
+            ? hash_hmac('sha256', 'guest-donation:'.$data['whatsapp'].':'.$key, (string) config('app.key'))
+            : Str::random(64);
+
+        $existingDonor = Donatur::where('whatsapp', $data['whatsapp'])->first();
+        if ($existingDonor && Str::lower(trim($existingDonor->nama)) !== Str::lower(trim($data['nama']))) {
+            return response()->json([
+                'message' => 'Nomor WhatsApp ini sudah terdaftar atas nama donatur lain. Gunakan nama yang sesuai atau nomor WhatsApp Anda sendiri.',
+                'errors' => [
+                    'whatsapp' => ['Nomor WhatsApp ini sudah terdaftar atas nama donatur lain.'],
+                ],
+            ], 422);
+        }
+
+        $created = false;
+        $record = DB::transaction(function () use ($data, $key, $guestToken, &$created) {
+            $donor = Donatur::firstOrCreate(
+                ['whatsapp' => $data['whatsapp']],
+                [
+                    'nama' => $data['nama'],
+                    'email' => $data['email'] ?? null,
+                    'jenis' => 'biasa',
+                ],
+            );
+            Donatur::whereKey($donor->id)->lockForUpdate()->firstOrFail();
+
+            $hash = hash('sha256', json_encode([
+                $data['whatsapp'],
+                (int) $data['kategori_donasi_id'],
+                (int) $data['nominal'],
+                $data['catatan'] ?? null,
+            ], JSON_THROW_ON_ERROR));
+
+            if ($key !== null) {
+                $existing = Donasi::where('donatur_id', $donor->id)
+                    ->whereNull('owner_user_id')
+                    ->where('idempotency_key', $key)
+                    ->first();
+                if ($existing) {
+                    abort_unless(hash_equals((string) $existing->request_hash, $hash), 409, 'Permintaan ini sudah digunakan untuk donasi berbeda.');
+
+                    return $existing;
+                }
+            }
+
+            $donation = Donasi::create([
+                'idempotency_key' => $key,
+                'request_hash' => $key !== null ? $hash : null,
+                'kode' => 'DON-'.strtoupper((string) Str::ulid()),
+                'token_hash' => hash('sha256', $guestToken),
+                'donatur_id' => $donor->id,
+                'kategori_donasi_id' => $data['kategori_donasi_id'],
+                'nama' => $data['nama'],
+                'whatsapp' => $data['whatsapp'],
+                'email' => $data['email'] ?? null,
+                'nominal' => $data['nominal'],
+                'status' => 'Menunggu pembayaran',
+                'owner_user_id' => null,
+                'sumber' => 'online',
+                'catatan' => $data['catatan'] ?? null,
+            ]);
+
+            $donation->payment()->create([
+                'order_id' => $donation->kode,
+            ]);
+
+            app(StatusService::class)->record($donation, null, 'mobile_pengunjung');
+            $created = true;
+
+            return $donation;
+        });
+
+        if ($created) {
+            $midtransService->checkout($record, route('mobile.payment.return'));
+        }
+        $record->load(['category', 'payment', 'donor']);
+
+        return response()->json([
+            'message' => $created ? 'Transaksi donasi berhasil dibuat.' : 'Transaksi serupa sedang diproses. Silakan lanjutkan transaksi yang sudah ada.',
+            'data' => $this->formatDonation($record, $guestToken),
+        ], $created ? 201 : 200);
+    }
+
+    public function showGuest(string $token): JsonResponse
+    {
+        $donation = Donasi::with(['category', 'payment', 'donor'])
+            ->where('token_hash', hash('sha256', $token))
+            ->firstOrFail();
+
+        return response()->json([
+            'data' => $this->formatDonation($donation, $token),
+        ]);
+    }
+
+    public function cancelGuest(string $token, MidtransService $midtransService): JsonResponse
+    {
+        $donation = Donasi::with(['payment', 'donor'])
+            ->where('token_hash', hash('sha256', $token))
+            ->firstOrFail();
+
+        $donation = $midtransService->cancelDonation($donation);
+        $donation->load('donor');
+
+        return response()->json([
+            'message' => 'Pembayaran donasi berhasil dibatalkan.',
+            'data' => $this->formatDonation($donation, $token),
+        ]);
+    }
+
+    private function formatDonation(Donasi $donation, ?string $guestToken = null): array
     {
         $payment = $donation->payment;
         $fee = $donation->recordedFee();
         $snapToken = $payment ? $payment->getRawOriginal('snap_token') ?? $payment->snap_token : null;
+        $donor = $donation->relationLoaded('donor') ? $donation->donor : null;
 
         return [
             'id' => $donation->id,
             'kode' => $donation->kode,
+            'guest_token' => $guestToken,
+            'nama_donatur' => $donation->nama,
+            'whatsapp_donatur' => $donation->whatsapp,
             'nominal' => number_format((float) $donation->nominal, 2, '.', ''),
             'nominal_formatted' => 'Rp '.number_format((float) $donation->nominal, 0, ',', '.'),
             'biaya' => $fee !== null ? number_format((float) $fee, 2, '.', '') : null,
@@ -189,6 +329,10 @@ class DonationController extends Controller
             'kategori' => $donation->category ? [
                 'id' => $donation->category->id,
                 'nama' => $donation->category->nama,
+            ] : null,
+            'donor_status' => $donor ? [
+                'jenis' => $donor->jenis,
+                'status_verifikasi' => $donor->status_verifikasi ?? 'none',
             ] : null,
             'payment' => $payment ? [
                 'order_id' => $payment->order_id,

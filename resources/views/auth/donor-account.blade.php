@@ -8,8 +8,7 @@
             <p>Email: {{ auth()->user()->email }} · Terverifikasi</p>
             <p>Total donasi berhasil milik Anda yang sudah diverifikasi:</p>
             <p class="amount-large">Rp{{ number_format($total, 0, ',', '.') }}</p>
-            <p class="help-text">Halaman ini mendukung pemeriksaan akun. Fitur donasi dan monitoring mobile tersedia setelah
-                aplikasi mobile dikembangkan.</p>
+            <p class="help-text">Silakan gunakan <strong>Aplikasi Mobile An-Nuur 2</strong> untuk melakukan donasi baru dan memantau laporan transparansi keuangan panti secara lengkap.</p>
             <h2 class="mt-6">Riwayat terverifikasi</h2>
             @forelse ($donations as $donation)
                 <div class="detail-row"><strong>{{ $donation->kode }}<small

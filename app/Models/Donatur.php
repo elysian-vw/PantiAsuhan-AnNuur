@@ -6,11 +6,27 @@ class Donatur extends Record
 {
     protected $table = 'donatur';
 
-    protected $attributes = ['jenis' => 'biasa'];
+    protected $attributes = [
+        'jenis' => 'biasa',
+        'status_verifikasi' => 'none',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'diajukan_pada' => 'datetime',
+            'diputuskan_pada' => 'datetime',
+        ];
+    }
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function decider()
+    {
+        return $this->belongsTo(User::class, 'diputuskan_oleh');
     }
 
     public function donations()

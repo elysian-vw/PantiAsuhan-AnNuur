@@ -44,6 +44,8 @@ class ManualDonationService
                 'dibayar_pada' => $data['tanggal_diterima'] ?? now(),
             ]);
 
+            app(DonorAccountService::class)->queueForPermanentVerificationIfEligible($donor, $donation);
+
             app(StatusService::class)->record(
                 $donation,
                 null,

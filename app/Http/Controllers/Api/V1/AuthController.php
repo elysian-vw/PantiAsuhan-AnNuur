@@ -26,10 +26,24 @@ class AuthController extends Controller
         $normalizedPhone = Phone::normalize($request->input('whatsapp'));
         $request->merge(['whatsapp' => $normalizedPhone, 'email' => Str::lower(trim((string) $request->input('email')))]);
 
+        $existingGuestDonor = Donatur::where('whatsapp', $normalizedPhone)
+            ->whereNull('user_id')
+            ->first();
+
         $data = $request->validate([
             'name' => 'required|string|max:150',
-            'whatsapp' => ['required', 'regex:/^628[0-9]{7,11}$/', Rule::unique('donatur', 'whatsapp')],
-            'email' => ['required', 'email', 'max:200', Rule::unique('users', 'email'), Rule::unique('donatur', 'email')],
+            'whatsapp' => [
+                'required',
+                'regex:/^628[0-9]{7,11}$/',
+                Rule::unique('donatur', 'whatsapp')->where(fn ($q) => $q->whereNotNull('user_id')),
+            ],
+            'email' => [
+                'required',
+                'email',
+                'max:200',
+                Rule::unique('users', 'email'),
+                Rule::unique('donatur', 'email')->when($existingGuestDonor, fn ($r) => $r->ignore($existingGuestDonor->id)),
+            ],
             'password' => 'required|string|min:8|confirmed',
         ], [
             'name.required' => 'Nama lengkap wajib diisi.',
@@ -46,6 +60,18 @@ class AuthController extends Controller
         $email = Str::lower(trim($data['email']));
 
         $donor = DB::transaction(function () use ($data, $email, $service) {
+            $donor = Donatur::where('whatsapp', $data['whatsapp'])->lockForUpdate()->first();
+            if ($donor && $donor->user_id !== null) {
+                throw ValidationException::withMessages([
+                    'whatsapp' => ['Nomor WhatsApp sudah terdaftar.'],
+                ]);
+            }
+            if ($donor && Str::lower(trim($donor->nama)) !== Str::lower(trim($data['name']))) {
+                throw ValidationException::withMessages([
+                    'whatsapp' => ['Nomor WhatsApp ini sudah tercatat pada riwayat donatur dengan nama berbeda. Pastikan nama sesuai dengan saat berdonasi atau gunakan nomor WhatsApp lain.'],
+                ]);
+            }
+
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $email,
@@ -55,13 +81,26 @@ class AuthController extends Controller
                 'email_verified_at' => null,
             ]);
 
-            $donor = Donatur::create([
-                'nama' => $data['name'],
-                'whatsapp' => $data['whatsapp'],
-                'email' => $email,
-                'jenis' => 'tetap',
-                'user_id' => $user->id,
-            ]);
+            if ($donor) {
+                $donor->forceFill([
+                    'nama' => $data['name'],
+                    'email' => $email,
+                    'jenis' => 'tetap',
+                    'user_id' => $user->id,
+                    'status_verifikasi' => $donor->status_verifikasi === 'disetujui' ? 'disetujui' : 'pending',
+                    'diajukan_pada' => $donor->diajukan_pada ?? now(),
+                ])->save();
+            } else {
+                $donor = Donatur::create([
+                    'nama' => $data['name'],
+                    'whatsapp' => $data['whatsapp'],
+                    'email' => $email,
+                    'jenis' => 'tetap',
+                    'user_id' => $user->id,
+                    'status_verifikasi' => 'pending',
+                    'diajukan_pada' => now(),
+                ]);
+            }
 
             $service->audit($donor, $user, 'pendaftaran_mobile_mandiri', [
                 'nama' => $donor->nama,
@@ -154,6 +193,8 @@ class AuthController extends Controller
                 'whatsapp' => $donor->whatsapp,
                 'email' => $donor->email,
                 'jenis' => $donor->jenis,
+                'status_verifikasi' => $donor->status_verifikasi ?? 'none',
+                'alasan_penolakan' => $donor->alasan_penolakan,
             ] : null,
         ]);
     }
@@ -178,6 +219,8 @@ class AuthController extends Controller
                 'whatsapp' => $donor->whatsapp,
                 'email' => $donor->email,
                 'jenis' => $donor->jenis,
+                'status_verifikasi' => $donor->status_verifikasi ?? 'none',
+                'alasan_penolakan' => $donor->alasan_penolakan,
                 'created_at' => $donor->created_at?->toIso8601String(),
             ] : null,
         ]);

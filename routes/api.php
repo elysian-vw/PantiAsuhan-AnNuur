@@ -26,6 +26,15 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::get('/transparency/expenses/{id}', [TransparencyController::class, 'expenseDetail'])->whereNumber('id')->name('transparency.expense.detail');
     Route::get('/transparency/expenses/{id}/proof', [TransparencyController::class, 'downloadPublicProof'])->whereNumber('id')->name('transparency.expense.proof');
 
+    // Guest Mobile Donations (Public without login, token-authorized)
+    Route::prefix('guest')->name('guest.')->group(function () {
+        Route::post('/donations', [DonationController::class, 'storeGuest'])->middleware('throttle:10,1')->name('donations.store');
+        Route::get('/donations/{token}', [DonationController::class, 'showGuest'])->where('token', '[a-zA-Z0-9]{64}')->middleware('throttle:30,1')->name('donations.show');
+        Route::post('/donations/{token}/cancel', [DonationController::class, 'cancelGuest'])->where('token', '[a-zA-Z0-9]{64}')->middleware('throttle:10,1')->name('donations.cancel');
+        Route::post('/donations/{token}/pay', [PaymentController::class, 'payGuest'])->where('token', '[a-zA-Z0-9]{64}')->middleware('throttle:10,1')->name('donations.pay');
+        Route::get('/donations/{token}/status', [PaymentController::class, 'statusGuest'])->where('token', '[a-zA-Z0-9]{64}')->middleware('throttle:30,1')->name('donations.status');
+    });
+
     // Authenticated Mobile Donor Routes
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/auth/me', [AuthController::class, 'me'])->name('auth.me');

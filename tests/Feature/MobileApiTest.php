@@ -673,4 +673,102 @@ class MobileApiTest extends TestCase
             ->postJson(route('api.v1.donations.cancel', $donation->id))
             ->assertStatus(409);
     }
+
+    public function test_guest_can_donate_without_login_and_is_queued_then_verified_as_permanent_donor_by_pengurus(): void
+    {
+        config(['panti.midtrans_key' => 'test-midtrans-server-key']);
+        Http::fake([
+            'https://app.sandbox.midtrans.com/snap/v1/transactions' => Http::response([
+                'token' => 'guest-snap-token-99',
+                'redirect_url' => 'https://app.sandbox.midtrans.com/snap/v2/vtweb/guest-snap-token-99',
+            ], 201),
+        ]);
+
+        $category = KategoriDonasi::create(['nama' => 'Santunan Yatim']);
+
+        // 1. Guest creates donation on mobile without login
+        $createRes = $this->postJson(route('api.v1.guest.donations.store'), [
+            'nama' => 'Bapak Hartono',
+            'whatsapp' => '081355667788',
+            'email' => 'hartono@example.test',
+            'kategori_donasi_id' => $category->id,
+            'nominal' => 100000,
+            'catatan' => 'Semoga bermanfaat',
+            'idempotency_key' => 'guest-req-001',
+        ]);
+
+        $createRes->assertStatus(201)
+            ->assertJsonPath('data.nominal', '100000.00')
+            ->assertJsonPath('data.status', 'Menunggu pembayaran')
+            ->assertJsonPath('data.donor_status.jenis', 'biasa')
+            ->assertJsonPath('data.donor_status.status_verifikasi', 'none');
+
+        $guestToken = $createRes->json('data.guest_token');
+        $this->assertNotEmpty($guestToken);
+
+        // Retry with same idempotency_key returns same transaction & token
+        $retryRes = $this->postJson(route('api.v1.guest.donations.store'), [
+            'nama' => 'Bapak Hartono',
+            'whatsapp' => '081355667788',
+            'email' => 'hartono@example.test',
+            'kategori_donasi_id' => $category->id,
+            'nominal' => 100000,
+            'catatan' => 'Semoga bermanfaat',
+            'idempotency_key' => 'guest-req-001',
+        ]);
+        $retryRes->assertStatus(200)
+            ->assertJsonPath('data.id', $createRes->json('data.id'))
+            ->assertJsonPath('data.guest_token', $guestToken);
+
+        $donor = Donatur::where('whatsapp', '6281355667788')->firstOrFail();
+        $this->assertSame('biasa', $donor->jenis);
+        $this->assertSame('none', $donor->status_verifikasi);
+
+        // 2. Payment succeeds via Midtrans webhook -> automatically enters permanent donor verification queue
+        $donation = Donasi::findOrFail($createRes->json('data.id'));
+        $gross = '100000.00';
+        $sig = hash('sha512', $donation->kode.'200'.$gross.'test-midtrans-server-key');
+
+        $this->postJson(route('midtrans.webhook'), [
+            'order_id' => $donation->kode,
+            'status_code' => '200',
+            'gross_amount' => $gross,
+            'signature_key' => $sig,
+            'transaction_status' => 'settlement',
+            'payment_type' => 'qris',
+        ])->assertOk();
+
+        $this->assertSame('Berhasil', $donation->fresh()->status);
+        $this->assertSame('pending', $donor->fresh()->status_verifikasi);
+        $this->assertNotNull($donor->fresh()->diajukan_pada);
+
+        // Guest checks donation via token -> sees updated status & pending verification
+        $this->getJson(route('api.v1.guest.donations.show', $guestToken))
+            ->assertOk()
+            ->assertJsonPath('data.status', 'Berhasil')
+            ->assertJsonPath('data.donor_status.status_verifikasi', 'pending');
+
+        // 3. Pengurus verifies the donor from donation history and promotes to Donatur Tetap
+        $pengurus = User::factory()->create([
+            'role' => 'pengurus',
+            'account_status' => 'aktif',
+            'email_verified_at' => now(),
+        ]);
+
+        $this->actingAs($pengurus)
+            ->post(route('admin.donor.promote', $donor), [
+                'email' => 'hartono@example.test',
+                'verify_history' => 1,
+                'send_invite' => 1,
+                'reason' => 'Diverifikasi dari riwayat donasi berhasil.',
+            ])->assertRedirect();
+
+        $donor->refresh();
+        $this->assertSame('tetap', $donor->jenis);
+        $this->assertSame('disetujui', $donor->status_verifikasi);
+        $this->assertSame($pengurus->id, $donor->diputuskan_oleh);
+        $this->assertNotNull($donor->user_id);
+        $this->assertSame($donor->user_id, $donation->fresh()->owner_user_id);
+        $this->assertSame($pengurus->id, $donation->fresh()->ownership_verified_by);
+    }
 }

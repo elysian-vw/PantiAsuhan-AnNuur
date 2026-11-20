@@ -10,6 +10,12 @@
                     <option value="biasa" @selected(request('jenis') === 'biasa')>Biasa</option>
                     <option value="tetap" @selected(request('jenis') === 'tetap')>Tetap</option>
                 </select>
+                <select name="verifikasi" aria-label="Status verifikasi">
+                    <option value="">Semua status verifikasi</option>
+                    <option value="pending" @selected(request('verifikasi') === 'pending')>Kandidat Tetap (Menunggu Verifikasi)</option>
+                    <option value="disetujui" @selected(request('verifikasi') === 'disetujui')>Disetujui</option>
+                    <option value="ditolak" @selected(request('verifikasi') === 'ditolak')>Ditolak</option>
+                </select>
             @endif
             <button class="button outline small">Cari</button>
         </form><a class="button small inline-flex items-center gap-1.5"
@@ -35,7 +41,14 @@
                             <td>
                                 @if ($resource === 'donatur')
                                     <strong>{{ ucfirst($item->jenis) }}</strong>
-                                    <small class="block">{{ $item->email ?: 'Tanpa email' }}</small>
+                                    <small class="block">{{ $item->email ?: 'Tanpa email' }} · {{ $item->success_donations_count ?? 0 }} donasi berhasil</small>
+                                    @if ($item->jenis === 'biasa' && $item->status_verifikasi === 'pending')
+                                        <span
+                                            class="inline-block mt-1 px-2 py-0.5 text-xs font-semibold rounded bg-amber-100 text-amber-900 border border-amber-300">Kandidat Donatur Tetap (Menunggu Verifikasi)</span>
+                                    @elseif ($item->status_verifikasi === 'ditolak')
+                                        <span
+                                            class="inline-block mt-1 px-2 py-0.5 text-xs font-semibold rounded bg-red-100 text-red-900 border border-red-300">Verifikasi Ditolak</span>
+                                    @endif
                                     @if ($item->user?->account_status === 'menunggu')
                                         <span
                                             class="inline-block mt-1 px-2 py-0.5 text-xs font-semibold rounded bg-amber-100 text-amber-900 border border-amber-300">Menunggu
